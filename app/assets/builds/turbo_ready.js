@@ -1,0 +1,2 @@
+function l(){let n=JSON.parse(this.templateContent.textContent),{id:h,method:a,args:i,receiver:c,selector:r}=n,t=[self];switch(r&&(t=Array.from(document.querySelectorAll(r))),c&&(t=t.map(o=>{let e=o,s=c.split(".");for(;s.length>0;)e=e[s.shift()];return e})),a){case"dispatchEvent":let o=new CustomEvent(i[0],i[1]||{});t.forEach(e=>e.dispatchEvent(o));break;default:t.forEach(e=>e[a].apply(e,i))}}var f={initialize:n=>n.invoke=l};export{f as default};
+//# sourceMappingURL=turbo_ready.js.map
