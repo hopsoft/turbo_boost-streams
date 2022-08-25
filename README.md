@@ -13,7 +13,7 @@
   </p>
 </p>
 
-TurboReady extends [TurboStreams](https://turbo.hotwired.dev/reference/streams) to give you full control over the browser's [Document Object Model (DOM).](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
+#### TurboReady extends [TurboStreams](https://turbo.hotwired.dev/reference/streams) to give you full control over the browser's [Document Object Model (DOM).](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
 
 **Thats right!**
 You can `invoke` any DOM method on any DOM object *(including 3rd party libs)* with TurboStreams.
@@ -24,22 +24,22 @@ turbo_stream.invoke "console.log", "Hello World!"
 
 ## Dependencies
 
-- [`rails >=7.0`](https://rubygems.org/gems/rails)
-- [`turbo-rails >=1.1`](https://rubygems.org/gems/turbo-rails) Ruby GEM
-- [`@hotwired/turbo-rails >=7.2.0-beta.2`](https://yarnpkg.com/package/@hotwired/turbo-rails) JavaScript Package
+- Ruby [rails >=7.0](https://rubygems.org/gems/rails)
+- Ruby [turbo-rails >=1.1](https://rubygems.org/gems/turbo-rails)
+- JavaScript [@hotwired/turbo-rails >=7.2.0-beta.2](https://yarnpkg.com/package/@hotwired/turbo-rails)
 
 ## Installation
 
-```ruby
+```sh
 bundle add "turbo_ready --version VERSION"
 yarn add "turbo_ready@VERSION --exact"
 ```
 
-> **IMPORTANT:** Be sure you use the same version for each libary.
+> **IMPORTANT:** Be sure to use the same version for each libary.
 
 ## Setup
 
-1. Create a Rails intializer and `patch` Turbo.
+1. Create a Rails intializer and patch Turbo.
 
     ```ruby
     # config/initializers/turbo_ready.rb
@@ -50,13 +50,14 @@ yarn add "turbo_ready@VERSION --exact"
     ```js
     // app/javascript/application.js
     import '@hotwired/turbo-rails'
-    import TurboReady from '/bundle/ruby/3.1.0/gems/turbo_ready-0.1.0/app/assets/builds/turbo_ready.js'
+    import TurboReady from 'turbo_ready'
+
     TurboReady.initialize(Turbo.StreamActions) // Adds TurboReady stream actions to Turbo
     ```
 
 ## Usage
 
-Manipulate DOM from anywhere you can use TurboStreams.
+Manipulate the DOM from anywhere you can use TurboStreams.
 
 ```ruby
 turbo_stream.invoke "setAttribute", "data-turbo-ready", true, selector: ".button"
@@ -66,15 +67,15 @@ You can even chain invocations. 🤯
 
 ```ruby
 turbo_stream
-  .invoke("document.body.insertAdjacentHTML", "afterbegin", "<h1>Hello World!</h1>") // dot notation
-  .invoke("setAttribute", "data-turbo-ready", true, selector: ".button") // selector
-  .invoke("classList.add", "turbo-ready", selector: "a") // dot notation + selector
-  .flush // flush must be called when chaining invocations
+  .invoke("document.body.insertAdjacentHTML", "afterbegin", "<h1>Hello World!</h1>") # dot notation
+  .invoke("setAttribute", "data-turbo-ready", true, selector: ".button") # selector
+  .invoke("classList.add", "turbo-ready", selector: "a") # dot notation + selector
+  .flush # flush must be called when chaining invocations
 ```
 
 You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation) or a [selector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... you can even use them together!
 
-*Can I dispatch events?* You bet!
+Can I dispatch events? **You bet!**
 
 ```ruby
 turbo_stream
@@ -84,12 +85,12 @@ turbo_stream
   .flush
 ```
 
-Wondering what else is possible?
-[MDN has your back... learn about the DOM and web APIs here](https://developer.mozilla.org/en-US/docs/Web/API.)
+**Wondering what else is possible?**
+MDN has your back... [learn about the DOM and web APIs here.](https://developer.mozilla.org/en-US/docs/Web/API.)
 
 ## Advanced Usage
 
-Want to add functionality with custom JavaScript? **Let's go...**
+Want to add functionality with custom JavaScript? **Let's go.**
 
 ```js
 import morphdom from 'morphdom'
@@ -105,8 +106,8 @@ window.MyNamespace = {
 turbo_stream.invoke "MyNamespace.morph", "#demo", "<div id='demo'><p>You've changed...</p></div>", {childrenOnly: true}
 ```
 
-You can also use Ruby symbols and [snake case](https://en.wikipedia.org/wiki/Snake_case) when invoking DOM functionality.
-*It will implicitly be converted to [camel case](https://en.wikipedia.org/wiki/Camel_case) for you.*
+**Even better...** use Ruby symbols and [snake case](https://en.wikipedia.org/wiki/Snake_case) when invoking DOM functionality.
+It's implicitly converted to [camel case](https://en.wikipedia.org/wiki/Camel_case) for you.
 
 ```ruby
 turbo_stream
@@ -115,7 +116,7 @@ turbo_stream
   .flush
 ```
 
-Need to opt out of this behavior? No problem... just disable it.
+Need to opt out? No problem... just disable it.
 
 ```ruby
 turbo_stream.invoke :contrived_demo, camelize: false
