@@ -1,8 +1,12 @@
 <p align="center">
-  <img height="200" src="https://ik.imagekit.io/hopsoft/turbo-ready-logo_0_RNfGers.png?ik-sdk-version=javascript-1.4.3&updatedAt=1661470078114" />
+  <figure>
+    <img height="200" src="https://ik.imagekit.io/hopsoft/turbo-ready-logo_0_RNfGers.png?ik-sdk-version=javascript-1.4.3&updatedAt=1661470078114" />
+    <figcaption>
+      TurboStream's Swiss Army Knife
+    </figcaption>
+  </figure>
   <h1 align="center">
     Welcome to TurboReady 👋
-    <div><small><em>TurboStream's Swiss Army Knife</em></small></div>
   </h1>
   <p align="center">
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/" target="_blank">
