@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Nate Hopkins (hopsoft)"]
   spec.email = ["natehop@gmail.com"]
   spec.homepage = "https://github.com/hopsoft/turbo_ready"
-  spec.summary = "Provides full control over the DOM with TurboStreams"
-  spec.description = "Provides full control over the DOM with TurboStreams"
+  spec.summary = "Take full control of the DOM with TurboStreams"
+  spec.description = spec.summary
   spec.license = "MIT"
 
   spec.metadata["homepage_uri"] = spec.homepage
