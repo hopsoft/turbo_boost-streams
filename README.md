@@ -3,9 +3,9 @@
   <h1 align="center">
     Welcome to TurboReady 👋
   </h1>
-  <h4 align="center">
+  <h3 align="center">
     TurboStream's Swiss Army Knife
-  </h4>
+  </h3>
   <p align="center">
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/" target="_blank">
       <img alt="Lines of Code" src="https://img.shields.io/badge/lines_of_code-275-brightgreen.svg?style=flat" />
