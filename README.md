@@ -35,7 +35,7 @@ bundle add "turbo_ready --version VERSION"
 yarn add "turbo_ready@VERSION --exact"
 ```
 
-> **IMPORTANT:** Be sure to use the same version for each libary.
+**IMPORTANT:** Be sure to use the same version for each libary.
 
 ## Setup
 
@@ -63,7 +63,7 @@ Manipulate the DOM from anywhere you can use TurboStreams.
 turbo_stream.invoke "setAttribute", "data-turbo-ready", true, selector: ".button"
 ```
 
-You can even chain invocations. 🤯
+You can even **chain invocations.** ❤️
 
 ```ruby
 turbo_stream
@@ -73,7 +73,7 @@ turbo_stream
   .flush # flush must be called when chaining invocations
 ```
 
-You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation) or a [selector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... you can even use them together!
+You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation) or a [selector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... you can even **use them together!** 🤯
 
 Can I dispatch events? **You bet!**
 
