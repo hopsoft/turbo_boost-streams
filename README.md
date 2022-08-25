@@ -1,5 +1,5 @@
 <p align="center">
-  <img height="200" src="https://ik.imagekit.io/hopsoft/turbo-ready-logo_hk6-BuusU.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1661469067186" />
+  <img height="200" src="https://ik.imagekit.io/hopsoft/turbo-ready-logo_0_RNfGers.png?ik-sdk-version=javascript-1.4.3&updatedAt=1661470078114" />
   <h1 align="center">Welcome to TurboReady 👋</h1>
   <p align="center">
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/" target="_blank">
