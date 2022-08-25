@@ -14,7 +14,9 @@
   </p>
 </p>
 
-#### TurboReady extends [TurboStreams](https://turbo.hotwired.dev/reference/streams) to give you full control over the browser's [Document Object Model (DOM).](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
+## TurboStream's Swiss Army Knife
+
+TurboReady extends [TurboStreams](https://turbo.hotwired.dev/reference/streams) to give you full control over the browser's [Document Object Model (DOM).](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
 
 **Thats right!**
 You can `invoke` any DOM method on any DOM object *(including 3rd party libs)* with TurboStreams.
