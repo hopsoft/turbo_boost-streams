@@ -118,3 +118,15 @@ turbo_stream.invoke :contrived_demo, camelize: false
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+---
+
+<p align="center">
+  <strong><em>Open Source development sponsored by:</em></strong>
+</p>
+
+<p align="center">
+  <a href="https://www.clickfunnels.com?utm_source=hopsoft&utm_medium=open-source&utm_campaign=turbo_ready">
+    <img src="https://images.clickfunnel.com/uploads/digital_asset/file/176632/clickfunnels-dark-logo.svg" width="575" />
+  </a>
+</p>
