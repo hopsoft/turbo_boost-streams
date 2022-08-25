@@ -1,6 +1,7 @@
 <p align="center">
   <img height="200" src="https://ik.imagekit.io/hopsoft/turbo-ready-logo_0_RNfGers.png?ik-sdk-version=javascript-1.4.3&updatedAt=1661470078114" />
   <h1 align="center">Welcome to TurboReady 👋</h1>
+  <h2 align="center"><em>TurboStream's Swiss Army Knife</em></h2>
   <p align="center">
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/" target="_blank">
       <img alt="Lines of Code" src="https://img.shields.io/badge/lines_of_code-275-brightgreen.svg?style=flat" />
@@ -13,8 +14,6 @@
     </a>
   </p>
 </p>
-
-## TurboStream's Swiss Army Knife
 
 TurboReady extends [TurboStreams](https://turbo.hotwired.dev/reference/streams) to give you full control over the browser's [Document Object Model (DOM).](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
 
