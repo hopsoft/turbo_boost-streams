@@ -1,7 +1,9 @@
 <p align="center">
   <img height="200" src="https://ik.imagekit.io/hopsoft/turbo-ready-logo_0_RNfGers.png?ik-sdk-version=javascript-1.4.3&updatedAt=1661470078114" />
-  <h1 align="center">Welcome to TurboReady 👋</h1>
-  <h2 align="center"><em>TurboStream's Swiss Army Knife</em></h2>
+  <h1 align="center">
+    Welcome to TurboReady 👋
+    <div><small><em>TurboStream's Swiss Army Knife</em></small></div>
+  </h1>
   <p align="center">
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/" target="_blank">
       <img alt="Lines of Code" src="https://img.shields.io/badge/lines_of_code-275-brightgreen.svg?style=flat" />
