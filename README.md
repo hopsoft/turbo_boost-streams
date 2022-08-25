@@ -75,7 +75,7 @@ turbo_stream
 
 You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation) or a [selector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... you can even **use them together!** 🤯
 
-Can I dispatch events? **You bet!**
+Can I dispatch events? **You bet!** ⚡️
 
 ```ruby
 turbo_stream
@@ -90,7 +90,7 @@ MDN has your back... [learn about the DOM and web APIs here.](https://developer.
 
 ## Advanced Usage
 
-Want to add functionality with custom JavaScript? **Let's go.**
+Want to add functionality with custom JavaScript? **Let's go.** 🔌
 
 ```js
 import morphdom from 'morphdom'
