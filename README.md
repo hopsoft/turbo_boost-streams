@@ -1,9 +1,7 @@
 <p align="center">
-  <figure>
-    <img height="200" src="https://ik.imagekit.io/hopsoft/turbo-ready-logo_0_RNfGers.png?ik-sdk-version=javascript-1.4.3&updatedAt=1661470078114" />
-    <figcaption>
-      TurboStream's Swiss Army Knife
-    </figcaption>
+  <figure align="center">
+    <img height="200" src="https://ik.imagekit.io/hopsoft/turbo-ready-logo_jYFJI1jgT.png?ik-sdk-version=javascript-1.4.3&updatedAt=1661471047153" />
+    <figcaption>TurboStream's Swiss Army Knife</figcaption>
   </figure>
   <h1 align="center">
     Welcome to TurboReady 👋
