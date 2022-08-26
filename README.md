@@ -35,7 +35,6 @@ turbo_stream.invoke "console.log", "Hello World!"
 
   - [Why TurboReady?](#why-turboready)
   - [Discord Community](#discord-community)
-  - [A Word of Caution ⚠️](#a-word-of-caution-)
   - [Sponsor](#sponsor)
   - [Dependencies](#dependencies)
   - [Installation](#installation)
@@ -45,6 +44,7 @@ turbo_stream.invoke "console.log", "Hello World!"
   - [Advanced Usage](#advanced-usage)
     - [Extending Behavior](#extending-behavior)
   - [Public API](#public-api)
+  - [A Word of Caution ⚠️](#a-word-of-caution-)
   - [Releasing](#releasing)
   - [License](#license)
 
@@ -67,23 +67,6 @@ as well as active discussions around Rails, Hotwire, Stimulus, Turbo (Drive, Fra
 ![](https://img.shields.io/discord/629472241427415060)
 
 Stop by #newcomers and introduce yourselves!
-
-## A Word of Caution ⚠️
-
-Manually orchestrating DOM activity gets tedious fast.
-**Don't abuse this superpower!**
-
-> With great power comes great responsibility. *-Uncle Ben*
-
-This library is an extremely sharp tool. 🔪
-Consider it a low-level building block that can be used to craft additional libraries with
-great [DX](https://en.wikipedia.org/wiki/User_experience#Developer_experience)
-like [CableReady](https://github.com/stimulusreflex/cable_ready)
-and [StimulusReflex](https://github.com/stimulusreflex/stimulus_reflex).
-
-Restrict your direct application usage to DOM manipulation that falls outside the purview of
-[Turbo's official actions](https://turbo.hotwired.dev/reference/streams#the-seven-actions)...
-*and for Pete's sake, don't overdo it and find yourself maintaining spaghetti code reminiscent of the jQuery days.*
 
 ## Sponsor
 
@@ -223,6 +206,23 @@ turbo_stream
 ```
 
 **NOTE:** The JavaScript method will be invoked on all matching elements when a `selector` is passed.
+
+## A Word of Caution ⚠️
+
+Manually orchestrating DOM activity gets tedious fast.
+**Don't abuse this superpower!**
+
+> With great power comes great responsibility. *-Uncle Ben*
+
+This library is an extremely sharp tool. 🔪
+Consider it a low-level building block that can be used to craft additional libraries with
+great [DX](https://en.wikipedia.org/wiki/User_experience#Developer_experience)
+like [CableReady](https://github.com/stimulusreflex/cable_ready)
+and [StimulusReflex](https://github.com/stimulusreflex/stimulus_reflex).
+
+Restrict your direct application usage to DOM manipulation that falls outside the purview of
+[Turbo's official actions](https://turbo.hotwired.dev/reference/streams#the-seven-actions)...
+*and for Pete's sake, don't overdo it and find yourself maintaining spaghetti code reminiscent of the jQuery days.*
 
 ## Releasing
 
