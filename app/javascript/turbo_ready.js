@@ -23,6 +23,8 @@ function invoke () {
   }
 }
 
-export default {
-  initialize: streamActions => (streamActions.invoke = invoke)
+function initialize () {
+  streamActions.invoke = invoke
 }
+
+export default { initialize }
