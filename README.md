@@ -19,10 +19,11 @@
   </p>
 </p>
 
-TurboReady extends [Turbo Streams](https://turbo.hotwired.dev/reference/streams) to give you full control of the browser's [Document Object Model (DOM).](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
+TurboReady extends [Turbo Streams](https://turbo.hotwired.dev/reference/streams) to give you full control of the
+browser's [Document Object Model (DOM).](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
 
 **Thats right!**
-You can `invoke` any DOM method on any DOM object *(including 3rd party libs)* with Turbo Streams.
+You can `invoke` any DOM method on any DOM object *(including 3rd party libs)* using Turbo Streams.
 
 ```ruby
 turbo_stream.invoke "console.log", "Hello World!"
@@ -33,13 +34,14 @@ turbo_stream.invoke "console.log", "Hello World!"
 ## Table of Contents
 
   - [Why TurboReady?](#why-turboready)
-    - [Caution](#caution)
+  - [A Word of Caution](#a-word-of-caution)
   - [Dependencies](#dependencies)
   - [Installation](#installation)
   - [Setup](#setup)
   - [Usage](#usage)
+    - [Wondering what else is possible?](#wondering-what-else-is-possible)
   - [Advanced Usage](#advanced-usage)
-  - [Public API and Method Signature](#public-api-and-method-signature)
+  - [Public API](#public-api)
   - [License](#license)
 
 <!-- Tocer[finish]: Auto-generated, don't remove. -->
@@ -51,23 +53,31 @@ The offical actions work well for a considerable number of use cases and you sho
 
 If you discover that CRUD isn't enough, TurboReady covers pretty much everything else.
 
-### Caution
+## A Word of Caution
 
-Manually orchestrating DOM activity becomes tedious very quickly.
-**Don't abuse the superpowers that TurboReady provides!** ⚠️
+Manually orchestrating DOM activity gets tedious quickly.
+**Don't abuse the superpowers that TurboReady gives you!** ⚠️
 
-> With great power comes great responsibility.
+> With great power comes great responsibility. *-Uncle Ben*
 
 This library is an extremely sharp tool. 🔪
-You should limit its usage.
 Consider it a low-level building block that can be used to craft additional libraries with
 great [DX](https://en.wikipedia.org/wiki/User_experience#Developer_experience)
 like [CableReady](https://github.com/stimulusreflex/cable_ready)
 and [StimulusReflex](https://github.com/stimulusreflex/stimulus_reflex).
 
-Restrict direct application usage to discrete and surgical DOM manipulation that falls outside the scope of
+Restrict your direct application uses to DOM manipulations that fall outside the purview of
 [Turbo's official actions](https://turbo.hotwired.dev/reference/streams#the-seven-actions)...
 *and for Pete's sake, don't overdo it and find yourself in spaghetti code reminicent of the jQuery days.*
+
+## Sponsor
+
+<p align="center">
+  <div><em>Proudly sponsored by</em></div>
+  <a href="https://www.clickfunnels.com?utm_source=hopsoft&utm_medium=open-source&utm_campaign=turbo_ready">
+    <img src="https://images.clickfunnel.com/uploads/digital_asset/file/176632/clickfunnels-dark-logo.svg" width="575" />
+  </a>
+</p>
 
 ## Dependencies
 
@@ -123,7 +133,7 @@ turbo_stream
   .flush # flush must be called when chaining invocations
 ```
 
-You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation) or a [selector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... you can even **use them together!** 🤯
+You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation) or a [selector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... or even **use them together!** 🤯
 
 Can I dispatch events? **You bet!** ⚡️
 
@@ -135,12 +145,14 @@ turbo_stream
   .flush
 ```
 
-**Wondering what else is possible?**
+## Endless Possibilities
+
+**What else can I do with this?**
 MDN has your back... [learn about the DOM and web APIs here.](https://developer.mozilla.org/en-US/docs/Web/API.)
 
 ## Advanced Usage
 
-Want to add functionality with custom JavaScript? **Let's go.** 🔌
+Want to extend things further with some custom functionality? **Let's do it.** 🔌
 
 ```js
 import morphdom from 'morphdom'
@@ -156,8 +168,9 @@ window.MyNamespace = {
 turbo_stream.invoke "MyNamespace.morph", "#demo", "<div id='demo'><p>You've changed...</p></div>", {childrenOnly: true}
 ```
 
-**Even better...** use Ruby symbols and [snake case](https://en.wikipedia.org/wiki/Snake_case) when invoking DOM functionality.
-It's implicitly converted to [camel case](https://en.wikipedia.org/wiki/Camel_case) for you.
+**But this doesn't look like Ruby...** well then, just use symbols and
+[snake case](https://en.wikipedia.org/wiki/Snake_case) when invoking DOM functionality.
+It'll implicitly convert to [camel case](https://en.wikipedia.org/wiki/Camel_case).
 
 ```ruby
 turbo_stream
@@ -166,7 +179,7 @@ turbo_stream
   .flush
 ```
 
-Need to opt out? No problem... just disable it.
+Need to opt out of camelize? No problem... just disable it.
 
 ```ruby
 turbo_stream.invoke :contrived_demo, camelize: false
@@ -183,7 +196,7 @@ turbo_stream
 #         |        |     |              |               |
 #         |        |     |              |               |- Identifies this invocation (optional)
 #         |        |     |              |
-#         |        |     |              |- Should we camelize method & Hash keys passed as args? (optional)
+#         |        |     |              |- Should we camelize the JavaScript stuff? (optional)
 #         |        |     |                 (allows us to write snake_case Ruby)
 #         |        |     |
 #         |        |     |- An CSS selector for the element(s) to target (optional)
@@ -193,20 +206,8 @@ turbo_stream
 #         |- The JavaScript method to invoke (can use dot notation)
 ```
 
-**NOTE:** The JavaScript method will be invoked on all matching elements when a selector is passed.
+**NOTE:** The JavaScript method will be invoked on all matching elements when a `selector` is passed.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
----
-
-<p align="center">
-  <strong><em>Open Source development sponsored by:</em></strong>
-</p>
-
-<p align="center">
-  <a href="https://www.clickfunnels.com?utm_source=hopsoft&utm_medium=open-source&utm_campaign=turbo_ready">
-    <img src="https://images.clickfunnel.com/uploads/digital_asset/file/176632/clickfunnels-dark-logo.svg" width="575" />
-  </a>
-</p>
