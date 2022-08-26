@@ -17,7 +17,7 @@
       <img alt="JavaScript Code Style" src="https://img.shields.io/badge/JavaScript_Code_Style-prettier_standard-ff69b4.svg" />
     </a>
     <a href="https://bundlephobia.com/package/turbo_ready" target="_blank">
-      <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/turbo_ready?label=minified%20size">
+      <img alt="npm bundle size (version)" src="https://img.shields.io/bundlephobia/minzip/turbo_ready/0.0.5">
     </a>
   </p>
 </p>

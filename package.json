@@ -1,6 +1,6 @@
 {
   "name": "turbo_ready",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Take full control of the DOM with Turbo Streams",
   "main": "app/assets/builds/turbo_ready.js",
   "repository": "https://github.com/hopsoft/turbo_ready",
