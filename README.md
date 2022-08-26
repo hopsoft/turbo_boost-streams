@@ -8,13 +8,16 @@
   </h1>
   <p align="center">
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/" target="_blank">
-      <img alt="Lines of Code" src="https://img.shields.io/badge/lines_of_code-275-brightgreen.svg?style=flat" />
+      <img alt="Lines of Code" src="https://img.shields.io/badge/lines_of_code-278-brightgreen.svg?style=flat" />
     </a>
     <a href="https://github.com/testdouble/standard" target="_blank">
       <img alt="Ruby Code Style" src="https://img.shields.io/badge/Ruby_Code_Style-standard-brightgreen.svg" />
     </a>
     <a href="https://github.com/sheerun/prettier-standard" target="_blank">
       <img alt="JavaScript Code Style" src="https://img.shields.io/badge/JavaScript_Code_Style-prettier_standard-ff69b4.svg" />
+    </a>
+    <a href="https://bundlephobia.com/package/turbo_ready" target="_blank">
+      <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/turbo_ready?label=minified%20size">
     </a>
   </p>
 </p>

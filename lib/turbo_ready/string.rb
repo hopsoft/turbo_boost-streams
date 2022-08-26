@@ -5,6 +5,7 @@ module TurboReady
     attr_reader :ruby_string, :turbo_ready_tag_builder
 
     delegate_missing_to :ruby_string
+    delegate :to_s, to: :ruby_string
 
     def initialize(ruby_string, turbo_ready_tag_builder:)
       @ruby_string = ruby_string
