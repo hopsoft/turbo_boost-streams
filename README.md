@@ -35,11 +35,12 @@ turbo_stream.invoke "console.log", "Hello World!"
 
   - [Why TurboReady?](#why-turboready)
   - [A Word of Caution](#a-word-of-caution)
+  - [Sponsor](#sponsor)
   - [Dependencies](#dependencies)
   - [Installation](#installation)
   - [Setup](#setup)
   - [Usage](#usage)
-    - [Wondering what else is possible?](#wondering-what-else-is-possible)
+  - [Endless Possibilities](#endless-possibilities)
   - [Advanced Usage](#advanced-usage)
   - [Public API](#public-api)
   - [License](#license)
