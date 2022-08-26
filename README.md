@@ -81,9 +81,9 @@ great [DX](https://en.wikipedia.org/wiki/User_experience#Developer_experience)
 like [CableReady](https://github.com/stimulusreflex/cable_ready)
 and [StimulusReflex](https://github.com/stimulusreflex/stimulus_reflex).
 
-Restrict your direct application usage to DOM manipulations that fall outside the purview of
+Restrict your direct application usage to DOM manipulation that falls outside the purview of
 [Turbo's official actions](https://turbo.hotwired.dev/reference/streams#the-seven-actions)...
-*and for Pete's sake, don't overdo it and find yourself maintaining spaghetti code reminicent of the jQuery days.*
+*and for Pete's sake, don't overdo it and find yourself maintaining spaghetti code reminiscent of the jQuery days.*
 
 ## Sponsor
 
