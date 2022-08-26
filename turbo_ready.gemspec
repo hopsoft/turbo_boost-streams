@@ -24,4 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "magic_frozen_string_literal"
   spec.add_development_dependency "pry-byebug"
   spec.add_development_dependency "standardrb"
+  spec.add_development_dependency "tocer"
 end

@@ -4,7 +4,7 @@
     Welcome to TurboReady 👋
   </h1>
   <h3 align="center">
-    TurboStream's Swiss Army Knife
+    Turbo Stream's Swiss Army Knife
   </h3>
   <p align="center">
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/" target="_blank">
@@ -19,20 +19,61 @@
   </p>
 </p>
 
-TurboReady extends [TurboStreams](https://turbo.hotwired.dev/reference/streams) to give you full control over the browser's [Document Object Model (DOM).](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
+TurboReady extends [Turbo Streams](https://turbo.hotwired.dev/reference/streams) to give you full control of the browser's [Document Object Model (DOM).](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
 
 **Thats right!**
-You can `invoke` any DOM method on any DOM object *(including 3rd party libs)* with TurboStreams.
+You can `invoke` any DOM method on any DOM object *(including 3rd party libs)* with Turbo Streams.
 
 ```ruby
 turbo_stream.invoke "console.log", "Hello World!"
 ```
 
+<!-- Tocer[start]: Auto-generated, don't remove. -->
+
+## Table of Contents
+
+  - [Why TurboReady?](#why-turboready)
+    - [Caution](#caution)
+  - [Dependencies](#dependencies)
+  - [Installation](#installation)
+  - [Setup](#setup)
+  - [Usage](#usage)
+  - [Advanced Usage](#advanced-usage)
+  - [Public API and Method Signature](#public-api-and-method-signature)
+  - [License](#license)
+
+<!-- Tocer[finish]: Auto-generated, don't remove. -->
+
+## Why TurboReady?
+
+Turbo Streams [intentionally restricts](https://turbo.hotwired.dev/handbook/streams#but-what-about-running-javascript) official actions to CRUD related activity.
+The offical actions work well for a considerable number of use cases and you should push Streams as far as possible before reaching for TurboReady.
+
+If you discover that CRUD isn't enough, TurboReady covers pretty much everything else.
+
+### Caution
+
+Manually orchestrating DOM activity becomes tedious very quickly.
+**Don't abuse the superpowers that TurboReady provides!** ⚠️
+
+> With great power comes great responsibility.
+
+This library is an extremely sharp tool. 🔪
+You should limit its usage.
+Consider it a low-level building block that can be used to craft additional libraries with
+great [DX](https://en.wikipedia.org/wiki/User_experience#Developer_experience)
+like [CableReady](https://github.com/stimulusreflex/cable_ready)
+and [StimulusReflex](https://github.com/stimulusreflex/stimulus_reflex).
+
+Restrict direct application usage to discrete and surgical DOM manipulation that falls outside the scope of
+[Turbo's official actions](https://turbo.hotwired.dev/reference/streams#the-seven-actions)...
+*and for Pete's sake, don't overdo it and find yourself in spaghetti code reminicent of the jQuery days.*
+
 ## Dependencies
 
-- Ruby [rails >=7.0](https://rubygems.org/gems/rails)
-- Ruby [turbo-rails >=1.1](https://rubygems.org/gems/turbo-rails)
-- JavaScript [@hotwired/turbo-rails >=7.2.0-beta.2](https://yarnpkg.com/package/@hotwired/turbo-rails)
+- [rails](https://rubygems.org/gems/rails) `>=7.0`
+- [turbo-rails](https://rubygems.org/gems/turbo-rails) `>=1.1`
+- [@hotwired/turbo-rails](https://yarnpkg.com/package/@hotwired/turbo-rails) `>=7.2.0-beta.2`
 
 ## Installation
 
@@ -63,7 +104,10 @@ yarn add "turbo_ready@VERSION --exact"
 
 ## Usage
 
-Manipulate the DOM from anywhere you can use TurboStreams.
+Manipulate the DOM from anywhere you use the [standard CRUD Turbo Streams](https://turbo.hotwired.dev/handbook/streams#integration-with-server-side-frameworks).
+Namely, [ActiveRecord models](https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb),
+[Controllers](https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb),
+and [view templates](https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb).
 
 ```ruby
 turbo_stream.invoke "setAttribute", "data-turbo-ready", true, selector: ".button"
@@ -127,6 +171,29 @@ Need to opt out? No problem... just disable it.
 ```ruby
 turbo_stream.invoke :contrived_demo, camelize: false
 ```
+
+## Public API
+
+There's only one method to consider, `invoke` defined in the
+[tag builder](https://github.com/hopsoft/turbo_ready/blob/main/lib/turbo_ready/tag_builder.rb).
+
+```ruby
+turbo_stream
+  .invoke(method, *args, selector: nil, camelize: true, id: nil)
+#         |        |     |              |               |
+#         |        |     |              |               |- Identifies this invocation (optional)
+#         |        |     |              |
+#         |        |     |              |- Should we camelize method & Hash keys passed as args? (optional)
+#         |        |     |                 (allows us to write snake_case Ruby)
+#         |        |     |
+#         |        |     |- An CSS selector for the element(s) to target (optional)
+#         |        |
+#         |        |- The arguments to pass to the JavaScript method being invoked (optional)
+#         |
+#         |- The JavaScript method to invoke (can use dot notation)
+```
+
+**NOTE:** The JavaScript method will be invoked on all matching elements when a selector is passed.
 
 ## License
 
