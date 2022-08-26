@@ -43,6 +43,7 @@ turbo_stream.invoke "console.log", "Hello World!"
   - [Usage](#usage)
   - [Endless Possibilities](#endless-possibilities)
   - [Advanced Usage](#advanced-usage)
+    - [Extending Behavior](#extending-behavior)
   - [Public API](#public-api)
   - [Releasing](#releasing)
   - [License](#license)
@@ -165,7 +166,25 @@ MDN has your back... [learn about the DOM and web APIs here.](https://developer.
 
 ## Advanced Usage
 
-Want to extend things with some custom functionality? **Let's do it.** 🔌
+You can use symbols and [snake case](https://en.wikipedia.org/wiki/Snake_case) when invoking DOM functionality.
+It'll implicitly convert to [camel case](https://en.wikipedia.org/wiki/Camel_case). 💎
+
+```ruby
+turbo_stream
+  .invoke(:animate, [{opacity: 0}, {opacity: 1}], 2000)
+  .invoke(:dispatch_event, {detail: {converts_to_camel_case: true}})
+  .flush
+```
+
+Need to opt out of camelize? No problem... just disable it.
+
+```ruby
+turbo_stream.invoke :contrived_demo, camelize: false
+```
+
+### Extending Behavior
+
+Want to extend things with custom functionality? **Let's do it.** 🔌
 
 ```js
 import morphdom from 'morphdom'
@@ -178,23 +197,8 @@ window.MyNamespace = {
 ```
 
 ```ruby
-turbo_stream.invoke "MyNamespace.morph", "#demo", "<div id='demo'><p>You've changed...</p></div>", {childrenOnly: true}
-```
-
-You can use symbols and [snake case](https://en.wikipedia.org/wiki/Snake_case) when invoking DOM functionality.
-It'll implicitly convert to [camel case](https://en.wikipedia.org/wiki/Camel_case). 💎
-
-```ruby
 turbo_stream
-  .invoke(:animate, [{opacity: 0}, {opacity: 1}], 2000)
-  .invoke(:dispatch_event, {detail: {converts_camel_case: true}})
-  .flush
-```
-
-Need to opt out of camelize? No problem... just disable it.
-
-```ruby
-turbo_stream.invoke :contrived_demo, camelize: false
+  .invoke "MyNamespace.morph", "#demo", "<div id='demo'><p>You've changed...</p></div>", {childrenOnly: true}
 ```
 
 ## Public API
