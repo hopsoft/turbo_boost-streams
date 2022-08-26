@@ -23,7 +23,7 @@ function invoke () {
   }
 }
 
-function initialize () {
+function initialize (streamActions) {
   streamActions.invoke = invoke
 }
 

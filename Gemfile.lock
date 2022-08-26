@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    turbo_ready (0.0.2)
+    turbo_ready (0.0.3)
       rails (>= 6.1)
       turbo-rails (>= 1.1)
 
@@ -132,6 +132,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.8-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.8-x86_64-linux)
+      racc (~> 1.4)
     parallel (1.22.1)
     parser (3.1.2.1)
       ast (~> 2.4.1)
@@ -237,6 +239,7 @@ GEM
 PLATFORMS
   aarch64-linux-musl
   arm64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   magic_frozen_string_literal
