@@ -99,13 +99,7 @@ yarn add "turbo_ready@VERSION --exact"
 
 ## Setup
 
-1. Create a Rails intializer and patch Turbo.
-
-    ```ruby
-    # config/initializers/turbo_ready.rb
-    TurboReady.patch! # Adds TurboReady stream actions to Turbo
-    ```
-2. Import and intialize TurboReady in your JavaScript application.
+1. Import and intialize TurboReady in your JavaScript application.
 
     ```js
     // app/javascript/application.js
