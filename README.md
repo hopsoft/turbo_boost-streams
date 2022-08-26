@@ -34,6 +34,7 @@ turbo_stream.invoke "console.log", "Hello World!"
 ## Table of Contents
 
   - [Why TurboReady?](#why-turboready)
+  - [Discord Community](#discord-community)
   - [A Word of Caution ⚠️](#a-word-of-caution-)
   - [Sponsor](#sponsor)
   - [Dependencies](#dependencies)
@@ -56,10 +57,19 @@ considerable number of use cases and you should push Streams as far as possible 
 
 If you discover that CRUD isn't enough, TurboReady covers pretty much everything else.
 
+## Discord Community
+
+Please join nearly 2000 of us on [Discord](https://discord.gg/stimulus-reflex) for support getting started,
+as well as active discussions around Rails, Hotwire, Stimulus, Turbo (Drive, Frames, Streams), TurboReady, CableReady, and StimulusReflex.
+
+![](https://img.shields.io/discord/629472241427415060)
+
+Stop by #newcomers and introduce yourselves!
+
 ## A Word of Caution ⚠️
 
 Manually orchestrating DOM activity gets tedious fast.
-**Don't abuse these superpowers!**
+**Don't abuse this superpower!**
 
 > With great power comes great responsibility. *-Uncle Ben*
 
