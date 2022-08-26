@@ -115,11 +115,11 @@ yarn add "turbo_ready@VERSION --exact"
 ## Usage
 
 Manipulate the DOM from anywhere you use [official Turbo Streams](https://turbo.hotwired.dev/handbook/streams#integration-with-server-side-frameworks).
-Namely, [ActiveRecord Models](https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb),
-[Controllers](https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb),
-and [View Templates](https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb).
+Namely, [**M**odels](https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb),
+[**V**iews](https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb),
+and [**C**ontrollers](https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb).
 
-You can also **chain invocations.** ❤️
+You can **chain invocations.** ❤️
 
 ```ruby
 turbo_stream
@@ -130,7 +130,7 @@ turbo_stream
 ```
 
 You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation)
-or a [selector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... or even **use them together!** 🤯
+or [selectors](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... and can even combine them!** 🤯
 
 Can I dispatch events? **You bet!** ⚡️
 
@@ -170,6 +170,7 @@ turbo_stream.invoke :contrived_demo, camelize: false
 Want to extend things with custom functionality? **Let's do it.** 🔌
 
 ```js
+// JavaScript
 import morphdom from 'morphdom'
 
 window.MyNamespace = {
@@ -180,6 +181,7 @@ window.MyNamespace = {
 ```
 
 ```ruby
+# Ruby
 turbo_stream
   .invoke "MyNamespace.morph", "#demo", "<div id='demo'><p>You've changed...</p></div>", {childrenOnly: true}
 ```
@@ -190,6 +192,7 @@ There's only one method to consider, `invoke` defined in the
 [tag builder](https://github.com/hopsoft/turbo_ready/blob/main/lib/turbo_ready/tag_builder.rb).
 
 ```ruby
+# Ruby
 turbo_stream
   .invoke(method, *args, selector: nil, camelize: true, id: nil)
 #         |        |     |              |               |
