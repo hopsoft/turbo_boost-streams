@@ -35,7 +35,7 @@ turbo_stream.invoke "console.log", "Hello World!"
 
   - [Why TurboReady?](#why-turboready)
   - [Discord Community](#discord-community)
-  - [Sponsor](#sponsor)
+  - [Sponsors](#sponsors)
   - [Dependencies](#dependencies)
   - [Installation](#installation)
   - [Setup](#setup)
@@ -68,7 +68,7 @@ as well as active discussions around Rails, Hotwire, Stimulus, Turbo (Drive, Fra
 
 Stop by #newcomers and introduce yourselves!
 
-## Sponsor
+## Sponsors
 
 <p align="center">
   <em>Proudly sponsored by</em>
