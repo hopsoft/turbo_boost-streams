@@ -69,9 +69,9 @@ great [DX](https://en.wikipedia.org/wiki/User_experience#Developer_experience)
 like [CableReady](https://github.com/stimulusreflex/cable_ready)
 and [StimulusReflex](https://github.com/stimulusreflex/stimulus_reflex).
 
-Restrict your direct application uses to DOM manipulations that fall outside the purview of
+Restrict your direct application usage to DOM manipulations that fall outside the purview of
 [Turbo's official actions](https://turbo.hotwired.dev/reference/streams#the-seven-actions)...
-*and for Pete's sake, don't overdo it and find yourself in spaghetti code reminicent of the jQuery days.*
+*and for Pete's sake, don't overdo it and find yourself maintaining spaghetti code reminicent of the jQuery days.*
 
 ## Sponsor
 
@@ -119,16 +119,12 @@ yarn add "turbo_ready@VERSION --exact"
 
 ## Usage
 
-Manipulate the DOM from anywhere you use the [standard CRUD Turbo Streams](https://turbo.hotwired.dev/handbook/streams#integration-with-server-side-frameworks).
-Namely, [ActiveRecord models](https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb),
+Manipulate the DOM from anywhere you use [official Turbo Streams](https://turbo.hotwired.dev/handbook/streams#integration-with-server-side-frameworks).
+Namely, [ActiveRecord Models](https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb),
 [Controllers](https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb),
-and [view templates](https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb).
+and [View Templates](https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb).
 
-```ruby
-turbo_stream.invoke "setAttribute", "data-turbo-ready", true, selector: ".button"
-```
-
-You can even **chain invocations.** ❤️
+You can also **chain invocations.** ❤️
 
 ```ruby
 turbo_stream
@@ -138,7 +134,8 @@ turbo_stream
   .flush # flush must be called when chaining invocations
 ```
 
-You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation) or a [selector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... or even **use them together!** 🤯
+You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation)
+or a [selector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... or even **use them together!** 🤯
 
 Can I dispatch events? **You bet!** ⚡️
 
@@ -152,7 +149,7 @@ turbo_stream
 
 ## Endless Possibilities
 
-**What else can I do with this?**
+**What else can I do?**
 MDN has your back... [learn about the DOM and web APIs here.](https://developer.mozilla.org/en-US/docs/Web/API.)
 
 ## Advanced Usage
