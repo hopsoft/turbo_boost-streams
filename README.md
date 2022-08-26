@@ -165,7 +165,7 @@ MDN has your back... [learn about the DOM and web APIs here.](https://developer.
 
 ## Advanced Usage
 
-Want to extend things further with some custom functionality? **Let's do it.** 🔌
+Want to extend things with some custom functionality? **Let's do it.** 🔌
 
 ```js
 import morphdom from 'morphdom'
@@ -181,9 +181,8 @@ window.MyNamespace = {
 turbo_stream.invoke "MyNamespace.morph", "#demo", "<div id='demo'><p>You've changed...</p></div>", {childrenOnly: true}
 ```
 
-**But this doesn't look like Ruby...** well then, just use symbols and
-[snake case](https://en.wikipedia.org/wiki/Snake_case) when invoking DOM functionality.
-It'll implicitly convert to [camel case](https://en.wikipedia.org/wiki/Camel_case).
+You can symbols and [snake case](https://en.wikipedia.org/wiki/Snake_case) when invoking DOM functionality.
+It'll implicitly convert to [camel case](https://en.wikipedia.org/wiki/Camel_case). 💎
 
 ```ruby
 turbo_stream
