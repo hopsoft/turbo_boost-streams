@@ -181,7 +181,7 @@ window.MyNamespace = {
 turbo_stream.invoke "MyNamespace.morph", "#demo", "<div id='demo'><p>You've changed...</p></div>", {childrenOnly: true}
 ```
 
-You can symbols and [snake case](https://en.wikipedia.org/wiki/Snake_case) when invoking DOM functionality.
+You can use symbols and [snake case](https://en.wikipedia.org/wiki/Snake_case) when invoking DOM functionality.
 It'll implicitly convert to [camel case](https://en.wikipedia.org/wiki/Camel_case). 💎
 
 ```ruby
