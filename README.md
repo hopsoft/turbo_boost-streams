@@ -59,10 +59,10 @@ considerable number of use cases and you should push Streams as far as possible 
 
 If you discover that CRUD isn't enough, TurboReady covers pretty much everything else.
 
-## Discord Community
+## Community
 
 Please join nearly 2000 of us on [Discord](https://discord.gg/stimulus-reflex) for support getting started,
-as well as active discussions around Rails, Hotwire, Stimulus, Turbo (Drive, Frames, Streams), TurboReady, CableReady, and StimulusReflex.
+as well as active discussions around Rails, Hotwire, Stimulus, Turbo (Drive, Frames, Streams), TurboReady, CableReady, StimulusReflex, ViewComponent, Phlex, and more.
 
 ![](https://img.shields.io/discord/629472241427415060)
 
