@@ -81,7 +81,7 @@ Stop by #newcomers and introduce yourselves!
 
 ## Dependencies
 
-- [rails](https://rubygems.org/gems/rails) `>=7.0`
+- [rails](https://rubygems.org/gems/rails) `>=6.1`
 - [turbo-rails](https://rubygems.org/gems/turbo-rails) `>=1.1`
 - [@hotwired/turbo-rails](https://yarnpkg.com/package/@hotwired/turbo-rails) `>=7.2.0-beta.2`
 

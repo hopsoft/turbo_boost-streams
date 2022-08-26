@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir["lib/**/*.rb", "app/**/*", "bin/*", "[A-Z]*"]
 
-  spec.add_dependency "rails", ">= 7.0"
+  spec.add_dependency "rails", ">= 6.1"
   spec.add_dependency "turbo-rails", ">= 1.1"
 
   spec.add_development_dependency "magic_frozen_string_literal"
