@@ -44,6 +44,7 @@ turbo_stream.invoke "console.log", "Hello World!"
   - [Endless Possibilities](#endless-possibilities)
   - [Advanced Usage](#advanced-usage)
   - [Public API](#public-api)
+  - [Releasing](#releasing)
   - [License](#license)
 
 <!-- Tocer[finish]: Auto-generated, don't remove. -->
@@ -219,6 +220,19 @@ turbo_stream
 ```
 
 **NOTE:** The JavaScript method will be invoked on all matching elements when a `selector` is passed.
+
+## Releasing
+
+1. Run `yarn` and `bundle` to pick up the latest
+1. Bump version number at `lib/turbo_ready/version.rb`. Pre-release versions use `.preN`
+1. Run `rake build` and `yarn build`
+1. Run `bin/standardize`
+1. Commit and push changes to GitHub
+1. Run `rake release`
+1. Run `yarn publish --no-git-tag-version`
+1. Yarn will prompt you for the new version. Pre-release versions use `-preN`
+1. Commit and push changes to GitHub
+1. Create a new release on GitHub ([here](https://github.com/hopsoft/turbo_ready/releases)) and generate the changelog for the stable release for it
 
 ## License
 
