@@ -222,7 +222,7 @@ and [StimulusReflex](https://github.com/stimulusreflex/stimulus_reflex).
 
 Restrict your direct application usage to DOM manipulation that falls outside the purview of
 [Turbo's official actions](https://turbo.hotwired.dev/reference/streams#the-seven-actions)...
-*and for Pete's sake, don't overdo it and find yourself maintaining spaghetti code reminiscent of the jQuery days.*
+*don't overdo it and find yourself maintaining spaghetti code reminiscent of the jQuery days.*
 
 ## Releasing
 
