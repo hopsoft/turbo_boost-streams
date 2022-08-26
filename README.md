@@ -76,7 +76,9 @@ Restrict your direct application uses to DOM manipulations that fall outside the
 ## Sponsor
 
 <p align="center">
-  <div><em>Proudly sponsored by</em></div>
+  <em>Proudly sponsored by</em>
+</p>
+<p align="center">
   <a href="https://www.clickfunnels.com?utm_source=hopsoft&utm_medium=open-source&utm_campaign=turbo_ready">
     <img src="https://images.clickfunnel.com/uploads/digital_asset/file/176632/clickfunnels-dark-logo.svg" width="575" />
   </a>
