@@ -44,7 +44,7 @@ turbo_stream.invoke "console.log", "Hello World!"
   - [Advanced Usage](#advanced-usage)
     - [Extending Behavior](#extending-behavior)
   - [Public API](#public-api)
-  - [A Word of Caution ⚠️](#a-word-of-caution-)
+  - [A Word of Caution](#a-word-of-caution)
   - [Releasing](#releasing)
   - [License](#license)
 
@@ -207,10 +207,10 @@ turbo_stream
 
 **NOTE:** The JavaScript method will be invoked on all matching elements when a `selector` is passed.
 
-## A Word of Caution ⚠️
+## A Word of Caution
 
 Manually orchestrating DOM activity gets tedious fast.
-**Don't abuse this superpower!**
+**⚠️ Don't abuse this superpower!**
 
 > With great power comes great responsibility. *-Uncle Ben*
 
