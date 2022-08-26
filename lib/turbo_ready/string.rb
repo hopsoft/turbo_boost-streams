@@ -5,7 +5,6 @@ module TurboReady
     attr_reader :ruby_string, :turbo_ready_tag_builder
 
     delegate_missing_to :ruby_string
-    alias_method :to_s, :flush
 
     def initialize(ruby_string, turbo_ready_tag_builder:)
       @ruby_string = ruby_string
@@ -32,5 +31,7 @@ module TurboReady
     ensure
       turbo_ready_tags.clear
     end
+
+    alias_method :to_s, :flush
   end
 end
