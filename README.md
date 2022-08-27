@@ -135,6 +135,7 @@ Can I dispatch events? **You bet!** ⚡️
 ```ruby
 turbo_stream
   .invoke("dispatchEvent", "turbo-ready:demo") # fires on window
+  .invoke("document.dispatchEvent", "turbo-ready:demo") # fires on document
   .invoke("dispatchEvent", "turbo-ready:demo", selector: "#my-element") # fires on matching element(s)
   .invoke("dispatchEvent", {bubbles: true, detail: {...}}) # set event options
   .flush
