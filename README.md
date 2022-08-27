@@ -40,13 +40,13 @@ turbo_stream.invoke "console.log", "Hello World!"
 ## Table of Contents
 
   - [Why TurboReady?](#why-turboready)
-  - [Discord Community](#discord-community)
+  - [Community](#community)
   - [Sponsors](#sponsors)
   - [Dependencies](#dependencies)
   - [Installation](#installation)
   - [Setup](#setup)
   - [Usage](#usage)
-  - [Endless Possibilities](#endless-possibilities)
+  - [What Else Can I Do?](#what-else-can-i-do)
   - [Advanced Usage](#advanced-usage)
     - [Extending Behavior](#extending-behavior)
   - [Public API](#public-api)
@@ -144,10 +144,10 @@ turbo_stream
   .flush
 ```
 
-## Endless Possibilities
+## What Else Can I Do?
 
-**What else can I do?**
-MDN has your back... [learn about the DOM and web APIs here.](https://developer.mozilla.org/en-US/docs/Web/API.)
+**The possibilities are endless**
+and MDN has your back... [learn about the DOM and web APIs here.](https://developer.mozilla.org/en-US/docs/Web/API.)
 
 ## Advanced Usage
 
