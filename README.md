@@ -1,5 +1,8 @@
 <p align="center">
-  <img height="200" src="https://ik.imagekit.io/hopsoft/turbo-ready-logo_jYFJI1jgT.png?ik-sdk-version=javascript-1.4.3&updatedAt=1661471047153" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./logo-light.webp">
+    <img height="200" src="https://ik.imagekit.io/hopsoft/turbo-ready-logo_jYFJI1jgT.png?ik-sdk-version=javascript-1.4.3&updatedAt=1661471047153" />
+  </picture>
   <h3 align="center">
     Turbo Stream's Swiss Army Knife
   </h3>
