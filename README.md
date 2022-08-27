@@ -131,7 +131,7 @@ turbo_stream
 ```
 
 You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation)
-or [selectors](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... and can even combine them!** 🤯
+or [selectors](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... **and can even combine them!** 🤯
 
 Can I dispatch events? **You bet!** ⚡️
 
