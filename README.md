@@ -112,9 +112,10 @@ yarn add "turbo_ready@VERSION --exact"
 ## Usage
 
 Manipulate the DOM from anywhere you use [official Turbo Streams](https://turbo.hotwired.dev/handbook/streams#integration-with-server-side-frameworks).
-Namely, [**M**odels](https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb),
-[**V**iews](https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb),
-and [**C**ontrollers](https://github.com/hotwired/turbo-rails/blob/main/app/models/concerns/turbo/broadcastable.rb).
+Namely, [**M**odels](https://guides.rubyonrails.org/active_model_basics.html),
+[**V**iews](https://guides.rubyonrails.org/action_view_overview.html),
+[**C**ontrollers](https://guides.rubyonrails.org/action_controller_overview.html)
+and [Jobs](https://guides.rubyonrails.org/active_job_basics.html).
 
 You can **chain invocations.** ❤️
 
@@ -151,8 +152,8 @@ It'll implicitly convert to [camel case](https://en.wikipedia.org/wiki/Camel_cas
 
 ```ruby
 turbo_stream
-  .invoke(:animate, [{opacity: 0}, {opacity: 1}], 2000)
-  .invoke(:dispatch_event, {detail: {converts_to_camel_case: true}})
+  .invoke(:animate, [{opacity: 0}, {opacity: 1}], 2000, selector: "#example")
+  .invoke(:dispatch_event, {detail: {converts_to_camel_case: true}}, selector: "#example")
   .flush
 ```
 
