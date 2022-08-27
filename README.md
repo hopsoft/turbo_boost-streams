@@ -46,8 +46,8 @@ turbo_stream.invoke "console.log", "Hello World!"
   - [Installation](#installation)
   - [Setup](#setup)
   - [Usage](#usage)
-  - [What Else Can I Do?](#what-else-can-i-do)
   - [Advanced Usage](#advanced-usage)
+  - [What Else Can I Do?](#what-else-can-i-do)
     - [Extending Behavior](#extending-behavior)
   - [Public API](#public-api)
   - [A Word of Caution](#a-word-of-caution)
@@ -144,11 +144,6 @@ turbo_stream
   .flush
 ```
 
-## What Else Can I Do?
-
-**The possibilities are endless**
-and MDN has your back... [learn about the DOM and web APIs here.](https://developer.mozilla.org/en-US/docs/Web/API.)
-
 ## Advanced Usage
 
 You can use symbols and [snake case](https://en.wikipedia.org/wiki/Snake_case) when invoking DOM functionality.
@@ -166,6 +161,11 @@ Need to opt out of camelize? No problem... just disable it.
 ```ruby
 turbo_stream.invoke :contrived_demo, camelize: false
 ```
+
+## What Else Can I Do?
+
+**The possibilities are endless**
+and MDN has your back... [learn about the DOM and web APIs here.](https://developer.mozilla.org/en-US/docs/Web/API.)
 
 ### Extending Behavior
 
