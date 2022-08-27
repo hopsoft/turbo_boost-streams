@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./logo-light.webp">
-    <img height="200" src="https://ik.imagekit.io/hopsoft/turbo-ready-logo_jYFJI1jgT.png?ik-sdk-version=javascript-1.4.3&updatedAt=1661471047153" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://ik.imagekit.io/hopsoft/turbo-ready-logo-light_df4jcvbDL.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1661615678275">
+    <img height="200" src="https://ik.imagekit.io/hopsoft/turbo-ready-logo-dark_VN4hA2ctc.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1661615678278" />
   </picture>
   <h3 align="center">
     Turbo Stream's Swiss Army Knife
