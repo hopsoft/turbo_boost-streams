@@ -104,12 +104,18 @@ yarn add "turbo_ready@VERSION --exact"
 
 1. Import and intialize TurboReady in your JavaScript application.
 
-    ```js
+    ```diff
+    // package.json
+    "dependencies": {
+    +  "@hotwired/turbo-rails": ">=7.2.0-beta.2",
+    ```
+
+    ```diff
     // app/javascript/application.js
     import '@hotwired/turbo-rails'
-    import TurboReady from 'turbo_ready'
+    +import TurboReady from 'turbo_ready'
 
-    TurboReady.initialize(Turbo.StreamActions) // Adds TurboReady stream actions to Turbo
+    +TurboReady.initialize(Turbo.StreamActions) // Adds TurboReady stream actions to Turbo
     ```
 
 ## Usage
