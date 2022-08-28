@@ -110,14 +110,14 @@ yarn add "turbo_ready@VERSION --exact"
     ```
 
     ```diff
-    // package.json
+    # package.json
     "dependencies": {
     +  "@hotwired/turbo-rails": ">=7.2.0-beta.2",
     +  "turbo_ready": "^0.0.5"
     ```
 
     ```diff
-    // app/javascript/application.js
+    # app/javascript/application.js
     import '@hotwired/turbo-rails'
     +import TurboReady from 'turbo_ready'
 
