@@ -102,12 +102,18 @@ yarn add "turbo_ready@VERSION --exact"
 
 ## Setup
 
-1. Import and intialize TurboReady in your JavaScript application.
+1. Import and intialize TurboReady in your application.
+
+    ```diff
+    # Gemfile
+    +gem "turbo_ready", "~> 0.0.5"
+    ```
 
     ```diff
     // package.json
     "dependencies": {
     +  "@hotwired/turbo-rails": ">=7.2.0-beta.2",
+    +  "turbo_ready": "^0.0.5"
     ```
 
     ```diff
