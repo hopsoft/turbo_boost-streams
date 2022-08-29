@@ -16,17 +16,14 @@
     <a href="https://codeclimate.com/github/hopsoft/turbo_ready/maintainability" target="_blank">
       <img src="https://api.codeclimate.com/v1/badges/a69b6f73abc3ccd49261/maintainability" />
     </a>
-
     <a href="https://rubygems.org/gems/turbo_ready" target="_blank">
-      <img alt="Gem (including prereleases)" src="https://img.shields.io/gem/v/turbo_ready?color=168AFE&include_prereleases&logo=ruby&logoColor=FE1616">
+      <img alt="GEM" src="https://img.shields.io/gem/v/turbo_ready?color=168AFE&include_prereleases&logo=ruby&logoColor=FE1616">
     </a>
     <a href="https://github.com/testdouble/standard" target="_blank">
       <img alt="Ruby Style" src="https://img.shields.io/badge/style-standard-999?logo=ruby&logoColor=FE1616" />
     </a>
-  </p>
-  <p align="center">
     <a href="https://www.npmjs.com/package/turbo_ready" target="_blank">
-      <img alt="npm" src="https://img.shields.io/npm/v/turbo_ready?color=168AFE&logo=npm">
+      <img alt="NPM" src="https://img.shields.io/npm/v/turbo_ready?color=168AFE&logo=npm">
     </a>
     <a href="https://bundlephobia.com/package/turbo_ready@" target="_blank">
       <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/turbo_ready?label=bundle%20size&logo=javascript&color=47d299">
