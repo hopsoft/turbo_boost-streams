@@ -19,8 +19,14 @@
     <a href="https://rubygems.org/gems/turbo_ready" target="_blank">
       <img alt="GEM" src="https://img.shields.io/gem/v/turbo_ready?color=168AFE&include_prereleases&logo=ruby&logoColor=FE1616">
     </a>
+    <a href="https://rubygems.org/gems/turbo_ready" target="_blank">
+      <img alt="Gem" src="https://img.shields.io/gem/dt/turbo_ready?color=168AFE&logo=ruby&logoColor=FE1616">
+    </a>
     <a href="https://www.npmjs.com/package/turbo_ready" target="_blank">
       <img alt="NPM" src="https://img.shields.io/npm/v/turbo_ready?color=168AFE&logo=npm">
+    </a>
+    <a href="https://www.npmjs.com/package/turbo_ready" target="_blank">
+      <img alt="npm" src="https://img.shields.io/npm/dm/turbo_ready?color=168AFE&logo=npm">
     </a>
     <a href="https://bundlephobia.com/package/turbo_ready@" target="_blank">
       <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/turbo_ready?label=bundle%20size&logo=javascript&color=47d299">
@@ -30,6 +36,9 @@
     </a>
     <a href="https://github.com/sheerun/prettier-standard" target="_blank">
       <img alt="JavaScript Style" src="https://img.shields.io/badge/style-prettier--standard-168AFE?logo=javascript&logoColor=f4e137" />
+    </a>
+    <a href="https://twitter.com/hopsoft" target="_blank">
+      <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/hopsoft?logo=twitter&style=social">
     </a>
   </p>
 </p>
@@ -49,7 +58,6 @@ turbo_stream.invoke "console.log", "Hello World!"
 ## Table of Contents
 
   - [Why TurboReady?](#why-turboready)
-  - [Community](#community)
   - [Sponsors](#sponsors)
   - [Dependencies](#dependencies)
   - [Installation](#installation)
@@ -60,6 +68,10 @@ turbo_stream.invoke "console.log", "Hello World!"
     - [Extending Behavior](#extending-behavior)
   - [Public API](#public-api)
   - [A Word of Caution](#a-word-of-caution)
+  - [Community](#community)
+    - [Discord](#discord)
+    - [Discussions](#discussions)
+    - [Twitter](#twitter)
   - [Releasing](#releasing)
   - [License](#license)
 
@@ -73,15 +85,6 @@ The [official actions](https://turbo.hotwired.dev/reference/streams#the-seven-ac
 considerable number of use cases and you should push Streams as far as possible before reaching for TurboReady.
 
 If you discover that CRUD isn't enough, TurboReady covers pretty much everything else.
-
-## Community
-
-Please join nearly 2000 of us on [Discord](https://discord.gg/stimulus-reflex) for support getting started,
-as well as active discussions around Rails, Hotwire, Stimulus, Turbo (Drive, Frames, Streams), TurboReady, CableReady, StimulusReflex, ViewComponent, Phlex, and more.
-
-![](https://img.shields.io/discord/629472241427415060)
-
-Stop by #newcomers and introduce yourselves!
 
 ## Sponsors
 
@@ -249,6 +252,35 @@ and [StimulusReflex](https://github.com/stimulusreflex/stimulus_reflex).
 Restrict your direct application usage to DOM manipulation that falls outside the purview of
 [Turbo's official actions](https://turbo.hotwired.dev/reference/streams#the-seven-actions)...
 *don't overdo it and find yourself maintaining spaghetti code reminiscent of the jQuery days.*
+
+## Community
+
+### Discord
+
+Please join nearly 2000 of us on [Discord](https://discord.gg/stimulus-reflex) for support getting started,
+as well as active discussions around Rails, Hotwire, Stimulus, Turbo (Drive, Frames, Streams), TurboReady, CableReady, StimulusReflex, ViewComponent, Phlex, and more.
+
+<a href="https://discord.gg/stimulus-reflex" target="_blank">
+  <img alt="Discord" src="https://img.shields.io/discord/629472241427415060?color=168AFE&logo=discord&logoColor=FFF">
+</a>
+
+Be sure to introduce yourselves in the #newcomers channel!
+
+### Discussions
+
+Feel free to add to the conversation here on [GitHub Discussions](https://github.com/hopsoft/turbo_ready/discussions).
+
+<a href="https://github.com/hopsoft/turbo_ready/discussions" target="_blank">
+  <img alt="GitHub Discussions" src="https://img.shields.io/github/discussions/hopsoft/turbo_ready?color=168AFE&logo=github">
+</a>
+
+### Twitter
+
+Connect with the core team on Twitter.
+
+<a href="https://twitter.com/hopsoft" target="_blank">
+  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/hopsoft?logo=twitter&style=social">
+</a>
 
 ## Releasing
 
