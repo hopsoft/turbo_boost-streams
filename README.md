@@ -67,8 +67,8 @@ turbo_stream.invoke "console.log", "Hello World!"
   - [What Else Can I Do?](#what-else-can-i-do)
     - [Extending Behavior](#extending-behavior)
   - [Public API](#public-api)
-  - [Community](#community)
   - [A Word of Caution](#a-word-of-caution)
+  - [Community](#community)
   - [Releasing](#releasing)
   - [License](#license)
 
@@ -233,23 +233,6 @@ turbo_stream
 
 **NOTE:** The JavaScript method will be invoked on all matching elements when a `selector` is passed.
 
-## Community
-
-Please join nearly 2000 of us on [Discord](https://discord.gg/stimulus-reflex) for support getting started,
-as well as active discussions around Rails, Hotwire, Stimulus, Turbo (Drive, Frames, Streams), TurboReady, CableReady, StimulusReflex, ViewComponent, Phlex, and more.
-
-<a href="https://discord.gg/stimulus-reflex" target="_blank">
-  <img alt="Discord" src="https://img.shields.io/discord/629472241427415060?color=168AFE&logo=discord&logoColor=717CF4">
-</a>
-
-Be sure to introduce yourselves in the #newcomers channel!
-
-Also, feel free to add to the conversation here on [GitHub Discussions](https://github.com/hopsoft/turbo_ready/discussions).
-
-<a href="https://github.com/hopsoft/turbo_ready/discussions" target="_blank">
-  <img alt="GitHub Discussions" src="https://img.shields.io/github/discussions/hopsoft/turbo_ready?color=168AFE&logo=github">
-</a>
-
 ## A Word of Caution
 
 Manually orchestrating DOM activity gets tedious fast.
@@ -266,6 +249,23 @@ and [StimulusReflex](https://github.com/stimulusreflex/stimulus_reflex).
 Restrict your direct application usage to DOM manipulation that falls outside the purview of
 [Turbo's official actions](https://turbo.hotwired.dev/reference/streams#the-seven-actions)...
 *don't overdo it and find yourself maintaining spaghetti code reminiscent of the jQuery days.*
+
+## Community
+
+Please join nearly 2000 of us on [Discord](https://discord.gg/stimulus-reflex) for support getting started,
+as well as active discussions around Rails, Hotwire, Stimulus, Turbo (Drive, Frames, Streams), TurboReady, CableReady, StimulusReflex, ViewComponent, Phlex, and more.
+
+<a href="https://discord.gg/stimulus-reflex" target="_blank">
+  <img alt="Discord" src="https://img.shields.io/discord/629472241427415060?color=168AFE&logo=discord&logoColor=FFF">
+</a>
+
+Be sure to introduce yourselves in the #newcomers channel!
+
+Also, feel free to add to the conversation here on [GitHub Discussions](https://github.com/hopsoft/turbo_ready/discussions).
+
+<a href="https://github.com/hopsoft/turbo_ready/discussions" target="_blank">
+  <img alt="GitHub Discussions" src="https://img.shields.io/github/discussions/hopsoft/turbo_ready?color=168AFE&logo=github">
+</a>
 
 ## Releasing
 
