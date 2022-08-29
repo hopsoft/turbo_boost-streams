@@ -22,6 +22,9 @@
     <a href="https://rubygems.org/gems/turbo_ready" target="_blank">
       <img alt="Gem" src="https://img.shields.io/gem/dt/turbo_ready?color=168AFE&logo=ruby&logoColor=FE1616">
     </a>
+    <a href="https://github.com/testdouble/standard" target="_blank">
+      <img alt="Ruby Style" src="https://img.shields.io/badge/style-standard-168AFE?logo=ruby&logoColor=FE1616" />
+    </a>
     <a href="https://www.npmjs.com/package/turbo_ready" target="_blank">
       <img alt="NPM" src="https://img.shields.io/npm/v/turbo_ready?color=168AFE&logo=npm">
     </a>
@@ -30,9 +33,6 @@
     </a>
     <a href="https://bundlephobia.com/package/turbo_ready@" target="_blank">
       <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/turbo_ready?label=bundle%20size&logo=javascript&color=47d299">
-    </a>
-    <a href="https://github.com/testdouble/standard" target="_blank">
-      <img alt="Ruby Style" src="https://img.shields.io/badge/style-standard-168AFE?logo=ruby&logoColor=FE1616" />
     </a>
     <a href="https://github.com/sheerun/prettier-standard" target="_blank">
       <img alt="JavaScript Style" src="https://img.shields.io/badge/style-prettier--standard-168AFE?logo=javascript&logoColor=f4e137" />
