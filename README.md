@@ -58,7 +58,7 @@ turbo_stream.invoke "console.log", "Hello World!"
 
 ## Why TurboReady?
 
-Turbo Streams [intentionally restricts](https://turbo.hotwired.dev/handbook/streams#but-what-about-running-javascript)
+Turbo Streams [intentionally restricts](https://turbo.hotwired.dev/handbook/streams#but-what-about-running-javascript%3F)
 official actions to CRUD related activity.
 The [official actions](https://turbo.hotwired.dev/reference/streams#the-seven-actions) work well for a
 considerable number of use cases and you should push Streams as far as possible before reaching for TurboReady.
