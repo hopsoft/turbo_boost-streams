@@ -53,6 +53,7 @@ You can `invoke` any DOM method on any DOM object *(including 3rd party libs)* u
 turbo_stream.invoke "console.log", "Hello World!"
 ```
 
+
 <!-- Tocer[start]: Auto-generated, don't remove. -->
 
 ## Table of Contents
@@ -67,6 +68,7 @@ turbo_stream.invoke "console.log", "Hello World!"
   - [What Else Can I Do?](#what-else-can-i-do)
     - [Extending Behavior](#extending-behavior)
   - [Public API](#public-api)
+  - [FAQ](#faq)
   - [A Word of Caution](#a-word-of-caution)
   - [Community](#community)
     - [Discord](#discord)
@@ -235,6 +237,18 @@ turbo_stream
 ```
 
 **NOTE:** The JavaScript method will be invoked on all matching elements when a `selector` is passed.
+
+## FAQ
+
+- Isn't this just RJS?
+
+> No. But, perhaps it could be considered RJS's "modern" spirtual successor. 🤷‍♂️
+> Though it embraces JavaScript instead of inventing ways to avoid it.
+
+- Does it use `eval`?
+
+> **No.** TurboReady can only invoke existing functions on the client.
+> It's not a carte blanche invitation to emit free-form JavaScript to be eval'd on the client.
 
 ## A Word of Caution
 
