@@ -242,13 +242,13 @@ turbo_stream
 
 - Isn't this just RJS?
 
-> No. But, perhaps it could be considered RJS's "modern" spirtual successor. 🤷‍♂️
-> Though it embraces JavaScript instead of inventing ways to avoid it.
+  > No. But, perhaps it could be considered RJS's "modern" spirtual successor. 🤷‍♂️
+  > Though it embraces JavaScript instead of inventing ways to avoid it.
 
 - Does it use `eval`?
 
-> **No.** TurboReady can only invoke existing functions on the client.
-> It's not a carte blanche invitation to emit free-form JavaScript to be eval'd on the client.
+  > **No.** TurboReady can only invoke existing functions on the client.
+  > It's not a carte blanche invitation to emit free-form JavaScript to be eval'd on the client.
 
 ## A Word of Caution
 
