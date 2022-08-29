@@ -53,7 +53,6 @@ You can `invoke` any DOM method on any DOM object *(including 3rd party libs)* u
 turbo_stream.invoke "console.log", "Hello World!"
 ```
 
-
 <!-- Tocer[start]: Auto-generated, don't remove. -->
 
 ## Table of Contents
@@ -87,6 +86,11 @@ The [official actions](https://turbo.hotwired.dev/reference/streams#the-seven-ac
 considerable number of use cases and you should push Streams as far as possible before reaching for TurboReady.
 
 If you discover that CRUD isn't enough, TurboReady covers pretty much everything else.
+
+**IMPORTANT:** TurboReady is intended for Rails apps that use Hotwire but not [CableReady](https://github.com/stimulusreflex/cable_ready).
+as CableReady already provides a rich set of [offically supported DOM operations](https://cableready.stimulusreflex.com/reference/operations).
+
+**NOTE:** Efforts are already underway to bring CableReady's [DOM operations to Turbo Streams](https://github.com/marcoroth/turbo_power).
 
 ## Sponsors
 
