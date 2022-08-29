@@ -87,7 +87,7 @@ considerable number of use cases and you should push Streams as far as possible 
 
 If you discover that CRUD isn't enough, TurboReady covers pretty much everything else.
 
-**IMPORTANT:** TurboReady is intended for Rails apps that use Hotwire but not [CableReady](https://github.com/stimulusreflex/cable_ready).
+**IMPORTANT:** TurboReady is intended for Rails apps that use Hotwire but not [CableReady](https://github.com/stimulusreflex/cable_ready)
 as CableReady already provides a rich set of [offically supported DOM operations](https://cableready.stimulusreflex.com/reference/operations).
 
 **NOTE:** Efforts are already underway to bring CableReady's [DOM operations to Turbo Streams](https://github.com/marcoroth/turbo_power).
@@ -241,6 +241,23 @@ turbo_stream
 ```
 
 **NOTE:** The JavaScript method will be invoked on all matching elements when a `selector` is passed.
+
+### Implementation Details
+
+The `turbo_stream.invoke` method creates a `turbo-stream` HTML element which wraps a JSON payload.
+When this element is inserted into the DOM, Turbo Streams executes the `invoke` action on the client which parses and executes the JSON payload.
+
+```ruby
+turbo_stream.invoke "console.log", "Hello World!"
+```
+
+```html
+<turbo-stream action="invoke" target="DOM">
+  <template>
+    {"id":"644d6878-6b97-4b8e-9054-50f59abe57bb","method":"log","args":["Hello World!"],"receiver":"console","selector":null}
+  </template>
+</turbo-stream>
+```
 
 ## FAQ
 
