@@ -11,16 +11,25 @@
   </h1>
   <p align="center">
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/" target="_blank">
-      <img alt="Lines of Code" src="https://img.shields.io/badge/Lines_of_Code-278-brightgreen.svg?style=flat" />
+      <img alt="Lines of Code" src="https://img.shields.io/badge/loc-278-47d299.svg" />
     </a>
-    <a href="https://github.com/testdouble/standard" target="_blank">
-      <img alt="Ruby Code Style" src="https://img.shields.io/badge/Ruby_Code_Style-standard-brightgreen.svg" />
+    <a href="https://codeclimate.com/github/hopsoft/turbo_ready/maintainability" target="_blank">
+      <img src="https://api.codeclimate.com/v1/badges/a69b6f73abc3ccd49261/maintainability" />
     </a>
-    <a href="https://github.com/sheerun/prettier-standard" target="_blank">
-      <img alt="JavaScript Code Style" src="https://img.shields.io/badge/JavaScript_Code_Style-prettier_standard-ff69b4.svg" />
+    <a href="https://rubygems.org/gems/turbo_ready" target="_blank">
+      <img alt="GEM" src="https://img.shields.io/gem/v/turbo_ready?color=168AFE&include_prereleases&logo=ruby&logoColor=FE1616">
+    </a>
+    <a href="https://www.npmjs.com/package/turbo_ready" target="_blank">
+      <img alt="NPM" src="https://img.shields.io/npm/v/turbo_ready?color=168AFE&logo=npm">
     </a>
     <a href="https://bundlephobia.com/package/turbo_ready@" target="_blank">
-      <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/turbo_ready?label=JavaScript%20Pkg%20Size">
+      <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/turbo_ready?label=bundle%20size&logo=javascript&color=47d299">
+    </a>
+    <a href="https://github.com/testdouble/standard" target="_blank">
+      <img alt="Ruby Style" src="https://img.shields.io/badge/style-standard-168AFE?logo=ruby&logoColor=FE1616" />
+    </a>
+    <a href="https://github.com/sheerun/prettier-standard" target="_blank">
+      <img alt="JavaScript Style" src="https://img.shields.io/badge/style-prettier--standard-168AFE?logo=javascript&logoColor=f4e137" />
     </a>
   </p>
 </p>
