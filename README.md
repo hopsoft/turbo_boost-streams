@@ -69,6 +69,9 @@ turbo_stream.invoke "console.log", "Hello World!"
   - [Public API](#public-api)
   - [A Word of Caution](#a-word-of-caution)
   - [Community](#community)
+    - [Discord](#discord)
+    - [Discussions](#discussions)
+    - [Twitter](#twitter)
   - [Releasing](#releasing)
   - [License](#license)
 
@@ -252,6 +255,8 @@ Restrict your direct application usage to DOM manipulation that falls outside th
 
 ## Community
 
+### Discord
+
 Please join nearly 2000 of us on [Discord](https://discord.gg/stimulus-reflex) for support getting started,
 as well as active discussions around Rails, Hotwire, Stimulus, Turbo (Drive, Frames, Streams), TurboReady, CableReady, StimulusReflex, ViewComponent, Phlex, and more.
 
@@ -261,10 +266,20 @@ as well as active discussions around Rails, Hotwire, Stimulus, Turbo (Drive, Fra
 
 Be sure to introduce yourselves in the #newcomers channel!
 
-Also, feel free to add to the conversation here on [GitHub Discussions](https://github.com/hopsoft/turbo_ready/discussions).
+### Discussions
+
+Feel free to add to the conversation here on [GitHub Discussions](https://github.com/hopsoft/turbo_ready/discussions).
 
 <a href="https://github.com/hopsoft/turbo_ready/discussions" target="_blank">
   <img alt="GitHub Discussions" src="https://img.shields.io/github/discussions/hopsoft/turbo_ready?color=168AFE&logo=github">
+</a>
+
+### Twitter
+
+Connect with the core team on Twitter.
+
+<a href="https://twitter.com/hopsoft" target="_blank">
+  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/hopsoft?logo=twitter&style=social">
 </a>
 
 ## Releasing
