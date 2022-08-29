@@ -32,7 +32,7 @@
       <img alt="npm" src="https://img.shields.io/npm/dm/turbo_ready?color=168AFE&logo=npm">
     </a>
     <a href="https://bundlephobia.com/package/turbo_ready@" target="_blank">
-      <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/turbo_ready?label=bundle%20size&logo=javascript&color=47d299">
+      <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/turbo_ready?label=bundle%20size&logo=npm&color=47d299">
     </a>
     <a href="https://github.com/sheerun/prettier-standard" target="_blank">
       <img alt="JavaScript Style" src="https://img.shields.io/badge/style-prettier--standard-168AFE?logo=javascript&logoColor=f4e137" />
