@@ -58,7 +58,6 @@ turbo_stream.invoke "console.log", "Hello World!"
 ## Table of Contents
 
   - [Why TurboReady?](#why-turboready)
-  - [Community](#community)
   - [Sponsors](#sponsors)
   - [Dependencies](#dependencies)
   - [Installation](#installation)
@@ -68,6 +67,7 @@ turbo_stream.invoke "console.log", "Hello World!"
   - [What Else Can I Do?](#what-else-can-i-do)
     - [Extending Behavior](#extending-behavior)
   - [Public API](#public-api)
+  - [Community](#community)
   - [A Word of Caution](#a-word-of-caution)
   - [Releasing](#releasing)
   - [License](#license)
@@ -82,15 +82,6 @@ The [official actions](https://turbo.hotwired.dev/reference/streams#the-seven-ac
 considerable number of use cases and you should push Streams as far as possible before reaching for TurboReady.
 
 If you discover that CRUD isn't enough, TurboReady covers pretty much everything else.
-
-## Community
-
-Please join nearly 2000 of us on [Discord](https://discord.gg/stimulus-reflex) for support getting started,
-as well as active discussions around Rails, Hotwire, Stimulus, Turbo (Drive, Frames, Streams), TurboReady, CableReady, StimulusReflex, ViewComponent, Phlex, and more.
-
-![](https://img.shields.io/discord/629472241427415060)
-
-Stop by #newcomers and introduce yourselves!
 
 ## Sponsors
 
@@ -241,6 +232,23 @@ turbo_stream
 ```
 
 **NOTE:** The JavaScript method will be invoked on all matching elements when a `selector` is passed.
+
+## Community
+
+Please join nearly 2000 of us on [Discord](https://discord.gg/stimulus-reflex) for support getting started,
+as well as active discussions around Rails, Hotwire, Stimulus, Turbo (Drive, Frames, Streams), TurboReady, CableReady, StimulusReflex, ViewComponent, Phlex, and more.
+
+<a href="https://discord.gg/stimulus-reflex" target="_blank">
+  <img alt="Discord" src="https://img.shields.io/discord/629472241427415060?color=168AFE&logo=discord&logoColor=717CF4">
+</a>
+
+Be sure to introduce yourselves in the #newcomers channel!
+
+Also, feel free to add to the conversation here on [GitHub Discussions](https://github.com/hopsoft/turbo_ready/discussions).
+
+<a href="https://github.com/hopsoft/turbo_ready/discussions" target="_blank">
+  <img alt="GitHub Discussions" src="https://img.shields.io/github/discussions/hopsoft/turbo_ready?color=168AFE&logo=github">
+</a>
 
 ## A Word of Caution
 
