@@ -13,7 +13,7 @@
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/" target="_blank">
       <img alt="Lines of Code" src="https://img.shields.io/badge/loc-278-47d299.svg" />
     </a>
-    <a href="https://codeclimate.com/github/hopsoft/turbo_ready/maintainability">
+    <a href="https://codeclimate.com/github/hopsoft/turbo_ready/maintainability" target="_blank">
       <img src="https://api.codeclimate.com/v1/badges/a69b6f73abc3ccd49261/maintainability" />
     </a>
 
@@ -23,9 +23,8 @@
     <a href="https://github.com/testdouble/standard" target="_blank">
       <img alt="Ruby Style" src="https://img.shields.io/badge/style-standard-999?logo=ruby&logoColor=FE1616" />
     </a>
-
-    <br>
-
+  </p>
+  <p align="center">
     <a href="https://www.npmjs.com/package/turbo_ready" target="_blank">
       <img alt="npm" src="https://img.shields.io/npm/v/turbo_ready?color=168AFE&logo=npm">
     </a>
