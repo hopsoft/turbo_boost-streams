@@ -296,8 +296,12 @@ class PostsController < ApplicationController
       @post.broadcast_invoke "console.log", args: ["Post was saved! #{to_gid.to_s}"]
 
       # you can also broadcast directly from the channel
-      # Turbo::StreamsChannel.broadcast_invoke_to @post, "console.log",
-      #   args: ["Post was saved! #{@post.to_gid.to_s}"]
+      Turbo::StreamsChannel.broadcast_invoke_to @post, "console.log",
+        args: ["Post was saved! #{@post.to_gid.to_s}"]
+
+      # or even handle the broadcast with a background job
+      Turbo::StreamsChannel.broadcast_invoke_later_to @post, "console.log",
+        args: ["Post was saved! #{@post.to_gid.to_s}"]
     end
   end
 end
