@@ -154,14 +154,10 @@ You can **chain invocations.** ❤️
 
 ```ruby
 turbo_stream
-   # dot notation
-  .invoke("document.body.insertAdjacentHTML", args: ["afterbegin", "<h1>Hello World!</h1>"])
-  # selector
-  .invoke("setAttribute", args: ["data-turbo-ready", true], selector: ".button")
-  # dot notation + selector
-  .invoke("classList.add", args: ["turbo-ready"], selector: "a")
-  # call flush when chaining invocations
-  .flush
+  .invoke("document.body.insertAdjacentHTML", args: ["afterbegin", "<h1>Hello World!</h1>"]) # dot notation
+  .invoke("setAttribute", args: ["data-turbo-ready", true], selector: ".button") # selector
+  .invoke("classList.add", args: ["turbo-ready"], selector: "a") # dot notation + selector
+  .flush # call flush when chaining invocations
 ```
 
 You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation)
@@ -171,14 +167,10 @@ Can I dispatch events? **You bet!** ⚡️
 
 ```ruby
 turbo_stream
-  # fires on window
-  .invoke("dispatchEvent", args: ["turbo-ready:demo"])
-  # fires on document
-  .invoke("document.dispatchEvent", args: ["turbo-ready:demo"])
-  # fires on matching element(s)
-  .invoke("dispatchEvent", args: ["turbo-ready:demo"], selector: "#my-element")
-  # set event options
-  .invoke("dispatchEvent", args: ["turbo-ready:demo", {bubbles: true, detail: {...}}])
+  .invoke("dispatchEvent", args: ["turbo-ready:demo"]) # fires on window
+  .invoke("document.dispatchEvent", args: ["turbo-ready:demo"]) # fires on document
+  .invoke("dispatchEvent", args: ["turbo-ready:demo"], selector: "#my-element") # fires on matching element(s)
+  .invoke("dispatchEvent", args: ["turbo-ready:demo", {bubbles: true, detail: {...}}]) # set event options
   .flush
 ```
 
@@ -279,7 +271,7 @@ Sometimes you'll want to broadcast stream invocations to other users.
 <!-- app/views/posts/show.html.erb -->
 <%= turbo_stream_from @post %>
 <!--                  |
-                      |- *streamables - model(s), string(*), etc...
+                      |- *streamables - model(s), string(s), etc...
 -->
 ```
 

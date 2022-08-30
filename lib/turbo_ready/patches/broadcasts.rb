@@ -12,9 +12,9 @@ module TurboReady::Patches
       broadcast_stream_to(*streamables, content: turbo_stream_invoke_tag(method, **kwargs))
     end
 
-    # TODO: update this so it works
-    def broadcast_invoke_later_to(*streamables, **rendering)
-      Turbo::Streams::BroadcastJob.perform_later stream_name_from(streamables), **rendering
+    def broadcast_invoke_later_to(*streamables, method, **kwargs)
+      Turbo::Streams::BroadcastJob.perform_later \
+        stream_name_from(streamables), turbo_stream_invoke_tag(method, **kwargs)
     end
   end
 end
