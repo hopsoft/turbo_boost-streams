@@ -217,7 +217,7 @@ turbo_stream.invoke "MyNamespace.morph",
   args: [
     "#demo",
     "<div id='demo'><p>You've changed...</p></div>",
-    {childrenOnly: true}
+    {children_only: true}
   ]
 ```
 
@@ -265,7 +265,7 @@ turbo_stream.invoke "console.log", args: ["Hello World!"]
 ## Broadcasting
 
 Sometimes you'll want to broadcast stream invocations to other users.
-**Here's how we do it.** 📡
+**Here's how.** 📡
 
 ```erb
 <!-- app/views/posts/show.html.erb -->
@@ -293,8 +293,11 @@ class PostsController < ApplicationController
 
     if @post.update post_params
       # emit a message in the browser conosle for anyone subscribed to this post
-      Turbo::StreamsChannel.broadcast_invoke_to @post, "console.log",
-        args: ["Post was saved! #{@post.to_gid.to_s}"]
+      @post.broadcast_invoke "console.log", args: ["Post was saved! #{to_gid.to_s}"]
+
+      # you can also broadcast directly from the channel
+      # Turbo::StreamsChannel.broadcast_invoke_to @post, "console.log",
+      #   args: ["Post was saved! #{@post.to_gid.to_s}"]
     end
   end
 end
@@ -303,7 +306,7 @@ end
 ### Configuration
 
 You may want to change the the queue name for Turbo Stream jobs.
-Here's how.** 💡
+**Let's fine tune things.** 🔧
 
 ```ruby
 # config/initializers/turbo_streams.rb
