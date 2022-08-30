@@ -11,7 +11,7 @@
   </h1>
   <p align="center">
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/" target="_blank">
-      <img alt="Lines of Code" src="https://img.shields.io/badge/loc-278-47d299.svg" />
+      <img alt="Lines of Code" src="https://img.shields.io/badge/loc-308-47d299.svg" />
     </a>
     <a href="https://codeclimate.com/github/hopsoft/turbo_ready/maintainability" target="_blank">
       <img src="https://api.codeclimate.com/v1/badges/a69b6f73abc3ccd49261/maintainability" />
@@ -50,7 +50,7 @@ browser's [Document Object Model (DOM).](https://developer.mozilla.org/en-US/doc
 You can `invoke` any DOM method on any DOM object *(including 3rd party libs)* using Turbo Streams.
 
 ```ruby
-turbo_stream.invoke "console.log", "Hello World!"
+turbo_stream.invoke "console.log", args: ["Hello World!"]
 ```
 
 <!-- Tocer[start]: Auto-generated, don't remove. -->
@@ -154,10 +154,14 @@ You can **chain invocations.** ❤️
 
 ```ruby
 turbo_stream
-  .invoke("document.body.insertAdjacentHTML", "afterbegin", "<h1>Hello World!</h1>") # dot notation
-  .invoke("setAttribute", "data-turbo-ready", true, selector: ".button") # selector
-  .invoke("classList.add", "turbo-ready", selector: "a") # dot notation + selector
-  .flush # flush must be called when chaining invocations
+   # dot notation
+  .invoke("document.body.insertAdjacentHTML", args: ["afterbegin", "<h1>Hello World!</h1>"])
+  # selector
+  .invoke("setAttribute", args: ["data-turbo-ready", true], selector: ".button")
+  # dot notation + selector
+  .invoke("classList.add", args: ["turbo-ready"], selector: "a")
+  # call flush when chaining invocations
+  .flush
 ```
 
 You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation)
@@ -167,10 +171,14 @@ Can I dispatch events? **You bet!** ⚡️
 
 ```ruby
 turbo_stream
-  .invoke("dispatchEvent", "turbo-ready:demo") # fires on window
-  .invoke("document.dispatchEvent", "turbo-ready:demo") # fires on document
-  .invoke("dispatchEvent", "turbo-ready:demo", selector: "#my-element") # fires on matching element(s)
-  .invoke("dispatchEvent", {bubbles: true, detail: {...}}) # set event options
+  # fires on window
+  .invoke("dispatchEvent", args: ["turbo-ready:demo"])
+  # fires on document
+  .invoke("document.dispatchEvent", args: ["turbo-ready:demo"])
+  # fires on matching element(s)
+  .invoke("dispatchEvent", args: ["turbo-ready:demo"], selector: "#my-element")
+  # set event options
+  .invoke("dispatchEvent", args: ["turbo-ready:demo", {bubbles: true, detail: {...}}])
   .flush
 ```
 
@@ -180,10 +188,9 @@ You can use symbols and [snake case](https://en.wikipedia.org/wiki/Snake_case) w
 It'll implicitly convert to [camel case](https://en.wikipedia.org/wiki/Camel_case). 💎
 
 ```ruby
-turbo_stream
-  .invoke(:animate, [{opacity: 0}, {opacity: 1}], 2000, selector: "#example")
-  .invoke(:dispatch_event, {detail: {converts_to_camel_case: true}}, selector: "#example")
-  .flush
+turbo_stream.invoke :dispatch_event,
+  args: ["turbo-ready:demo", {detail: {converts_to_camel_case: true}}],
+  selector: "#example"
 ```
 
 Need to opt out of camelize? No problem... just disable it.
@@ -214,8 +221,12 @@ window.MyNamespace = {
 
 ```ruby
 # Ruby
-turbo_stream
-  .invoke "MyNamespace.morph", "#demo", "<div id='demo'><p>You've changed...</p></div>", {childrenOnly: true}
+turbo_stream.invoke "MyNamespace.morph",
+  args: [
+    "#demo",
+    "<div id='demo'><p>You've changed...</p></div>",
+    {childrenOnly: true}
+  ]
 ```
 
 ## Public API
@@ -226,16 +237,16 @@ There's only one method to consider, `invoke` defined in the
 ```ruby
 # Ruby
 turbo_stream
-  .invoke(method, *args, selector: nil, camelize: true, id: nil)
-#         |        |     |              |               |
-#         |        |     |              |               |- Identifies this invocation (optional)
-#         |        |     |              |
-#         |        |     |              |- Should we camelize the JavaScript stuff? (optional)
-#         |        |     |                 (allows us to write snake_case Ruby)
-#         |        |     |
-#         |        |     |- An CSS selector for the element(s) to target (optional)
-#         |        |
-#         |        |- The arguments to pass to the JavaScript method being invoked (optional)
+  .invoke(method, args: [], selector: nil, camelize: true, id: nil)
+#         |       |         |              |               |
+#         |       |         |              |               |- Identifies this invocation (optional)
+#         |       |         |              |
+#         |       |         |              |- Should we camelize the JavaScript stuff? (optional)
+#         |       |         |                 (allows us to write snake_case Ruby)
+#         |       |         |
+#         |       |         |- An CSS selector for the element(s) to target (optional)
+#         |       |
+#         |       |- The arguments to pass to the JavaScript method being invoked (optional)
 #         |
 #         |- The JavaScript method to invoke (can use dot notation)
 ```
@@ -248,7 +259,7 @@ The `turbo_stream.invoke` method creates a `turbo-stream` HTML element which wra
 When this element is inserted into the DOM, Turbo Streams executes the `invoke` action on the client which parses and executes the JSON payload.
 
 ```ruby
-turbo_stream.invoke "console.log", "Hello World!"
+turbo_stream.invoke "console.log", args: ["Hello World!"]
 ```
 
 ```html
@@ -257,6 +268,44 @@ turbo_stream.invoke "console.log", "Hello World!"
     {"id":"644d6878-6b97-4b8e-9054-50f59abe57bb","method":"log","args":["Hello World!"],"receiver":"console","selector":null}
   </template>
 </turbo-stream>
+```
+
+## Broadcasting
+
+Sometimes you'll want to broadcast stream invocations to other users.
+**Here's how we do it.** 📡
+
+```erb
+<!-- app/views/posts/show.html.erb -->
+<%= turbo_stream_from @post %>
+<!--                  |
+                      |- *streamables - model(s), string(*), etc...
+-->
+```
+
+```ruby
+# app/models/post.rb
+class Post < ApplicationRecord
+  after_save do
+    # emit a message in the browser conosle for anyone subscribed to this post
+    broadcast_invoke "console.log", args: ["Post was saved! #{to_gid.to_s}"]
+  end
+end
+```
+
+```ruby
+# app/controllers/posts_controller.rb
+class PostsController < ApplicationController
+  def create
+    @post = Post.find params[:id]
+
+    if @post.update post_params
+      # emit a message in the browser conosle for anyone subscribed to this post
+      Turbo::StreamsChannel.broadcast_invoke_to @post, "console.log",
+        args: ["Post was saved! #{@post.to_gid.to_s}"]
+    end
+  end
+end
 ```
 
 ## FAQ
