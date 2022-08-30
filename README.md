@@ -11,7 +11,7 @@
   </h1>
   <p align="center">
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/" target="_blank">
-      <img alt="Lines of Code" src="https://img.shields.io/badge/loc-308-47d299.svg" />
+      <img alt="Lines of Code" src="https://img.shields.io/badge/loc-307-47d299.svg" />
     </a>
     <a href="https://codeclimate.com/github/hopsoft/turbo_ready/maintainability" target="_blank">
       <img src="https://api.codeclimate.com/v1/badges/a69b6f73abc3ccd49261/maintainability" />
@@ -298,6 +298,17 @@ class PostsController < ApplicationController
     end
   end
 end
+```
+
+### Configuration
+
+You may want to change the the queue name for Turbo Stream jobs.
+Here's how.** 💡
+
+```ruby
+# config/initializers/turbo_streams.rb
+Turbo::Streams::BroadcastJob.queue_name = :turbo_streams
+TurboReady::BroadcastInvokeJob.queue_name = :turbo_streams
 ```
 
 ## FAQ

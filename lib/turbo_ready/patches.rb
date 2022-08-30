@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
-require "turbo_ready/patches/broadcastable"
-require "turbo_ready/patches/broadcasts"
-require "turbo_ready/patches/tag_builder"
+module TurboReady::Patches
+end
+
+require_relative "patches/broadcastable"
+require_relative "patches/broadcasts"
+require_relative "patches/tag_builder"
