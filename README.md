@@ -46,12 +46,12 @@
 TurboReady extends [Turbo Streams](https://turbo.hotwired.dev/reference/streams) to give you full control of the
 browser's [Document Object Model (DOM).](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
 
-**Thats right!**
-You can `invoke` any DOM method on any DOM object *(including 3rd party libs)* using Turbo Streams.
-
 ```ruby
 turbo_stream.invoke "console.log", args: ["Hello World!"]
 ```
+
+**Thats right!**
+You can `invoke` any DOM method on any DOM object *(including 3rd party libs)* using Turbo Streams.
 
 <!-- Tocer[start]: Auto-generated, don't remove. -->
 
@@ -67,6 +67,9 @@ turbo_stream.invoke "console.log", args: ["Hello World!"]
   - [What Else Can I Do?](#what-else-can-i-do)
     - [Extending Behavior](#extending-behavior)
   - [Public API](#public-api)
+    - [Implementation Details](#implementation-details)
+  - [Broadcasting](#broadcasting)
+    - [Configuration](#configuration)
   - [FAQ](#faq)
   - [A Word of Caution](#a-word-of-caution)
   - [Community](#community)
@@ -87,10 +90,10 @@ considerable number of use cases and you should push Streams as far as possible 
 
 If you discover that CRUD isn't enough, TurboReady covers pretty much everything else.
 
-**IMPORTANT:** TurboReady is intended for Rails apps that use Hotwire but not [CableReady](https://github.com/stimulusreflex/cable_ready)
-as CableReady already provides a rich set of [offically supported DOM operations](https://cableready.stimulusreflex.com/reference/operations).
+> **IMPORTANT:** TurboReady is intended for Rails apps that use Hotwire but not [CableReady](https://github.com/stimulusreflex/cable_ready)
+> as CableReady already provides a rich set of [offically supported DOM operations](https://cableready.stimulusreflex.com/reference/operations).
 
-**NOTE:** Efforts are already underway to bring CableReady's [DOM operations to Turbo Streams](https://github.com/marcoroth/turbo_power).
+> *NOTE:* Efforts are already underway to bring CableReady's [DOM operations to Turbo Streams](https://github.com/marcoroth/turbo_power).
 
 ## Sponsors
 
@@ -116,7 +119,7 @@ bundle add "turbo_ready --version VERSION"
 yarn add "turbo_ready@VERSION --exact"
 ```
 
-**IMPORTANT:** Be sure to use the same version for each libary.
+> **IMPORTANT:** Be sure to use the same version for each libary.
 
 ## Setup
 
@@ -243,7 +246,7 @@ turbo_stream
 #         |- The JavaScript method to invoke (can use dot notation)
 ```
 
-**NOTE:** The JavaScript method will be invoked on all matching elements when a `selector` is passed.
+> *NOTE:* The JavaScript method will be invoked on all matching elements when a `selector` is passed.
 
 ### Implementation Details
 
@@ -310,7 +313,7 @@ end
 ### Configuration
 
 You may want to change the the queue name for Turbo Stream jobs.
-**Let's fine tune things.** 🔧
+**Let's tune things.** 🔧
 
 ```ruby
 # config/initializers/turbo_streams.rb
