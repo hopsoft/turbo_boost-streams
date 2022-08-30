@@ -51,7 +51,7 @@ turbo_stream.invoke "console.log", args: ["Hello World!"]
 ```
 
 **Thats right!**
-You can `invoke` any DOM method on any DOM object *(including 3rd party libs)* using Turbo Streams.
+You can `invoke` any DOM method on the client with Turbo Streams.
 
 <!-- Tocer[start]: Auto-generated, don't remove. -->
 
