@@ -90,10 +90,10 @@ These [official actions](https://turbo.hotwired.dev/reference/streams#the-seven-
 
 But if you find that CRUD isn't enough, TurboReady covers pretty much everything else.
 
-> ⚠️ TurboReady is intended for Rails apps that use Hotwire but not [CableReady](https://github.com/stimulusreflex/cable_ready)
-> as CableReady already provides a rich set of [offically supported DOM operations](https://cableready.stimulusreflex.com/reference/operations).
+⚠️ TurboReady is intended for Rails apps that use Hotwire but not [CableReady](https://github.com/stimulusreflex/cable_ready).
+This is because CableReady already provides a rich set of powerful [DOM operations](https://cableready.stimulusreflex.com/reference/operations).
 
-> 💡 Efforts are already underway to bring CableReady's [DOM operations to Turbo Streams](https://github.com/marcoroth/turbo_power).
+💡 Efforts are underway to bring [CableReady's DOM operations to Turbo Streams](https://github.com/marcoroth/turbo_power).
 
 ## Sponsors
 
@@ -119,7 +119,13 @@ bundle add "turbo_ready --version VERSION"
 yarn add "turbo_ready@VERSION --exact"
 ```
 
-> ⚠️ Be sure to use the same version for each libary.
+⚠️ Be sure to use the same version for each libary.
+
+{% note %}
+
+**Note:** Owners and administrators can add outside collaborators to a repository.
+
+{% endnote %}
 
 ## Setup
 
@@ -167,7 +173,7 @@ turbo_stream
   .flush # call flush when chaining invocations
 ```
 
-> 💡 You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation)
+💡 You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation)
 or [selectors](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... even combine them!
 
 ### Dispatching Events
@@ -253,7 +259,7 @@ turbo_stream
 #         |- The JavaScript method to invoke (can use dot notation)
 ```
 
-> 💡The JavaScript method will be invoked on all matching elements when a `selector` is passed.
+💡The JavaScript method will be invoked on all matching elements when a `selector` is passed.
 
 ### Implementation Details
 
