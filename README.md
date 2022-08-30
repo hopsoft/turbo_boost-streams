@@ -264,7 +264,7 @@ turbo_stream.invoke "console.log", args: ["Hello World!"]
 
 ## Broadcasting
 
-Sometimes you'll want to broadcast stream invocations to other users.
+Sometimes you'll want to broadcast DOM invocations to multiple users.
 **Here's how.** 📡
 
 ```erb
