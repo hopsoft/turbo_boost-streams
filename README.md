@@ -68,8 +68,8 @@ You can `invoke` any DOM method on the client with Turbo Streams.
     - [Syntax Styles](#syntax-styles)
     - [Extending Behavior](#extending-behavior)
     - [Implementation Details](#implementation-details)
-  - [Broadcasting](#broadcasting)
-    - [Configuration](#configuration)
+    - [Broadcasting](#broadcasting)
+      - [Queue Name](#queue-name)
   - [FAQ](#faq)
   - [A Word of Caution](#a-word-of-caution)
   - [Community](#community)
@@ -268,7 +268,7 @@ The code above emits this HTML markup.
 </turbo-stream>
 ```
 
-## Broadcasting
+### Broadcasting
 
 Sometimes you'll want to broadcast DOM invocations to multiple users.
 **Here's how.**
@@ -315,7 +315,7 @@ end
 
 📘 Chaining is not currently supported when broadcasting.
 
-### Configuration
+#### Queue Name
 
 You may want to change the the queue name for Turbo Stream jobs.
 
