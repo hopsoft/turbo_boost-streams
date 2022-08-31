@@ -11,7 +11,7 @@
   </h1>
   <p align="center">
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/" target="_blank">
-      <img alt="Lines of Code" src="https://img.shields.io/badge/loc-278-47d299.svg" />
+      <img alt="Lines of Code" src="https://img.shields.io/badge/loc-307-47d299.svg" />
     </a>
     <a href="https://codeclimate.com/github/hopsoft/turbo_ready/maintainability" target="_blank">
       <img src="https://api.codeclimate.com/v1/badges/a69b6f73abc3ccd49261/maintainability" />
@@ -46,12 +46,12 @@
 TurboReady extends [Turbo Streams](https://turbo.hotwired.dev/reference/streams) to give you full control of the
 browser's [Document Object Model (DOM).](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
 
-**Thats right!**
-You can `invoke` any DOM method on any DOM object *(including 3rd party libs)* using Turbo Streams.
-
 ```ruby
-turbo_stream.invoke "console.log", "Hello World!"
+turbo_stream.invoke "console.log", args: ["Hello World!"]
 ```
+
+**Thats right!**
+You can `invoke` any DOM method on the client with Turbo Streams.
 
 <!-- Tocer[start]: Auto-generated, don't remove. -->
 
@@ -63,16 +63,20 @@ turbo_stream.invoke "console.log", "Hello World!"
   - [Installation](#installation)
   - [Setup](#setup)
   - [Usage](#usage)
-  - [Advanced Usage](#advanced-usage)
-  - [What Else Can I Do?](#what-else-can-i-do)
+    - [Method Chaining](#method-chaining)
+    - [Dispatching Events](#dispatching-events)
+    - [Syntax Styles](#syntax-styles)
     - [Extending Behavior](#extending-behavior)
-  - [Public API](#public-api)
+    - [Implementation Details](#implementation-details)
+    - [Broadcasting](#broadcasting)
+      - [Queue Name](#queue-name)
   - [FAQ](#faq)
   - [A Word of Caution](#a-word-of-caution)
   - [Community](#community)
     - [Discord](#discord)
     - [Discussions](#discussions)
     - [Twitter](#twitter)
+  - [TODOs](#todos)
   - [Releasing](#releasing)
   - [License](#license)
 
@@ -82,15 +86,15 @@ turbo_stream.invoke "console.log", "Hello World!"
 
 Turbo Streams [intentionally restricts](https://turbo.hotwired.dev/handbook/streams#but-what-about-running-javascript%3F)
 official actions to CRUD related activity.
-The [official actions](https://turbo.hotwired.dev/reference/streams#the-seven-actions) work well for a
-considerable number of use cases and you should push Streams as far as possible before reaching for TurboReady.
+These [official actions](https://turbo.hotwired.dev/reference/streams#the-seven-actions) work well for a large number of use cases.
+*You should push Turbo Streams as far as possible before reaching for TurboReady.*
 
-If you discover that CRUD isn't enough, TurboReady covers pretty much everything else.
+But if you find that CRUD isn't enough, TurboReady covers pretty much everything else.
 
-**IMPORTANT:** TurboReady is intended for Rails apps that use Hotwire but not [CableReady](https://github.com/stimulusreflex/cable_ready)
-as CableReady already provides a rich set of [offically supported DOM operations](https://cableready.stimulusreflex.com/reference/operations).
+⚠️ TurboReady is intended for Rails apps that use Hotwire but not [CableReady](https://github.com/stimulusreflex/cable_ready).
+This is because CableReady already provides a rich set of powerful [DOM operations](https://cableready.stimulusreflex.com/reference/operations).
 
-**NOTE:** Efforts are already underway to bring CableReady's [DOM operations to Turbo Streams](https://github.com/marcoroth/turbo_power).
+💡 Efforts are underway to bring [CableReady's DOM operations to Turbo Streams](https://github.com/marcoroth/turbo_power).
 
 ## Sponsors
 
@@ -116,90 +120,92 @@ bundle add "turbo_ready --version VERSION"
 yarn add "turbo_ready@VERSION --exact"
 ```
 
-**IMPORTANT:** Be sure to use the same version for each libary.
+⚠️ Be sure to use the same version for each libary.
 
 ## Setup
 
-1. Import and intialize TurboReady in your application.
+Import and intialize TurboReady in your application.
 
-    ```diff
-    # Gemfile
-    +gem "turbo_ready", "~> 0.0.5"
-    ```
+```diff
+# Gemfile
++gem "turbo_ready", "~> 0.0.5"
+```
 
-    ```diff
-    # package.json
-    "dependencies": {
-    +  "@hotwired/turbo-rails": ">=7.2.0-beta.2",
-    +  "turbo_ready": "^0.0.5"
-    ```
+```diff
+# package.json
+"dependencies": {
++  "@hotwired/turbo-rails": ">=7.2.0-beta.2",
++  "turbo_ready": "^0.0.5"
+```
 
-    ```diff
-    # app/javascript/application.js
-    import '@hotwired/turbo-rails'
-    +import TurboReady from 'turbo_ready'
+```diff
+# app/javascript/application.js
+import '@hotwired/turbo-rails'
++import TurboReady from 'turbo_ready'
 
-    +TurboReady.initialize(Turbo.StreamActions) // Adds TurboReady stream actions to Turbo
-    ```
++TurboReady.initialize(Turbo.StreamActions) // Adds TurboReady stream actions to Turbo
+```
 
 ## Usage
 
-Manipulate the DOM from anywhere you use [official Turbo Streams](https://turbo.hotwired.dev/handbook/streams#integration-with-server-side-frameworks).
-Namely, [**M**odels](https://guides.rubyonrails.org/active_model_basics.html),
+Manipulate the DOM from anywhere you use official [Turbo Streams](https://turbo.hotwired.dev/handbook/streams#integration-with-server-side-frameworks).
+*Namely, [**M**odels](https://guides.rubyonrails.org/active_model_basics.html),
 [**V**iews](https://guides.rubyonrails.org/action_view_overview.html),
 [**C**ontrollers](https://guides.rubyonrails.org/action_controller_overview.html)
-and [Jobs](https://guides.rubyonrails.org/active_job_basics.html).
+and [Jobs](https://guides.rubyonrails.org/active_job_basics.html).*
 
-You can **chain invocations.** ❤️
+The possibilities are endless.
+[Learn about the DOM on MDN.](https://developer.mozilla.org/en-US/docs/Web/API.)
 
 ```ruby
-turbo_stream
-  .invoke("document.body.insertAdjacentHTML", "afterbegin", "<h1>Hello World!</h1>") # dot notation
-  .invoke("setAttribute", "data-turbo-ready", true, selector: ".button") # selector
-  .invoke("classList.add", "turbo-ready", selector: "a") # dot notation + selector
-  .flush # flush must be called when chaining invocations
+turbo_stream.invoke "console.log", args: ["Hello World!"]
 ```
 
-You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation)
-or [selectors](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... **and can even combine them!** 🤯
+### Method Chaining
 
-Can I dispatch events? **You bet!** ⚡️
+📘 You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation)
+or [selectors](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... even combine them!
 
 ```ruby
 turbo_stream
-  .invoke("dispatchEvent", "turbo-ready:demo") # fires on window
-  .invoke("document.dispatchEvent", "turbo-ready:demo") # fires on document
-  .invoke("dispatchEvent", "turbo-ready:demo", selector: "#my-element") # fires on matching element(s)
-  .invoke("dispatchEvent", {bubbles: true, detail: {...}}) # set event options
+  .invoke("document.body.insertAdjacentHTML", args: ["afterbegin", "<h1>Hello World!</h1>"]) # dot notation
+  .invoke("setAttribute", args: ["data-turbo-ready", true], selector: ".button") # selector
+  .invoke("classList.add", args: ["turbo-ready"], selector: "a") # dot notation + selector
+  .flush # call flush when chaining invocations
+```
+
+### Dispatching Events
+
+It's possible to fire events on `window`, `document`, and element(s).
+
+```ruby
+turbo_stream
+  .invoke("dispatchEvent", args: ["turbo-ready:demo"]) # fires on window
+  .invoke("document.dispatchEvent", args: ["turbo-ready:demo"]) # fires on document
+  .invoke("dispatchEvent", args: ["turbo-ready:demo"], selector: "#my-element") # fires on matching element(s)
+  .invoke("dispatchEvent", args: ["turbo-ready:demo", {bubbles: true, detail: {...}}]) # set event options
   .flush
 ```
 
-## Advanced Usage
+### Syntax Styles
 
-You can use symbols and [snake case](https://en.wikipedia.org/wiki/Snake_case) when invoking DOM functionality.
-It'll implicitly convert to [camel case](https://en.wikipedia.org/wiki/Camel_case). 💎
+You can also use [`snake_case`](https://en.wikipedia.org/wiki/Snake_case) when invoking DOM functionality.
+It will implicitly convert to [`camelCase`](https://en.wikipedia.org/wiki/Camel_case).
 
 ```ruby
-turbo_stream
-  .invoke(:animate, [{opacity: 0}, {opacity: 1}], 2000, selector: "#example")
-  .invoke(:dispatch_event, {detail: {converts_to_camel_case: true}}, selector: "#example")
-  .flush
+turbo_stream.invoke :dispatch_event,
+  args: ["turbo-ready:demo", {detail: {converts_to_camel_case: true}}]
 ```
 
-Need to opt out of camelize? No problem... just disable it.
+Need to opt out? No problem... just disable it.
 
 ```ruby
 turbo_stream.invoke :contrived_demo, camelize: false
 ```
 
-## What Else Can I Do?
-
-**The possibilities are endless**
-and MDN has your back... [learn about the DOM and web APIs here.](https://developer.mozilla.org/en-US/docs/Web/API.)
-
 ### Extending Behavior
 
-Want to extend things with custom functionality? **Let's do it.** 🔌
+If you add new capabilities to the client, you can control it from the server.
 
 ```js
 // JavaScript
@@ -214,42 +220,45 @@ window.MyNamespace = {
 
 ```ruby
 # Ruby
-turbo_stream
-  .invoke "MyNamespace.morph", "#demo", "<div id='demo'><p>You've changed...</p></div>", {childrenOnly: true}
+turbo_stream.invoke "MyNamespace.morph",
+  args: [
+    "#demo",
+    "<div id='demo'><p>You've changed...</p></div>",
+    {children_only: true}
+  ]
 ```
 
-## Public API
+### Implementation Details
 
-There's only one method to consider, `invoke` defined in the
-[tag builder](https://github.com/hopsoft/turbo_ready/blob/main/lib/turbo_ready/tag_builder.rb).
+There's basically one method to consider: `invoke`
 
 ```ruby
 # Ruby
 turbo_stream
-  .invoke(method, *args, selector: nil, camelize: true, id: nil)
-#         |        |     |              |               |
-#         |        |     |              |               |- Identifies this invocation (optional)
-#         |        |     |              |
-#         |        |     |              |- Should we camelize the JavaScript stuff? (optional)
-#         |        |     |                 (allows us to write snake_case Ruby)
-#         |        |     |
-#         |        |     |- An CSS selector for the element(s) to target (optional)
-#         |        |
-#         |        |- The arguments to pass to the JavaScript method being invoked (optional)
+  .invoke(method, args: [], selector: nil, camelize: true, id: nil)
+#         |       |         |              |               |
+#         |       |         |              |               |- Identifies this invocation (optional)
+#         |       |         |              |
+#         |       |         |              |- Should we camelize the JavaScript stuff? (optional)
+#         |       |         |                 (allows us to write snake_case Ruby)
+#         |       |         |
+#         |       |         |- An CSS selector for the element(s) to target (optional)
+#         |       |
+#         |       |- The arguments to pass to the JavaScript method being invoked (optional)
 #         |
 #         |- The JavaScript method to invoke (can use dot notation)
 ```
 
-**NOTE:** The JavaScript method will be invoked on all matching elements when a `selector` is passed.
+📘 The JavaScript method will be invoked on all matching elements if a `selector` is present.
 
-### Implementation Details
-
-The `turbo_stream.invoke` method creates a `turbo-stream` HTML element which wraps a JSON payload.
-When this element is inserted into the DOM, Turbo Streams executes the `invoke` action on the client which parses and executes the JSON payload.
+The `invoke` method creates a `turbo-stream` HTML element which wraps a JSON payload.
+When this element enters the DOM, Turbo Streams executes the `invoke` action on the client with the JSON payload.
 
 ```ruby
-turbo_stream.invoke "console.log", "Hello World!"
+turbo_stream.invoke "console.log", args: ["Hello World!"]
 ```
+
+The code above emits this HTML markup.
 
 ```html
 <turbo-stream action="invoke" target="DOM">
@@ -257,6 +266,65 @@ turbo_stream.invoke "console.log", "Hello World!"
     {"id":"644d6878-6b97-4b8e-9054-50f59abe57bb","method":"log","args":["Hello World!"],"receiver":"console","selector":null}
   </template>
 </turbo-stream>
+```
+
+### Broadcasting
+
+We can also broadcast DOM invocations to multiple users.
+First, setup the stream subscription.
+
+```erb
+<!-- app/views/posts/show.html.erb -->
+<%= turbo_stream_from @post %>
+<!--                  |
+                      |- *streamables - model(s), string(s), etc...
+-->
+```
+
+Then broadcast to the subscription.
+
+```ruby
+# app/models/post.rb
+class Post < ApplicationRecord
+  after_save do
+    # emit a message in the browser conosle for anyone subscribed to this post
+    broadcast_invoke "console.log", args: ["Post was saved! #{to_gid.to_s}"]
+  end
+end
+```
+
+```ruby
+# app/controllers/posts_controller.rb
+class PostsController < ApplicationController
+  def create
+    @post = Post.find params[:id]
+
+    if @post.update post_params
+      # emit a message in the browser conosle for anyone subscribed to this post
+      @post.broadcast_invoke "console.log", args: ["Post was saved! #{to_gid.to_s}"]
+
+      # you can also broadcast directly from the channel
+      Turbo::StreamsChannel.broadcast_invoke_to @post, "console.log",
+        args: ["Post was saved! #{@post.to_gid.to_s}"]
+
+      # or even handle the broadcast with a background job
+      Turbo::StreamsChannel.broadcast_invoke_later_to @post, "console.log",
+        args: ["Post was saved! #{@post.to_gid.to_s}"]
+    end
+  end
+end
+```
+
+📘 [Method Chaining](#method-chaining) is not currently supported when broadcasting.
+
+#### Queue Name
+
+You can change the queue name for Turbo Stream background jobs to isolate, prioritize, and scale the work.
+
+```ruby
+# config/initializers/turbo_streams.rb
+Turbo::Streams::BroadcastJob.queue_name = :turbo_streams
+TurboReady::BroadcastInvokeJob.queue_name = :turbo_streams
 ```
 
 ## FAQ
@@ -274,17 +342,16 @@ turbo_stream.invoke "console.log", "Hello World!"
 ## A Word of Caution
 
 Manually orchestrating DOM activity gets tedious fast.
-**⚠️ Don't abuse this superpower!**
+**Don't abuse this superpower!**
 
 > With great power comes great responsibility. *-Uncle Ben*
 
 This library is an extremely sharp tool. 🔪
-Consider it a low-level building block that can be used to craft additional libraries with
-great [DX](https://en.wikipedia.org/wiki/User_experience#Developer_experience)
+Consider it a low-level building block that can be used to craft additional libraries
 like [CableReady](https://github.com/stimulusreflex/cable_ready)
 and [StimulusReflex](https://github.com/stimulusreflex/stimulus_reflex).
 
-Restrict your direct application usage to DOM manipulation that falls outside the purview of
+Restrict your usage to things that falls outside the purview of
 [Turbo's official actions](https://turbo.hotwired.dev/reference/streams#the-seven-actions)...
 *don't overdo it and find yourself maintaining spaghetti code reminiscent of the jQuery days.*
 
@@ -316,6 +383,10 @@ Connect with the core team on Twitter.
 <a href="https://twitter.com/hopsoft" target="_blank">
   <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/hopsoft?logo=twitter&style=social">
 </a>
+
+## TODOs
+
+- [ ] Add system tests [(review turbo-rails for guidance)](https://github.com/hotwired/turbo-rails/blob/main/test/system/broadcasts_test.rb)
 
 ## Releasing
 

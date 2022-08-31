@@ -2,27 +2,36 @@
 
 require_relative "lib/turbo_ready/version"
 
-Gem::Specification.new do |spec|
-  spec.name = "turbo_ready"
-  spec.version = TurboReady::VERSION
-  spec.authors = ["Nate Hopkins (hopsoft)"]
-  spec.email = ["natehop@gmail.com"]
-  spec.homepage = "https://github.com/hopsoft/turbo_ready"
-  spec.summary = "Take full control of the DOM with Turbo Streams"
-  spec.description = spec.summary
-  spec.license = "MIT"
+Gem::Specification.new do |s|
+  s.name = "turbo_ready"
+  s.version = TurboReady::VERSION
+  s.authors = ["Nate Hopkins (hopsoft)"]
+  s.email = ["natehop@gmail.com"]
+  s.homepage = "https://github.com/hopsoft/turbo_ready"
+  s.summary = "Take full control of the DOM with Turbo Streams"
+  s.description = s.summary
+  s.license = "MIT"
 
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = spec.homepage
-  spec.metadata["changelog_uri"] = spec.homepage + "/blob/master/CHANGELOG.md"
+  s.metadata["homepage_uri"] = s.homepage
+  s.metadata["source_code_uri"] = s.homepage
+  s.metadata["changelog_uri"] = s.homepage + "/blob/master/CHANGELOG.md"
 
-  spec.files = Dir["lib/**/*.rb", "app/**/*", "bin/*", "[A-Z]*"]
+  s.files = Dir["lib/**/*.rb", "app/**/*", "bin/*", "[A-Z]*"]
 
-  spec.add_dependency "rails", ">= 6.1"
-  spec.add_dependency "turbo-rails", ">= 1.1"
+  s.add_dependency "rails", ">= 6.1"
+  s.add_dependency "turbo-rails", ">= 1.1"
 
-  spec.add_development_dependency "magic_frozen_string_literal"
-  spec.add_development_dependency "pry-byebug"
-  spec.add_development_dependency "standardrb"
-  spec.add_development_dependency "tocer"
+  s.add_development_dependency "capybara"
+  s.add_development_dependency "importmap-rails"
+  s.add_development_dependency "magic_frozen_string_literal"
+  s.add_development_dependency "net-smtp"
+  s.add_development_dependency "pry-byebug"
+  s.add_development_dependency "puma"
+  s.add_development_dependency "rake"
+  s.add_development_dependency "rexml"
+  s.add_development_dependency "selenium-webdriver"
+  s.add_development_dependency "sprockets-rails"
+  s.add_development_dependency "sqlite3"
+  s.add_development_dependency "standardrb"
+  s.add_development_dependency "webdrivers"
 end
