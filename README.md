@@ -10,34 +10,37 @@
     Welcome to TurboReady 👋
   </h1>
   <p align="center">
-    <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/" target="_blank">
+    <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/">
       <img alt="Lines of Code" src="https://img.shields.io/badge/loc-307-47d299.svg" />
     </a>
-    <a href="https://codeclimate.com/github/hopsoft/turbo_ready/maintainability" target="_blank">
+    <a href="https://codeclimate.com/github/hopsoft/turbo_ready/maintainability">
       <img src="https://api.codeclimate.com/v1/badges/a69b6f73abc3ccd49261/maintainability" />
     </a>
-    <a href="https://rubygems.org/gems/turbo_ready" target="_blank">
+    <a href="https://rubygems.org/gems/turbo_ready">
       <img alt="GEM" src="https://img.shields.io/gem/v/turbo_ready?color=168AFE&include_prereleases&logo=ruby&logoColor=FE1616">
     </a>
-    <a href="https://rubygems.org/gems/turbo_ready" target="_blank">
+    <a href="https://rubygems.org/gems/turbo_ready">
       <img alt="Gem" src="https://img.shields.io/gem/dt/turbo_ready?color=168AFE&logo=ruby&logoColor=FE1616">
     </a>
-    <a href="https://github.com/testdouble/standard" target="_blank">
+    <a href="https://github.com/testdouble/standard">
       <img alt="Ruby Style" src="https://img.shields.io/badge/style-standard-168AFE?logo=ruby&logoColor=FE1616" />
     </a>
-    <a href="https://www.npmjs.com/package/turbo_ready" target="_blank">
+    <a href="https://www.npmjs.com/package/turbo_ready">
       <img alt="NPM" src="https://img.shields.io/npm/v/turbo_ready?color=168AFE&logo=npm">
     </a>
-    <a href="https://www.npmjs.com/package/turbo_ready" target="_blank">
+    <a href="https://www.npmjs.com/package/turbo_ready">
       <img alt="npm" src="https://img.shields.io/npm/dm/turbo_ready?color=168AFE&logo=npm">
     </a>
-    <a href="https://bundlephobia.com/package/turbo_ready@" target="_blank">
+    <a href="https://bundlephobia.com/package/turbo_ready@">
       <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/turbo_ready?label=bundle%20size&logo=npm&color=47d299">
     </a>
-    <a href="https://github.com/sheerun/prettier-standard" target="_blank">
+    <a href="https://github.com/sheerun/prettier-standard">
       <img alt="JavaScript Style" src="https://img.shields.io/badge/style-prettier--standard-168AFE?logo=javascript&logoColor=f4e137" />
     </a>
-    <a href="https://twitter.com/hopsoft" target="_blank">
+    <a href="https://github.com/hopsoft/turbo_ready/actions/workflows/tests.yml">
+      <img alt="Tests" src="https://github.com/hopsoft/turbo_ready/actions/workflows/tests.yml/badge.svg" />
+    </a>
+    <a href="https://twitter.com/hopsoft">
       <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/hopsoft?logo=twitter&style=social">
     </a>
   </p>
