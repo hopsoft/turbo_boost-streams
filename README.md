@@ -156,11 +156,17 @@ Manipulate the DOM from anywhere you use official [Turbo Streams](https://turbo.
 [**C**ontrollers](https://guides.rubyonrails.org/action_controller_overview.html)
 and [Jobs](https://guides.rubyonrails.org/active_job_basics.html).*
 
+The possibilities are endless.
+[Learn about the DOM on MDN.](https://developer.mozilla.org/en-US/docs/Web/API.)
+
 ```ruby
 turbo_stream.invoke "console.log", args: ["Hello World!"]
 ```
 
 ### Method Chaining
+
+📘 You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation)
+or [selectors](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... even combine them!
 
 ```ruby
 turbo_stream
@@ -169,9 +175,6 @@ turbo_stream
   .invoke("classList.add", args: ["turbo-ready"], selector: "a") # dot notation + selector
   .flush # call flush when chaining invocations
 ```
-
-📘 You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation)
-or [selectors](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... even combine them!
 
 ### Dispatching Events
 
@@ -183,13 +186,6 @@ turbo_stream
   .invoke("dispatchEvent", args: ["turbo-ready:demo", {bubbles: true, detail: {...}}]) # set event options
   .flush
 ```
-
-## Advanced Usage
-
-### Control the DOM
-
-The possibilities are endless.
-[Learn about the DOM on MDN.](https://developer.mozilla.org/en-US/docs/Web/API.)
 
 ### Syntax Styles
 
@@ -207,7 +203,7 @@ Need to opt out? No problem... just disable it.
 turbo_stream.invoke :contrived_demo, camelize: false
 ```
 
-### Extend Behavior
+### Extending Behavior
 
 Add some new capability to the client.
 
@@ -234,9 +230,9 @@ turbo_stream.invoke "MyNamespace.morph",
   ]
 ```
 
-## Public API
+### Implementation Details
 
-There's only one method to consider, `invoke` defined in the
+There's basically one method to consider, `invoke` defined in the
 [tag builder](https://github.com/hopsoft/turbo_ready/blob/main/lib/turbo_ready/tag_builder.rb).
 
 ```ruby
@@ -256,11 +252,9 @@ turbo_stream
 #         |- The JavaScript method to invoke (can use dot notation)
 ```
 
-📘 The JavaScript method will be invoked on all matching elements when a `selector` is passed.
+📘 The JavaScript method will be invoked on all matching elements if a `selector` is present.
 
-### Implementation Details
-
-The `turbo_stream.invoke` method creates a `turbo-stream` HTML element which wraps a JSON payload.
+The `invoke` method creates a `turbo-stream` HTML element which wraps a JSON payload.
 When this element enters the DOM, Turbo Streams executes the `invoke` action on the client with the JSON payload.
 
 ```ruby
@@ -321,6 +315,8 @@ class PostsController < ApplicationController
   end
 end
 ```
+
+📘 Chaining is not currently supported when broadcasting.
 
 ### Configuration
 
