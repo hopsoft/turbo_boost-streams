@@ -2,22 +2,22 @@
 
 require_relative "lib/turbo_ready/version"
 
-Gem::Specification.new do |spec|
-  spec.name = "turbo_ready"
-  spec.version = TurboReady::VERSION
-  spec.authors = ["Nate Hopkins (hopsoft)"]
-  spec.email = ["natehop@gmail.com"]
-  spec.homepage = "https://github.com/hopsoft/turbo_ready"
-  spec.summary = "Take full control of the DOM with Turbo Streams"
-  spec.description = spec.summary
-  spec.license = "MIT"
+Gem::Specification.new do |s|
+  s.name = "turbo_ready"
+  s.version = TurboReady::VERSION
+  s.authors = ["Nate Hopkins (hopsoft)"]
+  s.email = ["natehop@gmail.com"]
+  s.homepage = "https://github.com/hopsoft/turbo_ready"
+  s.summary = "Take full control of the DOM with Turbo Streams"
+  s.description = s.summary
+  s.license = "MIT"
 
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = spec.homepage
-  spec.metadata["changelog_uri"] = spec.homepage + "/blob/master/CHANGELOG.md"
+  s.metadata["homepage_uri"] = s.homepage
+  s.metadata["source_code_uri"] = s.homepage
+  s.metadata["changelog_uri"] = s.homepage + "/blob/master/CHANGELOG.md"
 
-  spec.files = Dir["lib/**/*.rb", "app/**/*", "bin/*", "[A-Z]*"]
+  s.files = Dir["lib/**/*.rb", "app/**/*", "bin/*", "[A-Z]*"]
 
-  spec.add_dependency "rails", ">= 6.1"
-  spec.add_dependency "turbo-rails", ">= 1.1"
+  s.add_dependency "rails", ">= 6.1"
+  s.add_dependency "turbo-rails", ">= 1.1"
 end
