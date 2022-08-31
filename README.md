@@ -175,6 +175,8 @@ turbo_stream
 
 ### Dispatching Events
 
+It's possible to fire events on `window`, `document`, and element(s).
+
 ```ruby
 turbo_stream
   .invoke("dispatchEvent", args: ["turbo-ready:demo"]) # fires on window
@@ -186,8 +188,8 @@ turbo_stream
 
 ### Syntax Styles
 
-It's possible to use symbols and [`snake_case`](https://en.wikipedia.org/wiki/Snake_case) when invoking DOM functionality.
-It implicitly converts to [`camelCase`](https://en.wikipedia.org/wiki/Camel_case).
+You can also use [`snake_case`](https://en.wikipedia.org/wiki/Snake_case) when invoking DOM functionality.
+It will implicitly convert to [`camelCase`](https://en.wikipedia.org/wiki/Camel_case).
 
 ```ruby
 turbo_stream.invoke :dispatch_event,
@@ -202,7 +204,7 @@ turbo_stream.invoke :contrived_demo, camelize: false
 
 ### Extending Behavior
 
-Add some new capability to the client.
+If you add new capabilities to the client, you can control it from the server.
 
 ```js
 // JavaScript
@@ -214,8 +216,6 @@ window.MyNamespace = {
   }
 }
 ```
-
-Then invoke it from the server.
 
 ```ruby
 # Ruby
@@ -229,8 +229,7 @@ turbo_stream.invoke "MyNamespace.morph",
 
 ### Implementation Details
 
-There's basically one method to consider, `invoke` defined in the
-[tag builder](https://github.com/hopsoft/turbo_ready/blob/main/lib/turbo_ready/tag_builder.rb).
+There's basically one method to consider: `invoke`
 
 ```ruby
 # Ruby
@@ -270,8 +269,8 @@ The code above emits this HTML markup.
 
 ### Broadcasting
 
-Sometimes you'll want to broadcast DOM invocations to multiple users.
-**Here's how.**
+We can also broadcast DOM invocations to multiple users.
+First, setup the ActionCable channel subscription.
 
 ```erb
 <!-- app/views/posts/show.html.erb -->
@@ -280,6 +279,8 @@ Sometimes you'll want to broadcast DOM invocations to multiple users.
                       |- *streamables - model(s), string(s), etc...
 -->
 ```
+
+Then broadcast to the channel.
 
 ```ruby
 # app/models/post.rb
@@ -317,7 +318,7 @@ end
 
 #### Queue Name
 
-You may want to change the the queue name for Turbo Stream jobs.
+You can change the queue name for Turbo Stream background jobs to isolate, prioritize, and scale the work.
 
 ```ruby
 # config/initializers/turbo_streams.rb
