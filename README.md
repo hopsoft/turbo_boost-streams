@@ -292,6 +292,9 @@ class Post < ApplicationRecord
   after_save do
     # emit a message in the browser conosle for anyone subscribed to this post
     broadcast_invoke "console.log", args: ["Post was saved! #{to_gid.to_s}"]
+
+    # broadcast with a background job
+    broadcast_invoke_later "console.log", args: ["Post was saved! #{to_gid.to_s}"]
   end
 end
 ```
@@ -306,11 +309,14 @@ class PostsController < ApplicationController
       # emit a message in the browser conosle for anyone subscribed to this post
       @post.broadcast_invoke "console.log", args: ["Post was saved! #{to_gid.to_s}"]
 
+      # broadcast with a background job
+      @post.broadcast_invoke_later "console.log", args: ["Post was saved! #{to_gid.to_s}"]
+
       # you can also broadcast directly from the channel
       Turbo::StreamsChannel.broadcast_invoke_to @post, "console.log",
         args: ["Post was saved! #{@post.to_gid.to_s}"]
 
-      # or even handle the broadcast with a background job
+      # broadcast with a background job
       Turbo::StreamsChannel.broadcast_invoke_later_to @post, "console.log",
         args: ["Post was saved! #{@post.to_gid.to_s}"]
     end
