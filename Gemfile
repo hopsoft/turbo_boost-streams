@@ -21,15 +21,18 @@ gem "pry-byebug"
 gem "puma"
 gem "rake"
 
-group :test do
+group :development do
+  gem "magic_frozen_string_literal"
+  gem "tocer"
+end
+
+group :development, :test do
   gem "capybara"
   gem "importmap-rails"
-  gem "magic_frozen_string_literal"
   gem "net-smtp"
   gem "rexml"
   gem "selenium-webdriver"
   gem "sqlite3"
   gem "standardrb"
-  gem "tocer"
   gem "webdrivers"
 end
