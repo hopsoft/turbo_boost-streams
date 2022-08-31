@@ -101,11 +101,12 @@ class TurboReady::TagHelperTest < ActiveSupport::TestCase
     assert_equal expected, actual
   end
 
-  test "with event and camelized args" do
-    expected = "<turbo-stream action=\"invoke\" target=\"DOM\"><template>{\"id\":\"1\",\"selector\":\"button.turbo-ready\",\"method\":\"dispatchEvent\",\"args\":[\"turbo-ready:test\",{\"detail\":{\"convertsToCamelCase\":true}}]}</template></turbo-stream>"
-    actual = turbo_stream_invoke_tag(:dispatch_event,
-      args: ["turbo-ready:test", {detail: {converts_to_camel_case: true}}],
+  test "with event and opt out of camelized args" do
+    expected = "<turbo-stream action=\"invoke\" target=\"DOM\"><template>{\"id\":\"1\",\"selector\":\"button.turbo-ready\",\"method\":\"dispatchEvent\",\"args\":[\"turbo-ready:test\",{\"detail\":{\"converts_to_camel_case\":false}}]}</template></turbo-stream>"
+    actual = turbo_stream_invoke_tag("dispatchEvent",
+      args: ["turbo-ready:test", {detail: {converts_to_camel_case: false}}],
       selector: "button.turbo-ready",
+      camelize: false,
       id: 1)
     assert_equal expected, actual
   end
