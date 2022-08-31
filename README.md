@@ -46,8 +46,8 @@
   </p>
 </p>
 
-TurboReady extends [Turbo Streams](https://turbo.hotwired.dev/reference/streams) to give you full control of the
-browser's [Document Object Model (DOM).](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
+**TurboReady extends [Turbo Streams](https://turbo.hotwired.dev/reference/streams) to give you full control of the
+browser's [Document Object Model (DOM).](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)**
 
 ```ruby
 turbo_stream.invoke "console.log", args: ["Hello World!"]
