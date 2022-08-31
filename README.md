@@ -72,7 +72,7 @@ You can `invoke` any DOM method on the client with Turbo Streams.
     - [Extending Behavior](#extending-behavior)
     - [Implementation Details](#implementation-details)
     - [Broadcasting](#broadcasting)
-      - [Queue Name](#queue-name)
+      - [Background Job Queues](#background-job-queues)
   - [FAQ](#faq)
   - [A Word of Caution](#a-word-of-caution)
   - [Community](#community)
@@ -89,15 +89,15 @@ You can `invoke` any DOM method on the client with Turbo Streams.
 
 Turbo Streams [intentionally restricts](https://turbo.hotwired.dev/handbook/streams#but-what-about-running-javascript%3F)
 official actions to CRUD related activity.
-These [official actions](https://turbo.hotwired.dev/reference/streams#the-seven-actions) work well for a large number of use cases.
-*You should push Turbo Streams as far as possible before reaching for TurboReady.*
+These [official actions](https://turbo.hotwired.dev/reference/streams#the-seven-actions) work well for a considerable number of use cases.
+*Try pushing Turbo Streams as far as possible before reaching for TurboReady.*
 
-But if you find that CRUD isn't enough, TurboReady covers pretty much everything else.
+If you find that CRUD isn't enough, TurboReady is there to handle pretty much everything else.
 
 > ⚠️ TurboReady is intended for Rails apps that use Hotwire but not [CableReady](https://github.com/stimulusreflex/cable_ready).
 This is because CableReady already provides a rich set of powerful [DOM operations](https://cableready.stimulusreflex.com/reference/operations).
 
-> 💡 Efforts are underway to bring [CableReady's DOM operations to Turbo Streams](https://github.com/marcoroth/turbo_power).
+> 📘 **NOTE:** Efforts are underway to bring [CableReady's DOM operations to Turbo Streams](https://github.com/marcoroth/turbo_power).
 
 ## Sponsors
 
@@ -152,13 +152,9 @@ import '@hotwired/turbo-rails'
 ## Usage
 
 Manipulate the DOM from anywhere you use official [Turbo Streams](https://turbo.hotwired.dev/handbook/streams#integration-with-server-side-frameworks).
-*Namely, [**M**odels](https://guides.rubyonrails.org/active_model_basics.html),
-[**V**iews](https://guides.rubyonrails.org/action_view_overview.html),
-[**C**ontrollers](https://guides.rubyonrails.org/action_controller_overview.html)
-and [Jobs](https://guides.rubyonrails.org/active_job_basics.html).*
 
 The possibilities are endless.
-[Learn about the DOM on MDN.](https://developer.mozilla.org/en-US/docs/Web/API.)
+[Learn more about the DOM at MDN.](https://developer.mozilla.org/en-US/docs/Web/API.)
 
 ```ruby
 turbo_stream.invoke "console.log", args: ["Hello World!"]
@@ -167,7 +163,7 @@ turbo_stream.invoke "console.log", args: ["Hello World!"]
 ### Method Chaining
 
 You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation)
-or [selectors](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... even combine them!
+or [selectors](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) and even combine them!
 
 ```ruby
 turbo_stream
@@ -192,7 +188,7 @@ turbo_stream
 
 ### Syntax Styles
 
-You can also use [`snake_case`](https://en.wikipedia.org/wiki/Snake_case) when invoking DOM functionality.
+You can use [`snake_case`](https://en.wikipedia.org/wiki/Snake_case) when invoking DOM functionality.
 It will implicitly convert to [`camelCase`](https://en.wikipedia.org/wiki/Camel_case).
 
 ```ruby
@@ -211,7 +207,7 @@ turbo_stream.invoke :contrived_demo, camelize: false
 If you add new capabilities to the browser, you can control it from the server.
 
 ```js
-// JavaScript
+// JavaScript on the client
 import morphdom from 'morphdom'
 
 window.MyNamespace = {
@@ -222,7 +218,7 @@ window.MyNamespace = {
 ```
 
 ```ruby
-# Ruby
+# Ruby on the server
 turbo_stream.invoke "MyNamespace.morph",
   args: [
     "#demo",
@@ -243,25 +239,24 @@ turbo_stream
 #         |       |         |              |               |- Identifies this invocation (optional)
 #         |       |         |              |
 #         |       |         |              |- Should we camelize the JavaScript stuff? (optional)
-#         |       |         |                 (allows us to write snake_case Ruby)
+#         |       |         |                 (allows us to write snake_case in Ruby)
 #         |       |         |
-#         |       |         |- An CSS selector for the element(s) to target (optional)
+#         |       |         |- A CSS selector for the element(s) to target (optional)
 #         |       |
-#         |       |- The arguments to pass to the JavaScript method being invoked (optional)
+#         |       |- The arguments to pass to the JavaScript method (optional)
 #         |
 #         |- The JavaScript method to invoke (can use dot notation)
 ```
 
-> 📘 The method will be invoked on all matching elements if a `selector` is present.
+> 📘 **NOTE:** The method will be invoked on all matching elements if a `selector` is present.
 
-The `invoke` method creates a `turbo-stream` HTML element which wraps a JSON payload.
-When this element enters the DOM, Turbo Streams executes the `invoke` action on the client with the JSON payload.
+The following Ruby code,
 
 ```ruby
 turbo_stream.invoke "console.log", args: ["Hello World!"], id: "1"
 ```
 
-The code above emits this HTML markup.
+emits this HTML markup.
 
 ```html
 <turbo-stream action="invoke" target="DOM">
@@ -269,9 +264,12 @@ The code above emits this HTML markup.
 </turbo-stream>
 ```
 
+When this element enters the DOM,
+Turbo Streams will automatically execute `invoke` on the client using the template's JSON payload and then removes the element from the DOM.
+
 ### Broadcasting
 
-We can also broadcast DOM invocations to multiple users.
+You can also broadcast DOM invocations to subscribed users.
 
 1. First, setup the stream subscription.
 
@@ -323,7 +321,7 @@ We can also broadcast DOM invocations to multiple users.
   end
   ```
 
-> 📘 [Method Chaining](#method-chaining) is not currently supported when broadcasting.
+> 📘 **NOTE:** [Method Chaining](#method-chaining) is not currently supported when broadcasting.
 
 #### Background Job Queues
 
