@@ -8,3 +8,6 @@
 /test/dummy/log/*.log
 /test/dummy/storage/
 /test/dummy/tmp/
+*.gem
+/node_modules
+Gemfile.lock
