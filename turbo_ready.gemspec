@@ -20,4 +20,18 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", ">= 6.1"
   s.add_dependency "turbo-rails", ">= 1.1"
+
+  s.add_development_dependency "capybara"
+  s.add_development_dependency "importmap-rails"
+  s.add_development_dependency "magic_frozen_string_literal"
+  s.add_development_dependency "net-smtp"
+  s.add_development_dependency "pry-byebug"
+  s.add_development_dependency "puma"
+  s.add_development_dependency "rake"
+  s.add_development_dependency "rexml"
+  s.add_development_dependency "selenium-webdriver"
+  s.add_development_dependency "sprockets-rails"
+  s.add_development_dependency "sqlite3"
+  s.add_development_dependency "standardrb"
+  s.add_development_dependency "webdrivers"
 end
