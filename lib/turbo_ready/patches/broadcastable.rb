@@ -7,7 +7,15 @@ module TurboReady::Patches::Broadcastable
     Turbo::StreamsChannel.broadcast_invoke_to(*streamables, method, **kwargs)
   end
 
+  def broadcast_invoke_later_to(*streamables, method, **kwargs)
+    Turbo::StreamsChannel.broadcast_invoke_later_to(*streamables, method, **kwargs)
+  end
+
   def broadcast_invoke(method, **kwargs)
     broadcast_invoke_to(self, method, **kwargs)
+  end
+
+  def broadcast_invoke_later(method, **kwargs)
+    broadcast_invoke_later_to(self, method, **kwargs)
   end
 end

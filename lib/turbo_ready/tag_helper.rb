@@ -2,8 +2,8 @@
 
 module TurboReady::TagHelper
   def turbo_stream_invoke_tag(method, args: [], selector: nil, camelize: true, id: nil)
-    id ||= SecureRandom.uuid
-    payload = HashWithIndifferentAccess.new(id: id, selector: selector)
+    id = SecureRandom.uuid if id.blank?
+    payload = HashWithIndifferentAccess.new(id: id.to_s, selector: selector)
     payload.merge! method_details(method, args: args, camelize: camelize)
     payload.select! { |_, v| v.present? }
     %(<turbo-stream action="invoke" target="DOM"><template>#{payload.to_json}</template></turbo-stream>).html_safe

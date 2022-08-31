@@ -270,7 +270,7 @@ The code above emits this HTML markup.
 ### Broadcasting
 
 We can also broadcast DOM invocations to multiple users.
-First, setup the ActionCable channel subscription.
+First, setup the stream subscription.
 
 ```erb
 <!-- app/views/posts/show.html.erb -->
@@ -280,7 +280,7 @@ First, setup the ActionCable channel subscription.
 -->
 ```
 
-Then broadcast to the channel.
+Then broadcast to the subscription.
 
 ```ruby
 # app/models/post.rb
