@@ -17,8 +17,21 @@ jobs:
         ruby-version: ['3.1']
     steps:
     - uses: actions/checkout@master
-    - name: Standard
-      uses: CultureHQ/actions-bundler@master
+    - name: Set up Ruby ${{ matrix.ruby-version }}
+      uses: ruby/setup-ruby@v1
       with:
-        args: install && bundle exec standardrb --format progress
+        ruby-version: ${{ matrix.ruby-version }}
+    - uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+    - name: Bundle install
+      run: |
+        gem install bundler
+        bundle config path vendor/bundle
+        bundle install --jobs 4 --retry 3
+    - name: Run StandardRB
+      run: bundle exec standardrb --format progress
 
