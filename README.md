@@ -63,9 +63,12 @@ You can `invoke` any DOM method on the client with Turbo Streams.
   - [Installation](#installation)
   - [Setup](#setup)
   - [Usage](#usage)
+    - [Method Chaining](#method-chaining)
+    - [Dispatching Events](#dispatching-events)
   - [Advanced Usage](#advanced-usage)
-  - [What Else Can I Do?](#what-else-can-i-do)
-    - [Extending Behavior](#extending-behavior)
+    - [Control the DOM](#control-the-dom)
+    - [Syntax Styles](#syntax-styles)
+    - [Extend Behavior](#extend-behavior)
   - [Public API](#public-api)
     - [Implementation Details](#implementation-details)
   - [Broadcasting](#broadcasting)
@@ -167,7 +170,7 @@ turbo_stream
   .flush # call flush when chaining invocations
 ```
 
-💡 You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation)
+📘 You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation)
 or [selectors](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... even combine them!
 
 ### Dispatching Events
@@ -253,7 +256,7 @@ turbo_stream
 #         |- The JavaScript method to invoke (can use dot notation)
 ```
 
-💡The JavaScript method will be invoked on all matching elements when a `selector` is passed.
+📘 The JavaScript method will be invoked on all matching elements when a `selector` is passed.
 
 ### Implementation Details
 
