@@ -33,7 +33,7 @@ module TurboReady::TagHelper
   def camelize_args(args = [])
     args.map do |param|
       if param.is_a? Hash
-        param.transform_keys { |key| key.to_s.camelize(:lower) }
+        param.deep_transform_keys { |key| key.to_s.camelize(:lower) }
       else
         param
       end

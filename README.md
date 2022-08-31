@@ -94,10 +94,10 @@ These [official actions](https://turbo.hotwired.dev/reference/streams#the-seven-
 
 But if you find that CRUD isn't enough, TurboReady covers pretty much everything else.
 
-⚠️ TurboReady is intended for Rails apps that use Hotwire but not [CableReady](https://github.com/stimulusreflex/cable_ready).
+> ⚠️ TurboReady is intended for Rails apps that use Hotwire but not [CableReady](https://github.com/stimulusreflex/cable_ready).
 This is because CableReady already provides a rich set of powerful [DOM operations](https://cableready.stimulusreflex.com/reference/operations).
 
-💡 Efforts are underway to bring [CableReady's DOM operations to Turbo Streams](https://github.com/marcoroth/turbo_power).
+> 💡 Efforts are underway to bring [CableReady's DOM operations to Turbo Streams](https://github.com/marcoroth/turbo_power).
 
 ## Sponsors
 
@@ -118,12 +118,12 @@ This is because CableReady already provides a rich set of powerful [DOM operatio
 
 ## Installation
 
+Be sure to install the same version for each libary.
+
 ```sh
 bundle add "turbo_ready --version VERSION"
 yarn add "turbo_ready@VERSION --exact"
 ```
-
-⚠️ Be sure to use the same version for each libary.
 
 ## Setup
 
@@ -166,7 +166,7 @@ turbo_stream.invoke "console.log", args: ["Hello World!"]
 
 ### Method Chaining
 
-📘 You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation)
+You can use [dot notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation)
 or [selectors](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)... even combine them!
 
 ```ruby
@@ -208,7 +208,7 @@ turbo_stream.invoke :contrived_demo, camelize: false
 
 ### Extending Behavior
 
-If you add new capabilities to the client, you can control it from the server.
+If you add new capabilities to the browser, you can control it from the server.
 
 ```js
 // JavaScript
@@ -233,7 +233,7 @@ turbo_stream.invoke "MyNamespace.morph",
 
 ### Implementation Details
 
-There's basically one method to consider: `invoke`
+There's basically one method to learn... `invoke`
 
 ```ruby
 # Ruby
@@ -252,83 +252,82 @@ turbo_stream
 #         |- The JavaScript method to invoke (can use dot notation)
 ```
 
-📘 The JavaScript method will be invoked on all matching elements if a `selector` is present.
+> 📘 The method will be invoked on all matching elements if a `selector` is present.
 
 The `invoke` method creates a `turbo-stream` HTML element which wraps a JSON payload.
 When this element enters the DOM, Turbo Streams executes the `invoke` action on the client with the JSON payload.
 
 ```ruby
-turbo_stream.invoke "console.log", args: ["Hello World!"]
+turbo_stream.invoke "console.log", args: ["Hello World!"], id: "1"
 ```
 
 The code above emits this HTML markup.
 
 ```html
 <turbo-stream action="invoke" target="DOM">
-  <template>
-    {"id":"644d6878-6b97-4b8e-9054-50f59abe57bb","method":"log","args":["Hello World!"],"receiver":"console","selector":null}
-  </template>
+  <template>{"id":"1","receiver":"console","method":"log","args":["Hello World!"]}</template>
 </turbo-stream>
 ```
 
 ### Broadcasting
 
 We can also broadcast DOM invocations to multiple users.
-First, setup the stream subscription.
 
-```erb
-<!-- app/views/posts/show.html.erb -->
-<%= turbo_stream_from @post %>
-<!--                  |
-                      |- *streamables - model(s), string(s), etc...
--->
-```
+1. First, setup the stream subscription.
 
-Then broadcast to the subscription.
+  ```erb
+  <!-- app/views/posts/show.html.erb -->
+  <%= turbo_stream_from @post %>
+  <!--                  |
+                        |- *streamables - model(s), string(s), etc...
+  -->
+  ```
 
-```ruby
-# app/models/post.rb
-class Post < ApplicationRecord
-  after_save do
-    # emit a message in the browser conosle for anyone subscribed to this post
-    broadcast_invoke "console.log", args: ["Post was saved! #{to_gid.to_s}"]
+2. Then, broadcast to the subscription.
 
-    # broadcast with a background job
-    broadcast_invoke_later "console.log", args: ["Post was saved! #{to_gid.to_s}"]
-  end
-end
-```
-
-```ruby
-# app/controllers/posts_controller.rb
-class PostsController < ApplicationController
-  def create
-    @post = Post.find params[:id]
-
-    if @post.update post_params
+  ```ruby
+  # app/models/post.rb
+  class Post < ApplicationRecord
+    after_save do
       # emit a message in the browser conosle for anyone subscribed to this post
-      @post.broadcast_invoke "console.log", args: ["Post was saved! #{to_gid.to_s}"]
+      broadcast_invoke "console.log", args: ["Post was saved! #{to_gid.to_s}"]
 
       # broadcast with a background job
-      @post.broadcast_invoke_later "console.log", args: ["Post was saved! #{to_gid.to_s}"]
-
-      # you can also broadcast directly from the channel
-      Turbo::StreamsChannel.broadcast_invoke_to @post, "console.log",
-        args: ["Post was saved! #{@post.to_gid.to_s}"]
-
-      # broadcast with a background job
-      Turbo::StreamsChannel.broadcast_invoke_later_to @post, "console.log",
-        args: ["Post was saved! #{@post.to_gid.to_s}"]
+      broadcast_invoke_later "console.log", args: ["Post was saved! #{to_gid.to_s}"]
     end
   end
-end
-```
+  ```
 
-📘 [Method Chaining](#method-chaining) is not currently supported when broadcasting.
+  ```ruby
+  # app/controllers/posts_controller.rb
+  class PostsController < ApplicationController
+    def create
+      @post = Post.find params[:id]
 
-#### Queue Name
+      if @post.update post_params
+        # emit a message in the browser conosle for anyone subscribed to this post
+        @post.broadcast_invoke "console.log", args: ["Post was saved! #{to_gid.to_s}"]
 
-You can change the queue name for Turbo Stream background jobs to isolate, prioritize, and scale the work.
+        # broadcast with a background job
+        @post.broadcast_invoke_later "console.log", args: ["Post was saved! #{to_gid.to_s}"]
+
+        # you can also broadcast directly from the channel
+        Turbo::StreamsChannel.broadcast_invoke_to @post, "console.log",
+          args: ["Post was saved! #{@post.to_gid.to_s}"]
+
+        # broadcast with a background job
+        Turbo::StreamsChannel.broadcast_invoke_later_to @post, "console.log",
+          args: ["Post was saved! #{@post.to_gid.to_s}"]
+      end
+    end
+  end
+  ```
+
+> 📘 [Method Chaining](#method-chaining) is not currently supported when broadcasting.
+
+#### Background Job Queues
+
+You may want to change the queue name for Turbo Stream background jobs in order to isolate, prioritize, and scale the workers independently.
 
 ```ruby
 # config/initializers/turbo_streams.rb
@@ -341,28 +340,26 @@ TurboReady::BroadcastInvokeJob.queue_name = :turbo_streams
 - Isn't this just RJS?
 
   > No. But, perhaps it could be considered RJS's "modern" spirtual successor. 🤷‍♂️
-  > Though it embraces JavaScript instead of inventing ways to avoid it.
+  > Though it embraces JavaScript instead of trying to avoid it.
 
 - Does it use `eval`?
 
   > **No.** TurboReady can only invoke existing functions on the client.
-  > It's not a carte blanche invitation to emit free-form JavaScript to be eval'd on the client.
+  > It's not a carte blanche invitation to emit free-form JavaScript to be evaluated on the client.
 
 ## A Word of Caution
 
-Manually orchestrating DOM activity gets tedious fast.
 **Don't abuse this superpower!**
 
 > With great power comes great responsibility. *-Uncle Ben*
+
+Manually orchestrating DOM activity is tedious.
+*Don't overdo it... or you may find that you've created spaghetti reminiscent of the jQuery days.*
 
 This library is an extremely sharp tool. 🔪
 Consider it a low-level building block that can be used to craft additional libraries
 like [CableReady](https://github.com/stimulusreflex/cable_ready)
 and [StimulusReflex](https://github.com/stimulusreflex/stimulus_reflex).
-
-Restrict your usage to things that falls outside the purview of
-[Turbo's official actions](https://turbo.hotwired.dev/reference/streams#the-seven-actions)...
-*don't overdo it and find yourself maintaining spaghetti code reminiscent of the jQuery days.*
 
 ## Community
 
@@ -396,6 +393,7 @@ Connect with the core team on Twitter.
 ## TODOs
 
 - [ ] Add system tests [(review turbo-rails for guidance)](https://github.com/hotwired/turbo-rails/blob/main/test/system/broadcasts_test.rb)
+- [ ] Look into adding method chaining for broadcasts
 
 ## Releasing
 
