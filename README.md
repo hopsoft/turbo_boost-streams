@@ -76,6 +76,7 @@ You can `invoke` any DOM method on the client with Turbo Streams.
     - [Discord](#discord)
     - [Discussions](#discussions)
     - [Twitter](#twitter)
+  - [TODOs](#todos)
   - [Releasing](#releasing)
   - [License](#license)
 
@@ -382,6 +383,10 @@ Connect with the core team on Twitter.
 <a href="https://twitter.com/hopsoft" target="_blank">
   <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/hopsoft?logo=twitter&style=social">
 </a>
+
+## TODOs
+
+- [ ] Add system tests [(review turbo-rails for guidance)](https://github.com/hotwired/turbo-rails/blob/main/test/system/broadcasts_test.rb)
 
 ## Releasing
 
