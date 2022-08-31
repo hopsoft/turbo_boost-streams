@@ -152,7 +152,6 @@ import '@hotwired/turbo-rails'
 ## Usage
 
 Manipulate the DOM from anywhere you use official [Turbo Streams](https://turbo.hotwired.dev/handbook/streams#integration-with-server-side-frameworks).
-
 The possibilities are endless.
 [Learn more about the DOM at MDN.](https://developer.mozilla.org/en-US/docs/Web/API.)
 
@@ -196,7 +195,7 @@ turbo_stream.invoke :dispatch_event,
   args: ["turbo-ready:demo", {detail: {converts_to_camel_case: true}}]
 ```
 
-Need to opt out? No problem... just disable it.
+Need to opt-out? No problem... just disable it.
 
 ```ruby
 turbo_stream.invoke :contrived_demo, camelize: false
@@ -204,7 +203,7 @@ turbo_stream.invoke :contrived_demo, camelize: false
 
 ### Extending Behavior
 
-If you add new capabilities to the browser, you can control it from the server.
+If you add new capabilities to the browser, you can control them from the server.
 
 ```js
 // JavaScript on the client
@@ -265,7 +264,7 @@ emits this HTML markup.
 ```
 
 When this element enters the DOM,
-Turbo Streams will automatically execute `invoke` on the client using the template's JSON payload and then removes the element from the DOM.
+Turbo Streams automatically executes `invoke` on the client with the template's JSON payload and then removes the element from the DOM.
 
 ### Broadcasting
 
@@ -273,53 +272,53 @@ You can also broadcast DOM invocations to subscribed users.
 
 1. First, setup the stream subscription.
 
-  ```erb
-  <!-- app/views/posts/show.html.erb -->
-  <%= turbo_stream_from @post %>
-  <!--                  |
-                        |- *streamables - model(s), string(s), etc...
-  -->
-  ```
+    ```erb
+    <!-- app/views/posts/show.html.erb -->
+    <%= turbo_stream_from @post %>
+    <!--                  |
+                          |- *streamables - model(s), string(s), etc...
+    -->
+    ```
 
 2. Then, broadcast to the subscription.
 
-  ```ruby
-  # app/models/post.rb
-  class Post < ApplicationRecord
-    after_save do
-      # emit a message in the browser conosle for anyone subscribed to this post
-      broadcast_invoke "console.log", args: ["Post was saved! #{to_gid.to_s}"]
-
-      # broadcast with a background job
-      broadcast_invoke_later "console.log", args: ["Post was saved! #{to_gid.to_s}"]
-    end
-  end
-  ```
-
-  ```ruby
-  # app/controllers/posts_controller.rb
-  class PostsController < ApplicationController
-    def create
-      @post = Post.find params[:id]
-
-      if @post.update post_params
+    ```ruby
+    # app/models/post.rb
+    class Post < ApplicationRecord
+      after_save do
         # emit a message in the browser conosle for anyone subscribed to this post
-        @post.broadcast_invoke "console.log", args: ["Post was saved! #{to_gid.to_s}"]
+        broadcast_invoke "console.log", args: ["Post was saved! #{to_gid.to_s}"]
 
         # broadcast with a background job
-        @post.broadcast_invoke_later "console.log", args: ["Post was saved! #{to_gid.to_s}"]
-
-        # you can also broadcast directly from the channel
-        Turbo::StreamsChannel.broadcast_invoke_to @post, "console.log",
-          args: ["Post was saved! #{@post.to_gid.to_s}"]
-
-        # broadcast with a background job
-        Turbo::StreamsChannel.broadcast_invoke_later_to @post, "console.log",
-          args: ["Post was saved! #{@post.to_gid.to_s}"]
+        broadcast_invoke_later "console.log", args: ["Post was saved! #{to_gid.to_s}"]
       end
     end
-  end
-  ```
+    ```
+
+    ```ruby
+    # app/controllers/posts_controller.rb
+    class PostsController < ApplicationController
+      def create
+        @post = Post.find params[:id]
+
+        if @post.update post_params
+          # emit a message in the browser conosle for anyone subscribed to this post
+          @post.broadcast_invoke "console.log", args: ["Post was saved! #{to_gid.to_s}"]
+
+          # broadcast with a background job
+          @post.broadcast_invoke_later "console.log", args: ["Post was saved! #{to_gid.to_s}"]
+
+          # you can also broadcast directly from the channel
+          Turbo::StreamsChannel.broadcast_invoke_to @post, "console.log",
+            args: ["Post was saved! #{@post.to_gid.to_s}"]
+
+          # broadcast with a background job
+          Turbo::StreamsChannel.broadcast_invoke_later_to @post, "console.log",
+            args: ["Post was saved! #{@post.to_gid.to_s}"]
+        end
+      end
+    end
+    ```
 
 > 📘 **NOTE:** [Method Chaining](#method-chaining) is not currently supported when broadcasting.
 
