@@ -314,7 +314,7 @@ class PostsController < ApplicationController
 end
 ```
 
-📘 Chaining is not currently supported when broadcasting.
+📘 [Method Chaining](#method-chaining) is not currently supported when broadcasting.
 
 #### Queue Name
 

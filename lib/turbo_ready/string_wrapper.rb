@@ -13,8 +13,8 @@ class TurboReady::StringWrapper
   end
 
   def invoke(method, **kwargs)
-    TurboReady::StringWrapper.new \
-      turbo_stream_invoke_tag(method, **kwargs), turbo_stream_strings: turbo_stream_strings
+    tag = turbo_stream_invoke_tag(method, **kwargs)
+    TurboReady::StringWrapper.new tag, turbo_stream_strings: turbo_stream_strings
   end
 
   def flush

@@ -1,6 +1,6 @@
 function invoke () {
   const payload = JSON.parse(this.templateContent.textContent)
-  const { id, method, args, receiver, selector } = payload
+  const { id, selector, receiver, method, args } = payload
   let receivers = [self]
   if (selector) receivers = Array.from(document.querySelectorAll(selector))
 
