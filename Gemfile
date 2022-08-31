@@ -23,7 +23,6 @@ gem "rake"
 
 group :development do
   gem "magic_frozen_string_literal"
-  gem "tocer"
 end
 
 group :development, :test do
