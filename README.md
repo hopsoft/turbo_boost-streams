@@ -119,13 +119,7 @@ bundle add "turbo_ready --version VERSION"
 yarn add "turbo_ready@VERSION --exact"
 ```
 
-<style type="text/css">
-h5 { background-color: pink; padding: 5px; border-radius: 3px; }
-</style>
-
-<h5>
 ⚠️ Be sure to use the same version for each libary.
-</h5>
 
 ## Setup
 
