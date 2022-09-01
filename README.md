@@ -169,7 +169,6 @@ turbo_stream
   .invoke("document.body.insertAdjacentHTML", args: ["afterbegin", "<h1>Hello World!</h1>"]) # dot notation
   .invoke("setAttribute", args: ["data-turbo-ready", true], selector: ".button") # selector
   .invoke("classList.add", args: ["turbo-ready"], selector: "a") # dot notation + selector
-  .flush # call flush when chaining invocations
 ```
 
 ### Dispatching Events
@@ -182,7 +181,6 @@ turbo_stream
   .invoke("document.dispatchEvent", args: ["turbo-ready:demo"]) # fires on document
   .invoke("dispatchEvent", args: ["turbo-ready:demo"], selector: "#my-element") # fires on matching element(s)
   .invoke("dispatchEvent", args: ["turbo-ready:demo", {bubbles: true, detail: {...}}]) # set event options
-  .flush
 ```
 
 ### Syntax Styles
@@ -252,14 +250,14 @@ turbo_stream
 The following Ruby code,
 
 ```ruby
-turbo_stream.invoke "console.log", args: ["Hello World!"], id: "1"
+turbo_stream.invoke "console.log", args: ["Hello World!"], id: "123ABC"
 ```
 
 emits this HTML markup.
 
 ```html
 <turbo-stream action="invoke" target="DOM">
-  <template>{"id":"1","receiver":"console","method":"log","args":["Hello World!"]}</template>
+  <template>{"id":"123ABC","receiver":"console","method":"log","args":["Hello World!"]}</template>
 </turbo-stream>
 ```
 
