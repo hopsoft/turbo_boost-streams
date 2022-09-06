@@ -16,13 +16,9 @@ class TurboReady::StringWrapper
     TurboReady::StringWrapper.new turbo_stream_invoke_tag(...), turbo_stream_strings: turbo_stream_strings
   end
 
-  def flush
+  def to_s
     turbo_stream_strings.to_a.join("\n").html_safe
-  ensure
-    turbo_stream_strings.clear
   end
-
-  alias_method :to_s, :flush
 
   private
 
