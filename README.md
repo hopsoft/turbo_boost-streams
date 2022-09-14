@@ -17,22 +17,22 @@
       <img src="https://api.codeclimate.com/v1/badges/a69b6f73abc3ccd49261/maintainability" />
     </a>
     <a href="https://rubygems.org/gems/turbo_ready">
-      <img alt="GEM" src="https://img.shields.io/gem/v/turbo_ready?color=168AFE&include_prereleases&logo=ruby&logoColor=FE1616">
+      <img alt="GEM Version" src="https://img.shields.io/gem/v/turbo_ready?color=168AFE&include_prereleases&logo=ruby&logoColor=FE1616">
     </a>
     <a href="https://rubygems.org/gems/turbo_ready">
-      <img alt="Gem" src="https://img.shields.io/gem/dt/turbo_ready?color=168AFE&logo=ruby&logoColor=FE1616">
+      <img alt="GEM Downloads" src="https://img.shields.io/gem/dt/turbo_ready?color=168AFE&logo=ruby&logoColor=FE1616">
     </a>
     <a href="https://github.com/testdouble/standard">
       <img alt="Ruby Style" src="https://img.shields.io/badge/style-standard-168AFE?logo=ruby&logoColor=FE1616" />
     </a>
     <a href="https://www.npmjs.com/package/turbo_ready">
-      <img alt="NPM" src="https://img.shields.io/npm/v/turbo_ready?color=168AFE&logo=npm">
+      <img alt="NPM Version" src="https://img.shields.io/npm/v/turbo_ready?color=168AFE&logo=npm">
     </a>
     <a href="https://www.npmjs.com/package/turbo_ready">
-      <img alt="npm" src="https://img.shields.io/npm/dm/turbo_ready?color=168AFE&logo=npm">
+      <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/turbo_ready?color=168AFE&logo=npm">
     </a>
     <a href="https://bundlephobia.com/package/turbo_ready@">
-      <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/turbo_ready?label=bundle%20size&logo=npm&color=47d299">
+      <img alt="NPM Bundle Size" src="https://img.shields.io/bundlephobia/minzip/turbo_ready?label=bundle%20size&logo=npm&color=47d299">
     </a>
     <a href="https://github.com/sheerun/prettier-standard">
       <img alt="JavaScript Style" src="https://img.shields.io/badge/style-prettier--standard-168AFE?logo=javascript&logoColor=f4e137" />
@@ -114,7 +114,7 @@ This is because CableReady already provides a rich set of powerful [DOM operatio
 
 - [rails](https://rubygems.org/gems/rails) `>=6.1`
 - [turbo-rails](https://rubygems.org/gems/turbo-rails) `>=1.1`
-- [@hotwired/turbo-rails](https://yarnpkg.com/package/@hotwired/turbo-rails) `>=7.2.0-beta.2`
+- [@hotwired/turbo-rails](https://yarnpkg.com/package/@hotwired/turbo-rails) `>=7.2.0-rc.2`
 
 ## Installation
 
@@ -137,7 +137,7 @@ Import and intialize TurboReady in your application.
 ```diff
 # package.json
 "dependencies": {
-+  "@hotwired/turbo-rails": ">=7.2.0-beta.2",
+  "@hotwired/turbo-rails": ">=7.2.0-rc.2",
 +  "turbo_ready": "^0.0.6"
 ```
 
@@ -387,7 +387,8 @@ Connect with the core team on Twitter.
 
 ## TODOs
 
-- [ ] Add system tests [(review turbo-rails for guidance)](https://github.com/hotwired/turbo-rails/blob/main/test/system/broadcasts_test.rb)
+- [ ] Add system tests (see TurboReflex for guidance)
+- [ ] Look into supporting assignment in addition to method calls
 - [ ] Look into adding method chaining for broadcasts
 
 ## Releasing
