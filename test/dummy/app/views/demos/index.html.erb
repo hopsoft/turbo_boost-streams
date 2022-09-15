@@ -1,18 +1,16 @@
-<%= content_for :main do %>
-
-  <section class="bg-white rounded-2xl dark:bg-gray-900">
-    <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl sm:py-16 md:grid md:grid-cols-2 lg:px-6 xl:gap-16">
-      <img class="w-full dark:hidden" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg" alt="dashboard image">
-      <img class="hidden w-full dark:block" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup-dark.svg" alt="dashboard image">
-      <div class="mt-4 md:mt-0">
-        <h2 class="mb-4 text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white">Unleash the power of Turbo Streams</h2>
-        <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">TurboReady extends Turbo Streams to give you full control of the browser's Document Object Model (DOM).</p>
-        <%= button_to demo_path(:invoke), method: :get, class: css("flowbite.button.pink_to_orange") do %>
-          View the first Demo
-          <%= ui "heroicons/arrow_right", class: "ml-2 -mr-1 w-5 h-5" %>
-        <% end %>
-      </div>
+<section class="bg-white rounded-2xl dark:bg-gray-900">
+  <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl sm:py-16 md:grid md:grid-cols-2 lg:px-6 xl:gap-16">
+    <img class="w-full dark:hidden" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg" alt="dashboard image">
+    <img class="hidden w-full dark:block" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup-dark.svg" alt="dashboard image">
+    <div class="mt-4 md:mt-0">
+      <h2 class="mb-4 text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white">Unleash the power
+        of Turbo Streams</h2>
+      <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">TurboReady extends Turbo Streams
+        to give you full control of the browser's Document Object Model (DOM).</p>
+      <%= button_to demo_path(:invoke), method: :get, class: css("flowbite.button.pink_to_orange") do %>
+        View the first Demo
+        <%= ui "heroicons/arrow_right", class: "ml-2 -mr-1 w-5 h-5" %>
+      <% end %>
     </div>
-  </section>
-
-<% end %>
+  </div>
+</section>

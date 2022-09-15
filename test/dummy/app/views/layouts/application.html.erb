@@ -11,7 +11,38 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="p-4 h-full">
-    <%= ui :layout %>
+  <body class="h-full">
+    <div class="w-full h-full">
+      <div class="flex flex-no-wrap">
+        <%= ui :sidebar %>
+
+        <div class="container mx-auto py-10 h-64 md:w-4/5 w-11/12 px-6">
+          <div class="w-full h-full">
+            <%= ui :navbar %>
+
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        const sideBar = document.getElementById("mobile-nav");
+        const openSidebar = document.getElementById("openSideBar");
+        const closeSidebar = document.getElementById("closeSideBar");
+        sideBar.style.transform = "translateX(-260px)";
+
+        function sidebarHandler(flag) {
+          if (flag) {
+            sideBar.style.transform = "translateX(0px)";
+            openSidebar.classList.add("hidden");
+            closeSidebar.classList.remove("hidden");
+          } else {
+            sideBar.style.transform = "translateX(-260px)";
+            closeSidebar.classList.add("hidden");
+            openSidebar.classList.remove("hidden");
+          }
+        }
+      </script>
+    </div>
   </body>
 </html>

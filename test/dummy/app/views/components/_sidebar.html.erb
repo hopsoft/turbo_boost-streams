@@ -1,25 +1,39 @@
-<aside class="w-full h-full" aria-label="Sidebar">
-  <div class="overflow-y-auto py-4 px-3 h-full bg-gray-50 rounded-lg dark:bg-gray-800">
+<%= tag.aside(class: css("sidebar"), tabindex: -1, aria: { label: "Sidebar", hidden: true }) do %>
+  <div class="flex flex-row justify-between align-middle">
     <%= link_to root_path, class: "flex items-center pl-2.5 mb-5 color-pink-700" do %>
-      <svg class="mr-2 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+      <svg class="mr-2 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+      </svg>
       <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Demos</span>
     <% end %>
-    <ol class="space-y-2">
-      <li>
-        <%= link_to demo_path("invoke"), class: css("flowbite.sidebar.link", "!text-red-500": true) do %>
-          <span class="">Invoke</span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to demo_path("assign"), class: css("flowbite.sidebar.link") do %>
-          <span class="">Assign</span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to demo_path("dispatch_event"), class: css("flowbite.sidebar.link") do %>
-          <span class="">Dispatch Event</span>
-        <% end %>
-      </li>
-    </ol>
+
+    <button
+      type="button"
+      data-drawer-dismiss="drawer-example"
+      aria-controls="drawer-example"
+      class="<%= css("sidebar.close_button") %>"
+    >
+      <%= ui "heroicons/times", class: "w-5 h-5" %>
+      <span class="sr-only">Close sidebar</span>
+    </button>
   </div>
-</aside>
+
+
+  <ol class="space-y-2">
+    <li>
+      <%= link_to demo_path("invoke"), class: css("flowbite.sidebar.link", "!text-red-500": true) do %>
+        <span class="">Invoke</span>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to demo_path("assign"), class: css("flowbite.sidebar.link") do %>
+        <span class="">Assign</span>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to demo_path("dispatch_event"), class: css("flowbite.sidebar.link") do %>
+        <span class="">Dispatch Event</span>
+      <% end %>
+    </li>
+  </ol>
+<% end %>
