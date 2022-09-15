@@ -1,3 +1,8 @@
+function dispatch (targets, name, detail = {}) {
+  const evt = new CustomEvent(args[0], args[1] || {})
+  targets.forEach(t => t.dispatchEvent(evt))
+}
+
 function invoke () {
   const payload = JSON.parse(this.templateContent.textContent)
   const { id, selector, receiver, method, args } = payload
@@ -13,14 +18,16 @@ function invoke () {
     })
   }
 
-  switch (method) {
-    case 'dispatchEvent':
-      const evt = new CustomEvent(args[0], args[1] || {})
-      receivers.forEach(r => r.dispatchEvent(evt))
-      break
-    default:
-      receivers.forEach(r => r[method].apply(r, args))
-  }
+  // event dispatch
+  if (method === 'dispatchEvent')
+    return dispatch(receivers, args[0], args[1] || {})
+
+  // property assignment
+  if (method.endsWith('='))
+    return receivers.forEach(r => (r[method.slice(0, -1)] = args[0]))
+
+  // method invocation
+  receivers.forEach(r => r[method].apply(r, args))
 }
 
 function initialize (streamActions) {
