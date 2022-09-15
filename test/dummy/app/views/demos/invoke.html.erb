@@ -1,0 +1,36 @@
+<%= content_for :main do %>
+
+  <section class="bg-white rounded-2xl dark:bg-gray-900">
+    <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:py-16 lg:px-6 xl:gap-16">
+      <div class="text-gray-500 sm:text-lg">
+        <h2 class="inline-flex items-center mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+          <%= ui "heroicons/variable", class: "h-8 w-auto mr-2 text-gray-700" %>
+          Invoke Demo
+        </h2>
+        <p class="mb-8 font-light lg:text-xl dark:text-gray-400">
+          <span class="scale-105">Invoke is the heart of TurboReady.</span>
+          It allows you to execute methods on the client.
+        </p>
+        <div class="grid gap-8 py-8 border-t border-gray-200 sm:grid-cols-2 lg:grid-cols-1 dark:border-gray-700">
+          <div class="flex">
+            <div class="flex justify-center items-center mr-4 w-12 h-12 bg-white rounded shadow dark:bg-gray-700 shrink-0">
+              <%= ui "heroicons/bell", class: "w-7 h-7 text-gray-900 dark:text-gray-400" %>
+            </div>
+            <div>
+              <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Alert</h3>
+              <p class="font-light text-gray-500 dark:text-gray-400">
+                The standard alert is a good example to start with.
+                <%= ui "code", language: :erb, class: "mt-6 text-sm", source_path: "app/views/demos/invoke/_alert.html.erb" %>
+                <%= button_to demo_path(:invoke), method: :get, class: css("flowbite.button.pink_to_orange") do %>
+                  Render the Turbo Stream
+                  <%= ui "heroicons/arrow_right", class: "ml-2 -mr-1 w-5 h-5" %>
+                <% end %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<% end %>

@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full bg-gray-100">
   <head>
-    <title>Dummy</title>
+    <title>TurboReady Demos</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= yield :head %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="p-4 h-full">
+    <%= ui :layout %>
   </body>
 </html>

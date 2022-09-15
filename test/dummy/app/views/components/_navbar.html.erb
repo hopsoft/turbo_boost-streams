@@ -1,0 +1,36 @@
+<%= tag.nav class: css("flowbite.navbar") do %>
+  <%= tag.div class: css("flowbite.navbar.container") do %>
+    <%= link_to root_path, class: "flex items-center" do %>
+      <%= image_tag "turbo-ready-mark.webp", class: "h-9", alt: "TurboReady Mark" %>
+      <span class="self-center ml-2 text-xl text-gray-700">
+        Turbo<strong class="text-red-700">Reflex</strong>
+        <small class="font-extralight">demos</small>
+      </span>
+    <% end %>
+
+    <div class="flex md:order-2">
+      <%= link_to "https://github.com/hopsoft/turbo_ready", class: "self-center text-dark hover:text-red-700 dark:hover:text-white" do %>
+        <%= ui "icons/github" %>
+        <span class="sr-only">GitHub Repo</span>
+      <% end %>
+    </div>
+    <!--
+    <div class="hidden justify-between items-center w-full md:flex md:order-1 md:w-auto" id="navbar-sticky">
+      <ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:mt-0 md:space-x-8 md:text-sm md:font-medium md:bg-white md:border-0 dark:bg-gray-800 dark:border-gray-700 md:dark:bg-gray-900">
+        <li>
+          <a href="#" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:p-0 md:text-blue-700 md:bg-transparent dark:text-white" aria-current="page">Home</a>
+        </li>
+        <li>
+          <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded md:p-0 dark:text-gray-400 dark:border-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-white md:dark:hover:bg-transparent dark:hover:bg-gray-700 dark:hover:text-white">About</a>
+        </li>
+        <li>
+          <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded md:p-0 dark:text-gray-400 dark:border-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-white md:dark:hover:bg-transparent dark:hover:bg-gray-700 dark:hover:text-white">Services</a>
+        </li>
+        <li>
+          <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded md:p-0 dark:text-gray-400 dark:border-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-white md:dark:hover:bg-transparent dark:hover:bg-gray-700 dark:hover:text-white">Contact</a>
+        </li>
+      </ul>
+    </div>
+    -->
+  <% end %>
+<% end %>
