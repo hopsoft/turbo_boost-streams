@@ -1,0 +1,3 @@
+<%= turbo_stream.invoke "innerText =",
+  args: ["You just assigned innerText! (#{SecureRandom.alphanumeric(4)})"],
+  selector: "#inner-text-demo-description" %>

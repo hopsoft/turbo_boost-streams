@@ -24,7 +24,7 @@ function invoke () {
 
   // property assignment
   if (method.endsWith('='))
-    return receivers.forEach(r => (r[method.slice(0, -1)] = args[0]))
+    return receivers.forEach(r => (r[method.slice(0, -1).trim()] = args[0]))
 
   // method invocation
   receivers.forEach(r => r[method].apply(r, args))

@@ -5,11 +5,10 @@
       <div class="text-gray-500 sm:text-lg">
         <h2 class="inline-flex items-center mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
           <%= ui "heroicons/variable", class: "h-8 w-auto mr-2 text-gray-700" %>
-          Invoke Demo
+          <%= ui "flowbite/kbd", html: "Invoke", class: "!text-4xl" %>
         </h2>
         <p class="mb-8 font-light lg:text-xl dark:text-gray-400">
-          <span class="scale-105">Invoke is the heart of TurboReady.</span>
-          It allows you to execute methods on the client.
+          Invoke allows you to execute methods in the client DOM.
         </p>
         <div class="grid gap-8 py-8 border-t border-gray-200 sm:grid-cols-2 lg:grid-cols-1 dark:border-gray-700">
           <div class="flex">
@@ -33,8 +32,8 @@
             <div>
               <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Animations</h3>
               <p class="font-light text-gray-500 dark:text-gray-400">
-                You can invoke a method on multiple elements when using a selector.
-                <%= ui "code", language: :erb, class: "mt-6 text-sm", source_path: "app/views/demos/invoke/_animate_demo_stream.html.erb" %>
+                You can invoke a method on element(s) when using a selector.
+                <%= ui "code", id: "code-animate", language: :erb, class: "mt-6 text-sm", source_path: "app/views/demos/invoke/_animate_demo_stream.html.erb" %>
                 <%= turbo_frame_tag "animate-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/invoke/animate_demo_button"), :noop) %>
               </p>
             </div>
@@ -47,7 +46,7 @@
             <div>
               <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Console Log</h3>
               <p class="font-light text-gray-500 dark:text-gray-400">
-                We can use dot notation and <code>console.log</code> to the JavaScript console.
+                You can even use dot notation. Let's <%= ui "flowbite/kbd", html: "console.log", class: "!text-lg" %> a message to the JavaScript console.
                 <%= ui "code", language: :erb, class: "mt-6 text-sm", source_path: "app/views/demos/invoke/_console_log_demo_stream.html.erb" %>
                 <%= turbo_frame_tag "console-log-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/invoke/console_log_demo_button"), :noop) %>
               </p>
