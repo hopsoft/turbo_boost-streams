@@ -19,8 +19,7 @@ function invoke () {
   }
 
   // event dispatch
-  if (method === 'dispatchEvent')
-    return dispatch(receivers, args[0], args[1] || {})
+  if (method === 'event') return dispatch(receivers, args[0], args[1] || {})
 
   // property assignment
   if (method.endsWith('='))

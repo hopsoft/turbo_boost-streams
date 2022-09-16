@@ -13,5 +13,10 @@
 
   <body class="p-4 h-full">
     <%= ui :layout %>
+
+    <script type="text/javascript">
+      window.TailwindDefaults = <%= tailwind_defaults.to_json.html_safe %>;
+    </script>
   </body>
+
 </html>

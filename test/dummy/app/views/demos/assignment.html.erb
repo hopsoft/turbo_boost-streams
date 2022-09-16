@@ -1,0 +1,37 @@
+<%= content_for :main do %>
+
+  <section class="bg-white rounded-2xl dark:bg-gray-900">
+    <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:py-16 lg:px-6 xl:gap-16">
+      <div class="text-gray-500 sm:text-lg">
+        <h2 class="inline-flex items-center mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+          <%= ui "heroicons/menu_alt4", class: "h-10 w-auto mr-3 text-blue-500" %>
+          <code class="mr-3 font-medium text-gray-400">invoke</code>
+          Assignment
+        </h2>
+        <p class="mb-8 font-light lg:text-xl dark:text-gray-400">
+          Invoke supports setting values on the client.
+        </p>
+        <div class="grid gap-8 py-8 border-t border-gray-200 sm:grid-cols-2 lg:grid-cols-1 dark:border-gray-700">
+          <div class="flex">
+            <div class="flex justify-center items-center mr-4 w-12 h-12 bg-white rounded shadow dark:bg-gray-700 shrink-0">
+              <%= ui "heroicons/arrow_right", class: "w-7 h-7 text-gray-900 dark:text-gray-400" %>
+            </div>
+            <div>
+              <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Assign Basic Values</h3>
+              <p class="font-light text-gray-500 dark:text-gray-400">
+                <%= tag.span id: "inner-text-demo-description" do %>
+                  Assigment is easy with TurboReady.
+                <% end %>
+                <%= ui "code", language: :erb, class: "mt-6 text-sm", source_path: "app/views/demos/assignment/_inner_text_demo_stream.html.erb" %>
+                <%= turbo_frame_tag "alert-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/assignment/inner_text_demo_button"), :noop) %>
+                <%= ui "reload_link", href: demo_path(:assignment) %>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+<% end %>

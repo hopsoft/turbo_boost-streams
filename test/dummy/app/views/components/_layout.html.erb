@@ -1,19 +1,5 @@
 <%= ui :navbar %>
 
-<!--
-<div class="grid grid-cols-8 grid-rows-2 gap-4 mt-14 h-full rounded-lg">
-  <div class="row-span-2 h-full rounded-lg">
-    <%= ui :sidebar %>
-  </div>
-  <div class="col-span-7 p-4 h-full bg-gray-200 rounded-lg">
-    <%= yield :top %>
-  </div>
-  <div class="col-span-7 p-4 h-full bg-gray-200 rounded-lg">
-    <%= yield :bottom %>
-  </div>
-</div>
--->
-
 <div class="mt-14">
   <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
   <div class="relative z-40 md:hidden" role="dialog" aria-modal="true">
@@ -134,24 +120,28 @@
     <!-- Sidebar component, swap this element with another sidebar if you like -->
     <div class="flex flex-col flex-1 min-h-0 bg-gray-800">
       <div class="flex flex-shrink-0 items-center px-4 h-16 bg-gray-900">
-        <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-        <span class="ml-2 text-xl font-medium text-gray-400">Demos</span>
+        <%= ui "heroicons/terminal", class: css("sidebar.desktop.link.icon", "w-6 h-6 text-blue-500 mr-1 opacity-50") %>
+        <code class="mr-1 text-sm text-gray-500">invoke</code>
+        <span class="text-xl font-medium text-gray-300">Demos</span>
       </div>
       <div class="flex overflow-y-auto flex-col flex-1">
         <nav class="flex-1 py-4 px-2 space-y-1">
-          <%= link_to demo_path(:invoke), class: css("sidebar.desktop.link", css("sidebar.desktop.link.active") => demo_active?(:invoke)) do %>
-            <%= ui "heroicons/variable", class: css("sidebar.desktop.link.icon", css("sidebar.desktop.link.icon.active") => demo_active?(:invoke)) %>
-            Invoke
+          <%= link_to demo_path(:method), class: css("sidebar.desktop.link", css("sidebar.desktop.link.active") => demo_active?(:method)) do %>
+            <%= ui "heroicons/variable", class: css("sidebar.desktop.link.icon", "!text-blue-500", css("sidebar.desktop.link.icon.active") => demo_active?(:method)) %>
+            <code class="mr-1 text-sm text-gray-500">invoke</code>
+            Method
           <% end %>
 
-          <%= link_to demo_path(:assign), class: css("sidebar.desktop.link", css("sidebar.desktop.link.active") => demo_active?(:assign)) do %>
-            <%= ui "heroicons/menu_alt4", class: css("sidebar.desktop.link.icon", css("sidebar.desktop.link.icon.active") => demo_active?(:assign)) %>
-            Assign
+          <%= link_to demo_path(:assignment), class: css("sidebar.desktop.link", css("sidebar.desktop.link.active") => demo_active?(:assignment)) do %>
+            <%= ui "heroicons/menu_alt4", class: css("sidebar.desktop.link.icon", "!text-blue-500", css("sidebar.desktop.link.icon.active") => demo_active?(:assignment)) %>
+            <code class="mr-1 text-sm text-gray-500">invoke</code>
+            Assignment
           <% end %>
 
-          <%= link_to demo_path(:dispatch_event), class: css("sidebar.desktop.link", css("sidebar.desktop.link.active") => demo_active?(:dispatch_event)) do %>
-            <%= ui "heroicons/lightning_bolt", class: css("sidebar.desktop.link.icon", css("sidebar.desktop.link.icon.active") => demo_active?(:dispatch_event)) %>
-            Dispatch Event
+          <%= link_to demo_path(:event), class: css("sidebar.desktop.link", css("sidebar.desktop.link.active") => demo_active?(:event)) do %>
+            <%= ui "heroicons/lightning_bolt", class: css("sidebar.desktop.link.icon", "!text-blue-500", css("sidebar.desktop.link.icon.active") => demo_active?(:event)) %>
+            <code class="mr-1 text-sm text-gray-500">invoke</code>
+            Event
           <% end %>
         </nav>
       </div>

@@ -177,10 +177,10 @@ It's possible to fire events on `window`, `document`, and element(s).
 
 ```ruby
 turbo_stream
-  .invoke("dispatchEvent", args: ["turbo-ready:demo"]) # fires on window
-  .invoke("document.dispatchEvent", args: ["turbo-ready:demo"]) # fires on document
-  .invoke("dispatchEvent", args: ["turbo-ready:demo"], selector: "#my-element") # fires on matching element(s)
-  .invoke("dispatchEvent", args: ["turbo-ready:demo", {bubbles: true, detail: {...}}]) # set event options
+  .invoke(:event, args: ["turbo-ready:demo"]) # fires on window
+  .invoke("document.event", args: ["turbo-ready:demo"]) # fires on document
+  .invoke(:event, args: ["turbo-ready:demo"], selector: "#my-element") # fires on matching element(s)
+  .invoke(:event, args: ["turbo-ready:demo", {bubbles: true, detail: {...}}]) # set event options
 ```
 
 ### Syntax Styles
@@ -189,7 +189,7 @@ You can use [`snake_case`](https://en.wikipedia.org/wiki/Snake_case) when invoki
 It will implicitly convert to [`camelCase`](https://en.wikipedia.org/wiki/Camel_case).
 
 ```ruby
-turbo_stream.invoke :dispatch_event,
+turbo_stream.invoke :event,
   args: ["turbo-ready:demo", {detail: {converts_to_camel_case: true}}]
 ```
 
