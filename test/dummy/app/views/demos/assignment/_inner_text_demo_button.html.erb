@@ -1,7 +1,7 @@
-<%= turbo_frame_tag "alert-demo-button" do %>
-  <%= render "demos/assign/inner_text_demo_stream" if run_demo? %>
+<%= turbo_frame_tag "inner-text-demo-button" do %>
+  <%= render "demos/assignment/inner_text_demo_stream" if run_demo? %>
 
-  <%= button_to frame_path(Base64.urlsafe_encode64("demos/assign/inner_text_demo_button"), :demo), method: :get, class: css("flowbite.button.pink_to_orange") do %>
+  <%= button_to frame_path(Base64.urlsafe_encode64("demos/assignment/inner_text_demo_button"), :demo), method: :get, class: css("flowbite.button.pink_to_orange") do %>
     Render the Turbo Stream
     <%= ui "heroicons/arrow_right", class: "ml-2 -mr-1 w-5 h-5" %>
   <% end %>
