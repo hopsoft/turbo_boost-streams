@@ -1,5 +1,5 @@
-<%= tag.aside(class: css("flowbite.sidebar"), tabindex: -1, aria: {labelledby: "sidebar-label", hidden: true}) do %>
-  <h5 id="sidebar-label" class="<%= "flowbite.sidebar.label" %>">Demos</h5>
+<%= tag.aside(id: "drawer-sidebar", class: css("flowbite.sidebar"), tabindex: -1, aria: {labelledby: "sidebar-label", hidden: true}) do %>
+  <h5 id="sidebar-label" class="<%= css "flowbite.sidebar.title" %>"><%= link_to "Demos", root_path %></h5>
 
   <button
     type="button"

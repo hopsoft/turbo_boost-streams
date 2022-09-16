@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="h-full bg-gray-100">
+<html>
   <head>
     <title>TurboReady Demos</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,7 +11,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="h-full">
+  <body class="h-full bg-white dark:bg-gray-900">
     <div class="w-full h-full">
       <div class="flex flex-no-wrap">
         <%= ui :sidebar %>
@@ -24,25 +24,6 @@
           </div>
         </div>
       </div>
-
-      <script>
-        const sideBar = document.getElementById("mobile-nav");
-        const openSidebar = document.getElementById("openSideBar");
-        const closeSidebar = document.getElementById("closeSideBar");
-        sideBar.style.transform = "translateX(-260px)";
-
-        function sidebarHandler(flag) {
-          if (flag) {
-            sideBar.style.transform = "translateX(0px)";
-            openSidebar.classList.add("hidden");
-            closeSidebar.classList.remove("hidden");
-          } else {
-            sideBar.style.transform = "translateX(-260px)";
-            closeSidebar.classList.add("hidden");
-            openSidebar.classList.remove("hidden");
-          }
-        }
-      </script>
     </div>
   </body>
 </html>
