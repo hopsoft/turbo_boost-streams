@@ -1,35 +1,44 @@
-<%= tag.nav class: css("flowbite.navbar") do %>
-  <%= tag.div class: css("flowbite.navbar.container") do %>
-    <%= link_to root_path, class: "flex items-center" do %>
-      <%= image_tag "turbo-ready-mark.webp", class: "h-9", alt: "TurboReady Mark" %>
-      <span class="self-center ml-2 text-xl text-gray-700">
-        Turbo<strong class="text-red-700">Reflex</strong>
-      </span>
-    <% end %>
+<%= tag.nav(class: "fixed z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700") do %>
+  <div class="py-3 px-3 lg:px-5 lg:pl-3">
+    <div class="flex justify-between items-center">
 
-    <div class="flex md:order-2">
-      <%= link_to "https://github.com/hopsoft/turbo_ready", class: "self-center text-dark hover:text-red-700 dark:hover:text-white" do %>
-        <%= ui "icons/github" %>
-        <span class="sr-only">GitHub Repo</span>
-      <% end %>
+      <!-- Navbar Left Side -->
+      <div class="flex justify-start items-center">
+        <button id="toggleSidebar" aria-expanded="true" aria-controls="sidebar" class="hidden p-2 mr-3 text-gray-600 rounded cursor-pointer lg:inline hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700">
+          <%= ui "heroicons/close" %>
+        </button>
+        <button
+          id="toggleSidebarMobile"
+          aria-expanded="true"
+          aria-controls="sidebar"
+          data-drawer-target="sidebar"
+          data-drawer-show="sidebar"
+          class="p-2 mr-2 text-gray-600 rounded cursor-pointer lg:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+          <%= ui "heroicons/hamburger" %>
+          <%= ui "heroicons/close", class: "hidden" %>
+        </button>
+        <%= link_to root_path, class: "flex mr-14" do %>
+          <%= image_tag "turbo-ready-mark.webp", class: "mr-3 h-8", alt: "TurboReady Mark" %>
+          <%= tag.span("TurboReady", class: "self-center text-2xl font-semibold whitespace-nowrap dark:text-white") %>
+        <% end %>
+      </div>
+
+      <!-- Navbar Right Side -->
+      <div class="flex items-center">
+        <button
+          id="theme-toggle"
+          data-tooltip-target="tooltip-toggle"
+          type="button"
+          class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+        >
+          <%= ui "heroicons/theme_toggle_dark", class: "hidden" %>
+          <%= ui "heroicons/theme_toggle_light" %>
+        </button>
+        <div id="tooltip-toggle" role="tooltip" class="inline-block absolute z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm transition-opacity duration-300 tooltip opacity-0 invisible" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(1269px, 63px);" data-popper-placement="bottom">
+          Toggle dark mode
+          <div class="tooltip-arrow" data-popper-arrow="" style="position: absolute; left: 0px; transform: translate(69px, 0px);"></div>
+        </div>
+      </div>
     </div>
-    <!--
-    <div class="hidden justify-between items-center w-full md:flex md:order-1 md:w-auto" id="navbar-sticky">
-      <ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:mt-0 md:space-x-8 md:text-sm md:font-medium md:bg-white md:border-0 dark:bg-gray-800 dark:border-gray-700 md:dark:bg-gray-900">
-        <li>
-          <a href="#" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:p-0 md:text-blue-700 md:bg-transparent dark:text-white" aria-current="page">Home</a>
-        </li>
-        <li>
-          <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded md:p-0 dark:text-gray-400 dark:border-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-white md:dark:hover:bg-transparent dark:hover:bg-gray-700 dark:hover:text-white">About</a>
-        </li>
-        <li>
-          <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded md:p-0 dark:text-gray-400 dark:border-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-white md:dark:hover:bg-transparent dark:hover:bg-gray-700 dark:hover:text-white">Services</a>
-        </li>
-        <li>
-          <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded md:p-0 dark:text-gray-400 dark:border-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-white md:dark:hover:bg-transparent dark:hover:bg-gray-700 dark:hover:text-white">Contact</a>
-        </li>
-      </ul>
-    </div>
-    -->
-  <% end %>
+  </div>
 <% end %>

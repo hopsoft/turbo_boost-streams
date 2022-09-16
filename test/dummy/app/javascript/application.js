@@ -4,6 +4,8 @@ import '@hotwired/turbo-rails'
 import TurboReady from 'turbo_ready'
 import './demos/event'
 
+import 'flowbite'
+
 TurboReady.initialize(Turbo.StreamActions)
 
 window.TurboReady = TurboReady

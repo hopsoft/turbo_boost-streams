@@ -1,80 +1,73 @@
-<%= content_for :main do %>
-
-  <section class="bg-white rounded-2xl dark:bg-gray-900">
-    <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:py-16 lg:px-6 xl:gap-16">
-      <div class="text-gray-500 sm:text-lg">
-        <h2 class="inline-flex items-center mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-          <%= ui "heroicons/variable", class: "h-10 w-auto mr-3 text-blue-500" %>
-          <code class="mr-3 font-medium text-gray-400">invoke</code>
-          Method
-        </h2>
-        <p class="mb-8 font-light lg:text-xl dark:text-gray-400">
-          Invoke supports calling methods on the client.
-        </p>
-        <div class="grid gap-8 py-8 border-t border-gray-200 sm:grid-cols-2 lg:grid-cols-1 dark:border-gray-700">
-          <div class="flex">
-            <div class="flex justify-center items-center mr-4 w-12 h-12 bg-white rounded shadow dark:bg-gray-700 shrink-0">
-              <%= ui "heroicons/bell", class: "w-7 h-7 text-gray-900 dark:text-gray-400" %>
-            </div>
-            <div>
-              <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Interact with the DOM</h3>
-              <p class="font-light text-gray-500 dark:text-gray-400">
-                A basic alert is a good example to start with.
-                <%= ui "code", language: :erb, class: "mt-6 text-sm", source_path: "app/views/demos/method/_alert_demo_stream.html.erb" %>
-                <%= turbo_frame_tag "alert-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/alert_demo_button"), :noop) %>
-              </p>
-            </div>
+<section class="bg-white rounded-2xl dark:bg-gray-900">
+  <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:py-16 lg:px-6 xl:gap-16">
+    <div class="text-gray-500 sm:text-lg">
+      <h2 class="inline-flex items-center mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+        <%= ui "heroicons/variable", class: "h-10 w-auto mr-3 text-blue-500" %>
+        <code class="mr-3 font-medium text-gray-400">invoke</code>
+        Method
+      </h2>
+      <p class="mb-8 font-light lg:text-xl dark:text-gray-400">
+        Invoke supports calling methods on the client.
+      </p>
+      <div class="grid gap-8 py-8 border-t border-gray-200 sm:grid-cols-2 lg:grid-cols-1 dark:border-gray-700">
+        <div class="flex">
+          <div class="flex justify-center items-center mr-4 w-12 h-12 bg-white rounded shadow dark:bg-gray-700 shrink-0">
+            <%= ui "heroicons/bell", class: "w-7 h-7 text-gray-900 dark:text-gray-400" %>
           </div>
-
-          <div class="flex">
-            <div class="flex justify-center items-center mr-4 w-12 h-12 bg-white rounded shadow dark:bg-gray-700 shrink-0">
-              <%= ui "heroicons/menu_alt2", class: "w-7 h-7 text-gray-900 dark:text-gray-400" %>
-            </div>
-            <div>
-              <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Update the JavaScript Console</h3>
-              <p class="font-light text-gray-500 dark:text-gray-400">
-                We can also interact with the JavaScript console.
-                <%= ui "flowbite/alert", type: :info, class: "flex mt-4" do %>
-                  <%= ui "heroicons/information_circle", class: "w-5 h-5 mr-2" %>
-                  Open the JavaScript console to see this demo in action.
-                <% end %>
-                <%= ui "code", language: :erb, class: "mt-6 text-sm", source_path: "app/views/demos/method/_console_log_demo_stream.html.erb" %>
-                <%= turbo_frame_tag "console-log-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/console_log_demo_button"), :noop) %>
-              </p>
-            </div>
+          <div>
+            <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Interact with the DOM</h3>
+            <p class="font-light text-gray-500 dark:text-gray-400">
+              A basic alert is a good example to start with.
+              <%= ui "code", language: :erb, class: "mt-6 text-sm", source_path: "app/views/demos/method/_alert_demo_stream.html.erb" %>
+              <%= turbo_frame_tag "alert-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/alert_demo_button"), :noop) %>
+            </p>
           </div>
+        </div>
 
-          <div class="flex">
-            <div class="flex justify-center items-center mr-4 w-12 h-12 bg-white rounded shadow dark:bg-gray-700 shrink-0">
-              <%= ui "heroicons/selector", class: "w-7 h-7 text-gray-900 dark:text-gray-400" %>
-            </div>
-            <div>
-              <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Use a CSS Selector</h3>
-              <p class="font-light text-gray-500 dark:text-gray-400">
-                We can invoke methods on an element when using a selector.
-                <%= ui "code", id: "code-animate", language: :erb, class: "mt-6 text-sm", source_path: "app/views/demos/method/_animate_demo_stream.html.erb" %>
-                <%= turbo_frame_tag "animate-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/animate_demo_button"), :noop) %>
-              </p>
-            </div>
+        <div class="flex">
+          <div class="flex justify-center items-center mr-4 w-12 h-12 bg-white rounded shadow dark:bg-gray-700 shrink-0">
+            <%= ui "heroicons/menu_alt2", class: "w-7 h-7 text-gray-900 dark:text-gray-400" %>
           </div>
+          <div>
+            <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Update the JavaScript
+              Console</h3>
+            <p class="font-light text-gray-500 dark:text-gray-400">
+              We can also interact with the JavaScript console.
+              <%= ui "code", language: :erb, class: "mt-6 text-sm", source_path: "app/views/demos/method/_console_log_demo_stream.html.erb" %>
+              <%= turbo_frame_tag "console-log-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/console_log_demo_button"), :noop) %>
+            </p>
+          </div>
+        </div>
 
-          <div class="flex">
-            <div class="flex justify-center items-center mr-4 w-12 h-12 bg-white rounded shadow dark:bg-gray-700 shrink-0">
-              <%= ui "heroicons/sparkles", class: "w-7 h-7 text-gray-900 dark:text-gray-400" %>
-            </div>
-            <div>
-              <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Select Multiple Elements</h3>
-              <p class="font-light text-gray-500 dark:text-gray-400">
-                We can invoke methods on multiple elements when using a selector.
-                <%= ui "code", language: :erb, class: "mt-6 text-sm", source_path: "app/views/demos/method/_multiple_elements_demo_stream.html.erb" %>
-                <%= turbo_frame_tag "multiple-elements-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/multiple_elements_demo_button"), :noop) %>
-                <%= ui "reload_link", href: demo_path(:method) %>
-              </p>
-            </div>
+        <div class="flex">
+          <div class="flex justify-center items-center mr-4 w-12 h-12 bg-white rounded shadow dark:bg-gray-700 shrink-0">
+            <%= ui "heroicons/selector", class: "w-7 h-7 text-gray-900 dark:text-gray-400" %>
+          </div>
+          <div>
+            <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Use a CSS Selector</h3>
+            <p class="font-light text-gray-500 dark:text-gray-400">
+              We can invoke methods on an element when using a selector.
+              <%= ui "code", id: "code-animate", language: :erb, class: "mt-6 text-sm", source_path: "app/views/demos/method/_animate_demo_stream.html.erb" %>
+              <%= turbo_frame_tag "animate-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/animate_demo_button"), :noop) %>
+            </p>
+          </div>
+        </div>
+
+        <div class="flex">
+          <div class="flex justify-center items-center mr-4 w-12 h-12 bg-white rounded shadow dark:bg-gray-700 shrink-0">
+            <%= ui "heroicons/sparkles", class: "w-7 h-7 text-gray-900 dark:text-gray-400" %>
+          </div>
+          <div>
+            <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Select Multiple Elements</h3>
+            <p class="font-light text-gray-500 dark:text-gray-400">
+              We can invoke methods on multiple elements when using a selector.
+              <%= ui "code", language: :erb, class: "mt-6 text-sm", source_path: "app/views/demos/method/_multiple_elements_demo_stream.html.erb" %>
+              <%= turbo_frame_tag "multiple-elements-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/multiple_elements_demo_button"), :noop) %>
+              <%= ui "reload_link", href: demo_path(:method) %>
+            </p>
           </div>
         </div>
       </div>
     </div>
-  </section>
-
-<% end %>
+  </div>
+</section>
