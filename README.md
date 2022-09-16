@@ -67,7 +67,7 @@ You can `invoke` any DOM method on the client with Turbo Streams.
   - [Setup](#setup)
   - [Usage](#usage)
     - [Method Chaining](#method-chaining)
-    - [Dispatching Events](#dispatching-events)
+    - [Event Dispatch](#event-dispatch)
     - [Syntax Styles](#syntax-styles)
     - [Extending Behavior](#extending-behavior)
     - [Implementation Details](#implementation-details)
@@ -171,16 +171,16 @@ turbo_stream
   .invoke("classList.add", args: ["turbo-ready"], selector: "a") # dot notation + selector
 ```
 
-### Dispatching Events
+### Event Dispatch
 
 It's possible to fire events on `window`, `document`, and element(s).
 
 ```ruby
 turbo_stream
-  .invoke(:event, args: ["turbo-ready:demo"]) # fires on window
-  .invoke("document.event", args: ["turbo-ready:demo"]) # fires on document
-  .invoke(:event, args: ["turbo-ready:demo"], selector: "#my-element") # fires on matching element(s)
-  .invoke(:event, args: ["turbo-ready:demo", {bubbles: true, detail: {...}}]) # set event options
+  .invoke(:dispatch_event, args: ["turbo-ready:demo"]) # fires on window
+  .invoke("document.dispatchEvent", args: ["turbo-ready:demo"]) # fires on document
+  .invoke(:dispatch_event, args: ["turbo-ready:demo"], selector: "#my-element") # fires on matching element(s)
+  .invoke(:dispatch_event, args: ["turbo-ready:demo", {bubbles: true, detail: {...}}]) # set event options
 ```
 
 ### Syntax Styles

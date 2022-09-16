@@ -2,6 +2,7 @@
 
 import '@hotwired/turbo-rails'
 import TurboReady from 'turbo_ready'
+import './demos/event'
 
 TurboReady.initialize(Turbo.StreamActions)
 

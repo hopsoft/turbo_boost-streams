@@ -1,5 +1,5 @@
-function dispatch (targets, name, detail = {}) {
-  const evt = new CustomEvent(args[0], args[1] || {})
+function dispatch (targets, name, options = {}) {
+  const evt = new CustomEvent(name, options)
   targets.forEach(t => t.dispatchEvent(evt))
 }
 
@@ -19,7 +19,8 @@ function invoke () {
   }
 
   // event dispatch
-  if (method === 'event') return dispatch(receivers, args[0], args[1] || {})
+  if (method === 'dispatchEvent')
+    return dispatch(receivers, args[0], args[1] || {})
 
   // property assignment
   if (method.endsWith('='))
