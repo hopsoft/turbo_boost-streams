@@ -1,0 +1,4 @@
+<%= turbo_stream
+  .invoke("dataset.magic =", args: [true], selector: "body")
+  .invoke("dataset.amazing =", args: ["Yep"], selector: "body")
+  .invoke("dataset.camelCaseSupport =", args: ["100%"], selector: "body") %>

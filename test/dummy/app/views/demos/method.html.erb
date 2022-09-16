@@ -34,6 +34,10 @@
               <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Update the JavaScript Console</h3>
               <p class="font-light text-gray-500 dark:text-gray-400">
                 We can also interact with the JavaScript console.
+                <%= ui "flowbite/alert", type: :info, class: "flex mt-4" do %>
+                  <%= ui "heroicons/information_circle", class: "w-5 h-5 mr-2" %>
+                  Open the JavaScript console to see this demo in action.
+                <% end %>
                 <%= ui "code", language: :erb, class: "mt-6 text-sm", source_path: "app/views/demos/method/_console_log_demo_stream.html.erb" %>
                 <%= turbo_frame_tag "console-log-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/console_log_demo_button"), :noop) %>
               </p>
