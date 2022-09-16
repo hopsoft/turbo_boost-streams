@@ -1,6 +1,6 @@
 require "application_system_test_case"
 
-module Demos
+module TurboReady::Demos
   class IndexTest < ApplicationSystemTestCase
     test "turbo ready loaded" do
       visit demos_url

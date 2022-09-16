@@ -8,4 +8,4 @@ import 'flowbite'
 
 TurboReady.initialize(Turbo.StreamActions)
 
-window.TurboReady = TurboReady
+window.TurboReady = TurboReady;

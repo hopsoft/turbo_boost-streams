@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="h-full bg-gray-100">
+<html lang="en" class="dark">
   <head>
     <title>TurboReady Demos</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,8 +11,20 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="p-4 h-full">
-    <%= ui :layout %>
+  <body class="bg-gray-200 dark:bg-gray-800">
+    <%= ui :navbar %>
+
+    <div class="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
+      <%= ui :sidebar %>
+
+      <div id="main-content" class="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900">
+        <main>
+          <%= yield %>
+        </main>
+
+        <%= ui :footer %>
+      </div>
+    </div>
 
     <script type="text/javascript">
       window.TailwindDefaults = <%= tailwind_defaults.to_json.html_safe %>;

@@ -1,0 +1,44 @@
+<aside id="sidebar" class="flex hidden fixed top-0 left-0 z-20 flex-col flex-shrink-0 pt-16 w-64 h-full duration-75 lg:flex transition-width" aria-label="Sidebar">
+  <div class="flex relative flex-col flex-1 pt-0 min-h-0 bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+    <div class="flex overflow-y-auto flex-col flex-1 pt-5 pb-4">
+      <div class="flex-1 px-3 space-y-1 bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+        <ul class="pb-2 space-y-2">
+          <li>
+            <a href="http://localhost:1313/kanban/" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group dark:text-gray-200 dark:hover:bg-gray-700 ">
+              <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+              </svg>
+              <span class="flex-1 ml-3 whitespace-nowrap" sidebar-toggle-item="">Kanban</span>
+            </a>
+          </li>
+
+          <li>
+            <%= link_to demo_path(:method), class: css("sidebar.link", css("sidebar.link.active") => demo_active?(:method)) do %>
+              <%= ui "heroicons/variable", class: css("sidebar.link.icon", css("sidebar.link.icon.active") => demo_active?(:method)) %>
+              <code class="mr-1 text-sm text-gray-500">invoke</code>
+              Method
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to demo_path(:assignment), class: css("sidebar.link", css("sidebar.link.active") => demo_active?(:assignment)) do %>
+              <%= ui "heroicons/menu_alt4", class: css("sidebar.link.icon", css("sidebar.link.icon.active") => demo_active?(:assignment)) %>
+              <code class="mr-1 text-sm text-gray-500">invoke</code>
+              Assignment
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to demo_path(:event), class: css("sidebar.link", css("sidebar.link.active") => demo_active?(:event)) do %>
+              <%= ui "heroicons/lightning_bolt", class: css("sidebar.link.icon", css("sidebar.link.icon.active") => demo_active?(:event)) %>
+              <code class="mr-1 text-sm text-gray-500">invoke</code>
+              Event
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<div class="hidden fixed inset-0 z-10 bg-gray-900/50 dark:bg-gray-900/90" id="sidebarBackdrop"></div>
