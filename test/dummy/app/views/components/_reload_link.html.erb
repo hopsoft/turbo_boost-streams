@@ -1,4 +1,4 @@
-<%= link_to href, class: css("flowbite.link.default", "flex items-center") do %>
+<%= link_to href, class: css("flowbite.link.default", "flex items-center", local_assigns[:class]) do %>
   Reload Page <small class="mx-1 opacity-60 text-light">(to reset)</small>
   <%= ui "heroicons/refresh", class: "w-5 h-5" %>
 <% end %>
