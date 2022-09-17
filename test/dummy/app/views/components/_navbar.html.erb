@@ -3,41 +3,40 @@
     <div class="flex justify-between items-center">
 
       <!-- Navbar Left Side -->
-      <div class="flex justify-start items-center">
-        <button id="toggleSidebar" aria-expanded="true" aria-controls="sidebar" class="hidden p-2 mr-3 text-gray-600 rounded cursor-pointer lg:inline hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700">
-          <%= ui "heroicons/close" %>
-        </button>
-        <button
-          id="toggleSidebarMobile"
-          aria-expanded="true"
-          aria-controls="sidebar"
+      <div class="flex items-center">
+        <button class="p-2.5 text-sm text-gray-500 rounded-lg dark:text-gray-400 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 focus:outline-none dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+          data-tooltip-target="sidebar-tooltip"
           data-drawer-target="sidebar"
-          data-drawer-show="sidebar"
-          class="p-2 mr-2 text-gray-600 rounded cursor-pointer lg:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-          <%= ui "heroicons/hamburger" %>
-          <%= ui "heroicons/close", class: "hidden" %>
+          data-drawer-toggle="sidebar"
+          data-drawer-backdrop="true">
+          <%= ui "heroicons/menu_alt1", class: "w-5 h-5" %>
         </button>
-        <%= link_to root_path, class: "flex mr-14" do %>
-          <%= image_tag "turbo-ready-mark.webp", class: "mr-3 h-8", alt: "TurboReady Mark" %>
-          <%= tag.span("TurboReady", class: "self-center text-2xl font-semibold whitespace-nowrap dark:text-white") %>
+        <%= ui "flowbite/tooltip", id: "sidebar-tooltip" do %>
+          Open navigation menu
+          <div data-popper-arrow class="tooltip-arrow" style="position: absolute; left: 0px; transform: translate(69px, 0px);"></div>
+        <% end %>
+
+        <%= link_to root_path, class: "flex ml-5" do %>
+          <%= image_tag "turbo-ready-mark.webp", class: "mr-2 h-8", alt: "TurboReady Logo" %>
+          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            <span class="font-light opacity-70">Turbo</span>Ready
+          </span>
         <% end %>
       </div>
 
       <!-- Navbar Right Side -->
       <div class="flex items-center">
-        <button
-          id="theme-toggle"
-          data-tooltip-target="tooltip-toggle"
-          type="button"
-          class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
-        >
-          <%= ui "heroicons/theme_toggle_dark", class: "hidden" %>
-          <%= ui "heroicons/theme_toggle_light" %>
+        <button type="button" class="p-2.5 text-sm text-gray-500 rounded-lg dark:text-gray-400 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 focus:outline-none dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+          data-tooltip-target="view-mode-tooltip"
+          data-controller="view-mode"
+          data-action="click->view-mode#toggle">
+          <%= ui "heroicons/moon", class: "w-5 h-5 hidden" %>
+          <%= ui "heroicons/sun", class: "w-5 h-5" %>
         </button>
-        <div id="tooltip-toggle" role="tooltip" class="inline-block absolute z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm transition-opacity duration-300 tooltip opacity-0 invisible" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(1269px, 63px);" data-popper-placement="bottom">
+        <%= ui "flowbite/tooltip", id: "view-mode-tooltip" do %>
           Toggle dark mode
-          <div class="tooltip-arrow" data-popper-arrow="" style="position: absolute; left: 0px; transform: translate(69px, 0px);"></div>
-        </div>
+          <div data-popper-arrow class="tooltip-arrow" style="position: absolute; left: 0px; transform: translate(69px, 0px);"></div>
+        <% end %>
       </div>
     </div>
   </div>

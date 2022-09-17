@@ -7,6 +7,8 @@ require "rails/all"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+
+# Explicit requires because this is the dummy app and our dependencies live in the library's gemspec
 require "turbo_ready"
 require "importmap-rails"
 require "sprockets/railtie"
