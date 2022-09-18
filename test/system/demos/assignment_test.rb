@@ -9,7 +9,7 @@ module TurboReady::Demos
 
       description = find_by_id("assignment-demo-description")
       assert_equal "TurboReady Demos", title
-      assert_equal nil, find("body")["data-turbo-ready-assignment"]
+      assert_nil find("body")["data-turbo-ready-assignment"]
       refute_equal "text-red-500", description[:class]
       assert_equal "We can assign pretty much assign any property value with TurboReady.", description.text
 
