@@ -1,8 +1,0 @@
-<%= turbo_frame_tag "dataset-demo-button" do %>
-  <%= render "demos/assignment/dataset_demo_stream" if run_demo? %>
-
-  <%= button_to frame_path(Base64.urlsafe_encode64("demos/assignment/dataset_demo_button"), :demo), method: :get, class: css("flowbite.button.pink_to_orange") do %>
-    Render the Turbo Stream
-    <%= ui "heroicons/arrow_right", class: "ml-2 -mr-1 w-5 h-5" %>
-  <% end %>
-<% end %>

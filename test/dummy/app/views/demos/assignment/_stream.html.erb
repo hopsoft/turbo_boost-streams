@@ -1,0 +1,6 @@
+<%= turbo_stream
+  .invoke("document.title =", args: ["TurboReady invoke Assignment"])
+  .invoke("dataset.turboReadyAssignment =", args: [true], selector: "body")
+  .invoke("className =", args: ["text-red-500"], selector: "#assignment-demo-description")
+  .invoke("innerText =", args: ["innerText assigned by TurboReady's invoke stream"],
+    selector: "#assignment-demo-description") %>

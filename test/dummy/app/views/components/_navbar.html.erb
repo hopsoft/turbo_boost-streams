@@ -9,9 +9,9 @@
           data-drawer-target="sidebar"
           data-drawer-toggle="sidebar"
           data-drawer-backdrop="true">
-          <%= ui "heroicons/menu_alt1", class: "w-5 h-5" %>
+          <%= render heroicon(:menu_alt1), class: "w-5 h-5" %>
         </button>
-        <%= ui "flowbite/tooltip", id: "sidebar-tooltip" do %>
+        <%= render flowbite(:tooltip), id: "sidebar-tooltip" do %>
           Open navigation menu
           <div data-popper-arrow class="tooltip-arrow" style="position: absolute; left: 0px; transform: translate(69px, 0px);"></div>
         <% end %>
@@ -30,10 +30,10 @@
           data-tooltip-target="view-mode-tooltip"
           data-controller="view-mode"
           data-action="click->view-mode#toggle">
-          <%= ui "heroicons/moon", class: "w-5 h-5 hidden" %>
-          <%= ui "heroicons/sun", class: "w-5 h-5" %>
+          <%= render heroicon(:moon), class: "w-5 h-5 hidden" %>
+          <%= render heroicon(:sun), class: "w-5 h-5" %>
         </button>
-        <%= ui "flowbite/tooltip", id: "view-mode-tooltip" do %>
+        <%= render flowbite(:tooltip), id: "view-mode-tooltip" do %>
           Toggle dark mode
           <div data-popper-arrow class="tooltip-arrow" style="position: absolute; left: 0px; transform: translate(69px, 0px);"></div>
         <% end %>

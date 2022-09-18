@@ -14,4 +14,5 @@ Rake::TestTask.new do |test|
   test.warning = false
 end
 
+task test: ["app:assets:precompile"]
 task default: :test

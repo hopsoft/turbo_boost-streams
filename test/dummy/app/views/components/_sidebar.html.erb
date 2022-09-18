@@ -2,7 +2,7 @@
 
   <h5 class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">Demos</h5>
   <button type="button" data-drawer-dismiss="sidebar" class="inline-flex absolute top-2.5 right-2.5 items-center p-1.5 text-sm text-gray-400 bg-transparent rounded-lg hover:text-gray-900 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
-    <%= ui "heroicons/x", class: "w-5 h-5" %>
+    <%= render heroicon(:x), class: "w-5 h-5" %>
     <span class="sr-only">Close menu</span>
   </button>
 
@@ -10,7 +10,7 @@
     <ul class="space-y-2">
       <li>
         <%= link_to demo_path(:method), class: css("sidebar.link", css("sidebar.link.active") => demo_active?(:method)) do %>
-          <%= ui "heroicons/variable", class: css("sidebar.link.icon", "!text-blue-500", css("sidebar.link.icon.active") => demo_active?(:method)) %>
+          <%= render heroicon(:variable), class: css("sidebar.link.icon", "!text-blue-500", css("sidebar.link.icon.active") => demo_active?(:method)) %>
           <code class="mr-1 text-sm text-gray-400 dark:text-gray-500">invoke</code>
           Method
         <% end %>
@@ -18,7 +18,7 @@
 
       <li>
         <%= link_to demo_path(:assignment), class: css("sidebar.link", css("sidebar.link.active") => demo_active?(:assignment)) do %>
-          <%= ui "heroicons/menu_alt4", class: css("sidebar.link.icon", "!text-blue-500", css("sidebar.link.icon.active") => demo_active?(:assignment)) %>
+          <%= render heroicon(:menu_alt4), class: css("sidebar.link.icon", "!text-blue-500", css("sidebar.link.icon.active") => demo_active?(:assignment)) %>
           <code class="mr-1 text-sm text-gray-400 dark:text-gray-500">invoke</code>
           Assignment
         <% end %>
@@ -26,7 +26,7 @@
 
       <li>
         <%= link_to demo_path(:event), class: css("sidebar.link", css("sidebar.link.active") => demo_active?(:event)) do %>
-          <%= ui "heroicons/lightning_bolt", class: css("sidebar.link.icon", "!text-blue-500", css("sidebar.link.icon.active") => demo_active?(:event)) %>
+          <%= render heroicon(:lightning_bolt), class: css("sidebar.link.icon", "!text-blue-500", css("sidebar.link.icon.active") => demo_active?(:event)) %>
           <code class="mr-1 text-sm text-gray-400 dark:text-gray-500">invoke</code>
           Event
         <% end %>

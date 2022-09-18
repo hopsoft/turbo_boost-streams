@@ -1,51 +1,47 @@
-<section class="bg-white rounded-2xl dark:bg-gray-900">
-  <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:py-16 lg:px-6 xl:gap-16">
-    <div class="text-gray-500 sm:text-lg">
-      <h2 class="inline-flex items-center mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-        <%= ui "heroicons/menu_alt4", class: "h-10 w-auto mr-3 text-blue-500" %>
-        <code class="mr-3 font-medium text-gray-400">invoke</code>
-        Assignment
-      </h2>
-      <p class="mb-8 font-light lg:text-xl dark:text-gray-400">
-        Invoke supports setting values on the client.
-      </p>
-      <div class="grid gap-8 py-8 border-t border-gray-200 sm:grid-cols-2 lg:grid-cols-1 dark:border-gray-700">
-        <div class="flex">
-          <div class="flex justify-center items-center mr-4 w-12 h-12 bg-white rounded shadow dark:bg-gray-700 shrink-0">
-            <%= ui "heroicons/at_symbol", class: "w-7 h-7 text-gray-900 dark:text-gray-400" %>
-          </div>
-          <div>
-            <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Assign Text</h3>
-            <p class="font-light text-gray-500 dark:text-gray-400">
-              <%= tag.span id: "inner-text-demo-description" do %>
-                We can assign values like <code>innerText</code>.
-              <% end %>
-              <%= ui "code", language: :erb, class: "mt-6 text-sm", source_path: "app/views/demos/assignment/_inner_text_demo_stream.html.erb" %>
-              <%= turbo_frame_tag "inner-text-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/assignment/inner_text_demo_button"), :noop) %>
-              <%= ui "reload_link", href: demo_path(:assignment) %>
-            </p>
-          </div>
-        </div>
+<% content_for :breadcrumbs do %>
+  <%= render flowbite(:breadcrumb), html: "Home", href: root_path %>
+  <%= render flowbite(:breadcrumb), href: demo_path(:method), active: true do %>
+    <%= render heroicon(:menu_alt4), class: "h-5 w-auto text-blue-500" %>
+    <code class="font-light text-gray-400 scale-90 dark:text-gray-500">invoke</code>
+    Assignment
+  <% end %>
+<% end %>
 
-        <div class="flex">
-          <div class="flex justify-center items-center mr-4 w-12 h-12 bg-white rounded shadow dark:bg-gray-700 shrink-0">
-            <%= ui "heroicons/adjustments", class: "w-7 h-7 text-gray-900 dark:text-gray-400" %>
-          </div>
-          <div>
-            <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Assign Dataset Values</h3>
-            <p class="font-light text-gray-500 dark:text-gray-400">
-            We can assign arbitrary <code>dataset</code> values.
-            <%= ui "flowbite/alert", type: :info, class: "flex mt-4" do %>
-              <%= ui "heroicons/information_circle", class: "w-5 h-5 mr-2" %>
-              Be sure to open the JavaScript console and inspect the <code class="mx-2">body</code> element.
-            <% end %>
-            <%= ui "code", language: :erb, class: "mt-6 text-sm", source_path: "app/views/demos/assignment/_dataset_demo_stream.html.erb" %>
-            <%= turbo_frame_tag "dataset-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/assignment/dataset_demo_button"), :noop) %>
-            <%= ui "reload_link", href: demo_path(:assignment) %>
-            </p>
-          </div>
-        </div>
+<%= render "demos" do %>
+  <h2 class="inline-flex items-center mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+    <%= render heroicon(:menu_alt4), class: "h-10 w-auto mr-3 text-blue-500" %>
+    <code class="mr-3 font-medium text-gray-400 dark:text-gray-500">invoke</code>
+    Assignment
+  </h2>
+  <p class="mb-8 font-light lg:text-xl dark:text-gray-400">
+    Invoke supports setting values on the client.
+  </p>
+
+  <%= render component(:divider) %>
+
+  <div class="grid gap-16 pt-16 sm:grid-cols-2 lg:grid-cols-1 dark:border-gray-700">
+    <%= render "demo", title: "Assign Dataset Values", heroicon: :adjustments do %>
+      <span id="assignment-demo-description">We can assign pretty much any value with TurboReady.</span>
+      <%= render flowbite(:alert), type: :warning, class: "flex mt-4" do %>
+        <%= render heroicon(:exclamation), class: "w-6 h-6 mr-2" %>
+        Be sure to open the JavaScript console and inspect the <code class="mx-2">body</code> element.
+      <% end %>
+      <%= render component(:code), language: :erb, class: "my-6 text-sm", source_path: "app/views/demos/assignment/_stream.html.erb" %>
+      <div class="grid grid-cols-2">
+        <%= turbo_frame_tag "assignment-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/assignment/button"), :noop) %>
+        <%= render component(:reload_link), class: "text-sm opacity-70 block text-right" %>
       </div>
+    <% end %>
+
+    <%= render component(:divider) %>
+
+    <div class="grid grid-cols-2">
+      <%= link_to demo_path(:method), class: css("flowbite.link.default") do %>
+        <%= render heroicon(:arrow_left), class: "w-5 h-5 inline" %> Method
+      <% end %>
+      <%= link_to demo_path(:assignment), class: css("flowbite.link.default", "text-right") do %>
+        Event <%= render heroicon(:arrow_right), class: "w-5 h-5 inline" %>
+      <% end %>
     </div>
   </div>
-</section>
+<% end %>
