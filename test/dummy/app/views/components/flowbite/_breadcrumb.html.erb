@@ -6,6 +6,6 @@
     <% else %>
       <%= render heroicon(:chevron_right), class: "w-4 h-4 text-gray-400 mr-3" %>
     <% end %>
-    <%= yield %>
+    <%= local_assigns[:html] || yield %>
   <% end %>
 </li>

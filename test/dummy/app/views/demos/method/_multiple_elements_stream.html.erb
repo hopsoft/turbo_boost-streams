@@ -1,7 +1,8 @@
 <%= turbo_stream
   .invoke("classList.remove",
     args: css("flowbite.button.pink_to_orange").split(" "),
-    selector: "button[type=submit]")
+    selector: "button[type=submit]") # <- matches all submit buttons
   .invoke("classList.add",
     args: css("flowbite.button.cyan_to_blue").split(" "),
-    selector: "button[type=submit]") %>
+    selector: "button[type=submit]") # <- matches all submit buttons
+%>

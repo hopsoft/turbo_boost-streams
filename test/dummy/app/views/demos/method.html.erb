@@ -13,8 +13,8 @@
     <code class="mr-3 font-medium text-gray-400 dark:text-gray-500">invoke</code>
     Method
   </h2>
-  <p class="mb-8 font-light lg:text-xl dark:text-gray-400">
-    Invoke supports calling methods on the client.
+  <p class="mb-8 font-light text-blue-500 lg:text-xl">
+    Call any method or function on the client.
   </p>
 
   <%= render component(:divider) %>
@@ -22,8 +22,8 @@
   <div class="grid gap-16 pt-16 sm:grid-cols-2 lg:grid-cols-1">
     <%= render "demo", title: "Interact with the DOM", heroicon: :bell do %>
       A basic alert is a good example to start with.
-      <%= render component(:code), language: :erb, class: "my-6 text-sm", source_path: "app/views/demos/method/_alert_demo_stream.html.erb" %>
-      <%= turbo_frame_tag "alert-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/alert_demo_button"), :noop) %>
+      <%= render component(:code), language: :erb, class: "my-6 text-sm", source_path: "app/views/demos/method/_alert_stream.html.erb" %>
+      <%= turbo_frame_tag "alert-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/alert_button"), :noop) %>
     <% end %>
 
     <%= render component(:divider) %>
@@ -34,37 +34,36 @@
         <%= render heroicon(:exclamation), class: "w-6 h-6 mr-2" %>
         Be sure to open the JavaScript console to see this in action.
       <% end %>
-      <%= render component(:code), language: :erb, class: "my-6 text-sm", source_path: "app/views/demos/method/_console_log_demo_stream.html.erb" %>
-      <%= turbo_frame_tag "console-log-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/console_log_demo_button"), :noop) %>
+      <%= render component(:code), language: :erb, class: "my-6 text-sm", source_path: "app/views/demos/method/_console_log_stream.html.erb" %>
+      <%= turbo_frame_tag "console-log-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/console_log_button"), :noop) %>
     <% end %>
 
     <%= render component(:divider) %>
 
     <%= render "demo", title: "Use a CSS Selector", heroicon: :selector do %>
-      We can invoke methods on an element when using a selector.
-      <%= render component(:code), id: "code-animate", language: :erb, class: "my-6 text-sm", source_path: "app/views/demos/method/_animate_demo_stream.html.erb" %>
-      <%= turbo_frame_tag "animate-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/animate_demo_button"), :noop) %>
+      We can invoke methods on an element when using a selector...
+      <em class="font-extralight opacity-80">and pass complex arguments.</em>
+      <%= render component(:code), id: "code-animate", language: :erb, class: "my-6 text-sm", source_path: "app/views/demos/method/_animate_stream.html.erb" %>
+      <%= turbo_frame_tag "animate-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/animate_button"), :noop) %>
     <% end %>
 
     <%= render component(:divider) %>
 
     <%= render "demo", title: "Select Multiple Elements", heroicon: :sparkles do %>
       We can invoke methods on multiple elements when using a selector.
-      <%= render component(:code), language: :erb, class: "my-6 text-sm", source_path: "app/views/demos/method/_multiple_elements_demo_stream.html.erb" %>
+      <%= render component(:code), language: :erb, class: "my-6 text-sm", source_path: "app/views/demos/method/_multiple_elements_stream.html.erb" %>
       <div class="grid grid-cols-2">
-        <%= turbo_frame_tag "multiple-elements-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/multiple_elements_demo_button"), :noop) %>
+        <%= turbo_frame_tag "multiple-elements-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/multiple_elements_button"), :noop) %>
         <%= render component(:reload_link), class: "text-sm opacity-70 block text-right" %>
       </div>
     <% end %>
 
     <%= render component(:divider) %>
 
-    <div class="grid grid-cols-2">
-      <%= link_to root_path, class: css("flowbite.link.default") do %>
-        <%= render heroicon(:arrow_left), class: "w-5 h-5 inline" %> Home
-      <% end %>
+    <div class="grid">
       <%= link_to demo_path(:assignment), class: css("flowbite.link.default", "text-right") do %>
-        Assignment <%= render heroicon(:arrow_right), class: "w-5 h-5 inline" %>
+        <code class="font-light text-gray-400 scale-90 dark:text-gray-500">invoke</code> Assignment
+        <%= render heroicon(:arrow_right), class: "w-5 h-5 inline" %>
       <% end %>
     </div>
   </div>

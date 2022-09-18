@@ -13,15 +13,15 @@
     <code class="mr-3 font-medium text-gray-400 dark:text-gray-500">invoke</code>
     Assignment
   </h2>
-  <p class="mb-8 font-light lg:text-xl dark:text-gray-400">
-    Invoke supports setting values on the client.
+  <p class="mb-8 font-light text-blue-500 lg:text-xl">
+    Assign any property value on the client.
   </p>
 
   <%= render component(:divider) %>
 
-  <div class="grid gap-16 pt-16 sm:grid-cols-2 lg:grid-cols-1 dark:border-gray-700">
+  <div class="grid gap-16 pt-16 sm:grid-cols-2 lg:grid-cols-1">
     <%= render "demo", title: "Assign Dataset Values", heroicon: :adjustments do %>
-      <span id="assignment-demo-description">We can assign pretty much any value with TurboReady.</span>
+      <span id="assignment-demo-description">We can assign pretty much assign any property value with TurboReady.</span>
       <%= render flowbite(:alert), type: :warning, class: "flex mt-4" do %>
         <%= render heroicon(:exclamation), class: "w-6 h-6 mr-2" %>
         Be sure to open the JavaScript console and inspect the <code class="mx-2">body</code> element.
@@ -37,10 +37,12 @@
 
     <div class="grid grid-cols-2">
       <%= link_to demo_path(:method), class: css("flowbite.link.default") do %>
-        <%= render heroicon(:arrow_left), class: "w-5 h-5 inline" %> Method
+        <%= render heroicon(:arrow_left), class: "w-5 h-5 inline" %>
+        <code class="font-light text-gray-400 scale-90 dark:text-gray-500">invoke</code> Method
       <% end %>
-      <%= link_to demo_path(:assignment), class: css("flowbite.link.default", "text-right") do %>
-        Event <%= render heroicon(:arrow_right), class: "w-5 h-5 inline" %>
+      <%= link_to demo_path(:event), class: css("flowbite.link.default", "text-right") do %>
+        <code class="font-light text-gray-400 scale-90 dark:text-gray-500">invoke</code> Event
+        <%= render heroicon(:arrow_right), class: "w-5 h-5 inline" %>
       <% end %>
     </div>
   </div>
