@@ -1,11 +1,11 @@
 <%= turbo_stream
-  .invoke(:dispatch_event, args: ["turbo-ready:demo"])
-  .invoke("document.dispatchEvent", args: ["turbo-ready:demo"])
+  .invoke(:dispatch_event, args: ["turbo-ready:demo"]) # <- dispatch on window
+  .invoke("document.dispatchEvent", args: ["turbo-ready:demo"]) # <- dispatch on document
   .invoke(
     :dispatch_event,
     args: [
       "turbo-ready:demo",
       {bubbles: true, detail: {source: "The invoke Turbo Stream from TurboReady"}}
     ],
-    selector: "button"
+    selector: "button" # <- dispatch on selected elements
   ) %>

@@ -22,11 +22,19 @@
   <div class="grid gap-16 pt-16 sm:grid-cols-2 lg:grid-cols-1">
     <%= render "demo", title: "Assign Dataset Values", heroicon: :adjustments do %>
       <span id="assignment-demo-description">We can assign pretty much assign any property value with TurboReady.</span>
+
+      <%= render flowbite(:alert), type: :info, class: "flex mt-4" do %>
+        <%= render heroicon(:information_circle), class: "w-6 h-6 mr-2" %>
+        <b class="mr-2">NOTE</b> This is not a method call. Pay attention to the <code class="mx-2">=</code> sign that denotes an assignment.
+      <% end %>
+
       <%= render flowbite(:alert), type: :warning, class: "flex mt-4" do %>
         <%= render heroicon(:exclamation), class: "w-6 h-6 mr-2" %>
-        Be sure to open the JavaScript console and inspect the <code class="mx-2">body</code> element.
+        <b class="mr-2">IMPORTANT</b> Be sure to open the JavaScript console and inspect the <code class="mx-1">body</code> element.
       <% end %>
+
       <%= render component(:code), language: :erb, class: "my-6 text-sm", source_path: "app/views/demos/assignment/_stream.html.erb" %>
+
       <div class="grid grid-cols-2">
         <%= turbo_frame_tag "assignment-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/assignment/button"), :noop) %>
         <%= render component(:reload_link), class: "text-sm opacity-70 block text-right" %>
