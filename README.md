@@ -385,12 +385,6 @@ Connect with the core team on Twitter.
   <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/hopsoft?logo=twitter&style=social">
 </a>
 
-## TODOs
-
-- [ ] Add system tests (see TurboReflex for guidance)
-- [ ] Look into supporting assignment in addition to method calls
-- [ ] Look into adding method chaining for broadcasts
-
 ## Releasing
 
 1. Run `yarn` and `bundle` to pick up the latest
