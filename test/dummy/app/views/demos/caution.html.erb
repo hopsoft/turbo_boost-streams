@@ -1,0 +1,73 @@
+<% content_for :breadcrumbs do %>
+  <%= render flowbite(:breadcrumb), html: "Home", href: root_path %>
+  <%= render flowbite(:breadcrumb), href: demo_path(:method), active: true do %>
+    <%= render heroicon(:exclamation), class: "h-5 w-auto mr-1 text-yellow-500 dark:text-yellow-400" %>
+    Caution
+  <% end %>
+<% end %>
+
+<%= render "demos" do %>
+  <h2 class="inline-flex items-center mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+    <%= render heroicon(:exclamation), class: "h-10 w-auto mr-3 text-yellow-500 dark:text-yellow-400" %>
+    A Word of Caution
+  </h2>
+  <p class="mb-8 font-light text-blue-500 lg:text-xl">
+    TurboReady is a sharp tool. Use it wisely.
+  </p>
+
+  <%= render component(:divider) %>
+
+  <div class="grid gap-12 pt-12 sm:grid-cols-2 lg:grid-cols-1">
+    <p class="text-2xl font-medium text-yellow-500 dark:text-yellow-400">
+      This site and accompanying demos are intented to show off TurboReady's features and capabilities.
+      You should not consider these demos a guide for how to build your own TurboReady app.
+    </p>
+    <p class="-mt-4 font-medium">
+      TurboReady offers an escape hatch that allows you to break free from strict CRUD/REST semantics; however,
+      it should be considered a low level tool to help you build additional app infrastructure.
+      <span class="text-blue-500">The goal is to provide a foundation for the additional tooling required to build modern, maintainable, and scalable reactive web apps...</span>
+      <em class="font-light">NOT bring jQuery Web 2.0 techniques to the sever.</em>
+    </p>
+
+    <%= render component(:divider) %>
+
+    <p class="font-light">
+      You're actually viewing the <code class="dark:text-gray-400">test/dummy</code> app that is part of TurboReady's test suite.
+      In fact, we're using it to serve the following purposes.
+    </p>
+
+    <ul class="space-y-1 max-w-md list-inside text-gray-500 dark:text-gray-400">
+      <li class="flex items-center">
+        <%= render heroicon(:check_circle), class: "w-6 h-6 mr-1.5 text-green-500 dark:text-green-400 flex-shrink-0" %>
+        Tests
+      </li>
+      <li class="flex items-center">
+        <%= render heroicon(:check_circle), class: "w-6 h-6 mr-1.5 text-green-500 dark:text-green-400 flex-shrink-0" %>
+        Demos
+      </li>
+      <li class="flex items-center">
+        <%= render heroicon(:check_circle), class: "w-6 h-6 mr-1.5 text-green-500 dark:text-green-400 flex-shrink-0" %>
+        Documentation
+      </li>
+      <li class="flex items-center">
+        <%= render heroicon(:check_circle), class: "w-6 h-6 mr-1.5 text-green-500 dark:text-green-400 flex-shrink-0" %>
+        Marketing
+      </li>
+    </ul>
+
+    <%= link_to "https://github.com/hopsoft/turbo_ready/tree/main/test/dummy", rel: "nopener", target: "_blank", class: css("flowbite.link.default", "flex items-center") do %>
+      See how we did it
+      <%= render heroicon(:arrow_right), class: "h-5 w-auto ml-2" %>
+    <% end %>
+
+    <%= render component(:divider) %>
+
+    <div class="grid">
+      <%= link_to demo_path(:event), class: css("flowbite.link.default") do %>
+        <%= render heroicon(:arrow_left), class: "w-5 h-5 inline" %>
+        <code class="font-light text-gray-400 scale-90 dark:text-gray-500">invoke</code> Event
+      <% end %>
+    </div>
+  </div>
+
+<% end %>

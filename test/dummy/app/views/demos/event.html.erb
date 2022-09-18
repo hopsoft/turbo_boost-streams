@@ -25,7 +25,7 @@
 
       <%= render flowbite(:alert), type: :warning, class: "flex mt-4" do %>
         <%= render heroicon(:exclamation), class: "w-6 h-6 mr-2" %>
-        <b class="mr-2">IMPORTANT</b> Be sure to open the JavaScript console to see this in action.
+        <b class="mr-2">IMPORTANT</b> Open the JavaScript console to see this in action.
       <% end %>
 
       Server
@@ -42,10 +42,13 @@
 
     <%= render component(:divider) %>
 
-    <div class="grid">
+    <div class="grid grid-cols-2">
       <%= link_to demo_path(:assignment), class: css("flowbite.link.default") do %>
         <%= render heroicon(:arrow_left), class: "w-5 h-5 inline" %>
         <code class="font-light text-gray-400 scale-90 dark:text-gray-500">invoke</code> Assignment
+      <% end %>
+      <%= link_to demo_path(:caution), class: css("flowbite.link.default", "text-right text-yellow-500 dark:text-yellow-400") do %>
+        Caution <%= render heroicon(:arrow_right), class: "w-5 h-5 inline" %>
       <% end %>
     </div>
   </div>
