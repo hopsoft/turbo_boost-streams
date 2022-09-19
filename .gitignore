@@ -12,3 +12,4 @@
 *.gem
 /node_modules
 Gemfile.lock
+*.key
