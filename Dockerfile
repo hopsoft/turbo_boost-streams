@@ -14,8 +14,10 @@ RUN git pull github main
 WORKDIR /opt/turbo_ready/test/dummy
 RUN bundle --without test
 
-CMD rm -f tmp/pids/server.pid && \
+CMD bundle --without test && \
+rm -f tmp/pids/server.pid && \
 bin/rails db:create db:migrate && \
 bin/rails log:clear && \
+bin/rails assets:clobber && \
 bin/rails assets:precompile && \
 bin/rails s --binding=0.0.0.0 --port=3000
