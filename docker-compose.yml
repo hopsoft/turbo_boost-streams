@@ -37,9 +37,7 @@ services:
     command: >
       /bin/bash -c "rm -f tmp/pids/server.pid &&
                     bundle --without test &&
-                    bundle lock --add-platform aarch64-linux &&
                     bin/rails db:create db:migrate &&
                     bin/rails log:clear &&
-                    bin/rails assets:clobber &&
                     bin/rails assets:precompile &&
                     bin/rails s --binding=0.0.0.0 --port=3000"
