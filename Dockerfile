@@ -15,9 +15,6 @@ bundle config unset force_ruby_platform && \
 bundle --without test
 RUN bundle lock --add-platform aarch64-linux
 
-#RUN bundle lock --add-platform aarch64-linux
-#RUN bundle update --bundler
-
 ENV RAILS_ENV=production
 CMD rm -f tmp/pids/server.pid && \
 bin/rails db:create db:migrate && \
