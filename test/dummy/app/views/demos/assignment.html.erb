@@ -1,10 +1,7 @@
 <% content_for :breadcrumbs do %>
   <%= render flowbite(:breadcrumb), html: "Home", href: root_path %>
-  <%= render flowbite(:breadcrumb), href: demo_path(:method), active: true do %>
-    <%= render heroicon(:menu_alt4), class: "h-5 w-auto text-blue-500" %>
-    <code class="font-light text-gray-400 scale-90 dark:text-gray-500">invoke</code>
-    Assignment
-  <% end %>
+  <%= render flowbite(:breadcrumb), html: "Demos", href: demos_path %>
+  <%= render flowbite(:breadcrumb), html: "Assignment", href: demo_path(:method), active: true %>
 <% end %>
 
 <%= render "demos" do %>

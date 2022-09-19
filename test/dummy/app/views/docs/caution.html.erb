@@ -1,9 +1,7 @@
 <% content_for :breadcrumbs do %>
   <%= render flowbite(:breadcrumb), html: "Home", href: root_path %>
-  <%= render flowbite(:breadcrumb), href: demo_path(:method), active: true do %>
-    <%= render heroicon(:exclamation), class: "h-5 w-auto mr-1 text-red-500 dark:text-yellow-400" %>
-    Caution
-  <% end %>
+  <%= render flowbite(:breadcrumb), html: "Docs", href: docs_path %>
+  <%= render flowbite(:breadcrumb), html: "Caution", href: demo_path(:method), active: true %>
 <% end %>
 
 <%= render "doc" do %>
@@ -65,15 +63,5 @@
         Browse the source code to see how we did it.
       <% end %>
     </div>
-
-    <%= render component(:divider) %>
-
-    <div class="grid">
-      <%= link_to demo_path(:event), class: css("flowbite.link.default") do %>
-        <%= render heroicon(:arrow_left), class: "w-5 h-5 inline" %>
-        <code class="font-light text-gray-400 scale-90 dark:text-gray-500">invoke</code> Event
-      <% end %>
-    </div>
-  </div>
 
 <% end %>
