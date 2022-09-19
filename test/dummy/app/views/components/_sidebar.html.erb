@@ -5,7 +5,7 @@
     <span class="font-light opacity-70">Turbo</span><span class="font-bold text-red-500">Ready</span>
   </h5>
   <button type="button" data-drawer-dismiss="sidebar" class="inline-flex absolute top-2.5 right-2.5 items-center p-1.5 text-sm text-gray-400 bg-transparent rounded-lg hover:text-gray-900 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
-    <%= render heroicon(:x), class: "w-5 h-5" %>
+    <%= render heroicon(:x_mark), class: "w-5 h-5" %>
     <span class="sr-only">Close menu</span>
   </button>
 
@@ -15,7 +15,7 @@
 
       <li>
         <%= link_to root_path, class: css("sidebar.link", css("sidebar.link.active") => action_name == "index") do %>
-          <%= render heroicon(:home), class: css("sidebar.link.icon", "!text-red-500", css("sidebar.link.icon.active") => action_name == "index") %>
+          <%= render heroicon(:home), class: css("sidebar.link.icon", css("sidebar.link.icon.active") => action_name == "index") %>
           Home
         <% end %>
       </li>
@@ -36,7 +36,7 @@
 
       <li>
         <%= link_to demo_path(:assignment), class: css("sidebar.link", css("sidebar.link.active") => demo_active?(:assignment)) do %>
-          <%= render heroicon(:menu_alt4), class: css("sidebar.link.icon", "!text-blue-500", css("sidebar.link.icon.active") => demo_active?(:assignment)) %>
+          <%= render heroicon(:bars_3), solid: true, class: css("sidebar.link.icon", "!text-blue-500", css("sidebar.link.icon.active") => demo_active?(:assignment)) %>
           <code class="mr-1 text-sm text-gray-400 dark:text-gray-500">invoke</code>
           Assignment
         <% end %>

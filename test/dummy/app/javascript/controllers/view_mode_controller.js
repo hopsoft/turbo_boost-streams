@@ -1,6 +1,8 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
+  static targets = ['moon', 'sun']
+
   connect () {
     this.save(this.mode || this.defaultMode)
   }
@@ -13,6 +15,15 @@ export default class extends Controller {
   save (value) {
     document.documentElement.classList.remove('light', 'dark')
     document.documentElement.classList.add(value)
+
+    if (value === 'dark') {
+      this.sunTarget.classList.remove('hidden')
+      this.moonTarget.classList.add('hidden')
+    } else {
+      this.moonTarget.classList.remove('hidden')
+      this.sunTarget.classList.add('hidden')
+    }
+
     return localStorage.setItem('view-mode', value)
   }
 
