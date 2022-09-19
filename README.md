@@ -342,19 +342,14 @@ TurboReady::BroadcastInvokeJob.queue_name = :turbo_streams
   > **No.** TurboReady can only invoke existing functions on the client.
   > It's not a carte blanche invitation to emit free-form JavaScript to be evaluated on the client.
 
-## A Word of Caution
+## A Word of Warning
 
-**Don't abuse this superpower!**
+TurboReady is a foundational tool designed to help you build modern, maintainable, and scalable reactive web apps with Hotwire.
+It allows you to break free from the strict CRUD/REST conventions that Rails and Hotwire wisely encourage.
+You should consider TurboReady a substrate for building additional libraries and abstractions.
 
-> With great power comes great responsibility. *-Uncle Ben*
-
-Manually orchestrating DOM activity is tedious.
-*Don't overdo it... or you may find that you've created spaghetti reminiscent of the jQuery days.*
-
-This library is an extremely sharp tool. 🔪
-Consider it a low-level building block that can be used to craft additional libraries
-like [CableReady](https://github.com/stimulusreflex/cable_ready)
-and [StimulusReflex](https://github.com/stimulusreflex/stimulus_reflex).
+*Please don't use TurboReady to manually orchestrate micro DOM updates (from the server).
+Such techniques are what gave rise to Full Stack Frontend and sent the industry on a decade long journey of complexity and frustration.*
 
 ## Community
 

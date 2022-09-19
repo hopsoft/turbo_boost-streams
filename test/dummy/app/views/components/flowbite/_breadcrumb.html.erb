@@ -2,7 +2,7 @@
   <%= tag.a href: href,
     class: css("flowbite.breadcrumb", local_assigns[:class], css("flowbite.breadcrumb.active") => local_assigns[:active]) do %>
     <% if local_assigns[:href] == root_path %>
-      <%= render heroicon(:home), solid: true, class: "w-4 h-4 mr-2 mb-1" %>
+      <%= render heroicon(:home), class: "w-4 h-4 mr-2" %>
     <% else %>
       <%= render heroicon(:chevron_right), class: "w-4 h-4 text-gray-400 mr-3" %>
     <% end %>

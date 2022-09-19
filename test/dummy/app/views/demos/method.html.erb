@@ -83,8 +83,9 @@
     <%= render component(:divider) %>
 
     <div class="grid">
-      <%= link_to demo_path(:assignment), class: css("flowbite.link.default", "text-right") do %>
-        <code class="font-light text-gray-400 scale-90 dark:text-gray-500">invoke</code> Assignment
+      <%= link_to demo_path(:assignment), class: css("flowbite.link.paragraph", "text-right") do %>
+        <code class="font-light text-gray-400 scale-90 dark:text-gray-500">invoke</code>
+        Assignment
         <%= render heroicon(:arrow_right), class: "w-5 h-5 inline" %>
       <% end %>
     </div>

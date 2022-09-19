@@ -40,9 +40,10 @@
     <%= render component(:divider) %>
 
     <div class="grid grid-cols-2">
-      <%= link_to demo_path(:assignment), class: css("flowbite.link.default") do %>
+      <%= link_to demo_path(:assignment), class: css("flowbite.link.paragraph") do %>
         <%= render heroicon(:arrow_left), class: "w-5 h-5 inline" %>
-        <code class="font-light text-gray-400 scale-90 dark:text-gray-500">invoke</code> Assignment
+        <code class="font-light text-gray-400 scale-90 dark:text-gray-500">invoke</code>
+        Assignment
       <% end %>
     </div>
   </div>

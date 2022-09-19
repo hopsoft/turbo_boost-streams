@@ -1,7 +1,7 @@
 <% content_for :breadcrumbs do %>
   <%= render flowbite(:breadcrumb), html: "Home", href: root_path %>
   <%= render flowbite(:breadcrumb), html: "Docs", href: docs_path %>
-  <%= render flowbite(:breadcrumb), html: "Word of Warning", href: doc_path(:caution), active: true %>
+  <%= render flowbite(:breadcrumb), html: "Word of Warning", href: doc_path(:warning), active: true %>
 <% end %>
 
 <%= render "doc" do %>
@@ -16,12 +16,12 @@
   <%= render component(:divider) %>
 
   <div class="grid gap-12 pt-12 sm:grid-cols-2 lg:grid-cols-1">
-    <p class="text-2xl font-medium">
-      This site is intented to demonstrate TurboReady's features and capabilities.
-      <span class="text-red-500 dark:text-yellow-400">You should not consider the demos here a guide for how to build your own TurboReady app.</span>
+    <p class="text-2xl font-medium dark:text-white">
+      This site is intended to demonstrate TurboReady's features and capabilities.
+      You should not consider the demos here a guide for how to build your own TurboReady app.
     </p>
     <p class="-mt-4 font-medium">
-      <span class="text-blue-500">TurboReady is a foundational tool designed to help you build modern, maintainable, and scalable reactive web apps with Hotwire.</span>
+      TurboReady is a foundational tool designed to help you build modern, maintainable, and scalable reactive web apps with Hotwire.
       It allows you to break free from the strict CRUD/REST conventions that Rails and Hotwire wisely encourage.
       You should consider TurboReady a substrate for building additional libraries and abstractions.
     </p>
@@ -33,26 +33,26 @@
     <%= render component(:divider) %>
 
     <p class="font-light">
-      <%= render heroicon(:light_bulb), solid: true, class: "h-6 w-auto mb-1 text-base inline dark:text-white" %>
+      <%= render heroicon(:light_bulb), class: "h-6 w-auto mb-1 text-base inline dark:text-white" %>
       You're actually viewing the <code class="dark:text-gray-400">test/dummy</code> app that is part of TurboReady's test suite.
       In fact, we're using it to serve the following purposes.
     </p>
 
     <ul class="-mt-4 space-y-1 max-w-md list-inside text-gray-500 dark:text-gray-400">
       <li class="flex items-center">
-        <%= render heroicon(:check_circle), solid: true, class: "w-6 h-6 mr-1.5 text-green-500 dark:text-green-400 flex-shrink-0" %>
+        <%= render heroicon(:check_circle), class: "w-6 h-6 mr-1.5 text-green-500 dark:text-green-400 flex-shrink-0" %>
         Tests
       </li>
       <li class="flex items-center">
-        <%= render heroicon(:check_circle), solid: true, class: "w-6 h-6 mr-1.5 text-green-500 dark:text-green-400 flex-shrink-0" %>
+        <%= render heroicon(:check_circle), class: "w-6 h-6 mr-1.5 text-green-500 dark:text-green-400 flex-shrink-0" %>
         Demos
       </li>
       <li class="flex items-center">
-        <%= render heroicon(:check_circle), solid: true, class: "w-6 h-6 mr-1.5 text-green-500 dark:text-green-400 flex-shrink-0" %>
+        <%= render heroicon(:check_circle), class: "w-6 h-6 mr-1.5 text-green-500 dark:text-green-400 flex-shrink-0" %>
         Documentation
       </li>
       <li class="flex items-center">
-        <%= render heroicon(:check_circle), solid: true, class: "w-6 h-6 mr-1.5 text-green-500 dark:text-green-400 flex-shrink-0" %>
+        <%= render heroicon(:check_circle), class: "w-6 h-6 mr-1.5 text-green-500 dark:text-green-400 flex-shrink-0" %>
         Marketing
       </li>
     </ul>
