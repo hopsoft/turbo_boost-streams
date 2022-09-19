@@ -1,0 +1,78 @@
+<% content_for :breadcrumbs do %>
+  <%= render flowbite(:breadcrumb), html: "Home", href: root_path %>
+  <%= render flowbite(:breadcrumb), href: demo_path(:method), active: true do %>
+    <%= render heroicon(:exclamation), class: "h-5 w-auto mr-1 text-red-500 dark:text-yellow-400" %>
+    Caution
+  <% end %>
+<% end %>
+
+<%= render "doc" do %>
+  <h2 class="inline-flex items-center mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+    <%= render heroicon(:exclamation), class: "h-10 w-auto mr-3 text-red-500 dark:text-yellow-400" %>
+    A Word of Caution
+  </h2>
+  <p class="mb-8 font-light text-blue-500 lg:text-xl">
+    TurboReady is a sharp tool. Use it wisely.
+  </p>
+
+  <%= render component(:divider) %>
+
+  <div class="grid gap-12 pt-12 sm:grid-cols-2 lg:grid-cols-1">
+    <p class="text-2xl font-medium">
+      This site is intented to demonstrate TurboReady's features and capabilities.
+      <span class="text-red-500 dark:text-yellow-400">You should not consider the demos here a guide for how to build your own TurboReady app.</span>
+    </p>
+    <p class="-mt-4 font-medium">
+      <span class="text-blue-500">TurboReady is a foundational tool designed to help you build modern, maintainable, and scalable reactive web apps with Hotwire.</span>
+      It allows you to break free from the strict CRUD/REST conventions that Rails and Hotwire wisely encourage.
+      You should consider TurboReady a substrate for building additional libraries and abstractions.
+    </p>
+    <p class="-mt-4 font-medium">
+      Please don't use TurboReady to manually orchestrate micro DOM updates <em>(from the server)</em>.
+      Such techniques are what gave rise to Full Stack Frontend and sent the industry on a decade long journey of complexity and frustration.
+    </p>
+
+    <%= render component(:divider) %>
+
+    <p class="flex font-light">
+      <%= render heroicon(:light_bulb), solid: true, class: "h-6 w-auto mr-1 text-base inline dark:text-white" %>
+      You're actually viewing the <code class="dark:text-gray-400">test/dummy</code> app that is part of TurboReady's test suite.
+      In fact, we're using it to serve the following purposes.
+    </p>
+
+    <ul class="-mt-4 space-y-1 max-w-md list-inside text-gray-500 dark:text-gray-400">
+      <li class="flex items-center">
+        <%= render heroicon(:check_circle), solid: true, class: "w-6 h-6 mr-1.5 text-green-500 dark:text-green-400 flex-shrink-0" %>
+        Tests
+      </li>
+      <li class="flex items-center">
+        <%= render heroicon(:check_circle), solid: true, class: "w-6 h-6 mr-1.5 text-green-500 dark:text-green-400 flex-shrink-0" %>
+        Demos
+      </li>
+      <li class="flex items-center">
+        <%= render heroicon(:check_circle), solid: true, class: "w-6 h-6 mr-1.5 text-green-500 dark:text-green-400 flex-shrink-0" %>
+        Documentation
+      </li>
+      <li class="flex items-center">
+        <%= render heroicon(:check_circle), solid: true, class: "w-6 h-6 mr-1.5 text-green-500 dark:text-green-400 flex-shrink-0" %>
+        Marketing
+      </li>
+    </ul>
+
+    <%= link_to "https://github.com/hopsoft/turbo_ready/tree/main/test/dummy", rel: "nopener", target: "_blank",
+      class: css("flowbite.link.default", "-mt-4 flex items-center") do %>
+      See how we did it
+      <%= render heroicon(:arrow_right), class: "h-5 w-auto ml-2" %>
+    <% end %>
+
+    <%= render component(:divider) %>
+
+    <div class="grid">
+      <%= link_to demo_path(:event), class: css("flowbite.link.default") do %>
+        <%= render heroicon(:arrow_left), class: "w-5 h-5 inline" %>
+        <code class="font-light text-gray-400 scale-90 dark:text-gray-500">invoke</code> Event
+      <% end %>
+    </div>
+  </div>
+
+<% end %>

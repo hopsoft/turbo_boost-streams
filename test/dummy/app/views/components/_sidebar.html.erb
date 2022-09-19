@@ -53,8 +53,8 @@
       <%= tag.li render(component(:divider), class: "my-3") %>
 
       <li>
-        <%= link_to demo_path(:caution), class: css("sidebar.link", css("sidebar.link.active") => demo_active?(:caution)) do %>
-          <%= render heroicon(:exclamation), class: css("sidebar.link.icon", "!text-yellow-500 dark:!text-yellow-500") %>
+        <%= link_to doc_path(:caution), class: css("sidebar.link", css("sidebar.link.active") => demo_active?(:caution)) do %>
+          <%= render heroicon(:exclamation), class: css("sidebar.link.icon", "!text-red-500 dark:!text-yellow-400") %>
           Caution
         <% end %>
       </li>
