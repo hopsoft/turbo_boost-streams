@@ -21,10 +21,16 @@
         Break free from CRUD/REST semantics with TurboReady.
         We extend Turbo Streams to give you full control of the browser's Document Object Model (DOM).
       </p>
-      <%= button_to demo_path(:method), method: :get, class: css("flowbite.button.pink_to_orange") do %>
-        View the first Demo
-        <%= render heroicon(:arrow_right), class: "ml-2 -mr-1 w-5 h-5" %>
-      <% end %>
+      <div class="flex">
+        <%= button_to demo_path(:method), method: :get, class: css("flowbite.button.pink_to_orange", "mr-6") do %>
+          View the first Demo
+          <%= render heroicon(:arrow_right), class: "ml-2 -mr-1 w-5 h-5" %>
+        <% end %>
+        <%= link_to docs_path, method: :get, class: css("flowbite.link.default", "inline-flex items-center") do %>
+          Read the docs
+          <%= render heroicon(:arrow_right), class: "ml-1 w-5 h-5" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </section>
