@@ -52,10 +52,28 @@
 
       <%= tag.li render(component(:divider), class: "my-3") %>
 
+      <li class="pt-2 text-gray-500 dark:text-gray-400">
+        Docs
+      </li>
+
       <li>
-        <%= link_to doc_path(:caution), class: css("sidebar.link", css("sidebar.link.active") => demo_active?(:caution)) do %>
-          <%= render heroicon(:exclamation), class: css("sidebar.link.icon", "!text-red-500 dark:!text-yellow-400") %>
-          Caution
+        <%= link_to docs_path, class: css("sidebar.link", css("sidebar.link.active") => docs_active?) do %>
+          <%= render heroicon(:sparkles), class: css("sidebar.link.icon") %>
+          Recently Updated
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to doc_path(:start), class: css("sidebar.link", css("sidebar.link.active") => doc_active?(:start)) do %>
+          <%= render heroicon(:academic_cap), class: css("sidebar.link.icon") %>
+          Getting Started
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to doc_path(:caution), class: css("sidebar.link", css("sidebar.link.active") => doc_active?(:caution)) do %>
+          <%= render heroicon(:exclamation), class: css("sidebar.link.icon") %>
+          Word of Warning
         <% end %>
       </li>
     </ul>

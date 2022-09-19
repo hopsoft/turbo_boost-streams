@@ -1,4 +1,9 @@
-<section class="bg-white rounded-2xl dark:bg-gray-900">
+<% content_for :breadcrumbs do %>
+  <%= render flowbite(:breadcrumb), html: "Home", href: root_path %>
+  <%= render flowbite(:breadcrumb), html: "Demos", href: demos_path, active: true %>
+<% end %>
+
+<section>
   <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl sm:py-16 md:grid md:grid-cols-2 lg:px-6 xl:gap-16">
     <img class="w-full dark:hidden" src="https://ik.imagekit.io/hopsoft/cta-dashboard-mockup-dark_VTXU6mTTf.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1663579699221" alt="dashboard image">
     <img class="hidden w-full dark:block" src="https://ik.imagekit.io/hopsoft/cta-dashboard-mockup-dark_VTXU6mTTf.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1663579699221" alt="dashboard image">

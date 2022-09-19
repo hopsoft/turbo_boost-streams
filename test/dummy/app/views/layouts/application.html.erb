@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
   <head>
-    <title>TurboReady Demos</title>
+    <title>TurboReady</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,10 +12,10 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-gray-200 dark:bg-gray-800">
+  <body class="bg-gray-50 dark:bg-gray-900">
     <%= render component(:navbar) %>
 
-    <div class="flex overflow-hidden pt-16 bg-gray-50 dark:bg-gray-900">
+    <div class="flex overflow-hidden pt-16">
       <%= render component(:sidebar) %>
 
       <div id="main-content" class="overflow-y-auto relative w-full h-full bg-gray-50 dark:bg-gray-900">
