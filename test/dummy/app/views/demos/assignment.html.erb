@@ -6,7 +6,7 @@
 
 <%= render "demos" do %>
   <h2 class="inline-flex items-center mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-    <%= render heroicon(:menu_alt4), class: "h-10 w-auto mr-3 text-blue-500" %>
+    <%= render heroicon(:bars_3), solid: true, class: "h-10 w-auto mr-3 text-blue-500" %>
     <code class="mr-3 font-medium text-gray-400 dark:text-gray-500">invoke</code>
     Assignment
   </h2>
@@ -17,7 +17,7 @@
   <%= render component(:divider) %>
 
   <div class="grid gap-16 pt-16 sm:grid-cols-2 lg:grid-cols-1">
-    <%= render "demo", title: "Assign Dataset Values", heroicon: :adjustments do %>
+    <%= render "demo", title: "Assign Dataset Values", heroicon: :adjustments_horizontal do %>
       <span id="assignment-demo-description">We can assign pretty much assign any property value with TurboReady.</span>
 
       <%= render flowbite(:alert), type: :info, class: "flex mt-4" do %>
