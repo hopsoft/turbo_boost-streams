@@ -2,19 +2,21 @@ FROM ruby:3.1.2
 
 RUN apt-get -y update && \
 apt-get -y upgrade && \
-apt-get -y --force-yes install build-essential tzdata && \
+apt-get -y --force-yes install build-essential sqlite3 tzdata && \
 apt-get clean
 
 COPY . /opt/turbo_ready
 WORKDIR /opt/turbo_ready/test/dummy
 
 VOLUME /usr/local/bundle
-RUN rm -f Gemfile.lock && \
-gem update --system && \
-bundle config unset force_ruby_platform && \
+
+RUN gem update --system && \
+gem install bundler && \
+rm -f Gemfile.lock && \
+bundle --without test && \
+bundle update --bundler && \
+bundle lock --add-platform x86_64-linux && \
 bundle --without test
-RUN bundle lock --add-platform aarch64-linux && \
-bundle lock --add-platform x86_64-linux
 
 ENV RAILS_ENV=production
 CMD rm -f tmp/pids/server.pid && \
