@@ -12,6 +12,7 @@ Bundler.require(*Rails.groups)
 require "turbo-rails"
 require "turbo_ready"
 require "importmap-rails"
+require "tailwindcss-rails"
 require "sprockets/railtie"
 
 module Dummy
