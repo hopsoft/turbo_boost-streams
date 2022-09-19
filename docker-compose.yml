@@ -39,6 +39,7 @@ services:
                     bundle config unset force_ruby_platform &&
                     bundle --without test &&
                     bundle lock --add-platform aarch64-linux &&
+                    bundle lock --add-platform x86_64-linux &&
                     bin/rails db:create db:migrate &&
                     bin/rails log:clear &&
                     bin/rails assets:clobber &&
