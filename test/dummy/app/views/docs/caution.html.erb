@@ -59,11 +59,12 @@
       </li>
     </ul>
 
-    <%= link_to "https://github.com/hopsoft/turbo_ready/tree/main/test/dummy", rel: "nopener", target: "_blank",
-      class: css("flowbite.link.default", "-mt-4 flex items-center") do %>
-      See how we did it
-      <%= render heroicon(:arrow_right), class: "h-5 w-auto ml-2" %>
-    <% end %>
+    <div>
+      <%= link_to "https://github.com/hopsoft/turbo_ready/tree/main/test/dummy", rel: "nopener", target: "_blank",
+        class: css("flowbite.link.cta", "-mt-4") do %>
+        Browse the source code to see how we did it.
+      <% end %>
+    </div>
 
     <%= render component(:divider) %>
 
