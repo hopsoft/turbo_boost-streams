@@ -1,16 +1,16 @@
 <% content_for :breadcrumbs do %>
   <%= render flowbite(:breadcrumb), html: "Home", href: root_path %>
   <%= render flowbite(:breadcrumb), html: "Docs", href: docs_path %>
-  <%= render flowbite(:breadcrumb), html: "Word of Warning", href: doc_path(:caution), active: true %>
+  <%= render flowbite(:breadcrumb), html: "Caution", href: demo_path(:method), active: true %>
 <% end %>
 
 <%= render "doc" do %>
   <h2 class="inline-flex items-center mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-    <%= render heroicon(:exclamation), class: "h-12 w-auto mr-1 opacity-20" %>
-    Word of Warning
+    <%= render heroicon(:exclamation), class: "h-10 w-auto mr-3 text-red-500 dark:text-yellow-400" %>
+    A Word of Caution
   </h2>
-  <p class="mb-8 font-light text-red-500 lg:text-xl">
-    TurboReady is a sharp tool (use it wisely)
+  <p class="mb-8 font-light text-blue-500 lg:text-xl">
+    TurboReady is a sharp tool. Use it wisely.
   </p>
 
   <%= render component(:divider) %>
@@ -60,8 +60,7 @@
     <div>
       <%= link_to "https://github.com/hopsoft/turbo_ready/tree/main/test/dummy", rel: "nopener", target: "_blank",
         class: css("flowbite.link.cta", "-mt-4") do %>
-        <%= render icon(:github), class: "w-5 h-5 mr-2" %>
-        View our source code to see how we did it.
+        Browse the source code to see how we did it.
       <% end %>
     </div>
 
