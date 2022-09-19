@@ -9,11 +9,12 @@ x-default-app: &default_app
   environment:
     RAILS_ENV: development
   volumes:
-    - ./:/opt/turbo_ready:cached
     - bundle:/usr/local/bundle:delegated
+    - node_modules:/opt/turbo_ready/node_modules
 
 volumes:
   bundle:
+  node_modules:
 
 services:
   # ----------------------------------------------------------------------------
@@ -33,7 +34,9 @@ services:
     ports:
       - 3000:3000
     command: >
-      /bin/bash -c "bundle &&
+      /bin/bash -c "git pull --no-rebase github main &&
+                    cd /opt/turbo_ready && yarn &&
+                    cd /opt/turbo_ready/test/dummy && bundle &&
                     rm -f tmp/pids/server.pid &&
                     bin/rails db:create db:migrate &&
                     bin/rails assets:clobber &&
