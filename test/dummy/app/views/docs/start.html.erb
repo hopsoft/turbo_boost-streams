@@ -30,7 +30,7 @@
           <pre class="my-2 text-gray-400 dark:text-gray-700"><code>yarn add turbo_ready@<%= TurboReady::VERSION %></code></pre>
           <%= render component(:code), language: :json, class: "mb-8 text-sm", source_path: "app/views/docs/start/_package.json.erb", erb: true %>
 
-          <span class="">Alternately, pin the ESM module to your <code>config/importmap.rb</code> file.</span>
+          <span class="">Alternately, pin the JavaScript package to your <code>config/importmap.rb</code> file.</span>
           <pre class="my-6 mb-2 text-gray-400 dark:text-gray-700"><code>bin/importmap pin turbo_ready@<%= TurboReady::VERSION %></code></pre>
           <%= render component(:code), language: :ruby, class: "text-sm", source_path: "app/views/docs/start/_importmap.rb.erb", erb: true %>
         </div>
