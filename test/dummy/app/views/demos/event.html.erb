@@ -1,0 +1,55 @@
+<% content_for :breadcrumbs do %>
+  <%= render flowbite(:breadcrumb), html: "Home", href: root_path %>
+  <%= render flowbite(:breadcrumb), href: demo_path(:event), active: true do %>
+    <%= render heroicon(:lightning_bolt), class: "h-5 w-auto text-blue-500" %>
+    <code class="font-light text-gray-400 scale-90 dark:text-gray-500">invoke</code>
+    Event
+  <% end %>
+<% end %>
+
+<%= render "demos" do %>
+  <h2 class="inline-flex items-center mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+    <%= render heroicon(:lightning_bolt), class: "h-10 w-auto mr-3 text-blue-500" %>
+    <code class="mr-3 font-medium text-gray-400">invoke</code>
+    Event
+  </h2>
+  <p class="mb-8 font-light text-blue-500 lg:text-xl">
+    Invoke supports dispatching events on the client.
+  </p>
+
+  <%= render component(:divider) %>
+
+  <div class="grid gap-16 pt-16 sm:grid-cols-2 lg:grid-cols-1">
+    <%= render "demo", title: "Dispatch Events", heroicon: :lightning_bolt do %>
+      Dispatch an event on the window, document, and all button tags.
+
+      <%= render flowbite(:alert), type: :warning, class: "flex mt-4" do %>
+        <%= render heroicon(:exclamation), class: "w-6 h-6 mr-2" %>
+        <b class="mr-2">IMPORTANT</b> Open the JavaScript console to see this in action.
+      <% end %>
+
+      Server
+      <%= render component(:code), language: :erb, class: "mb-6 text-sm", source_path: "app/views/demos/event/_stream.html.erb" %>
+
+      Client
+      <%= render component(:code), language: :javascript, class: "mb-6 text-sm", source_path: "app/javascript/demos/event.js" %>
+
+      <div class="grid grid-cols-2">
+        <%= turbo_frame_tag "event-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/event/button"), :noop) %>
+        <%= render component(:reload_link), class: "text-sm opacity-70 block text-right" %>
+      </div>
+    <% end %>
+
+    <%= render component(:divider) %>
+
+    <div class="grid grid-cols-2">
+      <%= link_to demo_path(:assignment), class: css("flowbite.link.default") do %>
+        <%= render heroicon(:arrow_left), class: "w-5 h-5 inline" %>
+        <code class="font-light text-gray-400 scale-90 dark:text-gray-500">invoke</code> Assignment
+      <% end %>
+      <%= link_to doc_path(:caution), class: css("flowbite.link.default", "text-right text-yellow-500 dark:text-yellow-400") do %>
+        Caution <%= render heroicon(:arrow_right), class: "w-5 h-5 inline" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

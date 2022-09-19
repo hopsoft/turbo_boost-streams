@@ -1,0 +1,13 @@
+<%= turbo_stream.invoke "animate",
+  args: [
+    [
+      { transform: 'rotate(0) scale(1)' },
+      { transform: 'rotate(360deg) scale(0)' }
+    ],
+    {
+      duration: 2000,
+      iterations: 1,
+    },
+  ],
+  selector: "#code-animate.highlight" # <- accepts any CSS selector
+%>

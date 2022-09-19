@@ -11,28 +11,28 @@
   </h1>
   <p align="center">
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/">
-      <img alt="Lines of Code" src="https://img.shields.io/badge/loc-139-47d299.svg" />
+      <img alt="Lines of Code" src="https://img.shields.io/badge/loc-140-47d299.svg" />
     </a>
     <a href="https://codeclimate.com/github/hopsoft/turbo_ready/maintainability">
       <img src="https://api.codeclimate.com/v1/badges/a69b6f73abc3ccd49261/maintainability" />
     </a>
     <a href="https://rubygems.org/gems/turbo_ready">
-      <img alt="GEM" src="https://img.shields.io/gem/v/turbo_ready?color=168AFE&include_prereleases&logo=ruby&logoColor=FE1616">
+      <img alt="GEM Version" src="https://img.shields.io/gem/v/turbo_ready?color=168AFE&include_prereleases&logo=ruby&logoColor=FE1616">
     </a>
     <a href="https://rubygems.org/gems/turbo_ready">
-      <img alt="Gem" src="https://img.shields.io/gem/dt/turbo_ready?color=168AFE&logo=ruby&logoColor=FE1616">
+      <img alt="GEM Downloads" src="https://img.shields.io/gem/dt/turbo_ready?color=168AFE&logo=ruby&logoColor=FE1616">
     </a>
     <a href="https://github.com/testdouble/standard">
       <img alt="Ruby Style" src="https://img.shields.io/badge/style-standard-168AFE?logo=ruby&logoColor=FE1616" />
     </a>
     <a href="https://www.npmjs.com/package/turbo_ready">
-      <img alt="NPM" src="https://img.shields.io/npm/v/turbo_ready?color=168AFE&logo=npm">
+      <img alt="NPM Version" src="https://img.shields.io/npm/v/turbo_ready?color=168AFE&logo=npm">
     </a>
     <a href="https://www.npmjs.com/package/turbo_ready">
-      <img alt="npm" src="https://img.shields.io/npm/dm/turbo_ready?color=168AFE&logo=npm">
+      <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/turbo_ready?color=168AFE&logo=npm">
     </a>
     <a href="https://bundlephobia.com/package/turbo_ready@">
-      <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/turbo_ready?label=bundle%20size&logo=npm&color=47d299">
+      <img alt="NPM Bundle Size" src="https://img.shields.io/bundlephobia/minzip/turbo_ready?label=bundle%20size&logo=npm&color=47d299">
     </a>
     <a href="https://github.com/sheerun/prettier-standard">
       <img alt="JavaScript Style" src="https://img.shields.io/badge/style-prettier--standard-168AFE?logo=javascript&logoColor=f4e137" />
@@ -67,7 +67,7 @@ You can `invoke` any DOM method on the client with Turbo Streams.
   - [Setup](#setup)
   - [Usage](#usage)
     - [Method Chaining](#method-chaining)
-    - [Dispatching Events](#dispatching-events)
+    - [Event Dispatch](#event-dispatch)
     - [Syntax Styles](#syntax-styles)
     - [Extending Behavior](#extending-behavior)
     - [Implementation Details](#implementation-details)
@@ -114,7 +114,7 @@ This is because CableReady already provides a rich set of powerful [DOM operatio
 
 - [rails](https://rubygems.org/gems/rails) `>=6.1`
 - [turbo-rails](https://rubygems.org/gems/turbo-rails) `>=1.1`
-- [@hotwired/turbo-rails](https://yarnpkg.com/package/@hotwired/turbo-rails) `>=7.2.0-beta.2`
+- [@hotwired/turbo-rails](https://yarnpkg.com/package/@hotwired/turbo-rails) `>=7.2.0-rc.2`
 
 ## Installation
 
@@ -137,7 +137,7 @@ Import and intialize TurboReady in your application.
 ```diff
 # package.json
 "dependencies": {
-+  "@hotwired/turbo-rails": ">=7.2.0-beta.2",
+  "@hotwired/turbo-rails": ">=7.2.0-rc.2",
 +  "turbo_ready": "^0.0.6"
 ```
 
@@ -171,16 +171,16 @@ turbo_stream
   .invoke("classList.add", args: ["turbo-ready"], selector: "a") # dot notation + selector
 ```
 
-### Dispatching Events
+### Event Dispatch
 
 It's possible to fire events on `window`, `document`, and element(s).
 
 ```ruby
 turbo_stream
-  .invoke("dispatchEvent", args: ["turbo-ready:demo"]) # fires on window
+  .invoke(:dispatch_event, args: ["turbo-ready:demo"]) # fires on window
   .invoke("document.dispatchEvent", args: ["turbo-ready:demo"]) # fires on document
-  .invoke("dispatchEvent", args: ["turbo-ready:demo"], selector: "#my-element") # fires on matching element(s)
-  .invoke("dispatchEvent", args: ["turbo-ready:demo", {bubbles: true, detail: {...}}]) # set event options
+  .invoke(:dispatch_event, args: ["turbo-ready:demo"], selector: "#my-element") # fires on matching element(s)
+  .invoke(:dispatch_event, args: ["turbo-ready:demo", {bubbles: true, detail: {...}}]) # set event options
 ```
 
 ### Syntax Styles
@@ -189,7 +189,7 @@ You can use [`snake_case`](https://en.wikipedia.org/wiki/Snake_case) when invoki
 It will implicitly convert to [`camelCase`](https://en.wikipedia.org/wiki/Camel_case).
 
 ```ruby
-turbo_stream.invoke :dispatch_event,
+turbo_stream.invoke :event,
   args: ["turbo-ready:demo", {detail: {converts_to_camel_case: true}}]
 ```
 
@@ -384,11 +384,6 @@ Connect with the core team on Twitter.
 <a href="https://twitter.com/hopsoft" target="_blank">
   <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/hopsoft?logo=twitter&style=social">
 </a>
-
-## TODOs
-
-- [ ] Add system tests [(review turbo-rails for guidance)](https://github.com/hotwired/turbo-rails/blob/main/test/system/broadcasts_test.rb)
-- [ ] Look into adding method chaining for broadcasts
 
 ## Releasing
 

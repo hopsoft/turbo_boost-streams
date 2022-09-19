@@ -1,0 +1,8 @@
+<%= turbo_stream
+  .invoke("classList.remove",
+    args: %w[bg-gradient-to-br dark:focus:ring-pink-800 focus:ring-pink-200 from-pink-500 to-orange-400],
+    selector: "button[type=submit]") # <- matches all submit buttons
+  .invoke("classList.add",
+    args: %w[bg-gradient-to-r dark:focus:ring-cyan-800 focus:ring-cyan-300 from-cyan-500 to-blue-500],
+    selector: "button[type=submit]") # <- matches all submit buttons
+%>

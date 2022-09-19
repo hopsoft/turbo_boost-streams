@@ -1,15 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="dark">
   <head>
-    <title>Dummy</title>
+    <title>TurboReady Demos</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= yield :head %>
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "inter-font", "data-turbo-track": "reload" unless Rails.env.test? %>
+    <%= stylesheet_link_tag "application" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="bg-gray-200 dark:bg-gray-800">
+    <%= render component(:navbar) %>
+
+    <div class="flex overflow-hidden pt-16 bg-gray-50 dark:bg-gray-900">
+      <%= render component(:sidebar) %>
+
+      <div id="main-content" class="overflow-y-auto relative w-full h-full bg-gray-50 dark:bg-gray-900">
+        <%= render(flowbite(:breadcrumbs)) { yield :breadcrumbs } %>
+        <%= yield %>
+      </div>
+    </div>
+
+    <%= render component(:footer) %>
+
+    <script type="text/javascript">
+      window.TailwindDefaults = <%= tailwind_defaults.to_json.html_safe %>;
+    </script>
   </body>
 </html>

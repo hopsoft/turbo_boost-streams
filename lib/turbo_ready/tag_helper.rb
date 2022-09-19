@@ -17,7 +17,7 @@ module TurboReady::TagHelper
       args = camelize_args(args)
     end
 
-    method_parts = method.to_s.split(".")
+    method_parts = method.to_s.split(".").map(&:strip).select(&:present?)
 
     HashWithIndifferentAccess.new(
       receiver: method_parts[0..-2].join("."),

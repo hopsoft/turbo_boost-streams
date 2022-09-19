@@ -1,18 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :articles
-  resources :messages do
-    collection do
-      get :echo
-    end
-  end
-  resources :trays
-  resources :posts
-  namespace :users do
-    resources :profiles
-  end
-  namespace :admin do
-    resources :companies
-  end
+  get "frames/:id/:behavior", to: "frames#show", as: :frame
+  resources :demos, only: %i[index show update]
+  resources :docs, only: %i[show]
+  root "demos#index"
 end

@@ -1,0 +1,95 @@
+<% content_for :breadcrumbs do %>
+  <%= render flowbite(:breadcrumb), html: "Home", href: root_path %>
+  <%= render flowbite(:breadcrumb), href: demo_path(:method), active: true do %>
+    <%= render heroicon(:variable), class: "h-5 w-auto text-blue-500" %>
+    <code class="font-light text-gray-400 scale-90 dark:text-gray-500">invoke</code>
+    Method
+  <% end %>
+<% end %>
+
+<%= render "demos" do %>
+  <h2 class="inline-flex items-center mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+    <%= render heroicon(:variable), class: "h-10 w-auto mr-3 text-blue-500" %>
+    <code class="mr-3 font-medium text-gray-400 dark:text-gray-500">invoke</code>
+    Method
+  </h2>
+  <p class="mb-8 font-light text-blue-500 lg:text-xl">
+    Call any method or function on the client.
+  </p>
+
+  <%= render component(:divider) %>
+
+  <div class="grid gap-16 pt-16 sm:grid-cols-2 lg:grid-cols-1">
+    <%= render "demo", title: "Interact with the DOM", heroicon: :bell do %>
+      A basic alert is a good example to start with.
+
+      <%= render flowbite(:alert), type: :info, class: "flex mt-4" do %>
+        <%= render heroicon(:information_circle), class: "w-6 h-6 mr-2" %>
+        <b class="mr-2">NOTE</b> The <code class="mx-1">receiver</code> of the method call is <code class="mx-1">window</code> when unspecified.
+      <% end %>
+
+      <%= render component(:code), language: :erb, class: "my-6 text-sm", source_path: "app/views/demos/method/_alert_stream.html.erb" %>
+      <%= turbo_frame_tag "alert-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/alert_button"), :noop) %>
+    <% end %>
+
+    <%= render component(:divider) %>
+
+    <%= render "demo", title: "Use a CSS Selector", heroicon: :selector do %>
+      We can invoke methods on an element when using a selector...
+      <em class="font-extralight opacity-80">and pass complex arguments.</em>
+
+      <%= render flowbite(:alert), type: :info, class: "flex mt-4" do %>
+        <%= render heroicon(:information_circle), class: "w-6 h-6 mr-2" %>
+        <b class="mr-2">NOTE</b> The <code class="mx-1">receiver</code> of the method call is the selected <code class="ml-1">element</code>(s) when a selector is present.
+      <% end %>
+
+      <%= render component(:code), id: "code-animate", language: :erb, class: "my-6 text-sm", source_path: "app/views/demos/method/_animate_stream.html.erb" %>
+      <%= turbo_frame_tag "animate-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/animate_button"), :noop) %>
+    <% end %>
+
+    <%= render component(:divider) %>
+
+    <%= render "demo", title: "Select Multiple Elements", heroicon: :sparkles do %>
+      We can invoke methods on multiple elements when using a selector.
+
+      <%= render flowbite(:alert), type: :info, class: "flex mt-4" do %>
+        <%= render heroicon(:information_circle), class: "w-6 h-6 mr-2" %>
+        <b class="mr-2">NOTE</b> Dot notation can be used to specify a <code class="mx-1">receiver</code> defined by the selected elements.
+      <% end %>
+
+      <%= render component(:code), language: :erb, class: "my-6 text-sm", source_path: "app/views/demos/method/_multiple_elements_stream.html.erb" %>
+      <div class="grid grid-cols-2">
+        <%= turbo_frame_tag "multiple-elements-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/multiple_elements_button"), :noop) %>
+        <%= render component(:reload_link), class: "text-sm opacity-70 block text-right" %>
+      </div>
+    <% end %>
+
+    <%= render component(:divider) %>
+
+    <%= render "demo", title: "Update the JavaScript Console", heroicon: :menu_alt2 do %>
+      We can also interact with the JavaScript console.
+
+      <%= render flowbite(:alert), type: :info, class: "flex mt-4" do %>
+        <%= render heroicon(:information_circle), class: "w-6 h-6 mr-2" %>
+        <b class="mr-2">NOTE</b> Dot notation can be used to specify a <code class="mx-1">receiver</code> defined by <code class="mx-1">window</code> when a selector is unspecified.
+      <% end %>
+
+      <%= render flowbite(:alert), type: :warning, class: "flex mt-4" do %>
+        <%= render heroicon(:exclamation), class: "w-6 h-6 mr-2" %>
+        <b class="mr-2">IMPORTANT</b> Open the JavaScript console to see this in action.
+      <% end %>
+
+      <%= render component(:code), language: :erb, class: "my-6 text-sm", source_path: "app/views/demos/method/_console_log_stream.html.erb" %>
+      <%= turbo_frame_tag "console-log-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/console_log_button"), :noop) %>
+    <% end %>
+
+    <%= render component(:divider) %>
+
+    <div class="grid">
+      <%= link_to demo_path(:assignment), class: css("flowbite.link.default", "text-right") do %>
+        <code class="font-light text-gray-400 scale-90 dark:text-gray-500">invoke</code> Assignment
+        <%= render heroicon(:arrow_right), class: "w-5 h-5 inline" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

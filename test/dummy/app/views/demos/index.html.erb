@@ -1,0 +1,25 @@
+<section class="bg-white rounded-2xl dark:bg-gray-900">
+  <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl sm:py-16 md:grid md:grid-cols-2 lg:px-6 xl:gap-16">
+    <img class="w-full dark:hidden" src="https://ik.imagekit.io/hopsoft/cta-dashboard-mockup-dark_VTXU6mTTf.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1663579699221" alt="dashboard image">
+    <img class="hidden w-full dark:block" src="https://ik.imagekit.io/hopsoft/cta-dashboard-mockup-dark_VTXU6mTTf.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1663579699221" alt="dashboard image">
+    <div class="mt-4 md:mt-0">
+      <h2 class="mb-4 text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+        Unleash the power of <span class="text-red-400 dark:text-red-200">Turbo Streams</span>
+      </h2>
+      <h3 class="mb-4 text-2xl text-gray-500">
+        <span class="inline-block tracking-tight whitespace-nowrap dark:text-white">
+          <span class="self-center font-light opacity-70">Turbo</span><span class="font-bold text-red-500">Ready</span>
+        </span>
+        is Turbo Stream's Swiss Army Knife
+      </h3>
+      <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
+        Break free from CRUD/REST semantics with TurboReady.
+        We extend Turbo Streams to give you full control of the browser's Document Object Model (DOM).
+      </p>
+      <%= button_to demo_path(:method), method: :get, class: css("flowbite.button.pink_to_orange") do %>
+        View the first Demo
+        <%= render heroicon(:arrow_right), class: "ml-2 -mr-1 w-5 h-5" %>
+      <% end %>
+    </div>
+  </div>
+</section>
