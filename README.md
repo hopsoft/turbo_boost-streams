@@ -114,6 +114,7 @@ This is because CableReady already provides a rich set of powerful [DOM operatio
 
 - [rails](https://rubygems.org/gems/rails) `>=6.1`
 - [turbo-rails](https://rubygems.org/gems/turbo-rails) `>=1.1`
+- [@hotwired/turbo](https://yarnpkg.com/package/@hotwired/turbo) `>=7.2.0-rc.2`
 - [@hotwired/turbo-rails](https://yarnpkg.com/package/@hotwired/turbo-rails) `>=7.2.0-rc.2`
 
 ## Installation
