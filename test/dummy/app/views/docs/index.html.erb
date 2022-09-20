@@ -5,25 +5,25 @@
 
 <section class="bg-white dark:bg-gray-900">
   <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-      <div class="mx-auto mb-8 max-w-screen-sm text-center lg:mb-16">
-        <h2 class="mb-4 text-5xl font-extrabold tracking-tight text-gray-700 lg:text-6xl dark:text-gray-500">
-          <div class="grid place-items-center">
-            <span class="flex items-center">
-              <%= image_tag "turbo-ready-mark.webp", class: "mr-2 h-16", alt: "TurboReady Logo" %>
-              <span class="flex tracking-tight whitespace-nowrap dark:text-white">
-                <span class="font-light opacity-70">Turbo</span><span class="mr-2 font-bold text-red-500">Ready</span>
-              </span>
+    <div class="mx-auto mb-8 max-w-screen-sm text-center lg:mb-16">
+      <h2 class="mb-4 text-5xl font-extrabold tracking-tight lg:text-5xl lg:text-6xl dark:text-gray-500">
+        <div class="grid place-items-center">
+          <span class="flex items-center">
+            <%= image_tag "turbo-ready-mark.webp", class: "-ml-6 mr-2 h-16", alt: "TurboReflex Logo" %>
+            <span class="flex tracking-tight whitespace-nowrap dark:text-white">
+              <span class="font-light opacity-70">Turbo</span><span class="mr-2 font-bold text-red-500">Reflex</span>
             </span>
-          </div>
-        </h2>
-        <h3 class="-mt-2 text-4xl font-light text-gray-700 dark:text-gray-500">DOCUMENTATION</h3>
-      </div>
-      <div class="grid gap-8 lg:grid-cols-2">
-        <%= render "preview", icon: :academic_cap, label: :tutorial, href: doc_path(:start),
-          title: "Getting Started", description: "Get up and running quickly. We'll install and configure the JavaScript package, install the Ruby GEM and..." %>
+          </span>
+        </div>
+      </h2>
+      <h3 class="-mt-2 text-2xl font-light tracking-widest text-gray-700 dark:text-gray-500">DOCUMENTATION</h3>
+    </div>
+    <div class="grid gap-8 lg:grid-cols-2">
+      <%= render component(:preview), icon: :academic_cap, label: :tutorial, href: doc_path(:start),
+        title: "Get Started", description: "Get up and running quickly. We'll install and configure the JavaScript package, install the Ruby GEM and..." %>
 
-        <%= render "preview", icon: :exclamation, label: :warning, href: doc_path(:warning),
-          title: "A Word of Warning", description: "Learn what TurboReady is... what it's not. Discover what to watch out for so you avoid common mistakes and pitfalls." %>
-      </div>
+      <%= render  component(:preview), icon: :exclamation, label: :warning, href: doc_path(:warning),
+        title: "A Word of Warning", description: "Learn what TurboReady is... what it's not. Discover what to watch out for so you avoid common mistakes and pitfalls." %>
+    </div>
   </div>
 </section>

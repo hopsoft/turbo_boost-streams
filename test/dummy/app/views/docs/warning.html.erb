@@ -4,7 +4,7 @@
   <%= render flowbite(:breadcrumb), html: "Word of Warning", href: doc_path(:warning), active: true %>
 <% end %>
 
-<%= render "doc" do %>
+<%= render component(:doc) do %>
   <h2 class="inline-flex items-center mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
     Word of Warning
     <%= render heroicon(:exclamation), class: "h-12 w-auto ml-2 opacity-20" %>
