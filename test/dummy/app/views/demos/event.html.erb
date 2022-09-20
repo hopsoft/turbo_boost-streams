@@ -4,7 +4,7 @@
   <%= render flowbite(:breadcrumb), html: "Event", href: demo_path(:event), active: true %>
 <% end %>
 
-<%= render "demos" do %>
+<%= render component(:demos) do %>
   <h2 class="inline-flex items-center mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
     <%= render heroicon(:lightning_bolt), class: "h-10 w-auto mr-3 text-blue-500" %>
     <code class="mr-3 font-medium text-gray-400">invoke</code>
@@ -17,7 +17,7 @@
   <%= render component(:divider) %>
 
   <div class="grid gap-16 pt-16 sm:grid-cols-2 lg:grid-cols-1">
-    <%= render "demo", title: "Dispatch Events", heroicon: :lightning_bolt do %>
+    <%= render component(:demo), title: "Dispatch Events", heroicon: :lightning_bolt do %>
       Dispatch an event on the window, document, and all button tags.
 
       <%= render flowbite(:alert), type: :warning, class: "flex items-center mt-4" do %>

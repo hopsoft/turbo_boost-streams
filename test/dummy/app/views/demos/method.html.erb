@@ -4,7 +4,7 @@
   <%= render flowbite(:breadcrumb), html: "Method", href: demo_path(:method), active: true %>
 <% end %>
 
-<%= render "demos" do %>
+<%= render component(:demos) do %>
   <h2 class="inline-flex items-center mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
     <%= render heroicon(:variable), class: "h-10 w-auto mr-3 text-blue-500" %>
     <code class="mr-3 font-medium text-gray-400 dark:text-gray-500">invoke</code>
@@ -17,7 +17,7 @@
   <%= render component(:divider) %>
 
   <div class="grid gap-16 pt-16 sm:grid-cols-2 lg:grid-cols-1">
-    <%= render "demo", title: "Interact with the DOM", heroicon: :bell do %>
+    <%= render component(:demo), title: "Interact with the DOM", heroicon: :bell do %>
       A basic alert is a good example to start with.
 
       <%= render flowbite(:alert), type: :info, class: "flex items-center mt-4" do %>
@@ -31,7 +31,7 @@
 
     <%= render component(:divider) %>
 
-    <%= render "demo", title: "Use a CSS Selector", heroicon: :code_bracket_square do %>
+    <%= render component(:demo), title: "Use a CSS Selector", heroicon: :code_bracket_square do %>
       We can invoke methods on an element when using a selector...
       <em class="font-extralight opacity-80">and pass complex arguments.</em>
 
@@ -46,7 +46,7 @@
 
     <%= render component(:divider) %>
 
-    <%= render "demo", title: "Select Multiple Elements", heroicon: :sparkles do %>
+    <%= render component(:demo), title: "Select Multiple Elements", heroicon: :sparkles do %>
       We can invoke methods on multiple elements when using a selector.
 
       <%= render flowbite(:alert), type: :info, class: "flex items-center mt-4" do %>
@@ -63,7 +63,7 @@
 
     <%= render component(:divider) %>
 
-    <%= render "demo", title: "Update the JavaScript Console", heroicon: :bars_3 do %>
+    <%= render component(:demo), title: "Update the JavaScript Console", heroicon: :bars_3 do %>
       We can also interact with the JavaScript console.
 
       <%= render flowbite(:alert), type: :info, class: "flex items-center mt-4" do %>
