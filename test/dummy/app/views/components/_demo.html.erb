@@ -1,8 +1,22 @@
-<div class="flex w-full">
+<div class="grid grid-cols-12 grid-rows-2 gap-2">
+  <div class="col-span-2 sm:col-span-3 items-center mr-4 w-12 h-12 bg-white rounded shadow dark:bg-gray-700 shrink-0">
+    <%= render heroicon(local_assigns[:heroicon]), class: "w-7 h-7 text-gray-900 dark:text-gray-400" %>
+  </div>
+  <div class="col-span-10 sm:col-span-9 row-span-1">
+    <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white"><%= title %></h3>
+  </div>
+  <div class="col-span-12 row-span-1">
+    <p class="font-light text-gray-500 dark:text-gray-400">
+      <%= yield %>
+    </p>
+  </div>
+</div>
+
+<div class="flex flex-col md:flex-row w-full">
   <div class="flex justify-center items-center mr-4 w-12 h-12 bg-white rounded shadow dark:bg-gray-700 shrink-0">
     <%= render heroicon(local_assigns[:heroicon]), class: "w-7 h-7 text-gray-900 dark:text-gray-400" %>
   </div>
-  <div class="w-full">
+  <div class="">
     <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white"><%= title %></h3>
     <p class="font-light text-gray-500 dark:text-gray-400">
       <%= yield %>

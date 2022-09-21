@@ -4,14 +4,17 @@
 <% end %>
 
 <section>
-  <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl sm:py-16 md:grid md:grid-cols-2 lg:px-6 xl:gap-16">
-    <img class="w-full dark:hidden" src="https://ik.imagekit.io/hopsoft/cta-dashboard-mockup-dark_VTXU6mTTf.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1663579699221" alt="dashboard image">
-    <img class="hidden w-full dark:block" src="https://ik.imagekit.io/hopsoft/cta-dashboard-mockup-dark_VTXU6mTTf.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1663579699221" alt="dashboard image">
+  <div class="gap-8 items-center p-4 mx-auto max-w-screen-xl sm:py-16 md:grid md:grid-cols-2 lg:px-6 xl:gap-16">
+    <div class="hidden md:block text-center">
+      <img class="w-full dark:hidden" src="https://ik.imagekit.io/hopsoft/cta-dashboard-mockup-dark_VTXU6mTTf.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1663579699221" alt="dashboard image">
+      <img class="hidden w-full dark:block" src="https://ik.imagekit.io/hopsoft/cta-dashboard-mockup-dark_VTXU6mTTf.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1663579699221" alt="dashboard image">
+    </div>
     <div class="mt-4 md:mt-0">
-      <h2 class="mb-4 text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-        Unleash the power of <span class="text-red-400 dark:text-red-200">Turbo Streams</span>
+      <h2 class="mb-8 sm:mb-4 text-gray-900 tracking-tight dark:text-white">
+        <div class="lg:inline-block text-center md:text-left text-3xl lg:text-4xl xl:text-5xl font-bold">Unleash the power of</div>
+        <div class="lg:inline-block text-center md:text-left text-4xl lg:text-6xl font-extrabold text-red-400 dark:text-red-200">Turbo Streams</div>
       </h2>
-      <h3 class="mb-4 text-2xl text-gray-500">
+      <h3 class="mb-8 md:mb-4 text-2xl text-center md:text-left text-gray-500">
         <span class="inline-block tracking-tight whitespace-nowrap dark:text-white">
           <span class="self-center font-light opacity-70">Turbo</span><span class="font-bold text-red-500">Ready</span>
         </span>
@@ -21,14 +24,18 @@
         Known as Turbo Stream's Swiss Army Knife,
         TurboReady extends Hotwire's strict CRUD semantics and gives you full server-side control of the browser's Document Object Model (DOM).
       </p>
-      <div class="flex">
-        <%= button_to demo_path(:method), method: :get, class: css("flowbite.button.pink_to_orange", "mr-6") do %>
-          View the first Demo
-          <%= render heroicon(:arrow_right), class: "ml-2 -mr-1 w-5 h-5" %>
+      <div class="flex flex-col items-center space-y-2 md:flex-row md:space-y-0 md:space-x-3">
+        <%= button_to demo_path(:method), method: :get, class: css("flowbite.button.pink_to_orange", "flex-1") do %>
+          <span class="relative pr-6">
+            View the first demo
+            <%= render heroicon(:arrow_right), class: "absolute top-0 right-0 w-5 h-5" %>
+          </span>
         <% end %>
-        <%= link_to docs_path, method: :get, class: css("flowbite.link.default", "inline-flex items-center") do %>
-          Read the docs
-          <%= render heroicon(:arrow_right), class: "ml-1 w-5 h-5" %>
+        <%= link_to docs_path, method: :get, class: css("flowbite.link.default", "flex-1") do %>
+          <span class="relative pr-6">
+            Read the docs
+            <%= render heroicon(:arrow_right), class: "absolute top-0 right-0 w-5 h-5" %>
+          </span>
         <% end %>
       </div>
     </div>
