@@ -17,8 +17,5 @@
   },
   "scripts": {
     "build": "esbuild app/javascript/turbo_ready.js --bundle --minify --sourcemap --format=esm --outdir=app/assets/builds"
-  },
-  "dependencies": {
-    "flowbite": "^1.5.3"
   }
 }
