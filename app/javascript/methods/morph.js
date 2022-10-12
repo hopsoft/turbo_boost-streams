@@ -7,7 +7,8 @@ const textarea = /TEXTAREA/i
 function updating (el, toEl, childrenOnly, skip) {
   let protect = false
   protect = el.match(textarea)
-  protect = protect || (el.match(input) && el.match(inputTypes))
+  protect =
+    protect || (el.match(input) && el.getAttribute('type').match(inputTypes))
   if (protect && el === document.activeElement) skip()
 }
 
