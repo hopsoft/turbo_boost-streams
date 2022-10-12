@@ -46,6 +46,14 @@
         <% end %>
       </li>
 
+      <li>
+        <%= link_to demo_path(:morph), class: css("sidebar.link", css("sidebar.link.active") => demo_active?(:morph)) do %>
+          <%= render heroicon(:lightning_bolt), class: css("sidebar.link.icon", "!text-blue-500", css("sidebar.link.icon.active") => demo_active?(:morph)) %>
+          <code class="mr-1 text-sm text-gray-400 dark:text-gray-500">invoke</code>
+          Morph
+        <% end %>
+      </li>
+
       <%= tag.li render(component(:divider), class: "my-3") %>
 
       <li class="pt-2 text-gray-500 dark:text-gray-400">

@@ -13,4 +13,12 @@ module DemosHelper
   def demos_active?
     controller_name == "demos" && action_name == "index"
   end
+
+  def current_list
+    params[:list] || "one"
+  end
+
+  def next_list
+    current_list == "one" ? "two" : "one"
+  end
 end

@@ -1,0 +1,43 @@
+<% content_for :breadcrumbs do %>
+  <%= render flowbite(:breadcrumb), html: "Home", href: root_path %>
+  <%= render flowbite(:breadcrumb), html: "Demos", href: demos_path %>
+  <%= render flowbite(:breadcrumb), html: "Morph", href: demo_path(:method), active: true %>
+<% end %>
+
+<%= render component(:demos) do %>
+  <h2 class="inline-flex items-center mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+    <%= render heroicon(:bars_3), solid: true, class: "h-10 w-auto mr-3 text-blue-500" %>
+    <code class="mr-3 font-medium text-gray-400 dark:text-gray-500">invoke</code>
+    Morph
+  </h2>
+  <p class="mb-8 font-light text-blue-500 lg:text-xl">
+    Morph a DOM element while preserving client browser state.
+  </p>
+
+  <%= render component(:divider) %>
+
+  <div class="grid gap-16 pt-16 sm:grid-cols-2 lg:grid-cols-1">
+    <%= render component(:demo), title: "Morph Element", heroicon: :adjustments_horizontal do %>
+      <span id="assignment-demo-description">We can transform an element from one state to another with TurboReady.</span>
+
+      <%= render "demos/morph/list_one" %>
+
+      <%= render component(:code), language: :erb, class: "my-6 text-sm", source_path: "app/views/demos/morph/_stream.html.erb" %>
+
+      <div class="grid grid-cols-2">
+        <%= turbo_frame_tag "morph-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/morph/button"), :noop) %>
+        <%= render component(:reload_link), class: "text-sm opacity-70 block text-right" %>
+      </div>
+    <% end %>
+
+    <%= render component(:divider) %>
+
+    <div class="grid grid-cols-2">
+      <%= link_to demo_path(:event), class: css("flowbite.link.paragraph") do %>
+        <%= render heroicon(:arrow_left), class: "w-5 h-5 inline" %>
+        <code class="font-light text-gray-400 scale-90 dark:text-gray-500">invoke</code>
+        Event
+      <% end %>
+    </div>
+  </div>
+<% end %>

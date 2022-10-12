@@ -2,7 +2,7 @@
   "name": "turbo_ready",
   "version": "0.1.0",
   "description": "Take full control of the DOM with Turbo Streams",
-  "main": "app/javascript/turbo_ready.js",
+  "main": "app/javascript/index.js",
   "repository": "https://github.com/hopsoft/turbo_ready",
   "author": "Nate Hopkins (hopsoft) <natehop@gmail.com>",
   "license": "MIT",
@@ -17,6 +17,10 @@
     "rustywind": "^0.15.1"
   },
   "scripts": {
-    "build": "esbuild app/javascript/turbo_ready.js --bundle --minify --sourcemap --format=esm --outdir=app/assets/builds"
+    "build": "esbuild app/javascript/index.js --bundle --minify --sourcemap --format=esm --outfile=app/assets/builds/turbo_ready.js"
+  },
+  "dependencies": {
+    "@alpinejs/morph": ">=3.10.4",
+    "alpinejs": ">=3.10.4"
   }
 }
