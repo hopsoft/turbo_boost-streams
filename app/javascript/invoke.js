@@ -2,13 +2,12 @@ import dispatch from './methods/dispatch'
 import mutate from './methods/mutate'
 
 function perform (method, args, receivers) {
-  // dispatchEvent
-  if (method === 'dispatchEvent')
+  // dispatch / dispatchEvent
+  if (method.match(/^dispatch(Event)?$/))
     return dispatch(receivers, args[0], args[1] || {})
 
   // morph / mutate
-  if (method === 'morph' || method === 'mutate')
-    return mutate(receivers, args[0])
+  if (method.match(/^morph|mutate$/)) return mutate(receivers, args[0])
 
   // property assignment
   if (method.endsWith('='))
