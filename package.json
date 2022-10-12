@@ -12,6 +12,7 @@
   "devDependencies": {
     "esbuild": "^0.15.5",
     "eslint": "^8.19.0",
+    "flowbite": "^1.5.3",
     "prettier-standard": "^16.4.1",
     "rustywind": "^0.15.1"
   },
@@ -19,8 +20,7 @@
     "build": "esbuild app/javascript/index.js --bundle --minify --sourcemap --format=esm --outfile=app/assets/builds/turbo_ready.js"
   },
   "dependencies": {
-    "@alpinejs/morph": "^3.10.4",
-    "alpinejs": "^3.10.4",
-    "flowbite": "^1.5.3"
+    "@alpinejs/morph": ">=3.10.4",
+    "alpinejs": ">=3.10.4"
   }
 }
