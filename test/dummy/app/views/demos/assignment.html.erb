@@ -1,7 +1,7 @@
 <% content_for :breadcrumbs do %>
   <%= render flowbite(:breadcrumb), html: "Home", href: root_path %>
   <%= render flowbite(:breadcrumb), html: "Demos", href: demos_path %>
-  <%= render flowbite(:breadcrumb), html: "Assignment", href: demo_path(:method), active: true %>
+  <%= render flowbite(:breadcrumb), html: "Assignment", href: demo_path(:assignment), active: true %>
 <% end %>
 
 <%= render component(:demos) do %>

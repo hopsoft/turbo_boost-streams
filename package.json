@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@alpinejs/morph": "^3.10.4",
+    "alpinejs": "^3.10.4",
     "flowbite": "^1.5.3"
   }
 }

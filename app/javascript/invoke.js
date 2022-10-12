@@ -1,13 +1,14 @@
 import dispatch from './methods/dispatch'
-import morph from './methods/morph'
+import mutate from './methods/mutate'
 
 function perform (method, args, receivers) {
   // dispatchEvent
   if (method === 'dispatchEvent')
     return dispatch(receivers, args[0], args[1] || {})
 
-  // morph
-  if (method === 'morph') return morph(receivers, args[0])
+  // morph / mutate
+  if (method === 'morph' || method === 'mutate')
+    return mutate(receivers, args[0])
 
   // property assignment
   if (method.endsWith('='))
