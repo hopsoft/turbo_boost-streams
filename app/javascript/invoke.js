@@ -1,7 +1,5 @@
-function dispatch (targets, name, options = {}) {
-  const evt = new CustomEvent(name, options)
-  targets.forEach(t => t.dispatchEvent(evt))
-}
+import dispatch from './methods/dispatch'
+import morph from './methods/morph'
 
 function invoke () {
   const payload = JSON.parse(this.templateContent.textContent)
@@ -22,6 +20,9 @@ function invoke () {
   if (method === 'dispatchEvent')
     return dispatch(receivers, args[0], args[1] || {})
 
+  // morph
+  if (method === 'morph') return morph(receivers, args[0])
+
   // property assignment
   if (method.endsWith('='))
     return receivers.forEach(r => (r[method.slice(0, -1).trim()] = args[0]))
@@ -30,8 +31,4 @@ function invoke () {
   receivers.forEach(r => r[method].apply(r, args))
 }
 
-function initialize (streamActions) {
-  streamActions.invoke = invoke
-}
-
-export default { initialize }
+export default invoke
