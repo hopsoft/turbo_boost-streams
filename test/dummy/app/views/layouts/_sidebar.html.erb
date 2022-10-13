@@ -32,7 +32,7 @@
 
       <li>
         <%= link_to demo_path(:assignment), class: css("sidebar.link", css("sidebar.link.active") => demo_active?(:assignment)) do %>
-          <%= render heroicon(:bars_3), solid: true, class: css("sidebar.link.icon", "!text-blue-500", css("sidebar.link.icon.active") => demo_active?(:assignment)) %>
+          <%= render heroicon(:bars_2), solid: true, class: css("sidebar.link.icon", "!text-blue-500", css("sidebar.link.icon.active") => demo_active?(:assignment)) %>
           <code class="mr-1 text-sm text-gray-400 dark:text-gray-500">invoke</code>
           Assignment
         <% end %>
@@ -48,7 +48,7 @@
 
       <li>
         <%= link_to demo_path(:morph), class: css("sidebar.link", css("sidebar.link.active") => demo_active?(:morph)) do %>
-          <%= render heroicon(:lightning_bolt), class: css("sidebar.link.icon", "!text-blue-500", css("sidebar.link.icon.active") => demo_active?(:morph)) %>
+          <%= render heroicon(:arrow_up_on_square_stack), class: css("sidebar.link.icon", "!text-blue-500", css("sidebar.link.icon.active") => demo_active?(:morph)) %>
           <code class="mr-1 text-sm text-gray-400 dark:text-gray-500">invoke</code>
           Morph
         <% end %>
@@ -62,7 +62,7 @@
 
       <li>
         <%= link_to docs_path, class: css("sidebar.link", css("sidebar.link.active") => docs_active?) do %>
-          <%= render heroicon(:rectangle_stack), class: css("sidebar.link.icon", css("sidebar.link.icon.active") => docs_active?) %>
+          <%= render heroicon(:arrow_up_on_square_stack), class: css("sidebar.link.icon", css("sidebar.link.icon.active") => docs_active?) %>
           Catalog
         <% end %>
       </li>

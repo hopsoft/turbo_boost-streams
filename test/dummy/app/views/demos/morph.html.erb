@@ -6,7 +6,7 @@
 
 <%= render component(:demos) do %>
   <h2 class="inline-flex items-center mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-    <%= render heroicon(:bars_3), solid: true, class: "h-10 w-auto mr-3 text-blue-500" %>
+    <%= render heroicon(:arrow_up_on_square_stack), class: "h-10 w-auto mr-3 text-blue-500" %>
     <code class="mr-3 font-medium text-gray-400 dark:text-gray-500">invoke</code>
     Morph
   </h2>
@@ -17,7 +17,7 @@
   <%= render component(:divider) %>
 
   <div class="grid gap-16 pt-16 sm:grid-cols-2 lg:grid-cols-1">
-    <%= render component(:demo), title: "Morph Element", heroicon: :adjustments_horizontal do %>
+    <%= render component(:demo), title: "Morph Element", heroicon: :arrow_up_on_square_stack do %>
       <span id="assignment-demo-description">We can transform an element from one state to another with TurboReady.</span>
 
       <%= render "demos/morph/list_one" %>
