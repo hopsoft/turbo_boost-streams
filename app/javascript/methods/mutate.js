@@ -9,16 +9,11 @@ const textarea = /TEXTAREA/i
 
 function updating (el, toEl, childrenOnly, skip) {
   if (el.nodeType !== Node.ELEMENT_NODE) return
+  if (el !== document.activeElement) return
 
-  let protect = false
-  protect = el.tagName.match(textarea)
-
-  if (protect) return skip()
-
-  protect =
-    el === document.activeElement &&
-    el.tagName.match(input) &&
-    el.getAttribute('type').match(inputTypes)
+  const protect =
+    el.tagName.match(textarea) ||
+    (el.tagName.match(input) && el.getAttribute('type').match(inputTypes))
 
   if (protect) return skip()
 }
