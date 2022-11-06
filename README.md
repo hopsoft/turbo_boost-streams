@@ -7,7 +7,8 @@
     Turbo Stream's Swiss Army Knife
   </h3>
   <h1 align="center">
-    Welcome to TurboReady 👋
+    Welcome to TurboReady 👋 <br>
+    <em><small>The only Stream Action you really need</small></em>
   </h1>
   <p align="center">
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/">
