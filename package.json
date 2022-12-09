@@ -17,7 +17,7 @@
     "rustywind": "^0.15.1"
   },
   "scripts": {
-    "build": "esbuild app/javascript/index.js --bundle --minify --sourcemap --format=esm --outfile=app/assets/builds/turbo_ready.js"
+    "build": "esbuild app/javascript/index.js --bundle --minify --sourcemap --format=esm --target=es2017 --analyze --outfile=app/assets/builds/turbo_ready.js"
   },
   "dependencies": {
     "@alpinejs/morph": ">=3.10.4",
