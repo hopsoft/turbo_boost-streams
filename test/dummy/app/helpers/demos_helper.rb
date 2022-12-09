@@ -19,6 +19,6 @@ module DemosHelper
   end
 
   def next_list
-    current_list == "one" ? "two" : "one"
+    (current_list == "one") ? "two" : "one"
   end
 end

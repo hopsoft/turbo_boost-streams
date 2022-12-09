@@ -12,7 +12,7 @@
   </h1>
   <p align="center">
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/">
-      <img alt="Lines of Code" src="https://img.shields.io/badge/loc-167-47d299.svg" />
+      <img alt="Lines of Code" src="https://img.shields.io/badge/loc-176-47d299.svg" />
     </a>
     <a href="https://codeclimate.com/github/hopsoft/turbo_ready/maintainability">
       <img src="https://api.codeclimate.com/v1/badges/a69b6f73abc3ccd49261/maintainability" />
@@ -115,8 +115,8 @@ This is because CableReady already provides a rich set of powerful [DOM operatio
 
 - [rails](https://rubygems.org/gems/rails) `>=6.1`
 - [turbo-rails](https://rubygems.org/gems/turbo-rails) `>=1.1`
-- [@hotwired/turbo](https://yarnpkg.com/package/@hotwired/turbo) `>=7.2.0-rc.2`
-- [@hotwired/turbo-rails](https://yarnpkg.com/package/@hotwired/turbo-rails) `>=7.2.0-rc.2`
+- [@hotwired/turbo](https://yarnpkg.com/package/@hotwired/turbo) `>=7.2.0`
+- [@hotwired/turbo-rails](https://yarnpkg.com/package/@hotwired/turbo-rails) `>=7.2.0`
 
 ## Installation
 
@@ -146,9 +146,7 @@ Import and intialize TurboReady in your application.
 ```diff
 # app/javascript/application.js
 import '@hotwired/turbo-rails'
-+import TurboReady from 'turbo_ready'
-
-+TurboReady.initialize(Turbo.StreamActions) // Adds TurboReady stream actions to Turbo
++import 'turbo_ready'
 ```
 
 ## Usage
