@@ -7,7 +7,8 @@ module TurboReady::Demos
     test "turbo ready loaded" do
       visit demos_url
       assert page.evaluate_script("typeof TurboReady") == "object"
-      assert page.evaluate_script("typeof TurboReady.initialize") == "function"
+      assert page.evaluate_script("typeof TurboReady.StreamActions") == "object"
+      assert page.evaluate_script("typeof TurboReady.StreamActions.invoke") == "function"
     end
   end
 end
