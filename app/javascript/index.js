@@ -1,11 +1,11 @@
 import invoke from './invoke'
 
-if (!Turbo)
+if (!self['Turbo'])
   throw new Error(
     '`Turbo` is not defined! Be sure to import `turbo_ready` after `@hotwired/turbo` or `@hotwired/turbo-rails`.'
   )
 
-if (!Turbo.StreamActions)
+if (!Turbo['StreamActions'])
   throw new Error(
     '`Turbo.StreamActions` is not defined! Verify that you are running >= `7.2.0` of `@hotwired/turbo`.'
   )
