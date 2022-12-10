@@ -133,13 +133,14 @@ Import and intialize TurboReady in your application.
 
 ```diff
 # Gemfile
+gem "turbo-rails", ">= 1.1", "< 2"
 +gem "turbo_ready", "~> 0.0.6"
 ```
 
 ```diff
 # package.json
 "dependencies": {
-  "@hotwired/turbo-rails": ">=7.2.0-rc.2",
+  "@hotwired/turbo-rails": ">=7.2",
 +  "turbo_ready": "^0.0.6"
 ```
 
