@@ -20,11 +20,11 @@ bundle config set --global --without test
 RUN npm install -g yarn
 
 # get application code
-RUN rm -rf /opt/turbo_ready
-RUN git clone --origin github --branch main --depth 1 https://github.com/hopsoft/turbo_ready.git /opt/turbo_ready
+RUN rm -rf /opt/turbo_boost-streams
+RUN git clone --origin github --branch main --depth 1 https://github.com/hopsoft/turbo_boost-streams.git /opt/turbo_boost-streams
 
 # install application dependencies 1st time
-WORKDIR /opt/turbo_ready
+WORKDIR /opt/turbo_boost-streams
 RUN yarn
 RUN bundle
 

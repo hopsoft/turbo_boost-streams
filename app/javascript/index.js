@@ -2,7 +2,7 @@ import invoke from './invoke'
 
 if (!self['Turbo'])
   throw new Error(
-    '`Turbo` is not defined! Be sure to import `turbo_ready` after `@hotwired/turbo` or `@hotwired/turbo-rails`.'
+    '`Turbo` is not defined! Be sure to import `@turbo-boost/streams` after `@hotwired/turbo` or `@hotwired/turbo-rails`.'
   )
 
 if (!Turbo['StreamActions'])
@@ -11,8 +11,9 @@ if (!Turbo['StreamActions'])
   )
 
 Turbo.StreamActions.invoke = invoke
-self.TurboReady = { StreamActions: { invoke } }
+self.TurboBoost = self.TurboBoost || {}
+self.TurboBoost.Streams = { invoke }
 
 console.info(
-  'TurboReady has initialized and has registered new stream actions with Turbo.'
+  '@turbo-boost/streams has initialized and registered new stream actions with Turbo.'
 )

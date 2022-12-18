@@ -2,7 +2,7 @@
 
 require "application_system_test_case"
 
-module TurboReady::Demos
+module TurboBoost::Streams::Demos
   class MorphTest < ApplicationSystemTestCase
     test "morph list" do
       visit demo_url("morph")

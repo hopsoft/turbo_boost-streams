@@ -2,7 +2,7 @@
 
 import '@hotwired/turbo-rails'
 import 'flowbite'
-import 'turbo_ready'
+import '@turbo-boost/streams'
 import './controllers'
 import './demos/event'
 

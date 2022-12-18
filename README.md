@@ -14,32 +14,32 @@
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/">
       <img alt="Lines of Code" src="https://img.shields.io/badge/loc-176-47d299.svg" />
     </a>
-    <a href="https://codeclimate.com/github/hopsoft/turbo_ready/maintainability">
+    <a href="https://codeclimate.com/github/hopsoft/turbo_boost-streams/maintainability">
       <img src="https://api.codeclimate.com/v1/badges/a69b6f73abc3ccd49261/maintainability" />
     </a>
-    <a href="https://rubygems.org/gems/turbo_ready">
-      <img alt="GEM Version" src="https://img.shields.io/gem/v/turbo_ready?color=168AFE&include_prereleases&logo=ruby&logoColor=FE1616">
+    <a href="https://rubygems.org/gems/turbo_boost-streams">
+      <img alt="GEM Version" src="https://img.shields.io/gem/v/turbo_boost-streams?color=168AFE&include_prereleases&logo=ruby&logoColor=FE1616">
     </a>
-    <a href="https://rubygems.org/gems/turbo_ready">
-      <img alt="GEM Downloads" src="https://img.shields.io/gem/dt/turbo_ready?color=168AFE&logo=ruby&logoColor=FE1616">
+    <a href="https://rubygems.org/gems/turbo_boost-streams">
+      <img alt="GEM Downloads" src="https://img.shields.io/gem/dt/turbo_boost-streams?color=168AFE&logo=ruby&logoColor=FE1616">
     </a>
     <a href="https://github.com/testdouble/standard">
       <img alt="Ruby Style" src="https://img.shields.io/badge/style-standard-168AFE?logo=ruby&logoColor=FE1616" />
     </a>
-    <a href="https://www.npmjs.com/package/turbo_ready">
-      <img alt="NPM Version" src="https://img.shields.io/npm/v/turbo_ready?color=168AFE&logo=npm">
+    <a href="https://www.npmjs.com/package/turbo_boost-streams">
+      <img alt="NPM Version" src="https://img.shields.io/npm/v/turbo_boost-streams?color=168AFE&logo=npm">
     </a>
-    <a href="https://www.npmjs.com/package/turbo_ready">
-      <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/turbo_ready?color=168AFE&logo=npm">
+    <a href="https://www.npmjs.com/package/turbo_boost-streams">
+      <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/turbo_boost-streams?color=168AFE&logo=npm">
     </a>
-    <a href="https://bundlephobia.com/package/turbo_ready@">
-      <img alt="NPM Bundle Size" src="https://img.shields.io/bundlephobia/minzip/turbo_ready?label=bundle%20size&logo=npm&color=47d299">
+    <a href="https://bundlephobia.com/package/turbo_boost-streams@">
+      <img alt="NPM Bundle Size" src="https://img.shields.io/bundlephobia/minzip/turbo_boost-streams?label=bundle%20size&logo=npm&color=47d299">
     </a>
     <a href="https://github.com/sheerun/prettier-standard">
       <img alt="JavaScript Style" src="https://img.shields.io/badge/style-prettier--standard-168AFE?logo=javascript&logoColor=f4e137" />
     </a>
-    <a href="https://github.com/hopsoft/turbo_ready/actions/workflows/tests.yml">
-      <img alt="Tests" src="https://github.com/hopsoft/turbo_ready/actions/workflows/tests.yml/badge.svg" />
+    <a href="https://github.com/hopsoft/turbo_boost-streams/actions/workflows/tests.yml">
+      <img alt="Tests" src="https://github.com/hopsoft/turbo_boost-streams/actions/workflows/tests.yml/badge.svg" />
     </a>
     <a href="https://twitter.com/hopsoft">
       <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/hopsoft?logo=twitter&style=social">
@@ -106,7 +106,7 @@ This is because CableReady already provides a rich set of powerful [DOM operatio
   <em>Proudly sponsored by</em>
 </p>
 <p align="center">
-  <a href="https://www.clickfunnels.com?utm_source=hopsoft&utm_medium=open-source&utm_campaign=turbo_ready">
+  <a href="https://www.clickfunnels.com?utm_source=hopsoft&utm_medium=open-source&utm_campaign=turbo_boost-streams">
     <img src="https://images.clickfunnel.com/uploads/digital_asset/file/176632/clickfunnels-dark-logo.svg" width="575" />
   </a>
 </p>
@@ -123,8 +123,8 @@ This is because CableReady already provides a rich set of powerful [DOM operatio
 Be sure to install the same version for each libary.
 
 ```sh
-bundle add "turbo_ready --version VERSION"
-yarn add "turbo_ready@VERSION --exact"
+bundle add "turbo_boost-streams --version VERSION"
+yarn add "@turbo-boost/streams@VERSION --exact"
 ```
 
 ## Setup
@@ -134,20 +134,20 @@ Import and intialize TurboReady in your application.
 ```diff
 # Gemfile
 gem "turbo-rails", ">= 1.1", "< 2"
-+gem "turbo_ready", "~> 0.0.6"
++gem "turbo_boost-streams", "~> VERSION"
 ```
 
 ```diff
 # package.json
 "dependencies": {
   "@hotwired/turbo-rails": ">=7.2",
-+  "turbo_ready": "^0.0.6"
++  "@turbo-boost/streams": "^VERSION"
 ```
 
 ```diff
 # app/javascript/application.js
 import '@hotwired/turbo-rails'
-+import 'turbo_ready'
++import '@turbo-boost/streams'
 ```
 
 ## Usage
@@ -367,10 +367,10 @@ Be sure to introduce yourselves in the #newcomers channel!
 
 ### Discussions
 
-Feel free to add to the conversation here on [GitHub Discussions](https://github.com/hopsoft/turbo_ready/discussions).
+Feel free to add to the conversation here on [GitHub Discussions](https://github.com/hopsoft/turbo_boost-streams/discussions).
 
-<a href="https://github.com/hopsoft/turbo_ready/discussions" target="_blank">
-  <img alt="GitHub Discussions" src="https://img.shields.io/github/discussions/hopsoft/turbo_ready?color=168AFE&logo=github">
+<a href="https://github.com/hopsoft/turbo_boost-streams/discussions" target="_blank">
+  <img alt="GitHub Discussions" src="https://img.shields.io/github/discussions/hopsoft/turbo_boost-streams?color=168AFE&logo=github">
 </a>
 
 ### Twitter
@@ -384,7 +384,7 @@ Connect with the core team on Twitter.
 ## Releasing
 
 1. Run `yarn` and `bundle` to pick up the latest
-1. Bump version number at `lib/turbo_ready/version.rb`. Pre-release versions use `.preN`
+1. Bump version number at `lib/turbo_boost-streams/version.rb`. Pre-release versions use `.preN`
 1. Run `rake build` and `yarn build`
 1. Run `bin/standardize`
 1. Commit and push changes to GitHub
@@ -392,7 +392,7 @@ Connect with the core team on Twitter.
 1. Run `yarn publish --no-git-tag-version`
 1. Yarn will prompt you for the new version. Pre-release versions use `-preN`
 1. Commit and push changes to GitHub
-1. Create a new release on GitHub ([here](https://github.com/hopsoft/turbo_ready/releases)) and generate the changelog for the stable release for it
+1. Create a new release on GitHub ([here](https://github.com/hopsoft/turbo_boost-streams/releases)) and generate the changelog for the stable release for it
 
 ## License
 

@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class TurboReady::TagBuilderTest < ActiveSupport::TestCase
-  include TurboReady::Patches::TagBuilder
+class TurboBoost::Streams::TagBuilderTest < ActiveSupport::TestCase
+  include TurboBoost::Streams::Patches::TagBuilder
 
-  test "invoke returns a TurboReady::StringWrapper" do
+  test "invoke returns a TurboBoost::Streams::StringWrapper" do
     actual = invoke("console.log", args: ["Hello World!"])
-    assert actual.is_a?(TurboReady::StringWrapper)
+    assert actual.is_a?(TurboBoost::Streams::StringWrapper)
   end
 
   test "invoke returns a wrapped string with the expected value" do
