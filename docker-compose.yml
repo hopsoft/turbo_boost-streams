@@ -2,15 +2,15 @@ version: "3.9"
 
 x-default-app: &default_app
   build: .
-  image: turbo_ready
+  image: turbo_boost-streams
   tty: true
   stdin_open: true
-  working_dir: /opt/turbo_ready/test/dummy
+  working_dir: /opt/turbo_boost-streams/test/dummy
   environment:
     RAILS_ENV: development
   volumes:
     - bundle:/usr/local/bundle:delegated
-    - node_modules:/opt/turbo_ready/node_modules
+    - node_modules:/opt/turbo_boost-streams/node_modules
 
 volumes:
   bundle:
@@ -22,7 +22,7 @@ services:
   # ----------------------------------------------------------------------------
   shell:
     <<: *default_app
-    container_name: turbo_ready-shell
+    container_name: turbo_boost-streams-shell
     command: /bin/bash -c "tail -f /dev/null"
 
   # ----------------------------------------------------------------------------
@@ -30,12 +30,12 @@ services:
   # ----------------------------------------------------------------------------
   web:
     <<: *default_app
-    container_name: turbo_ready-web
+    container_name: turbo_boost-streams-web
     ports:
       - 3000:3000
     command: >
       /bin/bash -c "git pull --no-rebase github main &&
-                    cd /opt/turbo_ready &&
+                    cd /opt/turbo_boost-streams &&
                     bundle &&
                     yarn &&
                     cd test/dummy &&

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module TurboReady::TagHelper
+module TurboBoost::Streams::TagHelper
   def turbo_stream_invoke_tag(method, args: [], selector: nil, camelize: true, id: nil)
     id = SecureRandom.uuid if id.blank?
     payload = HashWithIndifferentAccess.new(id: id.to_s, selector: selector)

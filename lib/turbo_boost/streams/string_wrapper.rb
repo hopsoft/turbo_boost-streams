@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class TurboReady::StringWrapper
-  include TurboReady::TagHelper
+class TurboBoost::Streams::StringWrapper
+  include TurboBoost::Streams::TagHelper
   attr_reader :turbo_stream_string
 
   delegate_missing_to :turbo_stream_string
@@ -13,7 +13,7 @@ class TurboReady::StringWrapper
   end
 
   def invoke(...)
-    TurboReady::StringWrapper.new turbo_stream_invoke_tag(...), turbo_stream_strings: turbo_stream_strings
+    TurboBoost::Streams::StringWrapper.new turbo_stream_invoke_tag(...), turbo_stream_strings: turbo_stream_strings
   end
 
   def to_s

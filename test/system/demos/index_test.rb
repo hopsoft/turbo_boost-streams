@@ -2,13 +2,13 @@
 
 require "application_system_test_case"
 
-module TurboReady::Demos
+module TurboBoost::Streams::Demos
   class IndexTest < ApplicationSystemTestCase
-    test "turbo ready loaded" do
+    test "turbo-boost streams loaded" do
       visit demos_url
-      assert page.evaluate_script("typeof TurboReady") == "object"
-      assert page.evaluate_script("typeof TurboReady.StreamActions") == "object"
-      assert page.evaluate_script("typeof TurboReady.StreamActions.invoke") == "function"
+      assert page.evaluate_script("typeof TurboBoost") == "object"
+      assert page.evaluate_script("typeof TurboBoost.Streams") == "object"
+      assert page.evaluate_script("typeof TurboBoost.Streams.invoke") == "function"
     end
   end
 end

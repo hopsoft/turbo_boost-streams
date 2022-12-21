@@ -2,8 +2,8 @@
 
 require "test_helper"
 
-class TurboReady::TagHelperTest < ActiveSupport::TestCase
-  include TurboReady::TagHelper
+class TurboBoost::Streams::TagHelperTest < ActiveSupport::TestCase
+  include TurboBoost::Streams::TagHelper
 
   test "with string method" do
     expected = "<turbo-stream action=\"invoke\" target=\"DOM\"><template>{\"id\":\"1\",\"method\":\"example\"}</template></turbo-stream>"
@@ -72,40 +72,40 @@ class TurboReady::TagHelperTest < ActiveSupport::TestCase
   end
 
   test "with string event" do
-    expected = "<turbo-stream action=\"invoke\" target=\"DOM\"><template>{\"id\":\"1\",\"method\":\"dispatchEvent\",\"args\":[\"turbo-ready:test\"]}</template></turbo-stream>"
-    actual = turbo_stream_invoke_tag("dispatchEvent", args: ["turbo-ready:test"], id: 1)
+    expected = "<turbo-stream action=\"invoke\" target=\"DOM\"><template>{\"id\":\"1\",\"method\":\"dispatchEvent\",\"args\":[\"turbo-boost:streams:test\"]}</template></turbo-stream>"
+    actual = turbo_stream_invoke_tag("dispatchEvent", args: ["turbo-boost:streams:test"], id: 1)
     assert_equal expected, actual
   end
 
   test "with symbol event" do
-    expected = "<turbo-stream action=\"invoke\" target=\"DOM\"><template>{\"id\":\"1\",\"method\":\"dispatchEvent\",\"args\":[\"turbo-ready:test\"]}</template></turbo-stream>"
-    actual = turbo_stream_invoke_tag(:dispatch_event, args: ["turbo-ready:test"], id: 1)
+    expected = "<turbo-stream action=\"invoke\" target=\"DOM\"><template>{\"id\":\"1\",\"method\":\"dispatchEvent\",\"args\":[\"turbo-boost:streams:test\"]}</template></turbo-stream>"
+    actual = turbo_stream_invoke_tag(:dispatch_event, args: ["turbo-boost:streams:test"], id: 1)
     assert_equal expected, actual
   end
 
   test "with event args and selector" do
-    expected = "<turbo-stream action=\"invoke\" target=\"DOM\"><template>{\"id\":\"1\",\"selector\":\"button.turbo-ready\",\"method\":\"dispatchEvent\",\"args\":[\"turbo-ready:test\",{\"bubbles\":true,\"detail\":{\"test\":true}}]}</template></turbo-stream>"
+    expected = "<turbo-stream action=\"invoke\" target=\"DOM\"><template>{\"id\":\"1\",\"selector\":\"button.turbo-boost\",\"method\":\"dispatchEvent\",\"args\":[\"turbo-boost:streams:test\",{\"bubbles\":true,\"detail\":{\"test\":true}}]}</template></turbo-stream>"
     actual = turbo_stream_invoke_tag(:dispatch_event,
-      args: ["turbo-ready:test", {bubbles: true, detail: {test: true}}],
-      selector: "button.turbo-ready",
+      args: ["turbo-boost:streams:test", {bubbles: true, detail: {test: true}}],
+      selector: "button.turbo-boost",
       id: 1)
     assert_equal expected, actual
   end
 
   test "with event and camelized args" do
-    expected = "<turbo-stream action=\"invoke\" target=\"DOM\"><template>{\"id\":\"1\",\"selector\":\"button.turbo-ready\",\"method\":\"dispatchEvent\",\"args\":[\"turbo-ready:test\",{\"detail\":{\"convertsToCamelCase\":true}}]}</template></turbo-stream>"
+    expected = "<turbo-stream action=\"invoke\" target=\"DOM\"><template>{\"id\":\"1\",\"selector\":\"button.turbo-boost\",\"method\":\"dispatchEvent\",\"args\":[\"turbo-boost:streams:test\",{\"detail\":{\"convertsToCamelCase\":true}}]}</template></turbo-stream>"
     actual = turbo_stream_invoke_tag(:dispatch_event,
-      args: ["turbo-ready:test", {detail: {converts_to_camel_case: true}}],
-      selector: "button.turbo-ready",
+      args: ["turbo-boost:streams:test", {detail: {converts_to_camel_case: true}}],
+      selector: "button.turbo-boost",
       id: 1)
     assert_equal expected, actual
   end
 
   test "with event and opt-out of camelized args" do
-    expected = "<turbo-stream action=\"invoke\" target=\"DOM\"><template>{\"id\":\"1\",\"selector\":\"button.turbo-ready\",\"method\":\"dispatchEvent\",\"args\":[\"turbo-ready:test\",{\"detail\":{\"converts_to_camel_case\":false}}]}</template></turbo-stream>"
+    expected = "<turbo-stream action=\"invoke\" target=\"DOM\"><template>{\"id\":\"1\",\"selector\":\"button.turbo-boost\",\"method\":\"dispatchEvent\",\"args\":[\"turbo-boost:streams:test\",{\"detail\":{\"converts_to_camel_case\":false}}]}</template></turbo-stream>"
     actual = turbo_stream_invoke_tag("dispatchEvent",
-      args: ["turbo-ready:test", {detail: {converts_to_camel_case: false}}],
-      selector: "button.turbo-ready",
+      args: ["turbo-boost:streams:test", {detail: {converts_to_camel_case: false}}],
+      selector: "button.turbo-boost",
       camelize: false,
       id: 1)
     assert_equal expected, actual

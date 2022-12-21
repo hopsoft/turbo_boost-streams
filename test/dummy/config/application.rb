@@ -10,7 +10,7 @@ Bundler.require(*Rails.groups)
 
 # Explicit requires because this is the dummy app and our dependencies live in the library's gemspec
 require "turbo-rails"
-require "turbo_ready"
+require "turbo_boost/streams"
 require "importmap-rails"
 require "tailwindcss-rails"
 require "sprockets/railtie"

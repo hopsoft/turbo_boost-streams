@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require_relative "lib/turbo_ready/version"
+require_relative "lib/turbo_boost/streams/version"
 
 Gem::Specification.new do |s|
-  s.name = "turbo_ready"
-  s.version = TurboReady::VERSION
+  s.name = "turbo_boost-streams"
+  s.version = TurboBoost::Streams::VERSION
   s.authors = ["Nate Hopkins (hopsoft)"]
   s.email = ["natehop@gmail.com"]
-  s.homepage = "https://github.com/hopsoft/turbo_ready"
+  s.homepage = "https://github.com/hopsoft/turbo_boost-streams"
   s.summary = "Take full control of the DOM with Turbo Streams"
   s.description = s.summary
   s.license = "MIT"

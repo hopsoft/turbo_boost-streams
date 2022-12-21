@@ -2,8 +2,8 @@
 
 require "test_helper"
 
-class TurboReadyTest < ActiveSupport::TestCase
+class TurboBoost::StreamsTest < ActiveSupport::TestCase
   test "it has a version number" do
-    assert TurboReady::VERSION
+    assert TurboBoost::Streams::VERSION
   end
 end

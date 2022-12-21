@@ -3,9 +3,9 @@
 require "test_helper"
 require "action_cable"
 
-class TurboReady::BroadcastingTest < ActionCable::Channel::TestCase
+class TurboBoost::Streams::BroadcastingTest < ActionCable::Channel::TestCase
   include ActiveJob::TestHelper
-  include TurboReady::TagHelper
+  include TurboBoost::Streams::TagHelper
 
   setup do
     @message = Message.create(id: 1, content: "Hello!")

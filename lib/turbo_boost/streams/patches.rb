@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module TurboReady::Patches
+module TurboBoost::Streams::Patches
 end
 
 require_relative "patches/broadcastable"

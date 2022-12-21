@@ -2,7 +2,7 @@
 
 require "application_system_test_case"
 
-module TurboReady::Demos
+module TurboBoost::Streams::Demos
   class MethodTest < ApplicationSystemTestCase
     test "select multiple elements" do
       visit demo_url("method")
