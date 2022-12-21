@@ -3,9 +3,7 @@
     <source media="(prefers-color-scheme: dark)" srcset="https://ik.imagekit.io/hopsoft/turbo-boost-logo-dark-bg_iKWTO7D3F.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671650318042">
     <img height="100" src="https://ik.imagekit.io/hopsoft/turbo-boost-logo_84LsQRbTp5.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671650318062" />
   </picture>
-  <h1 align="center">
-    <em><small>Boosted Hotwire stream actions</small></em>
-  </h1>
+  <h1 align="center"><em>Streams</em></h1>
   <p align="center">
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/">
       <img alt="Lines of Code" src="https://img.shields.io/badge/loc-176-47d299.svg" />
