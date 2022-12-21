@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://ik.imagekit.io/hopsoft/turbo-boost-logo-dark-bg_YnWcVXdxJ.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671646017705">
-    <img height="100" src="https://ik.imagekit.io/hopsoft/turbo-boost-logo_2MyFLQG24.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671646017707" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://ik.imagekit.io/hopsoft/turbo-boost-logo-dark-bg_iKWTO7D3F.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671650318042">
+    <img height="100" src="https://ik.imagekit.io/hopsoft/turbo-boost-logo_84LsQRbTp5.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671650318062" />
   </picture>
   <h1 align="center">
     <em><small>Boosted Hotwire stream actions</small></em>
