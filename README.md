@@ -1,10 +1,9 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://ik.imagekit.io/hopsoft/turbo-boost-logo-dark-bg_YnWcVXdxJ.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671646017705">
-    <img height="125" src="https://ik.imagekit.io/hopsoft/turbo-boost-logo_2MyFLQG24.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671646017707" />
+    <img height="100" src="https://ik.imagekit.io/hopsoft/turbo-boost-logo_2MyFLQG24.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671646017707" />
   </picture>
   <h1 align="center">
-    Welcome to Streams 👋 <br>
     <em><small>Boosted Hotwire stream actions</small></em>
   </h1>
   <p align="center">
