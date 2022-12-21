@@ -1,14 +1,11 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://ik.imagekit.io/hopsoft/turbo-ready-logo-light_df4jcvbDL.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1661615678275">
-    <img height="200" src="https://ik.imagekit.io/hopsoft/turbo-ready-logo-dark_VN4hA2ctc.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1661615678278" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://ik.imagekit.io/hopsoft/turbo-boost-logo-dark-bg_YnWcVXdxJ.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671646017705">
+    <img height="172" src="https://ik.imagekit.io/hopsoft/turbo-boost-logo_2MyFLQG24.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671646017707" />
   </picture>
-  <h3 align="center">
-    Turbo Stream's Swiss Army Knife
-  </h3>
   <h1 align="center">
-    Welcome to TurboReady 👋 <br>
-    <em><small>The only Stream Action you really need</small></em>
+    Welcome to Streams 👋 <br>
+    <em><small>Boosted Hotwire stream actions</small></em>
   </h1>
   <p align="center">
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/">
@@ -47,7 +44,7 @@
   </p>
 </p>
 
-**TurboReady extends [Turbo Streams](https://turbo.hotwired.dev/reference/streams) to give you full control of the
+**`TurboBoost::Streams` extends [Turbo Streams](https://turbo.hotwired.dev/reference/streams) to give you full control of the
 browser's [Document Object Model (DOM).](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)**
 
 ```ruby
@@ -61,7 +58,7 @@ You can `invoke` any DOM method on the client with Turbo Streams.
 
 ## Table of Contents
 
-  - [Why TurboReady?](#why-turboready)
+  - [Why boosted Streams?](#why-boosted-streams)
   - [Sponsors](#sponsors)
   - [Dependencies](#dependencies)
   - [Installation](#installation)
@@ -75,30 +72,23 @@ You can `invoke` any DOM method on the client with Turbo Streams.
     - [Broadcasting](#broadcasting)
       - [Background Job Queues](#background-job-queues)
   - [FAQ](#faq)
-  - [A Word of Caution](#a-word-of-caution)
+  - [A Word of Warning](#a-word-of-warning)
   - [Community](#community)
-    - [Discord](#discord)
     - [Discussions](#discussions)
     - [Twitter](#twitter)
-  - [TODOs](#todos)
   - [Releasing](#releasing)
   - [License](#license)
 
 <!-- Tocer[finish]: Auto-generated, don't remove. -->
 
-## Why TurboReady?
+## Why boosted Streams?
 
-Turbo Streams [intentionally restricts](https://turbo.hotwired.dev/handbook/streams#but-what-about-running-javascript%3F)
+Turbo Streams [intentionally restrict](https://turbo.hotwired.dev/handbook/streams#but-what-about-running-javascript%3F)
 official actions to CRUD related activity.
 These [official actions](https://turbo.hotwired.dev/reference/streams#the-seven-actions) work well for a considerable number of use cases.
-*Try pushing Turbo Streams as far as possible before reaching for TurboReady.*
+*Try pushing Turbo Streams as far as possible before reaching for boosted streams.*
 
-If you find that CRUD isn't enough, TurboReady is there to handle pretty much everything else.
-
-> ⚠️ TurboReady is intended for Rails apps that use Hotwire but not [CableReady](https://github.com/stimulusreflex/cable_ready).
-This is because CableReady already provides a rich set of powerful [DOM operations](https://cableready.stimulusreflex.com/reference/operations).
-
-> 📘 **NOTE:** Efforts are underway to bring [CableReady's DOM operations to Turbo Streams](https://github.com/marcoroth/turbo_power).
+If you find that CRUD isn't enough, boosted streams are there to handle pretty much everything else.
 
 ## Sponsors
 
@@ -129,7 +119,7 @@ yarn add "@turbo-boost/streams@VERSION --exact"
 
 ## Setup
 
-Import and intialize TurboReady in your application.
+Import and intialize Turbo Boost Streams in your application.
 
 ```diff
 # Gemfile
@@ -328,7 +318,7 @@ You may want to change the queue name for Turbo Stream background jobs in order 
 ```ruby
 # config/initializers/turbo_streams.rb
 Turbo::Streams::BroadcastJob.queue_name = :turbo_streams
-TurboReady::BroadcastInvokeJob.queue_name = :turbo_streams
+TurboBoost::Streams::BroadcastInvokeJob.queue_name = :turbo_streams
 ```
 
 ## FAQ
@@ -340,30 +330,19 @@ TurboReady::BroadcastInvokeJob.queue_name = :turbo_streams
 
 - Does it use `eval`?
 
-  > **No.** TurboReady can only invoke existing functions on the client.
+  > **No.** The `invoke` stream can only execute existing functions on the client.
   > It's not a carte blanche invitation to emit free-form JavaScript to be evaluated on the client.
 
 ## A Word of Warning
 
-TurboReady is a foundational tool designed to help you build modern, maintainable, and scalable reactive web apps with Hotwire.
+`TurboBoost::Streams` is a foundational tool designed to help you build modern, maintainable, and scalable reactive web apps with Hotwire.
 It allows you to break free from the strict CRUD/REST conventions that Rails and Hotwire wisely encourage.
-You should consider TurboReady a substrate for building additional libraries and abstractions.
+You should consider boosted streams a substrate for building additional libraries and abstractions.
 
-*Please don't use TurboReady to manually orchestrate micro DOM updates (from the server).
+*Please don't use `TurboBoost::Streams` to manually orchestrate micro DOM updates (from the server).
 Such techniques are what gave rise to Full Stack Frontend and sent the industry on a decade long journey of complexity and frustration.*
 
 ## Community
-
-### Discord
-
-Please join nearly 2000 of us on [Discord](https://discord.gg/stimulus-reflex) for support getting started,
-as well as active discussions around Rails, Hotwire, Stimulus, Turbo (Drive, Frames, Streams), TurboReady, CableReady, StimulusReflex, ViewComponent, Phlex, and more.
-
-<a href="https://discord.gg/stimulus-reflex" target="_blank">
-  <img alt="Discord" src="https://img.shields.io/discord/629472241427415060?color=168AFE&logo=discord&logoColor=FFF">
-</a>
-
-Be sure to introduce yourselves in the #newcomers channel!
 
 ### Discussions
 
