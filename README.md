@@ -11,7 +11,7 @@
       <img alt="Lines of Code" src="https://img.shields.io/badge/loc-179-47d299.svg" />
     </a>
     <a href="https://codeclimate.com/github/hopsoft/turbo_boost-streams/maintainability">
-      <img src="https://api.codeclimate.com/v1/badges/a69b6f73abc3ccd49261/maintainability" />
+      <img src="https://api.codeclimate.com/v1/badges/a6671f4294ec0f21f732/maintainability" />
     </a>
     <a href="https://rubygems.org/gems/turbo_boost-streams">
       <img alt="GEM Version" src="https://img.shields.io/gem/v/turbo_boost-streams?color=168AFE&include_prereleases&logo=ruby&logoColor=FE1616">
