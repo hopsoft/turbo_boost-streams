@@ -43,7 +43,7 @@
   </p>
 </p>
 
-**`TurboBoost::Streams` extends [Turbo Streams](https://turbo.hotwired.dev/reference/streams) to give you full control of the
+**TurboBoost Streams extends [Turbo Streams](https://turbo.hotwired.dev/reference/streams) to give you full control of the
 browser's [Document Object Model (DOM).](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)**
 
 ```ruby
@@ -334,11 +334,11 @@ TurboBoost::Streams::BroadcastInvokeJob.queue_name = :turbo_streams
 
 ## A Word of Warning
 
-`TurboBoost::Streams` is a foundational tool designed to help you build modern, maintainable, and scalable reactive web apps with Hotwire.
+TurboBoost Streams is a foundational tool designed to help you build modern, maintainable, and scalable reactive web apps with Hotwire.
 It allows you to break free from the strict CRUD/REST conventions that Rails and Hotwire wisely encourage.
 You should consider boosted streams a substrate for building additional libraries and abstractions.
 
-*Please don't use `TurboBoost::Streams` to manually orchestrate micro DOM updates (from the server).
+*Please don't use TurboBoost Streams to manually orchestrate micro DOM updates (from the server).
 Such techniques are what gave rise to Full Stack Frontend and sent the industry on a decade long journey of complexity and frustration.*
 
 ## Community
