@@ -22,14 +22,14 @@
     <a href="https://github.com/testdouble/standard">
       <img alt="Ruby Style" src="https://img.shields.io/badge/style-standard-168AFE?logo=ruby&logoColor=FE1616" />
     </a>
-    <a href="https://www.npmjs.com/package/turbo_boost-streams">
-      <img alt="NPM Version" src="https://img.shields.io/npm/v/turbo_boost-streams?color=168AFE&logo=npm">
+    <a href="https://www.npmjs.com/package/@turbo-boost/streams">
+      <img alt="NPM Version" src="https://img.shields.io/npm/v/@turbo-boost/streams?color=168AFE&logo=npm">
     </a>
-    <a href="https://www.npmjs.com/package/turbo_boost-streams">
-      <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/turbo_boost-streams?color=168AFE&logo=npm">
+    <a href="https://www.npmjs.com/package/@turbo-boost/streams">
+      <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@turbo-boost/streams?color=168AFE&logo=npm">
     </a>
-    <a href="https://bundlephobia.com/package/turbo_boost-streams@">
-      <img alt="NPM Bundle Size" src="https://img.shields.io/bundlephobia/minzip/turbo_boost-streams?label=bundle%20size&logo=npm&color=47d299">
+    <a href="https://bundlephobia.com/package/@turbo-boost/streams@">
+      <img alt="NPM Bundle Size" src="https://img.shields.io/bundlephobia/minzip/@turbo-boost/streams?label=bundle%20size&logo=npm&color=47d299">
     </a>
     <a href="https://github.com/sheerun/prettier-standard">
       <img alt="JavaScript Style" src="https://img.shields.io/badge/style-prettier--standard-168AFE?logo=javascript&logoColor=f4e137" />
