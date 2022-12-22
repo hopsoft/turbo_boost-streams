@@ -1,10 +1,10 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://ik.imagekit.io/hopsoft/turbo-boost-logo-dark-bg_iKWTO7D3F.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671650318042">
-    <img height="60" src="https://ik.imagekit.io/hopsoft/turbo-boost-logo_84LsQRbTp5.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671650318062" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://ik.imagekit.io/hopsoft/turbo-boost-logo-dark-bg_o_f0bVskz.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671722004391">
+    <img height="60" src="https://ik.imagekit.io/hopsoft/turbo-boost-logo_zHiiimlvT.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671722004342" />
   </picture>
   <h1 align="center">
-    Welcome to <code>TurboBoost::Streams</code> 👋
+    Welcome to TurboBoost Streams 👋
   </h1>
   <p align="center">
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/">

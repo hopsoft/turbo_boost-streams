@@ -27,7 +27,7 @@ module TurboBoost::Streams::Demos
       # additional events on button(s)
       assert_equal "BUTTON", page.evaluate_script("TurboBoostEvents['turbo-boost:streams:demo'][2].target.tagName")
       assert page.evaluate_script("TurboBoostEvents['turbo-boost:streams:demo'][2].bubbles")
-      assert_equal "The invoke Turbo Stream from TurboBoost::Streams", page.evaluate_script("TurboBoostEvents['turbo-boost:streams:demo'][2].detail.source")
+      assert_equal "The invoke Turbo Stream from TurboBoost Streams", page.evaluate_script("TurboBoostEvents['turbo-boost:streams:demo'][2].detail.source")
     end
   end
 end

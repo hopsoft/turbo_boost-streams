@@ -1,6 +1,6 @@
 <%= turbo_stream
-  .invoke("document.title =", args: ["TurboBoost::Streams invoke Assignment"])
+  .invoke("document.title =", args: ["invoke Assignment"])
   .invoke("dataset.turboBoostAssignment =", args: [true], selector: "body")
   .invoke("className =", args: ["text-red-500"], selector: "#assignment-demo-description")
-  .invoke("innerText =", args: ["innerText assigned by TurboBoost::Streams' invoke stream"],
+  .invoke("innerText =", args: ["innerText assigned by TurboBoost Streams invoke"],
     selector: "#assignment-demo-description") %>
