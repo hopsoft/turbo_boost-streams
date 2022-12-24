@@ -37,6 +37,12 @@
     <a href="https://github.com/hopsoft/turbo_boost-streams/actions/workflows/tests.yml">
       <img alt="Tests" src="https://github.com/hopsoft/turbo_boost-streams/actions/workflows/tests.yml/badge.svg" />
     </a>
+    <a href="https://github.com/hopsoft/turbo_boost-streams/discussions" target="_blank">
+      <img alt="GitHub Discussions" src="https://img.shields.io/github/discussions/hopsoft/turbo_boost-streams?color=168AFE&logo=github">
+    </a>
+    <a href="https://github.com/sponsors/hopsoft">
+      <img alt="Sponsors" src="https://img.shields.io/github/sponsors/hopsoft?color=eb4aaa&logo=GitHub%20Sponsors" />
+    </a>
     <a href="https://twitter.com/hopsoft">
       <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/hopsoft?logo=twitter&style=social">
     </a>
@@ -347,10 +353,6 @@ Such techniques are what gave rise to Full Stack Frontend and sent the industry 
 ### Discussions
 
 Feel free to add to the conversation here on [GitHub Discussions](https://github.com/hopsoft/turbo_boost-streams/discussions).
-
-<a href="https://github.com/hopsoft/turbo_boost-streams/discussions" target="_blank">
-  <img alt="GitHub Discussions" src="https://img.shields.io/github/discussions/hopsoft/turbo_boost-streams?color=168AFE&logo=github">
-</a>
 
 ### Twitter
 
