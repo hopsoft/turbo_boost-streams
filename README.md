@@ -76,6 +76,7 @@ You can `invoke` any DOM method on the client with Turbo Streams.
     - [Discussions](#discussions)
     - [Twitter](#twitter)
   - [Releasing](#releasing)
+  - [About TurboBoost](#about-turboboost)
   - [License](#license)
 
 <!-- Tocer[finish]: Auto-generated, don't remove. -->
@@ -371,6 +372,15 @@ Connect with the core team on Twitter.
 1. Yarn will prompt you for the new version. Pre-release versions use `-preN`
 1. Commit and push changes to GitHub
 1. Create a new release on GitHub ([here](https://github.com/hopsoft/turbo_boost-streams/releases)) and generate the changelog for the stable release for it
+
+## About TurboBoost
+
+TurboBoost is a suite of projects that enhance Rails and Hotwire to make building server rendered reactive applications simpler and more powerful.
+Be sure to check out all of the various the libraries.
+
+- [Streams](https://github.com/hopsoft/turbo_boost-streams)
+- [Commands](https://github.com/hopsoft/turbo_boost-commands)
+- Coming soon...
 
 ## License
 
