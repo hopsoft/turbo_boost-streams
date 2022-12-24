@@ -1,6 +1,6 @@
 {
   "name": "@turbo-boost/streams",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Take full control of the DOM with Turbo Streams",
   "main": "app/javascript/index.js",
   "repository": "https://github.com/hopsoft/turbo_boost-streams",
