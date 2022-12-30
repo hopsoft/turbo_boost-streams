@@ -2,10 +2,26 @@
   "name": "@turbo-boost/streams",
   "version": "0.0.2",
   "description": "Take full control of the DOM with Turbo Streams",
-  "main": "app/javascript/index.js",
+  "keywords": [
+    "hotwire",
+    "hotwired",
+    "rails",
+    "turbo",
+    "turbo-boost"
+  ],
+  "type": "module",
+  "main": "app/assets/builds/@turbo-boost/streams.js",
+  "exports": "app/assets/builds/@turbo-boost/streams.js",
+  "files": [
+    "app/assets/builds"
+  ],
   "repository": "https://github.com/hopsoft/turbo_boost-streams",
   "author": "Nate Hopkins (hopsoft) <natehop@gmail.com>",
   "license": "MIT",
+  "dependencies": {
+    "@alpinejs/morph": ">=3.10.4",
+    "alpinejs": ">=3.10.4"
+  },
   "peerDependencies": {
     "@hotwired/turbo-rails": ">= 7.2.0"
   },
@@ -18,9 +34,5 @@
   },
   "scripts": {
     "build": "esbuild app/javascript/index.js --bundle --minify --sourcemap --format=esm --target=es2017 --analyze --outfile=app/assets/builds/@turbo-boost/streams.js"
-  },
-  "dependencies": {
-    "@alpinejs/morph": ">=3.10.4",
-    "alpinejs": ">=3.10.4"
   }
 }
