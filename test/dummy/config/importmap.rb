@@ -9,7 +9,7 @@ pin "@rails/actioncable/src", to: "https://ga.jspm.io/npm:@rails/actioncable@7.0
 pin "flowbite", to: "https://ga.jspm.io/npm:flowbite@1.5.3/dist/flowbite.js"
 
 # this pin works because of the link_tree directive in: test/dummy/app/assets/config/manifest.js
-# that points to the relative path of the build directory for turbo_boost-streams.js
+# that points to the relative path of the build directory
 # SEE: package.json for details on the build script
 pin "@turbo-boost/streams", to: "@turbo-boost/streams.js"
 
