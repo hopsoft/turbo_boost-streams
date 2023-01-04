@@ -9,7 +9,6 @@
     "turbo",
     "turbo-boost"
   ],
-  "type": "module",
   "main": "app/assets/builds/@turbo-boost/streams.js",
   "files": [
     "app/assets/builds"
