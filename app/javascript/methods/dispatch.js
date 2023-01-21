@@ -1,6 +1,6 @@
-function dispatch (targets, name, options = {}) {
+function dispatch (target, name, options = {}) {
   const evt = new CustomEvent(name, options)
-  targets.forEach(t => t.dispatchEvent(evt))
+  target.dispatchEvent(evt)
 }
 
 export default dispatch

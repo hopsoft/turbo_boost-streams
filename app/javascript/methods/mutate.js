@@ -18,8 +18,8 @@ function updating (el, toEl, childrenOnly, skip) {
   if (protect) return skip()
 }
 
-function mutate (elements, html) {
-  elements.forEach(element => alpine.morph(element, html, { updating }))
+function mutate (element, html) {
+  alpine.morph(element, html, { updating })
 }
 
 export default mutate
