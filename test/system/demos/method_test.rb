@@ -4,6 +4,26 @@ require "application_system_test_case"
 
 module TurboBoost::Streams::Demos
   class MethodTest < ApplicationSystemTestCase
+    test "alert" do
+      visit demo_url("method")
+
+      demo_button = find("turbo-frame[id=alert-demo-button] button")
+
+      accept_alert text: "Hello from TurboBoost Streams!" do
+        demo_button.click
+      end
+    end
+
+    test "alert with delay" do
+      visit demo_url("method")
+
+      demo_button = find("turbo-frame[id=alert-demo-button-with-delay] button")
+
+      accept_alert text: "Hello from TurboBoost Streams with a delay!" do
+        demo_button.click
+      end
+    end
+
     test "select multiple elements" do
       visit demo_url("method")
 

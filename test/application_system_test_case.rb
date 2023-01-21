@@ -6,7 +6,7 @@ require "capybara/cuprite"
 # Capybara setup fom Evil Martians
 # SEE: https://evilmartians.com/chronicles/system-of-a-test-setting-up-end-to-end-rails-testing
 # NOTE: Will need to set this up for multiple sessions
-Capybara.default_max_wait_time = 2
+Capybara.default_max_wait_time = 5
 Capybara.default_normalize_ws = true
 # Capybara.save_path = ENV.fetch("CAPYBARA_ARTIFACTS", "./tmp/capybara")
 
