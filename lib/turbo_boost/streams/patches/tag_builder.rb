@@ -8,8 +8,7 @@ require_relative "../tag_helper"
 module TurboBoost::Streams::Patches::TagBuilder
   include TurboBoost::Streams::TagHelper
 
-  def invoke(method, args: [], selector: nil, camelize: true, id: nil)
-    tag = turbo_stream_invoke_tag(method, args: args, selector: selector, camelize: camelize, id: id)
-    TurboBoost::Streams::StringWrapper.new tag
+  def invoke(...)
+    TurboBoost::Streams::StringWrapper.new turbo_stream_invoke_tag(...)
   end
 end

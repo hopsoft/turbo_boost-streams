@@ -29,6 +29,18 @@
       <%= turbo_frame_tag "alert-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/method/alert_button"), :noop) %>
     <% end %>
 
+    <%= render component(:demo), title: "Delay invocation", heroicon: :bell do %>
+      We can also delay invocation.
+
+      <%= render flowbite(:alert), type: :info, class: "flex items-center mt-4" do %>
+        <%= render heroicon(:information_circle), class: "w-6 h-6 mr-2" %>
+        The <code class="mx-1">delay</code> should be specified in milliseconds.
+      <% end %>
+
+      <%= render component(:code), language: :erb, class: "my-6 text-sm", source_path: "app/views/demos/method/_alert_stream_with_delay.html.erb" %>
+      <%= turbo_frame_tag "alert-demo-button-with-delay", src: frame_path(Base64.urlsafe_encode64("demos/method/alert_button_with_delay"), :noop) %>
+    <% end %>
+
     <%= render component(:divider) %>
 
     <%= render component(:demo), title: "Use a CSS Selector", heroicon: :code_bracket_square do %>

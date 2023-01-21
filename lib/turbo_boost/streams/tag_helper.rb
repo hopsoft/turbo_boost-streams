@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 module TurboBoost::Streams::TagHelper
-  def turbo_stream_invoke_tag(method, args: [], selector: nil, camelize: true, id: nil)
+  def turbo_stream_invoke_tag(method, args: [], delay: 0, selector: nil, camelize: true, id: nil)
     id = SecureRandom.uuid if id.blank?
     payload = HashWithIndifferentAccess.new(id: id.to_s, selector: selector)
-    payload.merge! method_details(method, args: args, camelize: camelize)
+    payload.merge! method_details(method, args: args, delay: delay, camelize: camelize)
     payload.select! { |_, v| v.present? }
     %(<turbo-stream action="invoke" target="DOM"><template>#{payload.to_json}</template></turbo-stream>).html_safe
   end
 
   private
 
-  def method_details(method, args: [], camelize: true)
+  def method_details(method, args: [], delay: 0, camelize: true)
     if camelize
       method = camelize_method(method)
       args = camelize_args(args)
@@ -22,7 +22,8 @@ module TurboBoost::Streams::TagHelper
     HashWithIndifferentAccess.new(
       receiver: method_parts[0..-2].join("."),
       method: method_parts.last,
-      args: args
+      args: args,
+      delay: delay.to_i
     )
   end
 

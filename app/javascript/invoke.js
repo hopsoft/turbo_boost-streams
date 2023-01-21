@@ -19,7 +19,7 @@ function perform (method, args, receivers) {
 
 function invoke () {
   const payload = JSON.parse(this.templateContent.textContent)
-  const { id, selector, receiver, method, args } = payload
+  const { id, selector, receiver, method, args, delay } = payload
   let receivers = [self]
   if (selector) receivers = Array.from(document.querySelectorAll(selector))
 
@@ -32,7 +32,8 @@ function invoke () {
     })
   }
 
-  perform(method, args, receivers)
+  if (delay > 0) setTimeout(() => perform(method, args, receivers), delay)
+  else perform(method, args, receivers)
 }
 
 export default invoke
