@@ -1,4 +1,4 @@
-import mutate from './methods/mutate'
+import morph from './morph'
 
 export const invokeEvents = {
   before: 'turbo-boost:stream:before-invoke',
@@ -52,7 +52,7 @@ function invokeMorph (method, args, receivers) {
   const html = args[0]
   const detail = { method, html }
   receivers.forEach(receiver =>
-    withInvokeEvents(receiver, detail, object => mutate(object, html))
+    withInvokeEvents(receiver, detail, object => morph(object, html))
   )
 }
 

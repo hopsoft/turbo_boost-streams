@@ -1,7 +1,7 @@
 import alpine from 'alpinejs'
-import morph from '@alpinejs/morph'
+import alpineMorph from '@alpinejs/morph'
 
-alpine.plugin(morph)
+alpine.plugin(alpineMorph)
 
 const input = /INPUT/i
 const inputTypes = /date|datetime-local|email|month|number|password|range|search|tel|text|time|url|week/i
@@ -18,8 +18,6 @@ function updating (el, toEl, childrenOnly, skip) {
   if (protect) return skip()
 }
 
-function mutate (element, html) {
+export default function morph (element, html) {
   alpine.morph(element, html, { updating })
 }
-
-export default mutate
