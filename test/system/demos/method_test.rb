@@ -24,6 +24,16 @@ module TurboBoost::Streams::Demos
       end
     end
 
+    test "events with animation and css selector" do
+      visit demo_url("method")
+
+      demo_button = find("turbo-frame[id=animate-demo-button] button")
+
+      expect_event_dispatch wait: 3.1 do
+        demo_button.click
+      end
+    end
+
     test "select multiple elements" do
       visit demo_url("method")
 
@@ -46,6 +56,24 @@ module TurboBoost::Streams::Demos
           assert_equal expected_css_classes.size, (button[:class].split(" ") & expected_css_classes).size
         end
       end
+    end
+
+    private
+
+    def expect_event_dispatch(wait: 0)
+      page.execute_script <<~JS
+        self.dispatchedEvents = []
+        document.addEventListener('turbo-boost:stream:before-invoke', event => self.dispatchedEvents.push(event.type))
+        document.addEventListener('turbo-boost:stream:after-invoke', event => self.dispatchedEvents.push(event.type))
+        document.addEventListener('turbo-boost:stream:finish-invoke', event => self.dispatchedEvents.push(event.type))
+      JS
+
+      yield
+
+      assert page.evaluate_script("self.dispatchedEvents.includes('turbo-boost:stream:before-invoke')")
+      assert page.evaluate_script("self.dispatchedEvents.includes('turbo-boost:stream:after-invoke')")
+      sleep wait
+      assert page.evaluate_script("self.dispatchedEvents.includes('turbo-boost:stream:finish-invoke')")
     end
   end
 end
