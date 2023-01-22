@@ -6,12 +6,16 @@ import '@turbo-boost/streams'
 import './controllers'
 import './demos/event'
 
-addEventListener('turbo-boost:stream:before', event =>
-  console.log('turbo-boost:stream:before', event)
+addEventListener(TurboBoost.Streams.invokeEvents.before, event =>
+  console.log(TurboBoost.Streams.invokeEvents.before, event)
 )
 
-addEventListener('turbo-boost:stream:after', event =>
-  console.log('turbo-boost:stream:after', event)
+addEventListener(TurboBoost.Streams.invokeEvents.after, event =>
+  console.log(TurboBoost.Streams.invokeEvents.after, event)
+)
+
+addEventListener(TurboBoost.Streams.invokeEvents.finish, event =>
+  console.log(TurboBoost.Streams.invokeEvents.finish, event)
 )
 
 // Force all scripts in <head> to reload/reparse after a Turbo visit.
