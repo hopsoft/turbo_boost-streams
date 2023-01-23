@@ -47,7 +47,7 @@ module TurboBoost::Streams::Demos
         end
       end
 
-      assert_event_dispatch invocations: 10 do
+      assert_event_dispatch invocations: 10, wait: 0.1 do
         demo_button.click
       end
 
