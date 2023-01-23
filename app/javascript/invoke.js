@@ -1,39 +1,118 @@
-import dispatch from './methods/dispatch'
-import mutate from './methods/mutate'
+import morph from './morph'
 
-function perform (method, args, receivers) {
-  // dispatch / dispatchEvent
-  if (method.match(/^dispatch(Event)?$/))
-    return dispatch(receivers, args[0], args[1] || {})
-
-  // morph / mutate
-  if (method.match(/^morph|mutate$/)) return mutate(receivers, args[0])
-
-  // property assignment
-  if (method.endsWith('='))
-    return receivers.forEach(r => (r[method.slice(0, -1).trim()] = args[0]))
-
-  // method invocation
-  receivers.forEach(r => r[method].apply(r, args))
+export const invokeEvents = {
+  before: 'turbo-boost:stream:before-invoke',
+  after: 'turbo-boost:stream:after-invoke',
+  finish: 'turbo-boost:stream:finish-invoke'
 }
 
-function invoke () {
+// Invokes the callback on a single receiver with before/after events
+function withInvokeEvents (receiver, detail, callback) {
+  const { object, target } = receiver
+  detail = detail || {}
+  detail = { ...detail, object: receiver.object }
+  const options = { detail, bubbles: true }
+
+  target.dispatchEvent(new CustomEvent(invokeEvents.before, options))
+
+  const result = callback(object)
+  options.detail.result = result
+  target.dispatchEvent(new CustomEvent(invokeEvents.after, options))
+
+  let promise
+  if (result instanceof Animation) promise = result.finished
+  if (result instanceof Promise) promise = result
+
+  if (promise)
+    promise.then(
+      () => {
+        options.detail.promise = 'fulfilled'
+        target.dispatchEvent(new CustomEvent(invokeEvents.finish, options))
+      },
+      () => {
+        options.detail.promise = 'rejected'
+        target.dispatchEvent(new CustomEvent(invokeEvents.finish, options))
+      }
+    )
+  else target.dispatchEvent(new CustomEvent(invokeEvents.finish, options))
+}
+
+function invokeDispatchEvent (method, args, receivers) {
+  const eventName = args[0]
+  const eventOptions = args[1]
+  const detail = { method, eventName, eventOptions }
+  receivers.forEach(receiver =>
+    withInvokeEvents(receiver, detail, object =>
+      object.dispatchEvent(new CustomEvent(eventName, eventOptions))
+    )
+  )
+}
+
+function invokeMorph (method, args, receivers) {
+  const html = args[0]
+  const detail = { method, html }
+  receivers.forEach(receiver =>
+    withInvokeEvents(receiver, detail, object => morph(object, html))
+  )
+}
+
+function invokeAssignment (method, args, receivers) {
+  const property = method.slice(0, -1).trim()
+  const value = args[0]
+  const detail = { method, property, value }
+  receivers.forEach(receiver =>
+    withInvokeEvents(receiver, detail, object => (object[property] = value))
+  )
+}
+
+function invokeMethod (method, args, receivers) {
+  const detail = { method, args }
+  receivers.forEach(receiver =>
+    withInvokeEvents(receiver, detail, object =>
+      object[method].apply(object, args)
+    )
+  )
+}
+
+// Performs an invocation on all receivers for the given method and args
+function performInvoke (method, args, receivers) {
+  // dispatch ................................................................................................
+  if (method.match(/^dispatch(Event)?$/))
+    return invokeDispatchEvent(method, args, receivers)
+
+  // morph ...................................................................................................
+  if (method.match(/^morph|mutate$/))
+    return invokeMorph(method, args, receivers)
+
+  // assignment ..............................................................................................
+  if (method.endsWith('=')) return invokeAssignment(method, args, receivers)
+
+  // method ..................................................................................................
+  return invokeMethod(method, args, receivers)
+}
+
+export function invoke () {
   const payload = JSON.parse(this.templateContent.textContent)
   const { id, selector, receiver, method, args, delay } = payload
-  let receivers = [self]
-  if (selector) receivers = Array.from(document.querySelectorAll(selector))
+  let receivers = [{ object: self, target: self }]
+  if (selector)
+    receivers = Array.from(document.querySelectorAll(selector)).map(el => ({
+      object: el,
+      target: el
+    }))
 
   if (receiver) {
     receivers = receivers.map(r => {
-      let context = r
+      let { object, target } = r
       const chain = receiver.split('.')
-      while (chain.length > 0) context = context[chain.shift()]
-      return context
+      while (chain.length > 0) {
+        object = object[chain.shift()]
+        if (object.dispatchEvent) target = object
+      }
+      return { object, target }
     })
   }
 
-  if (delay > 0) setTimeout(() => perform(method, args, receivers), delay)
-  else perform(method, args, receivers)
+  if (delay > 0) setTimeout(() => performInvoke(method, args, receivers), delay)
+  else performInvoke(method, args, receivers)
 }
-
-export default invoke

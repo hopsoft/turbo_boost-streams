@@ -6,6 +6,18 @@ import '@turbo-boost/streams'
 import './controllers'
 import './demos/event'
 
+addEventListener(TurboBoost.Streams.invokeEvents.before, event =>
+  console.log(TurboBoost.Streams.invokeEvents.before, event)
+)
+
+addEventListener(TurboBoost.Streams.invokeEvents.after, event =>
+  console.log(TurboBoost.Streams.invokeEvents.after, event)
+)
+
+addEventListener(TurboBoost.Streams.invokeEvents.finish, event =>
+  console.log(TurboBoost.Streams.invokeEvents.finish, event)
+)
+
 // Force all scripts in <head> to reload/reparse after a Turbo visit.
 // This ensures that libs which don't work with Turbo Drive...
 // (i.e. the body being replaced without reparsing scripts in <head>)

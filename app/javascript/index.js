@@ -1,4 +1,4 @@
-import invoke from './invoke'
+import { invoke, invokeEvents } from './invoke'
 
 if (!self['Turbo'])
   throw new Error(
@@ -12,8 +12,10 @@ if (!Turbo['StreamActions'])
 
 Turbo.StreamActions.invoke = invoke
 self.TurboBoost = self.TurboBoost || {}
-self.TurboBoost.Streams = { invoke }
+self.TurboBoost.Streams = { invoke, invokeEvents }
 
 console.info(
   '@turbo-boost/streams has initialized and registered new stream actions with Turbo.'
 )
+
+export default self.TurboBoost.Streams

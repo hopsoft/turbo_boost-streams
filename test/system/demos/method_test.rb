@@ -24,6 +24,16 @@ module TurboBoost::Streams::Demos
       end
     end
 
+    test "events with animation and css selector" do
+      visit demo_url("method")
+
+      demo_button = find("turbo-frame[id=animate-demo-button] button")
+
+      assert_event_dispatch wait: 3 do
+        demo_button.click
+      end
+    end
+
     test "select multiple elements" do
       visit demo_url("method")
 
@@ -37,7 +47,9 @@ module TurboBoost::Streams::Demos
         end
       end
 
-      demo_button.click
+      assert_event_dispatch invocations: 10, wait: 1 do
+        demo_button.click
+      end
 
       submit_buttons = find_all("button[type=submit]")
       expected_css_classes = %w[bg-gradient-to-r dark:focus:ring-cyan-800 focus:ring-cyan-300 from-cyan-500 to-blue-500]
