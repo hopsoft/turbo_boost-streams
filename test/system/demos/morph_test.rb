@@ -11,7 +11,10 @@ module TurboBoost::Streams::Demos
       assert_equal "One", list.first("li").first("span").text
 
       demo_button = find("turbo-frame[id=morph-demo-button] button")
-      demo_button.click
+
+      assert_event_dispatch do
+        demo_button.click
+      end
 
       list = find_by_id("morph-list")
       assert_equal "Three", list.first("li").first("span").text
