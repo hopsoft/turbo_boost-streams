@@ -29,7 +29,7 @@ module TurboBoost::Streams::Demos
 
       demo_button = find("turbo-frame[id=animate-demo-button] button")
 
-      expect_event_dispatch wait: 3.1 do
+      assert_event_dispatch wait: 3 do
         demo_button.click
       end
     end
@@ -47,7 +47,9 @@ module TurboBoost::Streams::Demos
         end
       end
 
-      demo_button.click
+      assert_event_dispatch invocations: 10 do
+        demo_button.click
+      end
 
       submit_buttons = find_all("button[type=submit]")
       expected_css_classes = %w[bg-gradient-to-r dark:focus:ring-cyan-800 focus:ring-cyan-300 from-cyan-500 to-blue-500]
@@ -56,24 +58,6 @@ module TurboBoost::Streams::Demos
           assert_equal expected_css_classes.size, (button[:class].split(" ") & expected_css_classes).size
         end
       end
-    end
-
-    private
-
-    def expect_event_dispatch(wait: 0)
-      page.execute_script <<~JS
-        self.dispatchedEvents = []
-        document.addEventListener('turbo-boost:stream:before-invoke', event => self.dispatchedEvents.push(event.type))
-        document.addEventListener('turbo-boost:stream:after-invoke', event => self.dispatchedEvents.push(event.type))
-        document.addEventListener('turbo-boost:stream:finish-invoke', event => self.dispatchedEvents.push(event.type))
-      JS
-
-      yield
-
-      assert page.evaluate_script("self.dispatchedEvents.includes('turbo-boost:stream:before-invoke')")
-      assert page.evaluate_script("self.dispatchedEvents.includes('turbo-boost:stream:after-invoke')")
-      sleep wait
-      assert page.evaluate_script("self.dispatchedEvents.includes('turbo-boost:stream:finish-invoke')")
     end
   end
 end
