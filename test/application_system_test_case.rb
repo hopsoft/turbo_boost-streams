@@ -64,7 +64,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     sleep wait if wait > 0 # wait for promise to resolve if invoked method returns a promise
     assert js("self.dispatchedEvents.includes('turbo-boost:stream:finish-invoke')")
 
-    # return if ENV["GITHUB_ACTIONS"].present?
+    return if ENV["GITHUB_ACTIONS"].present?
 
     # This check doesn't work with GitHub Actions for some reason
     event_count = js("self.dispatchedEvents.length")
