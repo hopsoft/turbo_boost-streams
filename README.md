@@ -40,11 +40,18 @@
     <a href="https://github.com/hopsoft/turbo_boost-streams/discussions" target="_blank">
       <img alt="GitHub Discussions" src="https://img.shields.io/github/discussions/hopsoft/turbo_boost-streams?color=168AFE&logo=github">
     </a>
+    <a href="https://discord.gg/stimulus-reflex">
+      <img alt="Discord Community" src="https://img.shields.io/discord/629472241427415060?color=8892F6&label=discord&logo=discord&logoColor=8892F6">
+    </a>
     <a href="https://github.com/sponsors/hopsoft">
       <img alt="Sponsors" src="https://img.shields.io/github/sponsors/hopsoft?color=eb4aaa&logo=GitHub%20Sponsors" />
     </a>
+    <br>
+    <a href="https://ruby.social/@hopsoft">
+      <img alt="Ruby.Social Follow" src="https://img.shields.io/mastodon/follow/000008274?domain=https%3A%2F%2Fruby.social&label=%40hopsoft&style=social">
+    </a>
     <a href="https://twitter.com/hopsoft">
-      <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/hopsoft?logo=twitter&style=social">
+      <img alt="Twitter Follow" src="https://img.shields.io/twitter/url?label=%40hopsoft&style=social&url=https%3A%2F%2Ftwitter.com%2Fhopsoft">
     </a>
   </p>
 </p>
