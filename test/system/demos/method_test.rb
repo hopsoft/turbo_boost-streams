@@ -42,8 +42,10 @@ module TurboBoost::Streams::Demos
       page.goto demo_url("method")
 
       demo_element = page.wait_for_selector("turbo-frame[id=multiple-elements-demo-button]")
+      button_elements = page.query_selector_all("button[type=submit]")
+
       expected_css_classes = %w[bg-gradient-to-br dark:focus:ring-pink-800 focus:ring-pink-200 from-pink-500 to-orange-400]
-      page.query_selector_all("button[type=submit]").each do |button|
+      button_elements.each do |button|
         assert_equal expected_css_classes.size, (button["class"].split(" ") & expected_css_classes).size
       end
 
@@ -51,9 +53,11 @@ module TurboBoost::Streams::Demos
         demo_element.wait_for_selector("button").click
       end
 
-      sleep 3 # give github actions ci some time to execute the turbo streams (hint: it's slow)
+      demo_element.wait_for_selector("button[type=submit][class~=from-cyan-500]")
+      button_elements = page.query_selector_all("button[type=submit]")
+
       expected_css_classes = %w[bg-gradient-to-r dark:focus:ring-cyan-800 focus:ring-cyan-300 from-cyan-500 to-blue-500]
-      page.query_selector_all("button[type=submit]").each do |button|
+      button_elements.each do |button|
         assert_equal expected_css_classes.size, (button["class"].split(" ") & expected_css_classes).size
       end
     end
