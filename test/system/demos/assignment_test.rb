@@ -5,22 +5,24 @@ require "application_system_test_case"
 module TurboBoost::Streams::Demos
   class AssignmentTest < ApplicationSystemTestCase
     test "select multiple elements" do
-      visit demo_url("assignment")
+      page.goto demo_url("assignment")
 
-      description = find_by_id("assignment-demo-description")
+      body_element = page.wait_for_selector("body")
+      description_element = page.wait_for_selector("#assignment-demo-description")
+      demo_element = page.wait_for_selector("turbo-frame[id=assignment-demo-button]", state: "attached")
+
       assert_equal "TurboBoost Streams", title
-      assert_nil find("body")["data-turbo-boost-assignment"]
-      refute_equal "text-red-500", description[:class]
-      assert_equal "We can assign pretty much assign any property value with TurboBoost Streams.", description.text
+      assert_nil body_element["data-turbo-boost-assignment"]
+      refute_equal "text-red-500", description_element["class"]
+      assert_equal "We can assign pretty much assign any property value with TurboBoost Streams.", description_element.inner_text
 
-      demo_button = find("turbo-frame[id=assignment-demo-button] button")
-      demo_button.click
+      demo_element.wait_for_selector("button").click
+      sleep 0.1
 
-      description = find_by_id("assignment-demo-description")
       assert_equal "invoke Assignment", title
-      assert_equal "true", find("body")["data-turbo-boost-assignment"]
-      assert_equal "text-red-500", find_by_id("assignment-demo-description")[:class]
-      assert_equal "innerText assigned by TurboBoost Streams invoke", description.text
+      assert_equal "true", body_element["data-turbo-boost-assignment"]
+      assert_equal "text-red-500", description_element["class"]
+      assert_equal "innerText assigned by TurboBoost Streams invoke", description_element.inner_text
     end
   end
 end

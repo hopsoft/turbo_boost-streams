@@ -5,19 +5,18 @@ require "application_system_test_case"
 module TurboBoost::Streams::Demos
   class MorphTest < ApplicationSystemTestCase
     test "morph list" do
-      visit demo_url("morph")
+      page.goto demo_url("morph")
 
-      list = find_by_id("morph-list")
-      assert_equal "One", list.first("li").first("span").text
+      demo_element = page.wait_for_selector("turbo-frame[id=morph-demo-button]")
+      list_element = page.wait_for_selector("#morph-list")
 
-      demo_button = find("turbo-frame[id=morph-demo-button] button")
+      assert_equal "One", list_element.wait_for_selector("li span").inner_text
 
       assert_event_dispatch do
-        demo_button.click
+        demo_element.wait_for_selector("button").click
       end
 
-      list = find_by_id("morph-list")
-      assert_equal "Three", list.first("li").first("span").text
+      assert_equal "Three", list_element.wait_for_selector("li span").inner_text
     end
   end
 end
