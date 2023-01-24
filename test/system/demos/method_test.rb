@@ -49,9 +49,9 @@ module TurboBoost::Streams::Demos
 
       assert_event_dispatch invocations: 10, wait: 1 do
         demo_element.wait_for_selector("button").click
-        sleep 0.1
       end
 
+      sleep 0.5
       expected_css_classes = %w[bg-gradient-to-r dark:focus:ring-cyan-800 focus:ring-cyan-300 from-cyan-500 to-blue-500]
       page.query_selector_all("button[type=submit]").each do |button|
         assert_equal expected_css_classes.size, (button["class"].split(" ") & expected_css_classes).size
