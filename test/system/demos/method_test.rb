@@ -51,7 +51,7 @@ module TurboBoost::Streams::Demos
         demo_element.wait_for_selector("button").click
       end
 
-      sleep 1 # give github actions ci some time to execute the turbo streams (hint: it's slow)
+      sleep 3 # give github actions ci some time to execute the turbo streams (hint: it's slow)
       expected_css_classes = %w[bg-gradient-to-r dark:focus:ring-cyan-800 focus:ring-cyan-300 from-cyan-500 to-blue-500]
       page.query_selector_all("button[type=submit]").each do |button|
         assert_equal expected_css_classes.size, (button["class"].split(" ") & expected_css_classes).size

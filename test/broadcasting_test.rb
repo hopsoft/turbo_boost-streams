@@ -2,12 +2,14 @@
 
 require "test_helper"
 require "action_cable"
+require_relative "../lib/turbo_boost/streams/patches"
 
 class TurboBoost::Streams::BroadcastingTest < ActionCable::Channel::TestCase
   include ActiveJob::TestHelper
   include TurboBoost::Streams::TagHelper
 
   setup do
+    ::Turbo::Broadcastable.send :include, TurboBoost::Streams::Patches::Broadcastable # Required when running tests with Ruby 2.7 under GitHub Actions ???
     @message = Message.create(id: 1, content: "Hello!")
     @expected = turbo_stream_invoke_tag("console.log", args: ["Hello World!"], id: 1)
   end
