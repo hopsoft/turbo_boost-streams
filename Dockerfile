@@ -25,17 +25,17 @@ RUN git clone --origin github --branch main --depth 1 https://github.com/hopsoft
 
 # install application dependencies 1st time
 WORKDIR /opt/turbo_boost-streams
-RUN yarn
-RUN bundle
+RUN yarn --production
+RUN bundle --without development test
 
 # prepare the environment
 ENV RAILS_ENV=production RAILS_LOG_TO_STDOUT=true RAILS_SERVE_STATIC_FILES=true
 
 # prepare and run the application
 CMD git pull --no-rebase github main && \
-yarn && \
+yarn --production && \
 cd test/dummy && \
-bundle && \
+bundle --without development test && \
 rm -f tmp/pids/server.pid && \
 bin/rails db:create db:migrate && \
 bin/rails assets:clobber && \
