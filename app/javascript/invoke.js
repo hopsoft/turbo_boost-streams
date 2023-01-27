@@ -15,26 +15,36 @@ function withInvokeEvents (receiver, detail, callback) {
 
   target.dispatchEvent(new CustomEvent(invokeEvents.before, options))
 
-  const result = callback(object)
-  options.detail.result = result
-  target.dispatchEvent(new CustomEvent(invokeEvents.after, options))
+  // the before event can provide invoke instructions my modifying the event detail
+  // For example, { delay: 1000 } will delay the invocation by 1000ms
+  let { delay } = detail.invoke || {}
+  delay = delay || 0
 
-  let promise
-  if (result instanceof Animation) promise = result.finished
-  if (result instanceof Promise) promise = result
+  const execute = () => {
+    const result = callback(object)
+    options.detail.result = result
+    target.dispatchEvent(new CustomEvent(invokeEvents.after, options))
 
-  if (promise)
-    promise.then(
-      () => {
-        options.detail.promise = 'fulfilled'
-        target.dispatchEvent(new CustomEvent(invokeEvents.finish, options))
-      },
-      () => {
-        options.detail.promise = 'rejected'
-        target.dispatchEvent(new CustomEvent(invokeEvents.finish, options))
-      }
-    )
-  else target.dispatchEvent(new CustomEvent(invokeEvents.finish, options))
+    let promise
+    if (result instanceof Animation) promise = result.finished
+    if (result instanceof Promise) promise = result
+
+    if (promise)
+      promise.then(
+        () => {
+          options.detail.promise = 'fulfilled'
+          target.dispatchEvent(new CustomEvent(invokeEvents.finish, options))
+        },
+        () => {
+          options.detail.promise = 'rejected'
+          target.dispatchEvent(new CustomEvent(invokeEvents.finish, options))
+        }
+      )
+    else target.dispatchEvent(new CustomEvent(invokeEvents.finish, options))
+  }
+
+  if (delay > 0) setTimeout(execute, delay)
+  else execute()
 }
 
 function invokeDispatchEvent (method, args, receivers) {
