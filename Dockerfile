@@ -1,12 +1,13 @@
 FROM ruby:3.1.2
 
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+
 RUN apt-get -y update && \
 apt-get -y upgrade && \
 apt-get -y --allow-downgrades --allow-remove-essential --allow-change-held-packages install \
 build-essential \
 git \
 nodejs \
-npm \
 sqlite3 \
 tzdata && \
 apt-get clean
@@ -25,17 +26,17 @@ RUN git clone --origin github --branch main --depth 1 https://github.com/hopsoft
 
 # install application dependencies 1st time
 WORKDIR /opt/turbo_boost-streams
-RUN yarn --production
-RUN bundle --without development test
+RUN yarn install --ignore-engines
+RUN bundle
 
 # prepare the environment
 ENV RAILS_ENV=production RAILS_LOG_TO_STDOUT=true RAILS_SERVE_STATIC_FILES=true
 
 # prepare and run the application
-CMD git pull --no-rebase github main && \
-yarn --production && \
+CMD git pull --branch main --depth 1 --force --no-rebase github main && \
+yarn install --ignore-engines && \
 cd test/dummy && \
-bundle --without development test && \
+bundle  && \
 rm -f tmp/pids/server.pid && \
 bin/rails db:create db:migrate && \
 bin/rails assets:clobber && \
