@@ -53,6 +53,7 @@ module TurboBoost::Streams::Demos
         demo_element.wait_for_selector("button").click
       end
 
+      sleep 1
       demo_element.wait_for_selector("button[type=submit][class~=from-cyan-500]")
       button_elements = page.query_selector_all("button[type=submit]")
 
