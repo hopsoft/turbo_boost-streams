@@ -9,7 +9,8 @@ x-default-app: &default_app
   environment:
     RAILS_ENV: development
   volumes:
-    - bundle:/usr/local/bundle:delegated
+    - .:/opt/turbo_boost-streams
+    - bundle:/usr/local/bundle
     - node_modules:/opt/turbo_boost-streams/node_modules
 
 volumes:
@@ -34,13 +35,7 @@ services:
     ports:
       - 3000:3000
     command: >
-      /bin/bash -c "git pull --no-rebase github main &&
-                    cd /opt/turbo_boost-streams &&
-                    bundle &&
-                    yarn &&
-                    cd test/dummy &&
+      /bin/bash -c "bundle && yarn &&
                     rm -f tmp/pids/server.pid &&
                     bin/rails db:create db:migrate &&
-                    bin/rails assets:clobber &&
-                    bin/rails assets:precompile &&
                     bin/rails s --binding=0.0.0.0 --port=3000"

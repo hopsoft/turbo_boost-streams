@@ -393,4 +393,4 @@ Be sure to check out all of the various the libraries.
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+These libraries are available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
