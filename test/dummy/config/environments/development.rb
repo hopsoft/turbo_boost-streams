@@ -68,5 +68,8 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.importmap.cache_sweepers << Rails.root.join("../../app/assets/builds/@turbo-boost")
-  config.hosts << "web" # support requests within the docker compose network
+  config.hosts.clear
+  # config.hosts << "localhost"
+  # config.hosts << "hopsoft.io"
+  # config.hosts << "web" # support requests within the docker compose network
 end

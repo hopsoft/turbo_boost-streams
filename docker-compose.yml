@@ -5,7 +5,7 @@ x-default-app: &default_app
   image: hopsoft/turbo_boost-streams
   tty: true
   stdin_open: true
-  working_dir: /opt/turbo_boost-streams
+  working_dir: /opt/turbo_boost-streams/test/dummy
   environment:
     RAILS_ENV: development
     RAILS_LOG_TO_STDOUT: true
@@ -31,7 +31,7 @@ services:
   shell:
     <<: *default_app
     container_name: turbo_boost-streams-shell
-    command: /bin/bash -c "tail -f /dev/null"
+    command: "tail -f /dev/null"
 
   # ==========================================================================================================
   # Web - Runs the test/dummy Rails app
@@ -41,13 +41,6 @@ services:
     container_name: turbo_boost-streams-web
     ports:
       - 3000:3000
-    command: >
-      /bin/bash -c "yarn &&
-                    bundle &&
-                    cd test/dummy &&
-                    rm -f tmp/pids/*.pid &&
-                    bin/rails assets:clobber &&
-                    bin/rails s --binding=0.0.0.0 --port=3000"
     healthcheck:
       test: ["CMD", "curl", "--silent", "--fail", "http://localhost:3000/health"]
       interval: 30s
@@ -60,7 +53,7 @@ services:
   esbuild:
     <<: *default_app
     container_name: turbo_boost-streams-esbuild
-    command: /bin/bash -c "yarn build:watch"
+    command: /bin/bash -c "cd /opt/turbo_boost-streams && yarn build:watch"
     depends_on:
       web:
         condition: service_healthy
@@ -71,7 +64,7 @@ services:
   tailwind:
     <<: *default_app
     container_name: turbo_boost-streams-tailwind
-    command: /bin/bash -c "cd test/dummy && bin/rails tailwindcss:watch"
+    command: "bin/rails tailwindcss:watch"
     depends_on:
       web:
         condition: service_healthy

@@ -4,7 +4,6 @@ RUN apt-get -y update && \
 apt-get -y --no-install-recommends install \
 build-essential \
 curl \
-git \
 sqlite3 \
 tzdata
 
@@ -43,19 +42,6 @@ RUN gem update --system && gem install bundler
 # setup yarn
 RUN npm install -g yarn
 
-RUN rm -rf /opt/turbo_boost-streams && \
-git clone --origin github --branch main --depth 1 https://github.com/hopsoft/turbo_boost-streams.git /opt/turbo_boost-streams && \
-mkdir -p /opt/turbo_boost-streams/node_modules
+COPY . /opt/turbo_boost-streams
 
-WORKDIR /opt/turbo_boost-streams
-
-RUN yarn
-RUN bundle
-
-CMD git pull --depth 1 && \
-yarn && \
-bundle && \
-cd test/dummy && \
-rm -rf tmp/pids/*.pid && \
-bin/rails assets:clean assets:precompile && \
-bin/rails s --binding=0.0.0.0 --port=3000
+CMD /opt/turbo_boost-streams/bin/docker/run

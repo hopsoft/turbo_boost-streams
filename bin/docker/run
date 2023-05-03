@@ -1,0 +1,18 @@
+#!/bin/bash
+
+mkdir -p /mnt/external/bundle /mnt/external/node_modules
+
+cd /opt/turbo_boost-streams
+
+if [ -n "$FLY_PUBLIC_IP" ]; then
+  rm -rf /opt/turbo_boost-streams/node_modules
+  ln -s /mnt/external/node_modules /opt/turbo_boost-streams/node_modules
+fi
+
+yarn
+bundle
+
+cd /opt/turbo_boost-streams/test/dummy
+rm -rf tmp/pids/*
+bin/rails assets:clean assets:precompile
+bin/rails server --binding=0.0.0.0 --port=3000

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+fly ssh console -a turboboost-streams --pty -C "/opt/turboboost-streams/test/dummy/bin/rails c"
