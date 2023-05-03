@@ -1,0 +1,29 @@
+# fly.toml app configuration file generated for turbo-boost-streams on 2023-05-03T17:25:49-06:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "turbo-boost-streams"
+primary_region = "den"
+
+[env]
+  GEM_HOME = "/mnt/external/bundle"
+  RAILS_ENV = "development"
+  RAILS_LOG_TO_STDOUT = "true"
+  RAILS_MAX_THREADS = "6"
+  RAILS_SERVE_STATIC_FILES = "true"
+  WEB_CONCURRENCY = "2"
+
+[mounts]
+  source = "turbo_boost_streams_den_01"
+  destination = "/mnt/external"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+
+[[statics]]
+  guest_path = "/opt/turbo_boost-streams/test/dummy/public"
+  url_prefix = "/"
