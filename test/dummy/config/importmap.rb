@@ -11,6 +11,10 @@ pin "flowbite", to: "https://ga.jspm.io/npm:flowbite@1.5.3/dist/flowbite.js"
 # this pin works because of the link_tree directive in: test/dummy/app/assets/config/manifest.js
 # that points to the relative path of the build directory
 # SEE: package.json for details on the build script
+# pin "@turbo-boost/streams", to: "@turbo-boost/streams.js"
+
+FileUtils.rm_f Rails.root.join("app/javascript/@turbo-boost")
+FileUtils.ln_s Rails.root.join("../../app/assets/builds/@turbo-boost"), Rails.root.join("app/javascript/@turbo-boost")
 pin "@turbo-boost/streams", to: "@turbo-boost/streams.js"
 
-pin "application", preload: true
+pin "application" # , preload: true

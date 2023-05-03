@@ -359,7 +359,7 @@ Such techniques are what gave rise to Full Stack Frontend and sent the industry 
 
 ### Discussions
 
-Feel free to add to the conversation here on [GitHub Discussions](https://github.com/hopsoft/turbo_boost-streams/discussions).
+Feel free to add to the conversation on our [Discord server](https://discord.gg/stimulus-reflex).
 
 ### Twitter
 
@@ -368,6 +368,22 @@ Connect with the core team on Twitter.
 <a href="https://twitter.com/hopsoft" target="_blank">
   <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/hopsoft?logo=twitter&style=social">
 </a>
+
+## Development
+
+This project supports a fully Dockerized development experience.
+
+1. Simply run the following command to get started.
+
+    ```sh
+    docker compose up -d
+
+    # ...or if using the containers gem
+
+    containers up
+    ```
+
+1. Then edit files with your preferred tools on the host machine.
 
 ## Releasing
 

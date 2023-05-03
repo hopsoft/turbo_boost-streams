@@ -10,6 +10,7 @@ Rails.application.config.tap do |config|
         context.migrations_paths << path unless context.migrations_paths.include?(path)
       end
       context.migrate
+      context.migrations_paths.clear
     end
   end
 end
