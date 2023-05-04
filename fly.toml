@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for turbo-boost-streams on 2023-05-03T18:21:19-06:00
+# fly.toml app configuration file generated for turbo-boost-streams on 2023-05-03T19:27:02-06:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -6,19 +6,19 @@
 app = "turbo-boost-streams"
 primary_region = "den"
 
-[mounts]
-  source = "turbo_boost_streams_volume"
-  destination = "/mnt/external"
-
 [env]
   GEM_HOME = "/mnt/external/bundle"
   RAILS_ENV = "development"
   RAILS_LOG_TO_STDOUT = "true"
   RAILS_MAX_THREADS = "6"
-  # Must match the proxy config in the smallteam-tech/proxy repo
+  # RAILS_RELATIVE_URL_ROOT must match the proxy config in the smallteam-tech/proxy repo
   RAILS_RELATIVE_URL_ROOT = "/@turbo-boost/streams"
   RAILS_SERVE_STATIC_FILES = "true"
   WEB_CONCURRENCY = "2"
+
+[[mounts]]
+  source = "turbo_boost_streams_volume"
+  destination = "/mnt/external"
 
 [http_service]
   internal_port = 3000
