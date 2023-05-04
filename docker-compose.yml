@@ -1,15 +1,18 @@
 version: "3.9"
 
+x-default-env: &default_env
+  RAILS_ENV: development
+  RAILS_LOG_TO_STDOUT: true
+  RAILS_SERVE_STATIC_FILES: true
+
 x-default-app: &default_app
   build: .
   image: hopsoft/turbo_boost-streams
   tty: true
   stdin_open: true
-  working_dir: /opt/turbo_boost-streams/test/dummy
+  working_dir: /opt/turbo_boost-streams
   environment:
-    RAILS_ENV: development
-    RAILS_LOG_TO_STDOUT: true
-    RAILS_SERVE_STATIC_FILES: true
+    <<: *default_env
   networks:
     - primary
   volumes:
@@ -31,7 +34,7 @@ services:
   shell:
     <<: *default_app
     container_name: turbo_boost-streams-shell
-    command: "tail -f /dev/null"
+    command: bin/docker/shell
 
   # ==========================================================================================================
   # Web - Runs the test/dummy Rails app
@@ -53,7 +56,7 @@ services:
   esbuild:
     <<: *default_app
     container_name: turbo_boost-streams-esbuild
-    command: /bin/bash -c "cd /opt/turbo_boost-streams && yarn build:watch"
+    command: yarn build:watch
     depends_on:
       web:
         condition: service_healthy
@@ -64,7 +67,8 @@ services:
   tailwind:
     <<: *default_app
     container_name: turbo_boost-streams-tailwind
-    command: "bin/rails tailwindcss:watch"
+    working_dir: /opt/turbo_boost-streams/test/dummy
+    command: bin/rails tailwindcss:watch
     depends_on:
       web:
         condition: service_healthy
