@@ -67,9 +67,6 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
-  config.importmap.cache_sweepers << Rails.root.join("../../app/assets/builds/@turbo-boost")
   config.hosts.clear
-  # config.hosts << "localhost"
-  # config.hosts << "hopsoft.io"
-  # config.hosts << "web" # support requests within the docker compose network
+  config.importmap.cache_sweepers << Rails.root.join("../../app/assets/builds/@turbo-boost")
 end

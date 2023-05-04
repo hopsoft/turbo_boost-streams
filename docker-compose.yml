@@ -5,7 +5,7 @@ x-default-app: &default_app
   image: hopsoft/turbo_boost-streams
   tty: true
   stdin_open: true
-  working_dir: /opt/turbo_boost-streams
+  working_dir: /opt/turbo_boost-streams/test/dummy
   environment:
     RAILS_ENV: development
     RAILS_LOG_TO_STDOUT: true
