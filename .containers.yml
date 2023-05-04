@@ -1,0 +1,6 @@
+---
+organization_name: hopsoft
+project_name: turbo_boost-streams
+app_directory: /Users/nathan/work/hopsoft/turbo_boost-streams
+docker_directory: /Users/nathan/work/hopsoft/turbo_boost-streams
+default_service: web

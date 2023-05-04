@@ -10,7 +10,6 @@ x-default-app: &default_app
   image: hopsoft/turbo_boost-streams
   tty: true
   stdin_open: true
-  working_dir: /opt/turbo_boost-streams
   environment:
     <<: *default_env
   networks:
@@ -28,14 +27,6 @@ volumes:
   node_modules:
 
 services:
-  # ==========================================================================================================
-  # Shell - Intended for tinkering and running misc commands
-  # ==========================================================================================================
-  shell:
-    <<: *default_app
-    container_name: turbo_boost-streams-shell
-    command: /bin/bash -c "bin/docker/install/javascript-dependencies && bin/docker/install/playwright && tail -f /dev/null"
-
   # ==========================================================================================================
   # Web - Runs the test/dummy Rails app
   # ==========================================================================================================
@@ -57,7 +48,7 @@ services:
   esbuild:
     <<: *default_app
     container_name: turbo_boost-streams-esbuild
-    command: /bin/bash -c "bin/docker/install/javascript-dependencies && yarn build:watch"
+    command: /bin/bash -c "yarn && yarn build:watch"
     depends_on:
       web:
         condition: service_healthy
