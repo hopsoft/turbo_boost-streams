@@ -4,8 +4,11 @@ RUN apt-get -y update && \
 apt-get -y --no-install-recommends install \
 build-essential \
 curl \
+libjemalloc2 \
 sqlite3 \
 tzdata
+
+ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
 
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 
