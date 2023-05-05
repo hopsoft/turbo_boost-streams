@@ -119,6 +119,10 @@ If you find that CRUD isn't enough, boosted streams are there to handle pretty m
   </a>
 </p>
 
+## Community
+
+Come join the party of over 2200+ like-minded friendly Rails/Hotwire enthusiasts over on our [Discord server](https://discord.gg/stimulus-reflex).
+
 ## Dependencies
 
 - [rails](https://rubygems.org/gems/rails) `>=6.1`
@@ -365,14 +369,6 @@ Such techniques are what gave rise to Full Stack Frontend and sent the industry 
 ### Discussions
 
 Feel free to add to the conversation on our [Discord server](https://discord.gg/stimulus-reflex).
-
-### Twitter
-
-Connect with the core team on Twitter.
-
-<a href="https://twitter.com/hopsoft" target="_blank">
-  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/hopsoft?logo=twitter&style=social">
-</a>
 
 ## Developing
 
