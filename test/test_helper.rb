@@ -9,7 +9,6 @@ Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 require "pry-byebug"
 
 require_relative "../test/dummy/config/environment"
-ActiveRecord::Migrator.migrations_paths = [File.expand_path("../test/dummy/db/migrate", __dir__)]
 require "rails/test_help"
 
 ActionCable.server.config.logger = Logger.new($stdout) if ENV["VERBOSE"]

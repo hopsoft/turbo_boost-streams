@@ -88,6 +88,7 @@ You can `invoke` any DOM method on the client with Turbo Streams.
   - [Community](#community)
     - [Discussions](#discussions)
     - [Twitter](#twitter)
+  - [Development](#development)
   - [Releasing](#releasing)
   - [About TurboBoost](#about-turboboost)
   - [License](#license)
@@ -359,7 +360,7 @@ Such techniques are what gave rise to Full Stack Frontend and sent the industry 
 
 ### Discussions
 
-Feel free to add to the conversation here on [GitHub Discussions](https://github.com/hopsoft/turbo_boost-streams/discussions).
+Feel free to add to the conversation on our [Discord server](https://discord.gg/stimulus-reflex).
 
 ### Twitter
 
@@ -368,6 +369,35 @@ Connect with the core team on Twitter.
 <a href="https://twitter.com/hopsoft" target="_blank">
   <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/hopsoft?logo=twitter&style=social">
 </a>
+
+## Development
+
+This project supports a fully Dockerized development experience.
+
+1. Simply run the following commands to get started.
+
+    ```sh
+    git clone -o github https://github.com/hopsoft/turbo_boost-streams.git
+    cd turbo_boost-streams
+    ```
+
+    ```sh
+    docker compose up -d # start the envionment (will take a few minutes on 1st run)
+    docker exec -it turbo_boost-streams-web rake # run the test suite
+    open http://localhost:3000 # open the app in a browser
+    ```
+
+    And, if you're using the [containers gem (WIP)](https://github.com/hopsoft/containers).
+
+    ```sh
+    containers up # start the envionment (will take a few minutes on 1st run)
+    containers rake # run the test suite
+    open http://localhost:3000 # open the app in a browser
+    ```
+
+1. Edit files using your preferred tools on the host machine.
+
+1. That's it!
 
 ## Releasing
 
@@ -389,8 +419,10 @@ Be sure to check out all of the various the libraries.
 
 - [Streams](https://github.com/hopsoft/turbo_boost-streams)
 - [Commands](https://github.com/hopsoft/turbo_boost-commands)
+- [Elements](https://github.com/hopsoft/turbo_boost-elements)
+- [Devtools](https://github.com/hopsoft/turbo_boost-devtools)
 - Coming soon...
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+These libraries are available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
