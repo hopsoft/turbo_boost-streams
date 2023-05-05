@@ -88,6 +88,7 @@ You can `invoke` any DOM method on the client with Turbo Streams.
   - [Community](#community)
     - [Discussions](#discussions)
     - [Twitter](#twitter)
+  - [Development](#development)
   - [Releasing](#releasing)
   - [About TurboBoost](#about-turboboost)
   - [License](#license)
@@ -386,7 +387,7 @@ This project supports a fully Dockerized development experience.
     open http://localhost:3000 # open the app in a browser
     ```
 
-    If you're using the [containers gem (WIP)](https://github.com/hopsoft/containers).
+    And, if you're using the [containers gem (WIP)](https://github.com/hopsoft/containers).
 
     ```sh
     containers up # start the envionment (will take a few minutes on 1st run)
