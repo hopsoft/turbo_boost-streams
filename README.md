@@ -408,6 +408,7 @@ The `test/dummy` app serves the following purposes.
 - Documentation site with live interactive demos
 - Marketing site
 
+[You can see it in action here.](https://hopsoft.io/@turbo-boost/streams)
 _How's that for some innovative simplicity?_
 
 ####  Notable Files

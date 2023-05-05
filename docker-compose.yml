@@ -1,6 +1,7 @@
 version: "3.9"
 
 x-default-env: &default_env
+  GEM_HOME: /mnt/external/bundle
   PLAYWRIGHT_BROWSERS_PATH: 0
   RAILS_ENV: development
   RAILS_LOG_TO_STDOUT: true
@@ -17,8 +18,8 @@ x-default-app: &default_app
     - primary
   volumes:
     - .:/opt/turbo_boost-streams
-    - bundle:/usr/local/bundle
-    - node_modules:/opt/turbo_boost-streams/node_modules
+    - bundle:/mnt/external/bundle
+    - node_modules:/mnt/external/node_modules
 
 networks:
   primary:
