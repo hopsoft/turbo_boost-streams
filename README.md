@@ -373,17 +373,30 @@ Connect with the core team on Twitter.
 
 This project supports a fully Dockerized development experience.
 
-1. Simply run the following command to get started.
+1. Simply run the following commands to get started.
 
     ```sh
-    docker compose up -d
-
-    # ...or if using the containers gem
-
-    containers up
+    git clone -o github https://github.com/hopsoft/turbo_boost-streams.git
+    cd turbo_boost-streams
     ```
 
-1. Then edit files with your preferred tools on the host machine.
+    ```sh
+    docker compose up -d # start the envionment (will take a few minutes on 1st run)
+    docker exec -it turbo_boost-streams-web rake # run the test suite
+    open http://localhost:3000 # open the app in a browser
+    ```
+
+    If you're using the [containers gem (WIP)](https://github.com/hopsoft/containers).
+
+    ```sh
+    containers up # start the envionment (will take a few minutes on 1st run)
+    containers rake # run the test suite
+    open http://localhost:3000 # open the app in a browser
+    ```
+
+1. Edit files using your preferred tools on the host machine.
+
+1. That's it!
 
 ## Releasing
 
