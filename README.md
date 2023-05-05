@@ -119,7 +119,7 @@ If you find that CRUD isn't enough, boosted streams are there to handle pretty m
 
 ## Community
 
-Come join the party of over 2200+ like-minded friendly Rails/Hotwire enthusiasts over on our [Discord server](https://discord.gg/stimulus-reflex).
+Come join the party with over 2200+ like-minded friendly Rails/Hotwire enthusiasts on our [Discord server](https://discord.gg/stimulus-reflex).
 
 ## Dependencies
 
@@ -399,17 +399,16 @@ This project supports a fully Dockerized development experience.
 
 ## Deploying
 
-This project supports Dockerized deployment via the same configurtation used for development... 🤯
-and it actually runs the [`test/dummy`](https://github.com/hopsoft/turbo_boost-streams/tree/main/test/dummy) application in "production".
+This project supports Dockerized deployment via the same configurtation used for development,
+and... it actually runs the [`test/dummy`](https://github.com/hopsoft/turbo_boost-streams/tree/main/test/dummy) application in "production". 🤯
 
 The `test/dummy` app serves the following purposes.
 
 - Test app for the Rails engine
-- Documentation site with live interactive demos
-- Marketing site
+- Documentation and marketing site with interactive demos
 
-[You can see it in action here.](https://hopsoft.io/@turbo-boost/streams)
-_How's that for some innovative simplicity?_
+You can [__see it in action__ here.](https://hopsoft.io/@turbo-boost/streams)
+_How's that for innovative simplicity?_
 
 ####  Notable Files
 
