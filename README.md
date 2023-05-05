@@ -419,6 +419,8 @@ Be sure to check out all of the various the libraries.
 
 - [Streams](https://github.com/hopsoft/turbo_boost-streams)
 - [Commands](https://github.com/hopsoft/turbo_boost-commands)
+- [Elements](https://github.com/hopsoft/turbo_boost-elements)
+- [Devtools](https://github.com/hopsoft/turbo_boost-devtools)
 - Coming soon...
 
 ## License
