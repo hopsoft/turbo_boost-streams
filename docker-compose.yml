@@ -1,6 +1,7 @@
 version: "3.9"
 
 x-default-env: &default_env
+  PLAYWRIGHT_BROWSERS_PATH: 0
   RAILS_ENV: development
   RAILS_LOG_TO_STDOUT: true
   RAILS_SERVE_STATIC_FILES: true
@@ -40,7 +41,7 @@ services:
       test: ["CMD", "curl", "--silent", "--fail", "http://localhost:3000/health"]
       interval: 30s
       timeout: 30s
-      retries: 5
+      retries: 10
 
   # ==========================================================================================================
   # ESBuild - Runs the esbuild watcher

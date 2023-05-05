@@ -2,7 +2,7 @@
 
 
 # ============================================================================================================
-# Jemalloc setup, SEE: https://jemalloc.net
+# Jemalloc - SEE: https://jemalloc.net
 # ============================================================================================================
 jemalloc="/usr/lib/x86_64-linux-gnu/libjemalloc.so.2"
 if [ "$(uname -m)" = "x86_64" ] && [ -f "$jemalloc" ]; then
@@ -16,19 +16,16 @@ fi
 
 
 # ============================================================================================================
-# Install dependencies
+# Dependencies
 # ============================================================================================================
 yarn
 bundle
 
 
 # ============================================================================================================
-# Install Playwright dependencies
-# SEE: https://playwright.dev
+# Playwright Dependencies - SEE: https://playwright.dev
 # ============================================================================================================
-if ! [ -f "/opt/playwright-installed.txt" ]; then
-  touch "/opt/playwright-installed.txt"
-
+if ! [ -f "/opt/turbo_boost-streams/node_modules/playwright-core/.local-browsers" ]; then
   apt-get -y --no-install-recommends install \
   libasound2 \
   libatk-bridge2.0-0 \
@@ -57,9 +54,9 @@ fi
 
 
 # ============================================================================================================
-# Run the application
+# Prepare & Run the Application
 # ============================================================================================================
-cd /opt/turbo_boost-streams/test/dummy
+cd test/dummy
 rm -rf tmp/pids/*
 bin/rails assets:clobber tailwindcss:build
 bin/rails server --binding=0.0.0.0 --port=3000
