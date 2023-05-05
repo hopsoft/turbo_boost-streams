@@ -88,7 +88,11 @@ You can `invoke` any DOM method on the client with Turbo Streams.
   - [Community](#community)
     - [Discussions](#discussions)
     - [Twitter](#twitter)
-  - [Development](#development)
+  - [Developing](#developing)
+      - [Notable Files](#notable-files)
+  - [Deploying](#deploying)
+      - [Notable Files](#notable-files-1)
+      - [How to Deploy](#how-to-deploy)
   - [Releasing](#releasing)
   - [About TurboBoost](#about-turboboost)
   - [License](#license)
@@ -370,7 +374,7 @@ Connect with the core team on Twitter.
   <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/hopsoft?logo=twitter&style=social">
 </a>
 
-## Development
+## Developing
 
 This project supports a fully Dockerized development experience.
 
@@ -384,7 +388,7 @@ This project supports a fully Dockerized development experience.
     ```sh
     docker compose up -d # start the envionment (will take a few minutes on 1st run)
     docker exec -it turbo_boost-streams-web rake # run the test suite
-    open http://localhost:3000 # open the app in a browser
+    open http://localhost:3000 # open the `test/dummy` app in a browser
     ```
 
     And, if you're using the [containers gem (WIP)](https://github.com/hopsoft/containers).
@@ -392,12 +396,43 @@ This project supports a fully Dockerized development experience.
     ```sh
     containers up # start the envionment (will take a few minutes on 1st run)
     containers rake # run the test suite
-    open http://localhost:3000 # open the app in a browser
+    open http://localhost:3000 # open the `test/dummy` app in a browser
     ```
 
 1. Edit files using your preferred tools on the host machine.
 
 1. That's it!
+
+####  Notable Files
+
+- [Dockerfile](https://github.com/hopsoft/turbo_boost-streams/blob/main/Dockerfile)
+- [docker-compose.yml](https://github.com/hopsoft/turbo_boost-streams/blob/main/docker-compose.yml)
+- [bin/docker/run/local](https://github.com/hopsoft/turbo_boost-streams/blob/main/bin/docker/run/local)
+
+## Deploying
+
+This project supports Dockerized deployment via the same configurtation used for development... 🤯
+and it actually runs the [`test/dummy`](https://github.com/hopsoft/turbo_boost-streams/tree/main/test/dummy) application in "production".
+
+The `test/dummy` app serves the following purposes.
+
+- Test app for the Rails engine
+- Documentation site with live interactive demos
+- Marketing site
+
+_How's that for some innovative simplicity?_
+
+####  Notable Files
+
+- [Dockerfile](https://github.com/hopsoft/turbo_boost-streams/blob/main/Dockerfile)
+- [fly.toml](https://github.com/hopsoft/turbo_boost-streams/blob/main/fly.toml)
+- [bin/docker/run/remote](https://github.com/hopsoft/turbo_boost-streams/blob/main/bin/docker/run/remote)
+
+#### How to Deploy
+
+```sh
+fly deploy
+```
 
 ## Releasing
 
@@ -414,7 +449,7 @@ This project supports a fully Dockerized development experience.
 
 ## About TurboBoost
 
-TurboBoost is a suite of projects that enhance Rails and Hotwire to make building server rendered reactive applications simpler and more powerful.
+TurboBoost is a suite of libraries that enhance Rails, Hotwire, and Turbo... making them even more powerful and boosing your productivity.
 Be sure to check out all of the various the libraries.
 
 - [Streams](https://github.com/hopsoft/turbo_boost-streams)
