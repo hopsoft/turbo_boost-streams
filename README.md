@@ -72,6 +72,7 @@ You can `invoke` any DOM method on the client with Turbo Streams.
 
   - [Why boosted Streams?](#why-boosted-streams)
   - [Sponsors](#sponsors)
+  - [Community](#community)
   - [Dependencies](#dependencies)
   - [Installation](#installation)
   - [Setup](#setup)
@@ -85,9 +86,6 @@ You can `invoke` any DOM method on the client with Turbo Streams.
       - [Background Job Queues](#background-job-queues)
   - [FAQ](#faq)
   - [A Word of Warning](#a-word-of-warning)
-  - [Community](#community)
-    - [Discussions](#discussions)
-    - [Twitter](#twitter)
   - [Developing](#developing)
       - [Notable Files](#notable-files)
   - [Deploying](#deploying)
@@ -104,7 +102,7 @@ You can `invoke` any DOM method on the client with Turbo Streams.
 Turbo Streams [intentionally restrict](https://turbo.hotwired.dev/handbook/streams#but-what-about-running-javascript%3F)
 official actions to CRUD related activity.
 These [official actions](https://turbo.hotwired.dev/reference/streams#the-seven-actions) work well for a considerable number of use cases.
-*Try pushing Turbo Streams as far as possible before reaching for boosted streams.*
+*We recommend that you push Turbo Streams as far as possible before reaching for __boosted streams__.*
 
 If you find that CRUD isn't enough, boosted streams are there to handle pretty much everything else.
 
@@ -363,12 +361,6 @@ You should consider boosted streams a substrate for building additional librarie
 
 *Please don't use TurboBoost Streams to manually orchestrate micro DOM updates (from the server).
 Such techniques are what gave rise to Full Stack Frontend and sent the industry on a decade long journey of complexity and frustration.*
-
-## Community
-
-### Discussions
-
-Feel free to add to the conversation on our [Discord server](https://discord.gg/stimulus-reflex).
 
 ## Developing
 
