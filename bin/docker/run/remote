@@ -18,8 +18,7 @@ fi
 # ============================================================================================================
 # Dependencies
 # ============================================================================================================
-rm -rf /opt/turbo_boost-streams/node_modules
-ln -s /mnt/external/node_modules /opt/turbo_boost-streams/node_modules
+ln -sf /mnt/external/node_modules /opt/turbo_boost-streams/node_modules
 yarn
 bundle
 

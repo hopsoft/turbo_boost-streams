@@ -23,8 +23,8 @@ primary_region = "den"
 [http_service]
   internal_port = 3000
   force_https = true
-  auto_stop_machines = false
   auto_start_machines = true
+  auto_stop_machines = false
 
 [[statics]]
   guest_path = "/opt/turbo_boost-streams/test/dummy/public"
