@@ -12,8 +12,7 @@
   ],
   "main": "streams.js",
   "files": [
-    "app/assets/builds/@turbo-boost/streams.js",
-    "app/assets/builds/@turbo-boost/streams.js.map"
+    "app/assets/builds/@turbo-boost/**/*{.js,.map}"
   ],
   "repository": "https://github.com/hopsoft/turbo_boost-streams",
   "author": "Nate Hopkins (hopsoft) <natehop@gmail.com>",
