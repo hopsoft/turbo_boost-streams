@@ -14,17 +14,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           version: '20.x'
           cache: 'yarn'
 
-      - name: Node Corepack
-        run: 'corepack enable'
-
       - name: Yarn Version
-        run: 'yarn set version 4.1.0'
+        run: 'npm install -g yarn@4.1.0'
 
       - name: Yarn Install
         run: 'yarn install --frozen-lockfile'
