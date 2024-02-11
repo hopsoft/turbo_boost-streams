@@ -21,6 +21,7 @@ fi
 # ============================================================================================================
 rm -rf /app/node_modules
 ln -s /mnt/external/node_modules /app/node_modules
+yarn set version stable
 yarn
 bundle
 
