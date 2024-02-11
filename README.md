@@ -424,6 +424,9 @@ fly deploy
 
 ## Releasing
 
+> [!TIP]
+> Run these commands on the host machine _(i.e. not inside the dev container)_
+
 1. Run `yarn` and `bundle` to pick up the latest
 1. Bump version number at `lib/turbo_boost-streams/version.rb`. Pre-release versions use `.preN`
 1. Bump version number at `package.json` _(make sure it matches)_. Pre-release versions use `-preN`
