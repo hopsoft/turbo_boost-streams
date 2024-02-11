@@ -1,6 +1,6 @@
 {
   "name": "@turbo-boost/streams",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Take full control of the DOM with Turbo Streams",
   "keywords": [
     "hotwire",
@@ -10,9 +10,9 @@
     "turbo-boost",
     "turbo-streams"
   ],
-  "main": "app/assets/builds/@turbo-boost/streams.js",
+  "main": "streams.js",
   "files": [
-    "app/assets/builds"
+    "app/assets/builds/@turbo-boost"
   ],
   "repository": "https://github.com/hopsoft/turbo_boost-streams",
   "author": "Nate Hopkins (hopsoft) <natehop@gmail.com>",
