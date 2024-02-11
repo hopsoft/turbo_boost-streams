@@ -1,6 +1,7 @@
 *.gem
 *.key
 .containers.yml
+.yarn
 /.bundle/
 /doc/
 /log/*.log /node_modules
