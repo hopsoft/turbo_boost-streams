@@ -1,8 +1,7 @@
 #!/bin/bash
 
+shopt -s globstar
 bundle exec magic_frozen_string_literal
 bundle exec standardrb --fix
-yarn run rustywind --write test/dummy/app
-yarn run rustywind --write --custom-regex "(:\s[\"'])(.+)[\"']" test/dummy/app/views/_tailwind.yml.erb
-yarn run prettier-standard app/javascript/**/*.js
-yarn run prettier-standard test/dummy/app/javascript/**/*.js
+yarn run prettier --write package.json **/*.js **/*.css
+cd test/dummy && bin/rails tailwindcss:clobber tailwindcss:build && cd -

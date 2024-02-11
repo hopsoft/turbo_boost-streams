@@ -1,5 +1,11 @@
 version: "3.9"
 
+networks:
+  primary:
+
+volumes:
+  external:
+
 x-default-env: &default_env
   GEM_HOME: /mnt/external/bundle
   PLAYWRIGHT_BROWSERS_PATH: 0
@@ -17,18 +23,18 @@ x-default-app: &default_app
   networks:
     - primary
   volumes:
-    - .:/opt/turbo_boost-streams
-    - bundle:/mnt/external/bundle
-    - node_modules:/mnt/external/node_modules
-
-networks:
-  primary:
-
-volumes:
-  bundle:
-  node_modules:
+    - .:/app
+    - external:/mnt/external
 
 services:
+  ## ==========================================================================================================
+  ## Shell
+  ## ==========================================================================================================
+  #shell:
+  #  <<: *default_app
+  #  container_name: turbo_boost-streams-shell
+  #  command: tail -f /dev/null
+
   # ==========================================================================================================
   # Web - Runs the test/dummy Rails app
   # ==========================================================================================================
@@ -61,7 +67,7 @@ services:
   tailwind:
     <<: *default_app
     container_name: turbo_boost-streams-tailwind
-    working_dir: /opt/turbo_boost-streams/test/dummy
+    working_dir: /app/test/dummy
     command: bin/rails tailwindcss:watch
     depends_on:
       web:
