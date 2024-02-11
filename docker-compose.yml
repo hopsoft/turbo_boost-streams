@@ -56,7 +56,7 @@ services:
   esbuild:
     <<: *default_app
     container_name: turbo_boost-streams-esbuild
-    command: /bin/bash -c "yarn && yarn build:watch"
+    command: /bin/bash -c "yarn build:watch"
     depends_on:
       web:
         condition: service_healthy
