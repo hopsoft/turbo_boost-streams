@@ -20,8 +20,11 @@ jobs:
           version: '20.x'
           cache: 'yarn'
 
-      - name: Yarn install
-        run: yarn install --frozen-lockfile
+      - name: Yarn Version
+        run: 'yarn set version 4.1.0'
+
+      - name: Yarn Install
+        run: 'yarn install --frozen-lockfile'
 
       - name: Run Prettier
         run: 'yarn run prettier --check .'
