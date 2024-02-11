@@ -1,4 +1,4 @@
-@import "pygments";
+@import 'pygments';
 
 html.dark .light-mode {
   display: none;

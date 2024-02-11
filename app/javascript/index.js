@@ -14,8 +14,6 @@ Turbo.StreamActions.invoke = invoke
 self.TurboBoost = self.TurboBoost || {}
 self.TurboBoost.Streams = { invoke, invokeEvents }
 
-console.info(
-  '@turbo-boost/streams has initialized and registered new stream actions with Turbo.'
-)
+console.info('@turbo-boost/streams has initialized and registered new stream actions with Turbo.')
 
 export default self.TurboBoost.Streams

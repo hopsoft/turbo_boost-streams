@@ -1,13 +1,14 @@
 {
   "name": "@turbo-boost/streams",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Take full control of the DOM with Turbo Streams",
   "keywords": [
     "hotwire",
     "hotwired",
     "rails",
     "turbo",
-    "turbo-boost"
+    "turbo-boost",
+    "turbo-streams"
   ],
   "main": "app/assets/builds/@turbo-boost/streams.js",
   "files": [
@@ -24,12 +25,16 @@
     "@hotwired/turbo-rails": ">= 7.2.0"
   },
   "devDependencies": {
-    "esbuild": "^0.17.3",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.4",
+    "@tailwindcss/typography": "^0.5.9",
+    "esbuild": "^0.20.0",
     "eslint": "^8.19.0",
     "flowbite": "1.5.3",
-    "playwright": "^1.29.2",
-    "prettier-standard": "^16.4.1",
-    "rustywind": "^0.16.0"
+    "playwright": "^1.36.2",
+    "prettier": "^3.0.0",
+    "prettier-plugin-tailwindcss": "^0.5.4",
+    "tailwindcss": "^3.3.3"
   },
   "scripts": {
     "build": "esbuild app/javascript/index.js --bundle --minify --sourcemap --format=esm --target=es2020,chrome79,edge44,firefox71,opera65,safari13 --analyze --outfile=app/assets/builds/@turbo-boost/streams.js",

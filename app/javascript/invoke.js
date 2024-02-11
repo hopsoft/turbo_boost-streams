@@ -7,7 +7,7 @@ export const invokeEvents = {
 }
 
 // Invokes the callback on a single receiver with before/after events
-function withInvokeEvents (receiver, detail, callback) {
+function withInvokeEvents(receiver, detail, callback) {
   const { object, target } = receiver
   detail = detail || {}
   detail = { ...detail, object: receiver.object }
@@ -47,7 +47,7 @@ function withInvokeEvents (receiver, detail, callback) {
   else execute()
 }
 
-function invokeDispatchEvent (method, args, receivers) {
+function invokeDispatchEvent(method, args, receivers) {
   const eventName = args[0]
   const eventOptions = args[1]
   const detail = { method, eventName, eventOptions }
@@ -58,41 +58,33 @@ function invokeDispatchEvent (method, args, receivers) {
   )
 }
 
-function invokeMorph (method, args, receivers) {
+function invokeMorph(method, args, receivers) {
   const html = args[0]
   const detail = { method, html }
-  receivers.forEach(receiver =>
-    withInvokeEvents(receiver, detail, object => morph(object, html))
-  )
+  receivers.forEach(receiver => withInvokeEvents(receiver, detail, object => morph(object, html)))
 }
 
-function invokeAssignment (method, args, receivers) {
+function invokeAssignment(method, args, receivers) {
   const property = method.slice(0, -1).trim()
   const value = args[0]
   const detail = { method, property, value }
-  receivers.forEach(receiver =>
-    withInvokeEvents(receiver, detail, object => (object[property] = value))
-  )
+  receivers.forEach(receiver => withInvokeEvents(receiver, detail, object => (object[property] = value)))
 }
 
-function invokeMethod (method, args, receivers) {
+function invokeMethod(method, args, receivers) {
   const detail = { method, args }
   receivers.forEach(receiver =>
-    withInvokeEvents(receiver, detail, object =>
-      object[method].apply(object, args)
-    )
+    withInvokeEvents(receiver, detail, object => object[method].apply(object, args))
   )
 }
 
 // Performs an invocation on all receivers for the given method and args
-function performInvoke (method, args, receivers) {
+function performInvoke(method, args, receivers) {
   // dispatch ................................................................................................
-  if (method.match(/^dispatch(Event)?$/))
-    return invokeDispatchEvent(method, args, receivers)
+  if (method.match(/^dispatch(Event)?$/)) return invokeDispatchEvent(method, args, receivers)
 
   // morph ...................................................................................................
-  if (method.match(/^morph|mutate$/))
-    return invokeMorph(method, args, receivers)
+  if (method.match(/^morph|mutate$/)) return invokeMorph(method, args, receivers)
 
   // assignment ..............................................................................................
   if (method.endsWith('=')) return invokeAssignment(method, args, receivers)
@@ -101,7 +93,7 @@ function performInvoke (method, args, receivers) {
   return invokeMethod(method, args, receivers)
 }
 
-export function invoke () {
+export function invoke() {
   const payload = JSON.parse(this.templateContent.textContent)
   const { id, selector, receiver, method, args, delay } = payload
   let receivers = [{ object: self, target: self }]
