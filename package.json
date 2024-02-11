@@ -1,6 +1,6 @@
 {
   "name": "@turbo-boost/streams",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Take full control of the DOM with Turbo Streams",
   "keywords": [
     "hotwire",
