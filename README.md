@@ -63,7 +63,7 @@ browser's [Document Object Model (DOM).](https://developer.mozilla.org/en-US/doc
 turbo_stream.invoke "console.log", args: ["Hello World!"]
 ```
 
-**Thats right!**
+**That's right!**
 You can `invoke` any DOM method on the client with Turbo Streams.
 
 <!-- Tocer[start]: Auto-generated, don't remove. -->
@@ -100,7 +100,7 @@ You can `invoke` any DOM method on the client with Turbo Streams.
 ## Why boosted Streams?
 
 Turbo Streams [intentionally restrict](https://turbo.hotwired.dev/handbook/streams#but-what-about-running-javascript%3F)
-official actions to CRUD related activity.
+official actions to CRUD-related activity.
 These [official actions](https://turbo.hotwired.dev/reference/streams#the-seven-actions) work well for a considerable number of use cases.
 *We recommend that you push Turbo Streams as far as possible before reaching for __boosted streams__.*
 
@@ -130,7 +130,7 @@ Come join the party with over 2200+ like-minded friendly Rails/Hotwire enthusias
 
 ## Installation
 
-Be sure to install the same version for each libary.
+Be sure to install the same version for each library.
 
 ```sh
 bundle add "turbo_boost-streams --version VERSION"
@@ -139,7 +139,7 @@ yarn add "@turbo-boost/streams@VERSION --exact"
 
 ## Setup
 
-Import and intialize Turbo Boost Streams in your application.
+Import and initialize Turbo Boost Streams in your application.
 
 ```diff
 # Gemfile
@@ -295,11 +295,11 @@ You can also broadcast DOM invocations to subscribed users.
     # app/models/post.rb
     class Post < ApplicationRecord
       after_save do
-        # emit a message in the browser conosle for anyone subscribed to this post
-        broadcast_invoke "console.log", args: ["Post was saved! #{to_gid.to_s}"]
+        # emit a message in the browser console for anyone subscribed to this post
+        broadcast_invoke "console.log", args: ["Post was saved! #{to_gid}"]
 
         # broadcast with a background job
-        broadcast_invoke_later "console.log", args: ["Post was saved! #{to_gid.to_s}"]
+        broadcast_invoke_later "console.log", args: ["Post was saved! #{to_gid}"]
       end
     end
     ```
@@ -311,19 +311,19 @@ You can also broadcast DOM invocations to subscribed users.
         @post = Post.find params[:id]
 
         if @post.update post_params
-          # emit a message in the browser conosle for anyone subscribed to this post
-          @post.broadcast_invoke "console.log", args: ["Post was saved! #{to_gid.to_s}"]
+          # emit a message in the browser console for anyone subscribed to this post
+          @post.broadcast_invoke "console.log", args: ["Post was saved! #{@post.to_gid}"]
 
           # broadcast with a background job
-          @post.broadcast_invoke_later "console.log", args: ["Post was saved! #{to_gid.to_s}"]
+          @post.broadcast_invoke_later "console.log", args: ["Post was saved! #{@postto_gid}"]
 
           # you can also broadcast directly from the channel
           Turbo::StreamsChannel.broadcast_invoke_to @post, "console.log",
-            args: ["Post was saved! #{@post.to_gid.to_s}"]
+            args: ["Post was saved! #{@post.to_gid}"]
 
           # broadcast with a background job
           Turbo::StreamsChannel.broadcast_invoke_later_to @post, "console.log",
-            args: ["Post was saved! #{@post.to_gid.to_s}"]
+            args: ["Post was saved! #{@post.to_gid}"]
         end
       end
     end
@@ -345,7 +345,7 @@ TurboBoost::Streams::BroadcastInvokeJob.queue_name = :turbo_streams
 
 - Isn't this just RJS?
 
-  > No. But, perhaps it could be considered RJS's "modern" spirtual successor. 🤷‍♂️
+  > No. But, perhaps it could be considered RJS's "modern" spiritual successor. 🤷‍♂️
   > Though it embraces JavaScript instead of trying to avoid it.
 
 - Does it use `eval`?
@@ -360,7 +360,7 @@ It allows you to break free from the strict CRUD/REST conventions that Rails and
 You should consider boosted streams a substrate for building additional libraries and abstractions.
 
 *Please don't use TurboBoost Streams to manually orchestrate micro DOM updates (from the server).
-Such techniques are what gave rise to Full Stack Frontend and sent the industry on a decade long journey of complexity and frustration.*
+Such techniques are what gave rise to Full Stack Frontend and sent the industry on a decade-long journey of complexity and frustration.*
 
 ## Developing
 
@@ -374,7 +374,7 @@ This project supports a fully Dockerized development experience.
     ```
 
     ```sh
-    docker compose up -d # start the envionment (will take a few minutes on 1st run)
+    docker compose up -d # start the environment (will take a few minutes on 1st run)
     docker exec -it turbo_boost-streams-web rake # run the test suite
     open http://localhost:3000 # open the `test/dummy` app in a browser
     ```
@@ -382,7 +382,7 @@ This project supports a fully Dockerized development experience.
     And, if you're using the [containers gem (WIP)](https://github.com/hopsoft/containers).
 
     ```sh
-    containers up # start the envionment (will take a few minutes on 1st run)
+    containers up # start the environment (will take a few minutes on 1st run)
     containers rake # run the test suite
     open http://localhost:3000 # open the `test/dummy` app in a browser
     ```
@@ -399,7 +399,7 @@ This project supports a fully Dockerized development experience.
 
 ## Deploying
 
-This project supports Dockerized deployment via the same configurtation used for development,
+This project supports Dockerized deployment via the same configuration used for development,
 and... it actually runs the [`test/dummy`](https://github.com/hopsoft/turbo_boost-streams/tree/main/test/dummy) application in "production". 🤯
 
 The `test/dummy` app serves the following purposes.
@@ -437,8 +437,8 @@ fly deploy
 
 ## About TurboBoost
 
-TurboBoost is a suite of libraries that enhance Rails, Hotwire, and Turbo... making them even more powerful and boosing your productivity.
-Be sure to check out all of the various the libraries.
+TurboBoost is a suite of libraries that enhance Rails, Hotwire, and Turbo... making them even more powerful and boosting your productivity.
+Be sure to check out all of the various libraries.
 
 - [Streams](https://github.com/hopsoft/turbo_boost-streams)
 - [Commands](https://github.com/hopsoft/turbo_boost-commands)
