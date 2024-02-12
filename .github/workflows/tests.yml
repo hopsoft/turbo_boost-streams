@@ -17,28 +17,26 @@ jobs:
         ruby-version: ['3.0', '3.1', '3.2', '3.3']
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Set up Ruby ${{ matrix.ruby-version }}
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby-version }}
-        bundler-cache: true
+      - name: Set up Ruby ${{ matrix.ruby-version }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
 
-    - name: Enable Corepack
-      run: corepack enable
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
 
-    - name: Setup Node
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20.x'
-        cache: 'yarn'
+      - name: NPM Install
+        run: 'npm install --legacy-peer-deps'
 
-    - name: Yarn install
-      run: yarn install --frozen-lockfile
+      - name: Install Playwright Browsers
+        run: 'npx playwright install chromium --with-deps'
 
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
+      - name: Run Tests
+        run: 'bundle exec rake test'
 
-    - name: Run ruby tests
-      run: bundle exec rake test

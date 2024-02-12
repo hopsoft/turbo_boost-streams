@@ -10,9 +10,7 @@ sqlite3 \
 tzdata
 
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
-RUN apt-get -y --no-install-recommends install nodejs && \
-corepack enable && \
-yarn set version stable
+RUN apt-get -y --no-install-recommends install nodejs
 
 RUN apt-get clean
 RUN gem update --system && gem install bundler
