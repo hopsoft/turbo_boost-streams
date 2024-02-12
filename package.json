@@ -12,17 +12,15 @@
   ],
   "main": "streams.js",
   "files": [
-    "app/assets/builds/@turbo-boost/**/*{.js,.map}"
+    "app/assets/builds/@turbo-boost/**"
   ],
   "repository": "https://github.com/hopsoft/turbo_boost-streams",
   "author": "Nate Hopkins (hopsoft) <natehop@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "@alpinejs/morph": "^3.13.5",
-    "alpinejs": "^3.13.5"
-  },
   "peerDependencies": {
-    "@hotwired/turbo-rails": ">= 7.2.0"
+    "@alpinejs/morph": ">= 3.13.5",
+    "@hotwired/turbo-rails": ">= 7.2.0",
+    "alpinejs": ">= 3.13.5"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
@@ -37,8 +35,8 @@
     "tailwindcss": "^3.4.1"
   },
   "scripts": {
-    "build": "node bin/build.mjs",
-    "build:watch": "yarn build --watch"
+    "build": "esbuild app/javascript/index.js --bundle --minify --sourcemap --external:alpinejs --external:@alpinejs/morph --external:@hotwired/turbo-rails --format=esm --target=es2020,chrome79,edge44,firefox71,opera65,safari13 --outfile=app/assets/builds/@turbo-boost/streams.js",
+    "build:watch": "yarn build -- --watch"
   },
   "packageManager": "yarn@4.1.0"
 }

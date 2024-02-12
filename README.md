@@ -434,6 +434,7 @@ fly deploy
 1. Run `yarn upgrade-interactive` and `bundle update` to pick up the latest dependencies
 1. Bump version number at `lib/turbo_boost-streams/version.rb`. Pre-release versions use `.preN`
 1. Bump version number at `package.json` _(make sure it matches)_. Pre-release versions use `-preN`
+1. Run `bin/standardize`
 1. Run `rake build`
 1. Run `yarn build`
 1. Commit and push any changes to GitHub
