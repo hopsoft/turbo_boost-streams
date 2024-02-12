@@ -1,0 +1,13 @@
+---
+organization:
+  name: turbo_boost
+
+app:
+  name: turbo_boost-streams
+  directory: /path/to/turbo_boost-streams
+
+docker:
+  directory: /path/to/turbo_boost-streams
+  compose_files:
+    - /path/to/turbo_boost-streams/docker-compose.yml
+  default_service: web

@@ -26,7 +26,7 @@
       <li>
         <span class="text-gray-800 dark:text-white">Next, add the NPM package to your <code>package.json</code> file.</span>
         <div class="pl-6 mt-4 mb-14">
-          <pre class="my-2 text-gray-400 dark:text-gray-700"><code>yarn add @turbo-boost/streams@<%= TurboBoost::Streams::VERSION %></code></pre>
+          <pre class="my-2 text-gray-400 dark:text-gray-700"><code>npm install @turbo-boost/streams@<%= TurboBoost::Streams::VERSION %></code></pre>
           <%= render component(:code), language: :json, class: "mb-8 text-sm", source_path: "app/views/docs/start/_package.json.erb", erb: true %>
 
           <span class="">Alternately, pin the JavaScript package to your <code>config/importmap.rb</code> file.</span>
