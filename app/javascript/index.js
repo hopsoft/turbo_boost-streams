@@ -1,3 +1,4 @@
+import VERSION from './version'
 import { invoke, invokeEvents } from './invoke'
 
 if (!self['Turbo'])
@@ -12,7 +13,7 @@ if (!Turbo['StreamActions'])
 
 Turbo.StreamActions.invoke = invoke
 self.TurboBoost = self.TurboBoost || {}
-self.TurboBoost.Streams = { invoke, invokeEvents }
+self.TurboBoost.Streams = { invoke, invokeEvents, VERSION }
 
 console.info('@turbo-boost/streams has initialized and registered new stream actions with Turbo.')
 

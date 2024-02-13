@@ -9,6 +9,7 @@ module TurboBoost::Streams::Demos
       assert_equal "object", js("typeof TurboBoost")
       assert_equal "object", js("typeof TurboBoost.Streams")
       assert_equal "function", js("typeof TurboBoost.Streams.invoke")
+      assert_equal TurboBoost::Streams::VERSION, js("TurboBoost.Streams.VERSION")
     end
   end
 end
