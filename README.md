@@ -436,7 +436,7 @@ fly deploy
 1. Run `npm run build`
 1. Commit and push any changes to GitHub
 1. Run `rake release`
-1. Run `npm publish ???? --access public`
+1. Run `npm publish --access public`
 1. Create a new release on GitHub ([here](https://github.com/hopsoft/turbo_boost-streams/releases)) and generate the changelog for the stable release for it
 
 ## About TurboBoost
