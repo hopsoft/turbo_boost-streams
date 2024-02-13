@@ -8,7 +8,7 @@
   </h1>
   <p align="center">
     <a href="http://blog.codinghorror.com/the-best-code-is-no-code-at-all/">
-      <img alt="Lines of Code" src="https://img.shields.io/badge/loc-238-47d299.svg" />
+      <img alt="Lines of Code" src="https://img.shields.io/badge/loc-249-47d299.svg" />
     </a>
     <a href="https://codeclimate.com/github/hopsoft/turbo_boost-streams/maintainability">
       <img src="https://api.codeclimate.com/v1/badges/a6671f4294ec0f21f732/maintainability" />
@@ -430,7 +430,7 @@ fly deploy
 
 1. Run `npm update` and `bundle update` to pick up the latest dependencies
 1. Update the version number consistently in the following files:
-   * `lib/turbo_boost-streams/version.rb` - pre-release versions should use `.preN`
+   * `lib/turbo_boost/streams/version.rb` - pre-release versions should use `.preN`
    * `app/javascript/version.js` - pre-release versions use `-preN`
    * `package.json` - pre-release versions use `-preN`
 1. Run `bin/standardize`
