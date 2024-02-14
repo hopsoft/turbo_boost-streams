@@ -16,9 +16,9 @@ const morphAllowed = node => {
 }
 
 const callbacks = {
-  beforeNodeMorphed: (oldNode, _newNode) => morphAllowed(oldNode)
+  beforeNodeMorphed: (oldNode, _newNode) => morphAllowed(oldNode),
 }
 
-export default function morph(element, html) {
-  Idiomorph.morph(element, html, { callbacks })
-}
+const morph = (element, html) => Idiomorph.morph(element, html, { callbacks })
+
+export default morph

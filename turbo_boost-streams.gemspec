@@ -34,6 +34,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rake"
   s.add_development_dependency "rexml"
   s.add_development_dependency "rouge"
+  s.add_development_dependency "runfile"
   s.add_development_dependency "sprockets-rails"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "standardrb"
