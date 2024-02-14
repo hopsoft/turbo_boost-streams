@@ -17,10 +17,11 @@
   "repository": "https://github.com/hopsoft/turbo_boost-streams",
   "author": "Nate Hopkins (hopsoft) <natehop@gmail.com>",
   "license": "MIT",
+  "dependencies": {
+    "idiomorph": "https://github.com/bigskysoftware/idiomorph.git#8e40c42"
+  },
   "peerDependencies": {
-    "@alpinejs/morph": ">= 3.13.5",
-    "@hotwired/turbo-rails": ">= 7.2.0",
-    "alpinejs": ">= 3.13.5"
+    "@hotwired/turbo-rails": ">= 7.2.0"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
