@@ -1,22 +1,24 @@
-import alpine from 'alpinejs'
-import alpineMorph from '@alpinejs/morph'
-
-alpine.plugin(alpineMorph)
+import { Idiomorph } from 'idiomorph'
 
 const input = /INPUT/i
 const inputTypes = /date|datetime-local|email|month|number|password|range|search|tel|text|time|url|week/i
 const textarea = /TEXTAREA/i
 
-function updating(el, toEl, childrenOnly, skip) {
-  if (el.nodeType !== Node.ELEMENT_NODE) return
-  if (el !== document.activeElement) return
+const morphAllowed = node => {
+  if (node.nodeType !== Node.ELEMENT_NODE) return true
+  if (node !== document.activeElement) return true
 
-  const protect =
-    el.tagName.match(textarea) || (el.tagName.match(input) && el.getAttribute('type').match(inputTypes))
+  // don't morph active textarea
+  if (node.tagName.match(textarea)) return false
 
-  if (protect) return skip()
+  // don't morph active inputs
+  return node.tagName.match(input) && node.getAttribute('type').match(inputTypes)
+}
+
+const callbacks = {
+  beforeNodeMorphed: (oldNode, _newNode) => morphAllowed(oldNode)
 }
 
 export default function morph(element, html) {
-  alpine.morph(element, html, { updating })
+  Idiomorph.morph(element, html, { callbacks })
 }
