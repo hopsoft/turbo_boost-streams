@@ -13,7 +13,7 @@ const context = await esbuild.context({
   minify: !debug,
   outfile: 'app/assets/builds/@turbo-boost/streams.js',
   sourcemap: true,
-  target: ['chrome79', 'edge44', 'es2020', 'firefox71', 'opera65', 'safari13'],
+  target: ['chrome79', 'edge44', 'es2020', 'firefox71', 'opera65', 'safari13']
 })
 
 const watch = process.argv.includes('--watch')
@@ -33,7 +33,7 @@ if (watch) {
       const message = [
         'Build succeeded! 🚀',
         `|- Metafile saved to ... → ${metafile}`,
-        '|- Analyze the bundle at → https://esbuild.github.io/analyze/',
+        '|- Analyze the bundle at → https://esbuild.github.io/analyze/'
       ]
       console.log(message.join('\n'))
     }
