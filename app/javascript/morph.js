@@ -7,7 +7,7 @@ const defaultOptions = {
   callbacks: { beforeNodeMorphed: (oldNode, _newNode) => morphAllowed(oldNode) },
   morphStyle: 'outerHTML',
   ignoreActiveValue: true,
-  head: { style: 'morph' }
+  head: { style: 'merge' }
 }
 
 function isElement(node) {
