@@ -1,36 +1,42 @@
 import { Idiomorph } from 'idiomorph'
 import schema from './schema'
 
-const input = /INPUT/i
-const inputTypes = /date|datetime-local|email|month|number|password|range|search|tel|text|time|url|week/i
-const textarea = /TEXTAREA/i
 const trixEditor = /TRIX-EDITOR/i
 
-const morphAllowed = node => {
-  if (node.nodeType !== Node.ELEMENT_NODE) return true
-  if (node !== document.activeElement) return true
+const defaultOptions = {
+  callbacks: { beforeNodeMorphed: (oldNode, _newNode) => morphAllowed(oldNode) },
+  morphStyle: 'outerHTML',
+  ignoreActiveValue: true,
+  head: { style: 'morph' }
+}
 
-  // don't morph elements marked as turbo permanent
-  if (
+function isElement(node) {
+  return node.nodeType === Node.ELEMENT_NODE
+}
+
+function isTurboPermanent(node) {
+  if (!isElement(node)) return false
+  return (
     node.hasAttribute(schema.turboPermanentAttribute) &&
     node.getAttribute(schema.turboPermanentAttribute) !== 'false'
   )
-    return false
-
-  // don't morph active textarea
-  if (node.tagName.match(textarea)) return false
-
-  // don't morph active trix-editor
-  if (node.tagName.match(trixEditor)) return false
-
-  // don't morph active inputs
-  return node.tagName.match(input) && node.getAttribute('type').match(inputTypes)
 }
 
-const callbacks = {
-  beforeNodeMorphed: (oldNode, _newNode) => morphAllowed(oldNode)
+function isActive(node) {
+  if (!isElement(node)) return false
+  return node === document.activeElement
 }
 
-const morph = (element, html) => Idiomorph.morph(element, html, { callbacks })
+function morphAllowed(node) {
+  if (isTurboPermanent(node)) return false
+  if (isActive(node) && node.tagName.match(trixEditor)) return false
+  return true
+}
+
+function morph(element, html, options = {}) {
+  const callbacks = { ...defaultOptions.callbacks, ...options.callbacks }
+  options = { ...defaultOptions, ...options, callbacks }
+  Idiomorph.morph(element, html, options)
+}
 
 export default morph

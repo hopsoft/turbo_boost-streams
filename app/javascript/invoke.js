@@ -1,6 +1,6 @@
 import morph from './morph'
 
-export const invokeEvents = {
+const invokeEvents = {
   before: 'turbo-boost:stream:before-invoke',
   after: 'turbo-boost:stream:after-invoke',
   finish: 'turbo-boost:stream:finish-invoke'
@@ -93,7 +93,7 @@ function performInvoke(method, args, receivers) {
   return invokeMethod(method, args, receivers)
 }
 
-export function invoke() {
+function invoke() {
   const payload = JSON.parse(this.templateContent.textContent)
   const { id, selector, receiver, method, args, delay } = payload
   let receivers = [{ object: self, target: self }]
@@ -118,3 +118,5 @@ export function invoke() {
   if (delay > 0) setTimeout(() => performInvoke(method, args, receivers), delay)
   else performInvoke(method, args, receivers)
 }
+
+export { invoke, invokeEvents }
