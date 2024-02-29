@@ -208,7 +208,7 @@ turbo_stream.invoke(:morph, args: [render("path/to/partial")], selector: "#my-el
 
 The following options are used to morph elements.
 
-```json
+```js
 {
   morphStyle: 'outerHTML',
   ignoreActiveValue: true,
