@@ -79,6 +79,8 @@ You can `invoke` any DOM method on the client with Turbo Streams.
   - [Usage](#usage)
     - [Method Chaining](#method-chaining)
     - [Event Dispatch](#event-dispatch)
+    - [Morph](#morph)
+    - [Morph Method](#morph-method)
     - [Syntax Styles](#syntax-styles)
     - [Extending Behavior](#extending-behavior)
     - [Implementation Details](#implementation-details)
@@ -192,6 +194,56 @@ turbo_stream
   .invoke(:dispatch_event, args: ["turbo-ready:demo"], selector: "#my-element") # fires on matching element(s)
   .invoke(:dispatch_event, args: ["turbo-ready:demo", {bubbles: true, detail: {...}}]) # set event options
 ```
+
+### Morph
+
+You can morph elements with the `morph` method.
+
+```ruby
+turbo_stream.invoke(:morph, args: [render("path/to/partial")], selector: "#my-element")
+```
+
+> [!NOTE]
+> TurboBoost Streams uses [Idiomorph](https://github.com/bigskysoftware/idiomorph) for morphing.
+
+The following options are used to morph elements.
+
+```json
+{
+  morphStyle: 'outerHTML',
+  ignoreActiveValue: true,
+  head: { style: 'merge' },
+  callbacks: { beforeNodeMorphed: (oldNode, _) => ... }
+}
+```
+
+> [!TIP]
+> The callbacks honor the `data-turbo-permanent` attribute and is aware of the [Trix](https://trix-editor.org/) editor.
+
+### Morph Method
+
+The morph method is also exported to the `TurboBoost.Streams` global and is available for client side morphing.
+
+```js
+TurboBoost.Streams.morph.method // → function(targetNode, htmlString, options = {})
+```
+
+You can also override the `morph` method if desired.
+
+```js
+TurboBoost.Streams.morph.method = (targetNode, htmlString, options = {}) => {
+  // your custom implementation
+}
+```
+
+It also support adding a delay before morphing is performed.
+
+```js
+TurboBoost.Streams.morph.delay = 50 // → 50ms
+```
+
+> [!TIP]
+> Complex test suites may require a delay to ensure the DOM is ready before morphing.
 
 ### Syntax Styles
 
