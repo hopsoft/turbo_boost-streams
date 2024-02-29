@@ -32,7 +32,7 @@
       <%= render component(:code), language: :javascript, class: "mb-6 text-sm", source_path: "app/javascript/demos/event.js" %>
 
       <div class="grid grid-cols-2">
-        <%= turbo_frame_tag "event-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/event/button"), :noop) %>
+        <%= turbo_frame_tag "event-demo-button", data: { testid: "event-demo-button" }, src: frame_path(Base64.urlsafe_encode64("demos/event/button"), :noop) %>
         <%= render component(:reload_link), class: "text-sm opacity-70 block text-right" %>
       </div>
     <% end %>

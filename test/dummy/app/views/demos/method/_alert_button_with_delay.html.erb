@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "alert-demo-button-with-delay" do %>
+<%= turbo_frame_tag "alert-demo-button-with-delay", data: { testid: "alert-demo-button-with-delay" } do %>
   <%= render "demos/method/alert_stream_with_delay" if run_demo? %>
 
   <%= button_to frame_path(Base64.urlsafe_encode64("demos/method/alert_button_with_delay"), :demo), method: :get, class: css("flowbite.button.pink_to_orange") do %>

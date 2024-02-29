@@ -18,7 +18,7 @@
 
   <div class="grid gap-16 pt-16 sm:grid-cols-2 lg:grid-cols-1">
     <%= render component(:demo), title: "Assign Dataset Values", heroicon: :adjustments_horizontal do %>
-      <span id="assignment-demo-description">We can assign pretty much assign any property value with TurboBoost Streams.</span>
+      <span id="assignment-demo-description" data-testid="assignment-demo-description">We can assign pretty much assign any property value with TurboBoost Streams.</span>
 
       <%= render flowbite(:alert), type: :info, class: "flex items-center mt-4" do %>
         <%= render heroicon(:information_circle), class: "w-6 h-6 mr-2" %>
@@ -33,7 +33,8 @@
       <%= render component(:code), language: :erb, class: "my-6 text-sm", source_path: "app/views/demos/assignment/_stream.html.erb" %>
 
       <div class="grid grid-cols-2">
-        <%= turbo_frame_tag "assignment-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/assignment/button"), :noop) %>
+        <%= turbo_frame_tag "assignment-demo-button", data: { testid: "assignment-demo-button" },
+          src: frame_path(Base64.urlsafe_encode64("demos/assignment/button"), :noop) %>
         <%= render component(:reload_link), class: "text-sm opacity-70 block text-right" %>
       </div>
     <% end %>

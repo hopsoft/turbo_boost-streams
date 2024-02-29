@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "multiple-elements-demo-button" do %>
+<%= turbo_frame_tag "multiple-elements-demo-button", data: { testid: "multiple-elements-demo-button" } do %>
   <%= render "demos/method/multiple_elements_stream" if run_demo? %>
 
   <%= button_to frame_path(Base64.urlsafe_encode64("demos/method/multiple_elements_button"), :demo), method: :get, class: css("flowbite.button.pink_to_orange") do %>

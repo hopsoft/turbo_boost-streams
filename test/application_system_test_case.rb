@@ -50,9 +50,11 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   # Returns an element that matches the given testid attribute value.
   #
   # @param testid [String,Symbol] The element's data-testid attribute value
-  # @return [Playwright::ElementHandle] The element
-  def element(testid)
-    page.get_by_test_id testid.to_s
+  # @param handle [Boolean] Whether to return the element handle (default: false)
+  # @return [Playwright::ElementLocator,Playwright::ElementHandle] The element
+  def element(testid, handle = false)
+    el = page.get_by_test_id(testid.to_s)
+    handle ? el.element_handle : el
   end
 
   # Checks if an element is tracking active mutations.
@@ -114,7 +116,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
   # Asserts that `turbo-boost:stream:NAME` events have been dispatched.
   #
-  # @param wait [Integer] the amount of time to wait before checking `turbo-boost:stream:finish-invoke`
+  # @param wait [Integer] the amount of time to wait before checking `turbo-boost:stream:finish-invoke` (default: 0.1s)
   # @yield a block of code that will trigger a TurboBoost Stream
   def assert_event_dispatch(wait: 0.1)
     js <<~JS

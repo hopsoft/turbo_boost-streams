@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "assignment-demo-button" do %>
+<%= turbo_frame_tag "assignment-demo-button", data: { testid: "assignment-demo-button" } do %>
   <%= render "demos/assignment/stream" if run_demo? %>
 
   <%= button_to frame_path(Base64.urlsafe_encode64("demos/assignment/button"), :demo), method: :get, class: css("flowbite.button.pink_to_orange") do %>
