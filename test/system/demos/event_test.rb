@@ -6,15 +6,16 @@ module TurboBoost::Streams::Demos
   class EventTest < ApplicationSystemTestCase
     test "select multiple elements" do
       page.goto demo_url("event")
-
-      demo_element = page.wait_for_selector("turbo-frame[id=event-demo-button]", state: "attached")
+      wait_for_mutations_finished "event-demo-button"
 
       assert_equal "object", js("typeof TurboBoostEvents")
       assert_equal "object", js("typeof TurboBoostEvents['turbo-boost:streams:demo']")
       assert_equal 0, js("TurboBoostEvents['turbo-boost:streams:demo'].length")
 
-      demo_element.wait_for_selector("button").click
-      sleep 0.1
+      wait_for_mutations "event-demo-button" do
+        element("event-demo-button", true).wait_for_selector("button").click
+      end
+      wait_for_mutations_finished "event-demo-button"
 
       assert js("TurboBoostEvents['turbo-boost:streams:demo'].length") >= 3
 

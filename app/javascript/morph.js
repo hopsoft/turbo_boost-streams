@@ -1,36 +1,69 @@
 import { Idiomorph } from 'idiomorph'
 import schema from './schema'
 
-const input = /INPUT/i
-const inputTypes = /date|datetime-local|email|month|number|password|range|search|tel|text|time|url|week/i
-const textarea = /TEXTAREA/i
+let _method
+let _delay = 0
+
 const trixEditor = /TRIX-EDITOR/i
 
-const morphAllowed = node => {
-  if (node.nodeType !== Node.ELEMENT_NODE) return true
-  if (node !== document.activeElement) return true
+function isElement(node) {
+  return node.nodeType === Node.ELEMENT_NODE
+}
 
-  // don't morph elements marked as turbo permanent
-  if (
+function isTurboPermanent(node) {
+  if (!isElement(node)) return false
+  return (
     node.hasAttribute(schema.turboPermanentAttribute) &&
     node.getAttribute(schema.turboPermanentAttribute) !== 'false'
   )
-    return false
-
-  // don't morph active textarea
-  if (node.tagName.match(textarea)) return false
-
-  // don't morph active trix-editor
-  if (node.tagName.match(trixEditor)) return false
-
-  // don't morph active inputs
-  return node.tagName.match(input) && node.getAttribute('type').match(inputTypes)
 }
 
-const callbacks = {
-  beforeNodeMorphed: (oldNode, _newNode) => morphAllowed(oldNode)
+function isActive(node) {
+  if (!isElement(node)) return false
+  return node === document.activeElement
 }
 
-const morph = (element, html) => Idiomorph.morph(element, html, { callbacks })
+function morphAllowed(node) {
+  if (isTurboPermanent(node)) return false
+  if (isActive(node) && node.tagName.match(trixEditor)) return false
+  return true
+}
 
-export default morph
+const defaultOptions = {
+  callbacks: { beforeNodeMorphed: (oldNode, _newNode) => morphAllowed(oldNode) },
+  morphStyle: 'outerHTML',
+  ignoreActiveValue: true,
+  head: { style: 'merge' }
+}
+
+function morph(element, html, options = {}) {
+  const callbacks = { ...defaultOptions.callbacks, ...options.callbacks }
+  options = { ...defaultOptions, ...options, callbacks }
+
+  return new Promise(resolve => {
+    setTimeout(() => {
+      Idiomorph.morph(element, html, options)
+      resolve()
+    }, _delay)
+  })
+}
+
+_method = morph
+
+export default {
+  get delay() {
+    return _delay
+  },
+
+  set delay(ms) {
+    _delay = ms
+  },
+
+  get method() {
+    return _method
+  },
+
+  set method(fn) {
+    _method = fn
+  }
+}

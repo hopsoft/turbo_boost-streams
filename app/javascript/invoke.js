@@ -1,6 +1,6 @@
 import morph from './morph'
 
-export const invokeEvents = {
+const invokeEvents = {
   before: 'turbo-boost:stream:before-invoke',
   after: 'turbo-boost:stream:after-invoke',
   finish: 'turbo-boost:stream:finish-invoke'
@@ -30,16 +30,16 @@ function withInvokeEvents(receiver, detail, callback) {
     if (result instanceof Promise) promise = result
 
     if (promise)
-      promise.then(
-        () => {
+      promise
+        .then(() => {
           options.detail.promise = 'fulfilled'
           target.dispatchEvent(new CustomEvent(invokeEvents.finish, options))
-        },
-        () => {
+        })
+        .catch(error => {
           options.detail.promise = 'rejected'
+          options.detail.error = error
           target.dispatchEvent(new CustomEvent(invokeEvents.finish, options))
-        }
-      )
+        })
     else target.dispatchEvent(new CustomEvent(invokeEvents.finish, options))
   }
 
@@ -61,7 +61,7 @@ function invokeDispatchEvent(method, args, receivers) {
 function invokeMorph(method, args, receivers) {
   const html = args[0]
   const detail = { method, html }
-  receivers.forEach(receiver => withInvokeEvents(receiver, detail, object => morph(object, html)))
+  receivers.forEach(receiver => withInvokeEvents(receiver, detail, object => morph.method(object, html)))
 }
 
 function invokeAssignment(method, args, receivers) {
@@ -93,7 +93,7 @@ function performInvoke(method, args, receivers) {
   return invokeMethod(method, args, receivers)
 }
 
-export function invoke() {
+function invoke() {
   const payload = JSON.parse(this.templateContent.textContent)
   const { id, selector, receiver, method, args, delay } = payload
   let receivers = [{ object: self, target: self }]
@@ -118,3 +118,5 @@ export function invoke() {
   if (delay > 0) setTimeout(() => performInvoke(method, args, receivers), delay)
   else performInvoke(method, args, receivers)
 }
+
+export { invoke, invokeEvents }

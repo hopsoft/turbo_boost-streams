@@ -1,17 +1,20 @@
 # frozen_string_literal: true
 
 require "bundler/setup"
-require "bundler/gem_tasks"
-require "rake/testtask"
 
 APP_RAKEFILE = File.expand_path("test/dummy/Rakefile", __dir__)
+
 load "rails/tasks/engine.rake"
 load "rails/tasks/statistics.rake"
+require "bundler/gem_tasks"
 
-Rake::TestTask.new do |test|
-  test.libs << "test"
-  test.test_files = FileList["test/**/*_test.rb"]
-  test.warning = false
+desc "Run tests"
+task :test, [:file] do |_, args|
+  command = (ARGV.length > 1) ?
+    "bin/rails test #{ARGV[1..].join(" ")}" :
+    "bin/rails test:all"
+  puts command
+  exec command
 end
 
 task default: :test

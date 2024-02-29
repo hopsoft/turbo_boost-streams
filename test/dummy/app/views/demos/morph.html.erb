@@ -18,14 +18,14 @@
 
   <div class="grid gap-16 pt-16 sm:grid-cols-2 lg:grid-cols-1">
     <%= render component(:demo), title: "Morph Element", heroicon: :arrow_up_on_square_stack do %>
-      <span id="assignment-demo-description">We can transform an element from one state to another with TurboBoost Streams.</span>
+      <span id="assignment-demo-description" data-testid="assignment-demo-description">We can transform an element from one state to another with TurboBoost Streams.</span>
 
       <%= render "demos/morph/list_one" %>
 
       <%= render component(:code), language: :erb, class: "my-6 text-sm", source_path: "app/views/demos/morph/_stream.html.erb" %>
 
       <div class="grid grid-cols-2">
-        <%= turbo_frame_tag "morph-demo-button", src: frame_path(Base64.urlsafe_encode64("demos/morph/button"), :noop) %>
+        <%= turbo_frame_tag "morph-demo-button", data: { testid: "morph-demo-button" }, src: frame_path(Base64.urlsafe_encode64("demos/morph/button"), :noop) %>
         <%= render component(:reload_link), class: "text-sm opacity-70 block text-right" %>
       </div>
     <% end %>
