@@ -5,7 +5,8 @@
 .yarn
 /.bundle/
 /doc/
-/log/*.log /node_modules
+/log/*.log
+/node_modules
 /pkg/
 /test/dummy/db/*.sqlite3
 /test/dummy/db/*.sqlite3-*
@@ -16,3 +17,10 @@
 /tmp/
 Gemfile.lock
 test/dummy/app/javascript/@turbo-boost
+
+
+# AppMap artifacts
+/.appmap
+
+# Vendored Ruby gems
+/vendor

@@ -1,0 +1,6 @@
+name: turbo_boost-streams
+packages:
+  - path: app
+  - path: lib
+language: ruby
+appmap_dir: tmp/appmap
