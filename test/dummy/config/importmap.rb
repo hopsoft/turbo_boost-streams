@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 pin "@hotwired/stimulus", to: "@hotwired--stimulus.js" # @3.2.2
-pin "@hotwired/turbo", to: "@hotwired--turbo.js" # @8.0.2
-pin "@hotwired/turbo-rails", to: "@hotwired--turbo-rails.js" # @8.0.2
+pin "@hotwired/turbo", to: "@hotwired--turbo.js" # @8.0.3
+pin "@hotwired/turbo-rails", to: "@hotwired--turbo-rails.js" # @8.0.3
 pin "@rails/actioncable", to: "@rails--actioncable.js" # @7.1.3
-pin "@rails/actioncable/src", to: "@rails--actioncable--src.js" # @7.1.3
 
 # NOTE: Flowbite stops working if we allow Rails to vendor it
 pin "flowbite", to: "https://ga.jspm.io/npm:flowbite@1.5.3/dist/flowbite.js"
