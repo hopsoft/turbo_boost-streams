@@ -30,16 +30,16 @@ function withInvokeEvents(receiver, detail, callback) {
     if (result instanceof Promise) promise = result
 
     if (promise)
-      promise.then(
-        () => {
+      promise
+        .then(() => {
           options.detail.promise = 'fulfilled'
           target.dispatchEvent(new CustomEvent(invokeEvents.finish, options))
-        },
-        () => {
+        })
+        .catch(error => {
           options.detail.promise = 'rejected'
+          options.detail.error = error
           target.dispatchEvent(new CustomEvent(invokeEvents.finish, options))
-        }
-      )
+        })
     else target.dispatchEvent(new CustomEvent(invokeEvents.finish, options))
   }
 
@@ -61,7 +61,7 @@ function invokeDispatchEvent(method, args, receivers) {
 function invokeMorph(method, args, receivers) {
   const html = args[0]
   const detail = { method, html }
-  receivers.forEach(receiver => withInvokeEvents(receiver, detail, object => morph(object, html)))
+  receivers.forEach(receiver => withInvokeEvents(receiver, detail, object => morph.method(object, html)))
 }
 
 function invokeAssignment(method, args, receivers) {

@@ -16,6 +16,8 @@ module TurboBoost::Streams::Demos
         demo_element.wait_for_selector("button").click
       end
 
+      sleep 0.2
+
       assert_equal "Three", list_element.wait_for_selector("li span").inner_text
     end
   end

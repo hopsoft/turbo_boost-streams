@@ -49,7 +49,7 @@ module TurboBoost::Streams::Demos
         assert_equal expected_css_classes.size, (button["class"].split(" ") & expected_css_classes).size
       end
 
-      assert_event_dispatch invocations: 10, wait: 1 do
+      assert_event_dispatch do
         demo_element.wait_for_selector("button").click
       end
 
