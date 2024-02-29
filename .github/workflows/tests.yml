@@ -76,7 +76,7 @@ jobs:
 
   appmap-analysis:
     if: always()
-    needs: ['Run Tests']
+    needs: [ruby_test]
     uses: getappmap/analyze-action/.github/workflows/appmap-analysis.yml@v1
     permissions:
       actions: read
