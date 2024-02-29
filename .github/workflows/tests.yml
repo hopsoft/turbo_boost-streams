@@ -45,9 +45,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          # Checkout pull request head so that a commit can be made
-          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Set up Ruby ${{ matrix.ruby-version }}
         uses: ruby/setup-ruby@v1
@@ -67,24 +64,22 @@ jobs:
       - name: Install Playwright Browsers
         run: 'npx playwright install chromium --with-deps'
 
-      # Begin install-action snippet
-      #
-      - name: Enable appmap gem update
-        run: bundle config unset deployment
-      - name: Install AppMap tools
-        id: install-appmap
-        uses: getappmap/install-action@v1
-        with:
-          project-type: bundler
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v9
-      #
-      # End install-action snippet
-
       - name: Run Tests
         run: 'bundle exec rake test'
 
-      - name: Archive AppMaps
-        uses: getappmap/archive-action@v1
+      - name: Save AppMaps
+        uses: actions/cache/save@v3
+        if: always()
         with:
-          revision: ${{ github.event.pull_request.base.sha }}
+          path: ./tmp/appmap
+          key: appmaps-${{ github.sha }}-${{ github.run_attempt }}
+
+  appmap-analysis:
+    if: always()
+    needs: ['Run Tests']
+    uses: getappmap/analyze-action/.github/workflows/appmap-analysis.yml@v1
+    permissions:
+      actions: read
+      contents: read
+      checks: write
+      pull-requests: write
