@@ -269,21 +269,12 @@ If you add new capabilities to the browser, you can control them from the server
 // JavaScript on the client
 import morphdom from 'morphdom'
 
-window.MyNamespace = {
-  morph: (from, to, options = {}) => {
-    morphdom(document.querySelector(from), to, options)
-  }
-}
+window.MyNamespace = { coolStuff: (arg) => { ... } }
 ```
 
 ```ruby
 # Ruby on the server
-turbo_stream.invoke "MyNamespace.morph",
-  args: [
-    "#demo",
-    "<div id='demo'><p>You've changed...</p></div>",
-    {children_only: true}
-  ]
+turbo_stream.invoke "MyNamespace.coolStuff", args: ["Hello World!"]
 ```
 
 ### Implementation Details
