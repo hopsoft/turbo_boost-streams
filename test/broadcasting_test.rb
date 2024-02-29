@@ -12,6 +12,10 @@ class TurboBoost::Streams::BroadcastingTest < ActionCable::Channel::TestCase
     @expected = turbo_stream_invoke_tag("console.log", args: ["Hello World!"], id: 1)
   end
 
+  test "appmapp stuff" do
+    assert true
+  end
+
   test "Turbo::StreamsChannel.broadcast_invoke_to" do
     assert_broadcast_on "stream", @expected do
       Turbo::StreamsChannel.broadcast_invoke_to "stream", "console.log", args: ["Hello World!"], id: 1
