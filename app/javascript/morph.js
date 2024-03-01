@@ -2,7 +2,7 @@ import { Idiomorph } from 'idiomorph'
 import schema from './schema'
 
 let _method
-let _delay = 0
+let _delay = 30
 
 const trixEditor = /TRIX-EDITOR/i
 
